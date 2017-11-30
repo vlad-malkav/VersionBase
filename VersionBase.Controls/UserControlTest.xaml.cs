@@ -20,7 +20,7 @@ namespace VersionBase.Controls
     /// </summary>
     public partial class UserControlTest : UserControl
     {
-        public string TextInControl
+        /*public string TextInControl
         {
             get { return (string)GetValue(TextInControlProperty); }
             set { SetValue(TextInControlProperty, value); }
@@ -48,6 +48,35 @@ namespace VersionBase.Controls
             DependencyPropertyChangedEventArgs e // Event arguments.
         )
         {
+        }*/
+
+        #region Label DP
+
+        /// <summary>
+        /// Gets or sets the Label which is displayed next to the field
+        /// </summary>
+        public String Label
+        {
+            get { return (String)GetValue(LabelProperty); }
+            set { SetValue(LabelProperty, value); }
+        }
+
+        /// <summary>
+        /// Identified the Label dependency property
+        /// </summary>
+        public static readonly DependencyProperty LabelProperty =
+            DependencyProperty.Register("Label", typeof(string),
+                typeof(UserControlTest), new PropertyMetadata(""));
+
+        #endregion
+
+        public UserControlTest()
+        {
+            InitializeComponent();
+
+            this.DataContext = this;
+
+            var truc = Label;
         }
     }
 

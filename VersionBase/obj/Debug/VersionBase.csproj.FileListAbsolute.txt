@@ -31,5 +31,7 @@ G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.pdb
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Themes\SimpleStyle.baml
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.Properties.Resources.resources
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\VersionBase.Controls.dll
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\VersionBase.Controls.pdb
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Views\StudentView.baml
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Views\StudentView.g.cs
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Controls.Library.dll
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Controls.Library.pdb

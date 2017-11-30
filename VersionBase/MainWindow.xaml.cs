@@ -248,5 +248,14 @@ namespace VersionBase
             // Set the cells to look like we want them
             SetHexProperties(HoneycombCanvas.Children);
         }
+
+        private void StudentViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            /*VersionBase.ViewModel.StudentViewModel studentViewModelObject =
+                new VersionBase.ViewModel.StudentViewModel();
+            studentViewModelObject.LoadStudents();
+
+            StudentViewControl.DataContext = studentViewModelObject;*/
+        }
     }
 }
