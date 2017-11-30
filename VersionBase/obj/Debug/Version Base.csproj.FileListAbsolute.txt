@@ -1,0 +1,14 @@
+G:\Games\RPG\Mon Projet\Version Base\Version Base\bin\Debug\Version Base.exe.config
+G:\Games\RPG\Mon Projet\Version Base\Version Base\bin\Debug\Version Base.exe
+G:\Games\RPG\Mon Projet\Version Base\Version Base\bin\Debug\Version Base.pdb
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\Version Base.csprojResolveAssemblyReference.cache
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\MainWindow.baml
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\MainWindow.g.cs
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\App.g.cs
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\Version Base_MarkupCompile.cache
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\Version Base.g.resources
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\Version_Base.Properties.Resources.resources
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\Version Base.csproj.GenerateResource.Cache
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\Version Base.csproj.CoreCompileInputs.cache
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\Version Base.exe
+G:\Games\RPG\Mon Projet\Version Base\Version Base\obj\Debug\Version Base.pdb
