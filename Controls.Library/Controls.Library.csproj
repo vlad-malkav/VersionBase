@@ -34,6 +34,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,19 +48,45 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Models\TileColorModel.cs" />
+    <Compile Include="Models\TileImageTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
+    <Compile Include="ViewModels\TileColorViewModel.cs" />
+    <Compile Include="ViewModels\TileImageTypeViewModel.cs" />
     <Compile Include="Views\StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TileColorView.xaml.cs">
+      <DependentUpon>TileColorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TileImageTypeView.xaml.cs">
+      <DependentUpon>TileImageTypeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VML\ViewModelLocator.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\StudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TileColorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TileImageTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VersionBase.Libraries\VersionBase.Libraries.csproj">
+      <Project>{B212820E-5ABB-4C2C-929B-C16D2D61E89F}</Project>
+      <Name>VersionBase.Libraries</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

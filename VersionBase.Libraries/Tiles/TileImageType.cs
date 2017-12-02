@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VersionBase.Libraries.Tiles
 {
-    public enum TileType
+    public enum TileImageType
     {
         badlands = 0,
         cactus = 1,

@@ -1,28 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Color = System.Drawing.Color;
 
 namespace VersionBase.Libraries.Tiles
 {
     public class Tile
     {
-        public Color BaseColor { get; set; }
-        public string BitmapUri { get; set; }
+        public TileImageType TileImageType { get; set; }
+        public TileColor TileColor { get; set; }
 
-        public Tile(Color baseColor, string bitmapUri)
+        public Tile(TileColor tileColor, TileImageType tileImageType)
         {
-            BaseColor = baseColor;
-            BitmapUri = bitmapUri;
+            TileColor = tileColor;
+            TileImageType = tileImageType;
         }
 
         public Bitmap GetBitmapTile()
         {
-            return new Bitmap(BitmapUri);
+            return TileImageTypes.GetBitmapTile(TileImageType);
+        }
+
+        public BitmapImage GetBitmapImageTile()
+        {
+            return TileImageTypes.GetBitmapImageTile(TileImageType);
         }
     }
 }

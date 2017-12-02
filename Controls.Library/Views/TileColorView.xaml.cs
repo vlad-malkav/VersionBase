@@ -13,16 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VersionBase.Views
+namespace Controls.Library.Views
 {
     /// <summary>
-    /// Interaction logic for StudentView.xaml
+    /// Interaction logic for TileColorView.xaml
     /// </summary>
-    public partial class StudentView : UserControl
+    public partial class TileColorView : UserControl
     {
-        public StudentView()
+        public TileColorView()
         {
             InitializeComponent();
+        }
+
+        private void cmbTileColor_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            /*Color selectedColor = (Color)(cmbColors.SelectedItem as PropertyInfo).GetValue(null, null);
+            this.Background = new SolidColorBrush(selectedColor);**/
         }
     }
 }

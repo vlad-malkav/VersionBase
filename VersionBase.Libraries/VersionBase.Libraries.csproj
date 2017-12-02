@@ -53,8 +53,11 @@
     <Compile Include="Hexes\HexMapDrawing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tiles\Tile.cs" />
-    <Compile Include="Tiles\TileSet.cs" />
-    <Compile Include="Tiles\TileType.cs" />
+    <Compile Include="Tiles\TileColor.cs" />
+    <Compile Include="Tiles\TileColors.cs" />
+    <Compile Include="Tiles\TileBitmapImage.cs" />
+    <Compile Include="Tiles\TileImageTypes.cs" />
+    <Compile Include="Tiles\TileImageType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

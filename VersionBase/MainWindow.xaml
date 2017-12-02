@@ -2,21 +2,25 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:Controls.Library.Views;assembly=Controls.Library"
-        Title="Honeycomb" Height="600" Width="800" Loaded="Window_Loaded" ResizeMode="CanResize">
+        Title="Honeycomb" Height="800" Width="800" Loaded="Window_Loaded" ResizeMode="CanResize">
     <Grid>
         <Grid.Resources>
             <ResourceDictionary Source="Themes/SimpleStyle.xaml"/>
         </Grid.Resources>
-        <controls:StudentView x:Name = "StudentViewControl" Loaded = "StudentViewControl_Loaded"/>
-        
-
-        <Grid x:Name="Main" Margin="5,5,5,0" Height="600" Width="600" HorizontalAlignment="Right">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="69.6"/>
-        </Grid.RowDefinitions>
-        <TextBlock x:Name="Letters" HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
-        <Canvas x:Name="HoneycombCanvas" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <controls:TileImageTypeView x:Name="TileImageTypeViewControl" Height="Auto" VerticalAlignment="Top"/>
+            <controls:TileColorView Grid.Row="1" x:Name="TileColorViewControl" Height="Auto" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid Grid.Column="1" x:Name="Main" Margin="5,5,5,0" Height="Auto" Width="600" HorizontalAlignment="Right" Background="Blue">
+            <Canvas x:Name="HoneycombCanvas" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
     </Grid>
 </Window>

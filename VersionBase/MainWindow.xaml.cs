@@ -12,6 +12,8 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Controls.Library.Models;
+using Controls.Library.ViewModels;
 using VersionBase.Libraries;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
@@ -52,11 +54,11 @@ namespace VersionBase
 
             foreach (Polygon element in hexList)
             {
-                SetHexProperties(element);
+                SetHexProperties(element, new TileColor(Color.LightGreen), (TileImageType)TileTypeCurrent++);
             }
         }
 
-        private void SetHexProperties(Polygon hex)
+        private void SetHexProperties(Polygon hex, TileColor tileColor, TileImageType tileImageType)
         {
             var tag = (HexCoordinates)hex.Tag;
 
@@ -84,7 +86,7 @@ namespace VersionBase
             label.IsHitTestVisible = false;
             centeringGrid.Children.Add(label);
 
-            hex.Fill = new ImageBrush(GenerateTileBitmapImage(TileSet.GetTile((TileType)TileTypeCurrent++)));
+            hex.Fill = new ImageBrush(GenerateTileBitmapImage(tileColor, tileImageType));
             hex.Stroke = new SolidColorBrush(Colors.Black);
             hex.StrokeThickness = CellSize / 10;
             baseHex.Text = "";//TODO
@@ -97,17 +99,34 @@ namespace VersionBase
 
         private BitmapImage GenerateTileBitmapImage(Tile tile)
         {
-            return GenerateTileBitmapImage(tile.GetBitmapTile(), tile.BaseColor);
+            return GenerateTileBitmapImage(tile.TileColor.DrawingColor, tile.GetBitmapTile());
         }
 
-        private BitmapImage GenerateTileBitmapImage(Bitmap bitmapTile, Color color)
+        private BitmapImage GenerateTileBitmapImage(TileColor tileColor, TileImageType? tileImageType = null)
+        {
+            return GenerateTileBitmapImage(tileColor.DrawingColor, tileImageType != null ? TileImageTypes.GetBitmapTile(tileImageType.Value) : null);
+        }
+
+        private BitmapImage GenerateTileBitmapImage(Color color, Bitmap bitmapTile)
         {
             float scaleHeight = (float)2.5;
             float scaleWidth = (float)2.5;
             float scale = Math.Min(scaleHeight, scaleWidth);
-            Bitmap bTileResized = new Bitmap(bitmapTile,
-                (int)(bitmapTile.Width * scale), (int)(bitmapTile.Height * scale));
-            BitmapImage tileBitmapImage = Convert(SuperimposeB(GenerateTile(bTileResized, color), bitmapTile));
+
+            BitmapImage tileBitmapImage;
+
+            if (bitmapTile != null)
+            {
+                Bitmap bTileResized = new Bitmap(bitmapTile,
+                    (int) (bitmapTile.Width * scale), (int) (bitmapTile.Height * scale));
+                tileBitmapImage = Convert(SuperimposeB(GenerateTile(bTileResized, color), bitmapTile));
+            }
+            else
+            {
+                Bitmap bTileResized = new Bitmap(bitmapTile,
+                    (int)(250 * scale), (int)(250 * scale));
+                tileBitmapImage = Convert(GenerateTile(bTileResized, color));
+            }
 
             return tileBitmapImage;
         }
@@ -158,6 +177,12 @@ namespace VersionBase
                 throw new InvalidCastException("Non-shape in Honeycomb");
             }
 
+            TileColorViewModel tileColorViewModel = (TileColorViewModel)TileColorViewControl.DataContext;
+            TileImageTypeViewModel TileImageTypeViewModel = (TileImageTypeViewModel)TileImageTypeViewControl.DataContext;
+
+            TileColorModel selectedTileColor = tileColorViewModel.SelectedTileColor;
+            TileImageTypeModel selectedTileType = TileImageTypeViewModel.SelectedTileType;
+
             //Get the BaseHex
             HexData selectedHex = DictionaryHexData[(HexCoordinates) hex.Tag];
 
@@ -171,6 +196,8 @@ namespace VersionBase
             }
 
             selectedHex.Selected = !selectedHex.Selected;
+
+            SetHexProperties((Polygon)hex, selectedTileColor.TileColor, selectedTileType.TileImageType);
 
             // Get the text for this hex
             string ch = selectedHex.Text;
@@ -214,7 +241,7 @@ namespace VersionBase
             {
                 for (int col = 0; col < columns; col++)
                 {
-                    HexData hexDataTmp = new HexData(new HexCoordinates(col, row), "-", TileType.badlands, cellSize);
+                    HexData hexDataTmp = new HexData(new HexCoordinates(col, row), "-", TileImageType.badlands, cellSize);
                     dictionaryHexData.Add(hexDataTmp.HexCoordinates, hexDataTmp);
                 }
             }

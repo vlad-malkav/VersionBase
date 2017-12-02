@@ -5,8 +5,8 @@ Roadmap :
 * [X] Virer la limitation de taille
 * [X] Virer le Switch Terrain
 * [X] Interface gauche
-* [ ] Menu déroulant Terrain
-* [ ] Clic + Terrain = changement terrain cible
+* [X] Menu déroulant Terrain
+* [X] Clic + Terrain = changement terrain cible
 * [ ] Sortir la logique de gestion des clics dans une interface + classe XXXX
 * [ ] Sortir la logique de remplissage de la carte dans une interface + classe YYYY
 * [ ] Interface UI : afficher le type de terrain sélectionné si la liste déroulante est sur "rien"
