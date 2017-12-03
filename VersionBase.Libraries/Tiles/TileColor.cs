@@ -1,29 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VersionBase.Libraries.Tiles
+﻿namespace VersionBase.Libraries.Tiles
 {
     public class TileColor
     {
         public string Name { get; set; }
-        public System.Windows.Media.Color WindowsMediaColor { get; set; }
-        public System.Drawing.Color DrawingColor { get; set; }
+        public byte Alpha { get; set; }
+        public byte Red { get; set; }
+        public byte Green { get; set; }
+        public byte Blue { get; set; }
 
         public TileColor(System.Windows.Media.Color windowsMediaColor)
         {
             Name = windowsMediaColor.ToString();
-            WindowsMediaColor = windowsMediaColor;
-            DrawingColor = System.Drawing.Color.FromArgb(WindowsMediaColor.A, WindowsMediaColor.R, WindowsMediaColor.G, WindowsMediaColor.B);
+            Alpha = windowsMediaColor.A;
+            Red = windowsMediaColor.R;
+            Green = windowsMediaColor.G;
+            Blue = windowsMediaColor.B;
         }
 
         public TileColor(System.Drawing.Color drawingColor)
         {
             Name = drawingColor.ToString();
-            DrawingColor = drawingColor;
-            WindowsMediaColor = System.Windows.Media.Color.FromArgb(DrawingColor.A, DrawingColor.R, DrawingColor.G, DrawingColor.B);
+            Alpha = drawingColor.A;
+            Red = drawingColor.R;
+            Green = drawingColor.G;
+            Blue = drawingColor.B;
+        }
+
+        public System.Windows.Media.Color GetWindowsMediaColor()
+        {
+            return System.Windows.Media.Color.FromArgb(Alpha, Red, Green, Blue);
+        }
+
+        public System.Drawing.Color GetDrawingColor()
+        {
+            return System.Drawing.Color.FromArgb(Alpha, Red, Green, Blue);
         }
     }
 }

@@ -8,18 +8,17 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Controls.Library.Events;
 using Controls.Library.Models;
 using Controls.Library.ViewModels;
-using VersionBase.Libraries;
+using VersionBase.Libraries.Events;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
 using Color = System.Drawing.Color;
 using FontFamily = System.Windows.Media.FontFamily;
-using Point = System.Windows.Point;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // namespace: Honeycombs
@@ -31,10 +30,9 @@ namespace VersionBase
 {
     public partial class MainWindow
     {
-        private const int RowCount = 5;
-        private const int ColCount = 5;
-        private const int LabelSize = 20;
-        private Dictionary<HexCoordinates, HexData> DictionaryHexData;
+        private const int RowCount = 10;
+        private const int ColCount = 10;
+        private List<HexModel> ListHexModel { get; set; }
         private static int TileTypeCurrent = 0;
         private double CombHeight = 100;
         private double CombWidth = 100;
@@ -42,135 +40,52 @@ namespace VersionBase
 
         public MainWindow()
         {
-            DictionaryHexData = new Dictionary<HexCoordinates, HexData>();
+            ListHexModel = new List<HexModel>();
 
             // VS Generated code not included
             InitializeComponent();
         }
 
-        private void SetHexProperties(UIElementCollection hexes)
+        private void SetListPolygonActions(UIElementCollection polygons)
         {
-            List<Polygon> hexList = hexes.Cast<Polygon>().ToList();
+            List<Polygon> hexList = polygons.Cast<Polygon>().ToList();
 
             foreach (Polygon element in hexList)
             {
-                SetHexProperties(element, new TileColor(Color.LightGreen), (TileImageType)TileTypeCurrent++);
+                SetPolygonActions(element);
             }
         }
 
-        private void SetHexProperties(Polygon hex, TileColor tileColor, TileImageType tileImageType)
+        private void SetPolygonActions(Polygon polygon)
         {
-            var tag = (HexCoordinates)hex.Tag;
-
-            //Get the BaseHex
-            HexData baseHex = DictionaryHexData[(HexCoordinates)hex.Tag];
-
-            // We place the text in a grid centered on the hex.
-            // The grid will then center the text within itself.
-
-            var centeringGrid = new Grid();
-            centeringGrid.Width = centeringGrid.Height = 2 * CellSize;
-            centeringGrid.SetValue(Canvas.LeftProperty, baseHex.HexDrawingData.CellX - CellSize);
-            centeringGrid.SetValue(Canvas.TopProperty, baseHex.HexDrawingData.CellY - CellSize);
-            centeringGrid.IsHitTestVisible = false;
-            HoneycombCanvas.Children.Add(centeringGrid);
-
-            var label = new TextBlock
-            {
-                Text = "",//TODO
-                FontFamily = new FontFamily("Segoe"),
-                FontSize = LabelSize
-            };
-            label.HorizontalAlignment = HorizontalAlignment.Center;
-            label.VerticalAlignment = VerticalAlignment.Center;
-            label.IsHitTestVisible = false;
-            centeringGrid.Children.Add(label);
-
-            hex.Fill = new ImageBrush(GenerateTileBitmapImage(tileColor, tileImageType));
-            hex.Stroke = new SolidColorBrush(Colors.Black);
-            hex.StrokeThickness = CellSize / 10;
-            baseHex.Text = "";//TODO
-
             // Mouse down event handler for the hex
-            hex.MouseDown += hex_MouseDown;
+            polygon.MouseRightButtonDown += hex_MouseRightButtonDown;
+            polygon.MouseLeftButtonDown += hex_MouseLeftButtonDown;
+
+            // Subscribe to Events
+            EventSystem.Subscribe<TickerSymbolSelectedMessage>(TestEvent);
         }
 
-        #region Bitmap Functions
-
-        private BitmapImage GenerateTileBitmapImage(Tile tile)
+        private void hex_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            return GenerateTileBitmapImage(tile.TileColor.DrawingColor, tile.GetBitmapTile());
-        }
-
-        private BitmapImage GenerateTileBitmapImage(TileColor tileColor, TileImageType? tileImageType = null)
-        {
-            return GenerateTileBitmapImage(tileColor.DrawingColor, tileImageType != null ? TileImageTypes.GetBitmapTile(tileImageType.Value) : null);
-        }
-
-        private BitmapImage GenerateTileBitmapImage(Color color, Bitmap bitmapTile)
-        {
-            float scaleHeight = (float)2.5;
-            float scaleWidth = (float)2.5;
-            float scale = Math.Min(scaleHeight, scaleWidth);
-
-            BitmapImage tileBitmapImage;
-
-            if (bitmapTile != null)
+            var hex = sender as Shape;
+            if (hex == null)
             {
-                Bitmap bTileResized = new Bitmap(bitmapTile,
-                    (int) (bitmapTile.Width * scale), (int) (bitmapTile.Height * scale));
-                tileBitmapImage = Convert(SuperimposeB(GenerateTile(bTileResized, color), bitmapTile));
+                throw new InvalidCastException("Non-shape in Honeycomb");
             }
-            else
-            {
-                Bitmap bTileResized = new Bitmap(bitmapTile,
-                    (int)(250 * scale), (int)(250 * scale));
-                tileBitmapImage = Convert(GenerateTile(bTileResized, color));
-            }
-
-            return tileBitmapImage;
         }
 
-        private BitmapImage Convert(Bitmap bmp)
+        private void TestEvent(TickerSymbolSelectedMessage msg)
         {
-            MemoryStream ms = new MemoryStream();
-            bmp.Save(ms, ImageFormat.Bmp);
-            ms.Position = 0;
-            BitmapImage bi = new BitmapImage();
-            bi.BeginInit();
-            bi.StreamSource = ms;
-            bi.EndInit();
-
-            return bi;
+            
         }
 
-        public Bitmap SuperimposeB(Bitmap largeBmp, Bitmap smallBmp)
+        private void hex_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Graphics g = Graphics.FromImage(largeBmp);
-            g.CompositingMode = CompositingMode.SourceOver;
-            smallBmp.MakeTransparent();
-            int margin = 5;
-            int x = ((largeBmp.Width - smallBmp.Width) / 3)-20;
-            int y = ((largeBmp.Height - smallBmp.Height) / 3)-20;
-            g.DrawImage(smallBmp, new PointF(x, y));
-            return largeBmp;
-        }
+            // Broadcast Events
+            EventSystem.Publish<TickerSymbolSelectedMessage>(
+                new TickerSymbolSelectedMessage { StockSymbol = "STOCK0"});
 
-        public Bitmap GenerateTile(Bitmap baseBitmap, System.Drawing.Color color)
-        {
-            Bitmap bmp = new Bitmap(baseBitmap.Width, baseBitmap.Height);
-            using (Graphics gfx = Graphics.FromImage(bmp))
-            using (SolidBrush brush = new SolidBrush(color))
-            {
-                gfx.FillRectangle(brush, 0, 0, baseBitmap.Width, baseBitmap.Height);
-            }
-            return bmp;
-        }
-
-        #endregion
-
-        private void hex_MouseDown(object sender, MouseButtonEventArgs e)
-        {
             var hex = sender as Shape;
             if (hex == null)
             {
@@ -184,105 +99,97 @@ namespace VersionBase
             TileImageTypeModel selectedTileType = TileImageTypeViewModel.SelectedTileType;
 
             //Get the BaseHex
-            HexData selectedHex = DictionaryHexData[(HexCoordinates) hex.Tag];
+            HexModel selectedHexModel = ListHexModel.First(x => x.Polygon == hex);
 
-            if (DictionaryHexData.Count(x => x.Value.Selected) > 0)
+            if (ListHexModel.Count(x => x.HexData.Selected) > 0)
             {
-                var previouslySelectedHex = DictionaryHexData.First(x => x.Value.Selected).Value;
-                if (previouslySelectedHex != selectedHex)
+                var previouslySelectedHexModel = ListHexModel.First(x => x.HexData.Selected);
+                if (previouslySelectedHexModel != selectedHexModel)
                 {
-                    previouslySelectedHex.Selected = !previouslySelectedHex.Selected;
+                    previouslySelectedHexModel.HexData.Selected = !previouslySelectedHexModel.HexData.Selected;
                 }
             }
 
-            selectedHex.Selected = !selectedHex.Selected;
+            selectedHexModel.HexData.Selected = !selectedHexModel.HexData.Selected;
 
-            SetHexProperties((Polygon)hex, selectedTileColor.TileColor, selectedTileType.TileImageType);
+            selectedHexModel.HexData.TileData.TileColor = selectedTileColor.TileColor;
+            selectedHexModel.HexData.TileData.TileImageType = selectedTileType.TileImageType;
 
-            // Get the text for this hex
-            string ch = selectedHex.Text;
-
-            //TODO
-            /*if (baseHex.IsSelected())
-            {
-                // Add it to our Letters TextBlock
-                Letters.Text = Letters.Text + ch;
-            }
-            else
-            {
-                Letters.Text = Letters.Text.Replace(ch,"");
-            }*/
-
-            // Color the hex
-            //TODO
-            //var color = baseHex.GetCurrentColor();
-            //hex.Fill = new SolidColorBrush(color);
-
-            // Remove the mouse down event handler so we won't hit on this hex again
-            //hex.MouseDown -= hex_MouseDown;
+            HexMapDrawing.UpdateHex(selectedHexModel.Polygon, selectedHexModel.HexDrawingData, selectedHexModel.HexData.TileData);
         }
 
-        private static void GetCombSize(double actualHeight, double actualWidth, int columns, int rows, out double cellSize, out double combWidth, out double combHeight)
+        public static List<HexModel> GenerateListHexModel(int columns, int rows, double cellSize)
         {
-            double columnFactor = (3 * columns + 1) / 1.5;
-            double rowFactor = (Math.Sqrt(3) * (2 * rows + 1)) / 1.5;
-            double cellFromWidth = actualWidth / columnFactor;
-            double cellFromHeight = actualHeight / rowFactor;
-            cellSize = Math.Min(cellFromWidth, cellFromHeight);
-            combWidth = cellSize * columnFactor;
-            combHeight = cellSize * rowFactor;
-        }
+            List <HexModel> listHexModel = new List<HexModel>();
 
-        private static Dictionary<HexCoordinates, HexData> GenerateDictionaryHexData(int columns, int rows, double cellSize)
-        {
-            Dictionary <HexCoordinates, HexData > dictionaryHexData = new Dictionary<HexCoordinates, HexData>();
+            List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
 
             for (int row = 0; row < rows; row++)
             {
                 for (int col = 0; col < columns; col++)
                 {
-                    HexData hexDataTmp = new HexData(new HexCoordinates(col, row), "-", TileImageType.badlands, cellSize);
-                    dictionaryHexData.Add(hexDataTmp.HexCoordinates, hexDataTmp);
+                    TileData tileData = new TileData(new TileColor(Color.LightGreen), listTileImageType[TileTypeCurrent++ % listTileImageType.Count]);
+                    HexData hexDataTmp = new HexData(new HexCoordinates(col, row), "-", tileData, cellSize);
+                    listHexModel.Add(new HexModel(hexDataTmp, cellSize));
                 }
             }
-            return dictionaryHexData;
+            return listHexModel;
         }
 
-        private static void AddHexToCanvas(Canvas canvas, Dictionary<HexCoordinates, HexData> dictionaryHexData, double cellSize)
+        private static void AddHexModelToCanvas(Canvas canvas, List<HexModel> listHexModel, double cellSize)
         {
-            foreach (KeyValuePair<HexCoordinates, HexData> kvpHexData in dictionaryHexData)
+            foreach (HexModel hexModel in listHexModel)
             {
-                canvas.Children.Add(kvpHexData.Value.GenerateHex(cellSize));
+                canvas.Children.Add(hexModel.Polygon);
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             // Get sizes that will fit within our window
-            GetCombSize(Main.ActualHeight, Main.ActualWidth, ColCount, RowCount, out CellSize, out CombWidth, out CombHeight);
+            HexMapDrawing.GetCombSize(Main.ActualHeight, Main.ActualWidth, ColCount, RowCount, out CellSize, out CombWidth, out CombHeight);
 
             // Set the canvas size appropriately
             HoneycombCanvas.Width = CombWidth;
             HoneycombCanvas.Height = CombHeight;
 
             //Generate the hex map
-            DictionaryHexData = GenerateDictionaryHexData(ColCount, RowCount, CellSize);
+            ListHexModel = GenerateListHexModel(ColCount, RowCount, CellSize);
 
             // Add the cells to the canvas
-            AddHexToCanvas(HoneycombCanvas, DictionaryHexData, CellSize);
+            AddHexModelToCanvas(HoneycombCanvas, ListHexModel, CellSize);
 
             // Set the cells to look like we want them
-            SetHexProperties(HoneycombCanvas.Children);
+            SetListPolygonActions(HoneycombCanvas.Children);
+
+            // Subscribe to Events
+            EventSystem.Subscribe<HexClickedLeftButtonMessage>(HexClickedLeftButtonMessageFunction);
+            EventSystem.Subscribe<HexClickedRightButtonMessage>(HexClickedRightButtonMessageFunction);
         }
 
-        private void StudentViewControl_Loaded(object sender, RoutedEventArgs e)
+        private void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msg)
         {
-            /*VersionBase.ViewModel.StudentViewModel studentViewModelObject =
-                new VersionBase.ViewModel.StudentViewModel();
-            studentViewModelObject.LoadStudents();
+            TileColorViewModel tileColorViewModel = (TileColorViewModel)TileColorViewControl.DataContext;
+            TileImageTypeViewModel TileImageTypeViewModel = (TileImageTypeViewModel)TileImageTypeViewControl.DataContext;
 
-            StudentViewControl.DataContext = studentViewModelObject;*/
+            TileColorModel selectedTileColor = tileColorViewModel.SelectedTileColor;
+            TileImageTypeModel selectedTileType = TileImageTypeViewModel.SelectedTileType;
+
+            msg.HexModel.HexData.TileData.TileColor = selectedTileColor.TileColor;
+            msg.HexModel.HexData.TileData.TileImageType = selectedTileType.TileImageType;
+
+            HexMapDrawing.UpdateHex(msg.HexModel.Polygon, msg.HexModel.HexDrawingData, msg.HexModel.HexData.TileData);
+        }
+
+        private void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
+        {
+
         }
     }
+}
+
+// Create the Event Message
+public class TickerSymbolSelectedMessage
+{
+    public string StockSymbol { get; set; }
 }

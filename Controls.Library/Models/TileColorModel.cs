@@ -14,8 +14,8 @@ namespace Controls.Library.Models
         public TileColorModel(TileColor tileColor)
         {
             TileColor = tileColor;
-            Name = tileColor.WindowsMediaColor.ToString();
-            ColorBrush = new SolidColorBrush(tileColor.WindowsMediaColor);
+            Name = tileColor.Name;
+            ColorBrush = new SolidColorBrush(tileColor.GetWindowsMediaColor());
         }
     }
 }

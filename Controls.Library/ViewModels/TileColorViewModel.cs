@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Controls.Library.Models;
 using VersionBase.Libraries.Tiles;
 
@@ -36,6 +33,7 @@ namespace Controls.Library.ViewModels
         {
             List<TileColor> listTileColor = TileColors.GetAllWindowsMediaColors();
             ListTileColorModel = listTileColor.Select(x => new TileColorModel(x)).ToList();
+            SelectedTileColor = ListTileColorModel.First();
         }
     }
 }

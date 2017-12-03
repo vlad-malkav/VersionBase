@@ -7,13 +7,33 @@ Roadmap :
 * [X] Interface gauche
 * [X] Menu déroulant Terrain
 * [X] Clic + Terrain = changement terrain cible
-* [ ] Sortir la logique de gestion des clics dans une interface + classe XXXX
-* [ ] Sortir la logique de remplissage de la carte dans une interface + classe YYYY
-* [ ] Interface UI : afficher le type de terrain sélectionné si la liste déroulante est sur "rien"
+* [X] Mettre en place impérativement une communication par évènements, tester sur clic et récupération selected tileimage et tilecolor :
+** [X] Choix : https://rachel53461.wordpress.com/2011/10/09/simplifying-prisms-eventaggregator/
+** EventAggregator https://stackoverflow.com/questions/36621679/communication-between-two-user-controls-one-contains-the-other-with-mvvm
+** Communication entre viewmodel https://stackoverflow.com/questions/19686382/wpf-communication-between-user-controls
+** MVC, les ViewModel sont les controller, qui gèrent les actions ? https://softwareengineering.stackexchange.com/questions/352481/mvvm-communicate-between-views
+* [X] Déplacer CellSize de HexData vers HexDrawingData
+* [X] Réfléchir à ce que doit contenir HexData, HexDrawingData, TileData, et où ils doivent être les uns par rapport aux autres, (cf. ci-dessous aussi). Peut être le dessin doit il toujours fournir un CellSize ? CellSize dans un HexModel ?
+* [X] Faire en sorte que les objets de base - HexData, HexDrawingData, etc. - n'aient que des types de donnée simples (ex: au lieu d'avoir les Color en donnée, n'avoir que le ARGB en string)
+* [X] Faut-il virer le Tag du Polygon, ce qui évite d'avoir à fournir les coordinate au lieu du drawing data ?
+* [X] Création d'un objet Map, contenant les données de dimension, la liste des Hex, etc., tout ce qui est nécessaire pour la gestion de la Map (un Model, probablement ?)
+* [X] Possibilité de passer par référence les hexagones / polygones ? Vérifier qu'il y a unicité. Si oui, un objet HexModel peut être utile, non ?
+* [ ] Possibilité d'écouter le changement d'une donnée dans le ViewModel ? Comme un Selected, dans le setter ?
+
+* [ ] Interface UI : afficher le type de terrain sélectionné sur clic droit (sélectionner dans listes ?)
+* [ ] Checkbox Edit Mode
+* [ ] Récupération enum par string (pour BDD)
+* [ ] Ajouter les Ressources > Images dans le projet (où ?), et les utiliser (path relatif)
+* [ ] Faire en sorte que les objets de base HexData, Hex
+* [ ] Faire un MVVM pour la Carte
+* [ ] Faire un MVVM pour l'Interface Gauche
+* [ ] Faire un MVVM pour l'Interface Droite
+* [ ] Dessiner Rivière, route
+* [ ] Sélection Rivière, route
+* [ ] Rivière : possibilité d'identifier les hexagones où elle passe ? La direction ?
 * [ ] Interface UI : Menu en haut
 * [ ] Au lancement, demander dimensions (et type terrain de base ?)
 * [ ] Regénération d'une carte (avec demande dimensions)
-* [ ] Création d'un objet Map, contenant les données de dimension, la liste des Hex
 * [ ] Créer un objet TileSet, contenant la liste des types de terrain, référencé dans Map ?
 * [ ] Ajouter toutes les tiles d'origine dans l'objet TileSet (interface ?), et en faire une version pour chaque set de tiles que j'ai, et faire un Enum + ue fonction pour récupérer le bon
 

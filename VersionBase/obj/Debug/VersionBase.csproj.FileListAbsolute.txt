@@ -33,3 +33,5 @@ G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Themes\
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.Properties.Resources.resources
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Controls.Library.dll
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Controls.Library.pdb
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Prism.dll
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Prism.xml

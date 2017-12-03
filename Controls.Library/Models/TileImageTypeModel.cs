@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
-using VersionBase.Libraries.Tiles;
+﻿using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {

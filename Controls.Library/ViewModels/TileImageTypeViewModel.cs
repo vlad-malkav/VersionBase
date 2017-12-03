@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Controls.Library.Models;
 using VersionBase.Libraries.Tiles;
 
@@ -36,6 +33,7 @@ namespace Controls.Library.ViewModels
         {
             List<TileImageType> listTile = TileImageTypes.GetAllTileImageTypes();
             ListTileImageTypeModel = listTile.Select(x => new TileImageTypeModel(x)).ToList();
+            SelectedTileType = ListTileImageTypeModel.First();
         }
     }
 }

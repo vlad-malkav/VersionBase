@@ -32,9 +32,14 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,20 +50,29 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Commands\MyICommand.cs" />
+    <Compile Include="Events\EventClasses.cs" />
+    <Compile Include="Models\HexMapModel.cs" />
+    <Compile Include="Models\HexModel.cs" />
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\TileColorModel.cs" />
     <Compile Include="Models\TileImageTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\HexMapViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\TileColorViewModel.cs" />
     <Compile Include="ViewModels\TileImageTypeViewModel.cs" />
+    <Compile Include="Views\HexMapView.xaml.cs">
+      <DependentUpon>HexMapView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TileColorView.xaml.cs">
       <DependentUpon>TileColorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TileEditorControl.xaml.cs">
+      <DependentUpon>TileEditorControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TileImageTypeView.xaml.cs">
       <DependentUpon>TileImageTypeView.xaml</DependentUpon>
@@ -66,14 +80,23 @@
     <Compile Include="VML\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CustomControls\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\HexMapView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TileColorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TileEditorControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
