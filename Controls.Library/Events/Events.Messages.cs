@@ -18,12 +18,6 @@ namespace Controls.Library.Events
         public HexModel HexModel { get; set; }
     }
 
-    public class HexChangeDataMessage
-    {
-        public HexModel HexModel { get; set; }
-        public TileData TileData { get; set; }
-    }
-
     public class TileRequestAskedMessage
     {
         

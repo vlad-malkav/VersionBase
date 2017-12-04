@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Controls.Library.Events;
 using Controls.Library.Models;
 using Controls.Library.ViewModels;
+using Controls.Library.Views;
 using VersionBase.Libraries.Events;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
@@ -37,6 +38,8 @@ namespace VersionBase
         private double CombHeight = 100;
         private double CombWidth = 100;
         private double CellSize = 100;
+        private HexModel SelectedHex;
+        public TileEditorViewModel TileEditorViewModel;
 
         public MainWindow()
         {
@@ -61,9 +64,6 @@ namespace VersionBase
             // Mouse down event handler for the hex
             polygon.MouseRightButtonDown += hex_MouseRightButtonDown;
             polygon.MouseLeftButtonDown += hex_MouseLeftButtonDown;
-
-            // Subscribe to Events
-            EventSystem.Subscribe<TickerSymbolSelectedMessage>(TestEvent);
         }
 
         private void hex_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -82,40 +82,11 @@ namespace VersionBase
 
         private void hex_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            HexModel selectedHexModel = ListHexModel.First(x => x.Polygon == sender);
+
             // Broadcast Events
-            EventSystem.Publish<TickerSymbolSelectedMessage>(
-                new TickerSymbolSelectedMessage { StockSymbol = "STOCK0"});
-
-            var hex = sender as Shape;
-            if (hex == null)
-            {
-                throw new InvalidCastException("Non-shape in Honeycomb");
-            }
-
-            TileColorViewModel tileColorViewModel = (TileColorViewModel)TileColorViewControl.DataContext;
-            TileImageTypeViewModel TileImageTypeViewModel = (TileImageTypeViewModel)TileImageTypeViewControl.DataContext;
-
-            TileColorModel selectedTileColor = tileColorViewModel.SelectedTileColor;
-            TileImageTypeModel selectedTileType = TileImageTypeViewModel.SelectedTileType;
-
-            //Get the BaseHex
-            HexModel selectedHexModel = ListHexModel.First(x => x.Polygon == hex);
-
-            if (ListHexModel.Count(x => x.HexData.Selected) > 0)
-            {
-                var previouslySelectedHexModel = ListHexModel.First(x => x.HexData.Selected);
-                if (previouslySelectedHexModel != selectedHexModel)
-                {
-                    previouslySelectedHexModel.HexData.Selected = !previouslySelectedHexModel.HexData.Selected;
-                }
-            }
-
-            selectedHexModel.HexData.Selected = !selectedHexModel.HexData.Selected;
-
-            selectedHexModel.HexData.TileData.TileColor = selectedTileColor.TileColor;
-            selectedHexModel.HexData.TileData.TileImageType = selectedTileType.TileImageType;
-
-            HexMapDrawing.UpdateHex(selectedHexModel.Polygon, selectedHexModel.HexDrawingData, selectedHexModel.HexData.TileData);
+            EventSystem.Publish<HexClickedLeftButtonMessage>(
+                new HexClickedLeftButtonMessage { HexModel = selectedHexModel });
         }
 
         public static List<HexModel> GenerateListHexModel(int columns, int rows, double cellSize)
@@ -162,6 +133,11 @@ namespace VersionBase
             // Set the cells to look like we want them
             SetListPolygonActions(HoneycombCanvas.Children);
 
+            List<TileColor> listTileColor = TileColors.GetAllTileColors();
+            List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
+            TileEditorViewModel = new TileEditorViewModel(new TileEditorModel(listTileColor, listTileImageType));
+            TileEditorViewControl.DataContext = TileEditorViewModel;
+
             // Subscribe to Events
             EventSystem.Subscribe<HexClickedLeftButtonMessage>(HexClickedLeftButtonMessageFunction);
             EventSystem.Subscribe<HexClickedRightButtonMessage>(HexClickedRightButtonMessageFunction);
@@ -183,7 +159,15 @@ namespace VersionBase
 
         private void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
         {
+            TileEditorViewModel tileEditorViewModel = (TileEditorViewModel)TileEditorViewControl.DataContext;
 
+            TileColorModel selectedTileColor = tileEditorViewModel.SelectedTileColor;
+            TileImageTypeModel selectedTileType = tileEditorViewModel.SelectedTileImageTypeModel;
+
+            msg.HexModel.HexData.TileData.TileColor = selectedTileColor.TileColor;
+            msg.HexModel.HexData.TileData.TileImageType = selectedTileType.TileImageType;
+
+            HexMapDrawing.UpdateHex(msg.HexModel.Polygon, msg.HexModel.HexDrawingData, msg.HexModel.HexData.TileData);
         }
     }
 }

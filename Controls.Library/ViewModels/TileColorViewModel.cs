@@ -29,9 +29,19 @@ namespace Controls.Library.ViewModels
             LoadTileColors();
         }
 
+        public TileColorViewModel(List<TileColor> listTileColor)
+        {
+            FillListTileColorModel(listTileColor);
+        }
+
         public void LoadTileColors()
         {
-            List<TileColor> listTileColor = TileColors.GetAllWindowsMediaColors();
+            List<TileColor> listTileColor = TileColors.GetAllTileColors();
+            FillListTileColorModel(listTileColor);
+        }
+
+        private void FillListTileColorModel(List<TileColor> listTileColor)
+        {
             ListTileColorModel = listTileColor.Select(x => new TileColorModel(x)).ToList();
             SelectedTileColor = ListTileColorModel.First();
         }

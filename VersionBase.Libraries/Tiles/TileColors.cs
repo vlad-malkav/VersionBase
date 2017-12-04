@@ -6,7 +6,7 @@ namespace VersionBase.Libraries.Tiles
 {
     public static class TileColors
     {
-        public static List<TileColor> GetAllWindowsMediaColors()
+        public static List<TileColor> GetAllTileColors()
         {
             List<TileColor> listTileColor = new List<TileColor>();
             

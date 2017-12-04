@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Controls.Library.Views
 {
     /// <summary>
-    /// Interaction logic for TileEditorControl.xaml
+    /// Interaction logic for TileEditorView.xaml
     /// </summary>
-    public partial class TileEditorControl : UserControl
+    public partial class TileEditorView : UserControl
     {
-        public TileEditorControl()
+        public TileEditorView()
         {
             InitializeComponent();
         }

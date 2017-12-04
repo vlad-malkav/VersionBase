@@ -20,7 +20,7 @@
             </Grid.RowDefinitions>
             <controls:TileImageTypeView x:Name="TileImageTypeViewControl" Height="Auto" VerticalAlignment="Top" Background="Blue"/>
             <controls:TileColorView Grid.Row="1" x:Name="TileColorViewControl" Height="Auto" VerticalAlignment="Top" Background="Blue"/>
-            <controls:TileEditorControl Grid.Row="2" x:Name="TileEditorControl" Height="Auto" VerticalAlignment="Top"/>
+            <controls:TileEditorView Grid.Row="2" x:Name="TileEditorViewControl" DataContext="{Binding TileEditorViewModel}" Height="Auto" VerticalAlignment="Top"/>
         </Grid>
         <Grid Grid.Column="1" x:Name="Main" Margin="5,5,5,0" Height="Auto" Width="600" HorizontalAlignment="Right" Background="Blue">
             <Canvas x:Name="HoneycombCanvas" HorizontalAlignment="Center" VerticalAlignment="Center"/>

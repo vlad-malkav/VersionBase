@@ -29,10 +29,20 @@ namespace Controls.Library.ViewModels
             LoadTileTypes();
         }
 
+        public TileImageTypeViewModel(List<TileImageType> listTileImageTypes)
+        {
+            FillListTileImageTypeModel(listTileImageTypes);
+        }
+
         public void LoadTileTypes()
         {
-            List<TileImageType> listTile = TileImageTypes.GetAllTileImageTypes();
-            ListTileImageTypeModel = listTile.Select(x => new TileImageTypeModel(x)).ToList();
+            List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
+            FillListTileImageTypeModel(listTileImageType);
+        }
+
+        private void FillListTileImageTypeModel(List<TileImageType> listTileImageType)
+        {
+            ListTileImageTypeModel = listTileImageType.Select(x => new TileImageTypeModel(x)).ToList();
             SelectedTileType = ListTileImageTypeModel.First();
         }
     }

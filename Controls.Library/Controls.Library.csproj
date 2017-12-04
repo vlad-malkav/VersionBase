@@ -51,16 +51,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\MyICommand.cs" />
-    <Compile Include="Events\EventClasses.cs" />
+    <Compile Include="Events\Events.Messages.cs" />
     <Compile Include="Models\HexMapModel.cs" />
     <Compile Include="Models\HexModel.cs" />
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\TileColorModel.cs" />
+    <Compile Include="Models\TileEditorModel.cs" />
     <Compile Include="Models\TileImageTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HexMapViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\TileColorViewModel.cs" />
+    <Compile Include="ViewModels\TileEditorViewModel.cs" />
     <Compile Include="ViewModels\TileImageTypeViewModel.cs" />
     <Compile Include="Views\HexMapView.xaml.cs">
       <DependentUpon>HexMapView.xaml</DependentUpon>
@@ -71,8 +73,8 @@
     <Compile Include="Views\TileColorView.xaml.cs">
       <DependentUpon>TileColorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TileEditorControl.xaml.cs">
-      <DependentUpon>TileEditorControl.xaml</DependentUpon>
+    <Compile Include="Views\TileEditorView.xaml.cs">
+      <DependentUpon>TileEditorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TileImageTypeView.xaml.cs">
       <DependentUpon>TileImageTypeView.xaml</DependentUpon>
@@ -96,7 +98,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TileEditorControl.xaml">
+    <Page Include="Views\TileEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

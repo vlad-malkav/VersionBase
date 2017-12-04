@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Shapes;
 using VersionBase.Libraries.Hexes;
+using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
@@ -21,6 +22,12 @@ namespace Controls.Library.Models
         public void UpdateCellSize(double cellSize)
         {
             HexDrawingData = new HexDrawingData(HexData.HexCoordinates, cellSize);
+            Polygon = HexMapDrawing.GenerateHex(HexDrawingData, HexData.TileData);
+        }
+
+        public void UpdateTileData(TileData tileData)
+        {
+            HexData.TileData = tileData;
             Polygon = HexMapDrawing.GenerateHex(HexDrawingData, HexData.TileData);
         }
     }
