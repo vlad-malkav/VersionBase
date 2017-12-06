@@ -40,6 +40,7 @@ namespace VersionBase
         private double CellSize = 100;
         private HexModel SelectedHex;
         public TileEditorViewModel TileEditorViewModel;
+        public HexMapViewModel HexMapViewModel;
 
         public MainWindow()
         {
@@ -121,22 +122,26 @@ namespace VersionBase
             HexMapDrawing.GetCombSize(Main.ActualHeight, Main.ActualWidth, ColCount, RowCount, out CellSize, out CombWidth, out CombHeight);
 
             // Set the canvas size appropriately
-            HoneycombCanvas.Width = CombWidth;
-            HoneycombCanvas.Height = CombHeight;
+            //HoneycombCanvas.Width = CombWidth;
+            //HoneycombCanvas.Height = CombHeight;
 
             //Generate the hex map
             ListHexModel = GenerateListHexModel(ColCount, RowCount, CellSize);
 
             // Add the cells to the canvas
-            AddHexModelToCanvas(HoneycombCanvas, ListHexModel, CellSize);
+            //AddHexModelToCanvas(HoneycombCanvas, ListHexModel, CellSize);
 
             // Set the cells to look like we want them
-            SetListPolygonActions(HoneycombCanvas.Children);
+            //SetListPolygonActions(HoneycombCanvas.Children);
 
             List<TileColor> listTileColor = TileColors.GetAllTileColors();
             List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
             TileEditorViewModel = new TileEditorViewModel(new TileEditorModel(listTileColor, listTileImageType));
             TileEditorViewControl.DataContext = TileEditorViewModel;
+
+            List<HexModel> listHexModel = HexMapViewModel.GenerateListHexModel(RowCount, ColCount, CellSize);
+            HexMapViewModel = new HexMapViewModel(listHexModel, CombWidth, CombHeight);
+            HexMapViewControl.DataContext = HexMapViewModel;
 
             // Subscribe to Events
             EventSystem.Subscribe<HexClickedLeftButtonMessage>(HexClickedLeftButtonMessageFunction);
@@ -145,11 +150,10 @@ namespace VersionBase
 
         private void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msg)
         {
-            TileColorViewModel tileColorViewModel = (TileColorViewModel)TileColorViewControl.DataContext;
-            TileImageTypeViewModel TileImageTypeViewModel = (TileImageTypeViewModel)TileImageTypeViewControl.DataContext;
+            TileEditorViewModel tileEditorViewModel = (TileEditorViewModel)TileEditorViewControl.DataContext;
 
-            TileColorModel selectedTileColor = tileColorViewModel.SelectedTileColor;
-            TileImageTypeModel selectedTileType = TileImageTypeViewModel.SelectedTileType;
+            TileColorModel selectedTileColor = tileEditorViewModel.SelectedTileColorModel;
+            TileImageTypeModel selectedTileType = tileEditorViewModel.SelectedTileImageTypeModel;
 
             msg.HexModel.HexData.TileData.TileColor = selectedTileColor.TileColor;
             msg.HexModel.HexData.TileData.TileImageType = selectedTileType.TileImageType;
@@ -161,7 +165,7 @@ namespace VersionBase
         {
             TileEditorViewModel tileEditorViewModel = (TileEditorViewModel)TileEditorViewControl.DataContext;
 
-            TileColorModel selectedTileColor = tileEditorViewModel.SelectedTileColor;
+            TileColorModel selectedTileColor = tileEditorViewModel.SelectedTileColorModel;
             TileImageTypeModel selectedTileType = tileEditorViewModel.SelectedTileImageTypeModel;
 
             msg.HexModel.HexData.TileData.TileColor = selectedTileColor.TileColor;
