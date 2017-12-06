@@ -22,13 +22,13 @@ namespace VersionBase.Libraries.Hexes
 
         public HexDrawingData() { }
 
-        public HexDrawingData(HexCoordinates hexCoordinates, double cellSize)
+        public HexDrawingData(int column, int row, double cellSize)
         {
             _CellSize = cellSize;
             _CellHeight = CellSize * Math.Sqrt(3);
-            _RowHeight = (CellSize * Math.Sqrt(3) / 2) + (CellSize * Math.Sqrt(3)) * (hexCoordinates.Row+1);
-            _CellX = CellSize + (3 * CellSize / 2) * hexCoordinates.Column;
-            _CellY = RowHeight + ((hexCoordinates.Column & 1) == 1 ? CellHeight / 2 : 0);
+            _RowHeight = (CellSize * Math.Sqrt(3) / 2) + (CellSize * Math.Sqrt(3)) * (row+1);
+            _CellX = CellSize + (3 * CellSize / 2) * column;
+            _CellY = RowHeight + ((column & 1) == 1 ? CellHeight / 2 : 0);
         }
     }
 }

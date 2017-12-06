@@ -4,7 +4,7 @@
 library
 C#
 .cs
-U:\DL\MP\VersionBase-master\Controls.Library\obj\Debug\
+G:\Programmation\Projets C#\Mon Projet\VersionBase\Controls.Library\obj\Debug\
 Controls.Library
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 21964300384
 
-171027851335
-17-83083983
+21665363412
+701506578287
 Views\HexMapView.xaml;Views\TileEditorView.xaml;
 
-False
+True
 

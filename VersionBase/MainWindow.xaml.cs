@@ -5,6 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -33,61 +34,22 @@ namespace VersionBase
     {
         private const int RowCount = 10;
         private const int ColCount = 10;
-        private List<HexModel> ListHexModel { get; set; }
         private static int TileTypeCurrent = 0;
         private double CombHeight = 100;
         private double CombWidth = 100;
         private double CellSize = 100;
         private HexModel SelectedHex;
+        //ViewModels
         public TileEditorViewModel TileEditorViewModel;
         public HexMapViewModel HexMapViewModel;
+        //Models
+        public TileEditorModel TileEditorModel;
+        public HexMapModel HexMapModel;
 
         public MainWindow()
         {
-            ListHexModel = new List<HexModel>();
-
             // VS Generated code not included
             InitializeComponent();
-        }
-
-        private void SetListPolygonActions(UIElementCollection polygons)
-        {
-            List<Polygon> hexList = polygons.Cast<Polygon>().ToList();
-
-            foreach (Polygon element in hexList)
-            {
-                SetPolygonActions(element);
-            }
-        }
-
-        private void SetPolygonActions(Polygon polygon)
-        {
-            // Mouse down event handler for the hex
-            polygon.MouseRightButtonDown += hex_MouseRightButtonDown;
-            polygon.MouseLeftButtonDown += hex_MouseLeftButtonDown;
-        }
-
-        private void hex_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            var hex = sender as Shape;
-            if (hex == null)
-            {
-                throw new InvalidCastException("Non-shape in Honeycomb");
-            }
-        }
-
-        private void TestEvent(TickerSymbolSelectedMessage msg)
-        {
-            
-        }
-
-        private void hex_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            HexModel selectedHexModel = ListHexModel.First(x => x.Polygon == sender);
-
-            // Broadcast Events
-            EventSystem.Publish<HexClickedLeftButtonMessage>(
-                new HexClickedLeftButtonMessage { HexModel = selectedHexModel });
         }
 
         public static List<HexModel> GenerateListHexModel(int columns, int rows, double cellSize)
@@ -101,77 +63,73 @@ namespace VersionBase
                 for (int col = 0; col < columns; col++)
                 {
                     TileData tileData = new TileData(new TileColor(Color.LightGreen), listTileImageType[TileTypeCurrent++ % listTileImageType.Count]);
-                    HexData hexDataTmp = new HexData(new HexCoordinates(col, row), "-", tileData, cellSize);
-                    listHexModel.Add(new HexModel(hexDataTmp, cellSize));
+                    HexData hexDataTmp = new HexData(col, row, "-", tileData, cellSize);
+                    listHexModel.Add(new HexModel(hexDataTmp));
                 }
             }
             return listHexModel;
-        }
-
-        private static void AddHexModelToCanvas(Canvas canvas, List<HexModel> listHexModel, double cellSize)
-        {
-            foreach (HexModel hexModel in listHexModel)
-            {
-                canvas.Children.Add(hexModel.Polygon);
-            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Get sizes that will fit within our window
             HexMapDrawing.GetCombSize(Main.ActualHeight, Main.ActualWidth, ColCount, RowCount, out CellSize, out CombWidth, out CombHeight);
-
-            // Set the canvas size appropriately
-            //HoneycombCanvas.Width = CombWidth;
-            //HoneycombCanvas.Height = CombHeight;
-
-            //Generate the hex map
-            ListHexModel = GenerateListHexModel(ColCount, RowCount, CellSize);
-
-            // Add the cells to the canvas
-            //AddHexModelToCanvas(HoneycombCanvas, ListHexModel, CellSize);
-
-            // Set the cells to look like we want them
-            //SetListPolygonActions(HoneycombCanvas.Children);
-
+            
             List<TileColor> listTileColor = TileColors.GetAllTileColors();
             List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
-            TileEditorViewModel = new TileEditorViewModel(new TileEditorModel(listTileColor, listTileImageType));
+            TileEditorModel = new TileEditorModel(listTileColor, listTileImageType);
+            TileEditorViewModel = new TileEditorViewModel(TileEditorModel);
             TileEditorViewControl.DataContext = TileEditorViewModel;
 
-            List<HexModel> listHexModel = HexMapViewModel.GenerateListHexModel(RowCount, ColCount, CellSize);
-            HexMapViewModel = new HexMapViewModel(listHexModel, CombWidth, CombHeight);
+            //Generate the hex map
+            var listHexModel = HexMapViewModel.GenerateListHexModel(RowCount, ColCount, CellSize);
+            HexMapModel = new HexMapModel(listHexModel, CombWidth, CombHeight, CellSize, RowCount, ColCount);
+            HexMapViewModel = new HexMapViewModel(HexMapModel);
             HexMapViewControl.DataContext = HexMapViewModel;
 
             // Subscribe to Events
             EventSystem.Subscribe<HexClickedLeftButtonMessage>(HexClickedLeftButtonMessageFunction);
             EventSystem.Subscribe<HexClickedRightButtonMessage>(HexClickedRightButtonMessageFunction);
+
+            foreach (HexModel hexModel in HexMapModel.ListHexModel)
+            {
+                hexModel.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(HexModel_PropertyChanged);
+            }
+        }
+
+        void HexModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            HexModel hexModel = (HexModel) sender;
+            if (e.PropertyName == "TileColorModel" || e.PropertyName == "TileImageTypeModel")
+            {
+                var selectedHexViewModel = HexMapViewModel.GetHexViewModel(hexModel.Column, hexModel.Row);
+                selectedHexViewModel.UpdateTileData(hexModel.TileColorModel.GetDrawingColor(), hexModel.TileImageTypeModel.GetBitmap());
+            }
         }
 
         private void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msg)
         {
-            TileEditorViewModel tileEditorViewModel = (TileEditorViewModel)TileEditorViewControl.DataContext;
+            var selectedTileColorModel = TileEditorModel.GetTileColorModel(TileEditorViewModel.SelectedTileColorViewModel.Name);
+            var selectedTileTypeModel = TileEditorModel.GetTileImageTypeModel(TileEditorViewModel.SelectedTileImageTypeViewModel.Name);
 
-            TileColorModel selectedTileColor = tileEditorViewModel.SelectedTileColorModel;
-            TileImageTypeModel selectedTileType = tileEditorViewModel.SelectedTileImageTypeModel;
+            var selectedHexViewModel = HexMapViewModel.GetHexViewModel(msg.Column, msg.Row);
 
-            msg.HexModel.HexData.TileData.TileColor = selectedTileColor.TileColor;
-            msg.HexModel.HexData.TileData.TileImageType = selectedTileType.TileImageType;
+            var selectedHexModel = HexMapModel.GetHexModel(selectedHexViewModel.Column, selectedHexViewModel.Row);
 
-            HexMapDrawing.UpdateHex(msg.HexModel.Polygon, msg.HexModel.HexDrawingData, msg.HexModel.HexData.TileData);
+            selectedHexModel.TileColorModel = selectedTileColorModel;
+            selectedHexModel.TileImageTypeModel = selectedTileTypeModel;
         }
 
         private void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
         {
-            TileEditorViewModel tileEditorViewModel = (TileEditorViewModel)TileEditorViewControl.DataContext;
+            var selectedHexViewModel = HexMapViewModel.GetHexViewModel(msg.Column, msg.Row);
 
-            TileColorModel selectedTileColor = tileEditorViewModel.SelectedTileColorModel;
-            TileImageTypeModel selectedTileType = tileEditorViewModel.SelectedTileImageTypeModel;
+            var selectedHexModel = HexMapModel.GetHexModel(selectedHexViewModel.Column, selectedHexViewModel.Row);
 
-            msg.HexModel.HexData.TileData.TileColor = selectedTileColor.TileColor;
-            msg.HexModel.HexData.TileData.TileImageType = selectedTileType.TileImageType;
-
-            HexMapDrawing.UpdateHex(msg.HexModel.Polygon, msg.HexModel.HexDrawingData, msg.HexModel.HexData.TileData);
+            TileEditorViewModel.SelectedTileColorViewModel =
+                TileEditorViewModel.GetTileColorViewModel(selectedHexModel.TileColorModel.Name);
+            TileEditorViewModel.SelectedTileImageTypeViewModel =
+                TileEditorViewModel.GetTileImageTypeViewModel(selectedHexModel.TileImageTypeModel.Name);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Resources;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -14,24 +15,16 @@ namespace VersionBase.Libraries.Hexes
 {
     public static class HexMapDrawing
     {
-        public static Polygon GenerateHex(HexDrawingData hexDrawingData, TileData tileData)
+        public static Polygon GenerateAndFillHexPolygon(int column, int row, double cellSize, Color color, Bitmap bitmap)
         {
             var hex = new Polygon();
-            hex.Points.Add(new Point(hexDrawingData.CellX - hexDrawingData.CellSize, hexDrawingData.CellY));
-            hex.Points.Add(new Point(hexDrawingData.CellX - hexDrawingData.CellSize / 2, hexDrawingData.CellY + hexDrawingData.CellHeight / 2));
-            hex.Points.Add(new Point(hexDrawingData.CellX + hexDrawingData.CellSize / 2, hexDrawingData.CellY + hexDrawingData.CellHeight / 2));
-            hex.Points.Add(new Point(hexDrawingData.CellX + hexDrawingData.CellSize, hexDrawingData.CellY));
-            hex.Points.Add(new Point(hexDrawingData.CellX + hexDrawingData.CellSize / 2, hexDrawingData.CellY - hexDrawingData.CellHeight / 2));
-            hex.Points.Add(new Point(hexDrawingData.CellX - hexDrawingData.CellSize / 2, hexDrawingData.CellY - hexDrawingData.CellHeight / 2));
-            
-            hex.Fill = new ImageBrush(GenerateTileBitmapImage(tileData));
-            hex.Stroke = new SolidColorBrush(Colors.Black);
-            hex.StrokeThickness = hexDrawingData.CellSize / 10;
+            UpdateAndFillHexPolygon(hex, column, row, cellSize, color, bitmap);
             return hex;
         }
 
-        public static void UpdateHex(Polygon hex, HexDrawingData hexDrawingData, TileData tileData)
+        public static void UpdateAndFillHexPolygon(Polygon hex, int column, int row, double cellSize, Color color, Bitmap bitmap)
         {
+            HexDrawingData hexDrawingData = new HexDrawingData(column, row, cellSize);
             hex.Points.Clear();
             hex.Points.Add(new Point(hexDrawingData.CellX - hexDrawingData.CellSize, hexDrawingData.CellY));
             hex.Points.Add(new Point(hexDrawingData.CellX - hexDrawingData.CellSize / 2, hexDrawingData.CellY + hexDrawingData.CellHeight / 2));
@@ -40,7 +33,7 @@ namespace VersionBase.Libraries.Hexes
             hex.Points.Add(new Point(hexDrawingData.CellX + hexDrawingData.CellSize / 2, hexDrawingData.CellY - hexDrawingData.CellHeight / 2));
             hex.Points.Add(new Point(hexDrawingData.CellX - hexDrawingData.CellSize / 2, hexDrawingData.CellY - hexDrawingData.CellHeight / 2));
 
-            hex.Fill = new ImageBrush(GenerateTileBitmapImage(tileData));
+            hex.Fill = new ImageBrush(GenerateTileBitmapImage(color, bitmap));
             hex.Stroke = new SolidColorBrush(Colors.Black);
             hex.StrokeThickness = hexDrawingData.CellSize / 10;
         }
@@ -62,7 +55,7 @@ namespace VersionBase.Libraries.Hexes
         {
             return GenerateTileBitmapImage(
                 tileData.TileColor.GetDrawingColor(),
-                tileData.TileImageType != null ? TileImageTypes.GetBitmapTile(tileData.TileImageType) : null);
+                tileData.TileImageType != null ? TileImageTypes.GetBitmapTile(tileData.TileImageType.ToString()) : null);
         }
 
         public static BitmapImage GenerateTileBitmapImage(Color color, Bitmap bitmapTile)

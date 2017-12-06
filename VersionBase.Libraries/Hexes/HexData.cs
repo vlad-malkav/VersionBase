@@ -6,16 +6,16 @@ namespace VersionBase.Libraries.Hexes
     {
         public string Text { get; set; }
         public TileData TileData { get; set; }
-        public bool Selected { get; set; }
-        public HexCoordinates HexCoordinates { get; set; }
+        public int Column { get; set; }
+        public int Row { get; set; }
 
 
-        public HexData(HexCoordinates hexCoordinates, string text, TileData tileData, double cellSize)
+        public HexData(int column, int row, string text, TileData tileData, double cellSize)
         {
-            HexCoordinates = hexCoordinates;
+            Column = column;
+            Row = row;
             Text = text;
             TileData = tileData;
-            Selected = false;
         }
     }
 }

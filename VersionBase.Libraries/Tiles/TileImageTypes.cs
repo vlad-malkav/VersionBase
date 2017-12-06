@@ -2,22 +2,34 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Windows.Media.Imaging;
+using System.Reflection;
+using System.Resources;
+using System.Globalization; 
 
 namespace VersionBase.Libraries.Tiles
 {
     public static class TileImageTypes
     {
-        private const string path =
-            "G:\\Programmation\\Projets C#\\Mon Projet\\VersionBase\\Ressources\\Images\\multicolored-icons\\";
-
         public static List<TileImageType> GetAllTileImageTypes()
         {
             return ((TileImageType[])Enum.GetValues(typeof(TileImageType))).ToList();
         }
 
+        public static Bitmap GetBitmapTile(string tileImageTypeName)
+        {
+            return (Bitmap)Properties.Tileset_Set_1.ResourceManager.GetObject(tileImageTypeName);
+        }
+
+        /*
+        private const string path =
+            ".\\Resources\\Images\\Set1\\";
+
         public static string GetBitmapImagePath(TileImageType tileType)
         {
+            //VersionBase.Resources.ResourceManager.
             return path + tileType.ToString() + ".png";
         }
 
@@ -31,7 +43,7 @@ namespace VersionBase.Libraries.Tiles
             return new BitmapImage(new Uri(TileImageTypes.GetBitmapImagePath(tileImageType)));
         }
 
-        /*public static Tile GetTile(TileImageType tileType)
+        public static Tile GetTile(TileImageType tileType)
         {
             switch (tileType)
             {

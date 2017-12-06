@@ -10,12 +10,14 @@ namespace Controls.Library.Events
 {
     public class HexClickedRightButtonMessage
     {
-        public HexModel HexModel { get; set; }
+        public int Column { get; set; }
+        public int Row { get; set; }
     }
 
     public class HexClickedLeftButtonMessage
     {
-        public HexModel HexModel { get; set; }
+        public int Column { get; set; }
+        public int Row { get; set; }
     }
 
     public class TileRequestAskedMessage

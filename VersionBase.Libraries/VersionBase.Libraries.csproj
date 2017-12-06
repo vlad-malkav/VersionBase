@@ -61,19 +61,256 @@
   <ItemGroup>
     <Compile Include="Events\EventSystem.cs" />
     <Compile Include="Hexes\HexDrawingData.cs" />
-    <Compile Include="Hexes\HexCoordinates.cs" />
     <Compile Include="Hexes\HexData.cs" />
     <Compile Include="Hexes\HexMapDrawing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Tileset-Set-1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tileset-Set-1.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tiles\TileData.cs" />
     <Compile Include="Tiles\TileColor.cs" />
     <Compile Include="Tiles\TileColors.cs" />
-    <Compile Include="Tiles\TileBitmapImage.cs" />
     <Compile Include="Tiles\TileImageTypes.cs" />
     <Compile Include="Tiles\TileImageType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Tileset-Set-1.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Tileset-Set-1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\anchor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\badlands.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\battle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\cactus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\camp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\capital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\castle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\cathedral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\cattle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\cave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\city.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\crater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\crossbones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\cultivatedfarmland.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\cultivatedfarmland2 - Copie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\cultivatedfarmland-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\deadforest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\deadforesthills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\deadforestmountain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\deadforestmountains.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\dunes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\dungeon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\evergreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\evergreenhills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\evergreenmountain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\evergreenmountains.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\fish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\forestedhills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\forestedmountain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\forestedmountains.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\fort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\grapes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\grassland.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\grassyhills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\heavycactus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\heavyevergreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\heavyforest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\hills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\jet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\jungle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\junglehills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\lightforest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\lighthouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\marsh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\mines.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\moderncapital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\moderncity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\monolith.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\monument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\mountain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\mountains.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\oasis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\pyramid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\radiation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\reefs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\rockydesert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\ruins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\sandydesert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\shipwreck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\shrine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\spaceship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\spacestation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\statue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\steppedpyramid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\swamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\tank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\temple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\tower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\town.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\village.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\volcano.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\volcanodormant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tilesets\Set-1\whaling.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

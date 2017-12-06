@@ -1,40 +1,65 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Shapes;
+using Controls.Library.Annotations;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
-    public class HexModel
+    public class HexModel : INotifyPropertyChanged
     {
-        public HexData HexData { get; set; }
-        public HexDrawingData HexDrawingData { get; set; }
-        public Polygon Polygon { get; set; }
+        private string _text;
+        private int _column;
+        private int _row;
+        private TileColorModel _tileColorModel;
+        private TileImageTypeModel _tileImageTypeModel;
+
+        public string Text
+        {
+            get { return _text; }
+        }
+
+        public int Column
+        {
+            get { return _column; }
+        }
+
+        public int Row
+        {
+            get { return _row; }
+        }
+
+        public TileColorModel TileColorModel
+        {
+            get { return _tileColorModel; }
+            set { _tileColorModel = value; OnPropertyChanged("TileColorModel"); }
+        }
+
+        public TileImageTypeModel TileImageTypeModel
+        {
+            get { return _tileImageTypeModel; }
+            set { _tileImageTypeModel = value; OnPropertyChanged("TileImageTypeModel"); }
+        }
 
         public HexModel() { }
 
-        public HexModel(HexData hexData, double cellSize)
+        public HexModel(HexData hexData)
         {
-            HexData = hexData;
-            UpdateCellSize(cellSize);
+            _text = hexData.Text;
+            _column = hexData.Column;
+            _row = hexData.Row;
+            _tileColorModel = new TileColorModel(hexData.TileData.TileColor);
+            _tileImageTypeModel = new TileImageTypeModel(hexData.TileData.TileImageType);
         }
 
-        public void UpdateCellSize(double cellSize)
-        {
-            HexDrawingData = new HexDrawingData(HexData.HexCoordinates, cellSize);
-            Polygon = HexMapDrawing.GenerateHex(HexDrawingData, HexData.TileData);
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public void UpdateTileData(TileData tileData)
+        [NotifyPropertyChangedInvocator]
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            HexData.TileData = tileData;
-            Polygon = HexMapDrawing.GenerateHex(HexDrawingData, HexData.TileData);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    }
-
-    public class Point
-    {
-        public double X { get; set; }
-        public double Y { get; set; }
     }
 }

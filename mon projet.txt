@@ -18,14 +18,16 @@ Roadmap :
 * [X] Faut-il virer le Tag du Polygon, ce qui évite d'avoir à fournir les coordinate au lieu du drawing data ?
 * [X] Création d'un objet Map, contenant les données de dimension, la liste des Hex, etc., tout ce qui est nécessaire pour la gestion de la Map (un Model, probablement ?)
 * [X] Possibilité de passer par référence les hexagones / polygones ? Vérifier qu'il y a unicité. Si oui, un objet HexModel peut être utile, non ?
-* [ ] Mettre en place un vrai MVVM au niveau des models et des view models : il faut que les M&VM parents référencent les M&VM enfants, que les M soient utilisé dans la construction des VM : VM(M) ! Et donc, les deux listes déroulantes devraient s'appeler List, avec un VM(M), et un M contenant la liste.
-* [ ] Rassembler Color et Image dans un même MVVM ?
-* [ ] Possibilité d'écouter le changement d'une donnée dans le ViewModel ? Comme un Selected, dans le setter ?
-* [ ] Interface UI : afficher le type de terrain sélectionné sur clic droit (sélectionner dans listes ?)
+* [X] Mettre en place un vrai MVVM au niveau des models et des view models : il faut que les M&VM parents référencent les M&VM enfants, que les M soient utilisé dans la construction des VM : VM(M) ! Et donc, les deux listes déroulantes devraient s'appeler List, avec un VM(M), et un M contenant la liste.
+** [X] HexModel : virer le HexData
+** [X] HexModel : le HexDrawingData a sa place ailleurs que dans Libraries ?
+** [X] TileColorModel : virer le tilecolor, prendre le ARGB
+** [X] TileImageTypeModel : virer le TileImageType, conserver le reste
+* [X] Possibilité d'écouter le changement d'une donnée dans le ViewModel ? Comme un Selected, dans le setter ?
+* [X] Interface UI : afficher le type de terrain sélectionné sur clic droit (sélectionner dans listes ?)
 * [ ] Checkbox Edit Mode
 * [ ] Récupération enum par string (pour BDD)
-* [ ] Ajouter les Ressources > Images dans le projet (où ?), et les utiliser (path relatif)
-* [ ] Faire en sorte que les objets de base HexData, Hex
+* [X] Ajouter les Ressources > Images dans le projet (où ?), et les utiliser (path relatif)
 * [ ] Faire un MVVM pour la Carte
 * [ ] Faire un MVVM pour l'Interface Gauche
 * [ ] Faire un MVVM pour l'Interface Droite

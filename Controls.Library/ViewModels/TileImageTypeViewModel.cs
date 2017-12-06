@@ -1,49 +1,39 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 using Controls.Library.Models;
+using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.ViewModels
 {
     public class TileImageTypeViewModel
     {
-        public List<TileImageTypeModel> ListTileImageTypeModel { get; set; }
+        public string Name { get; set; }
+        public string NameLower { get; set; }
+        public BitmapImage Bitmap { get; set; }
 
-        private TileImageTypeModel _selectedTileType;
+        public TileImageTypeViewModel() { }
 
-        public TileImageTypeModel SelectedTileType
+        public TileImageTypeViewModel(TileImageTypeModel tileImageTypeModel)
         {
-            get
-            {
-                return _selectedTileType;
-            }
-
-            set
-            {
-                _selectedTileType = value;
-            }
+            Name = tileImageTypeModel.Name;
+            NameLower = tileImageTypeModel.NameLower;
+            Bitmap = GetBitmapImage();
         }
 
-        public TileImageTypeViewModel()
+        public BitmapImage GetBitmapImage()
         {
-            LoadTileTypes();
+            return HexMapDrawing.GenerateTileBitmapImage(Color.LightGreen,GetBitmap());
         }
 
-        public TileImageTypeViewModel(List<TileImageType> listTileImageTypes)
+        public Bitmap GetBitmap()
         {
-            FillListTileImageTypeModel(listTileImageTypes);
-        }
-
-        public void LoadTileTypes()
-        {
-            List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
-            FillListTileImageTypeModel(listTileImageType);
-        }
-
-        private void FillListTileImageTypeModel(List<TileImageType> listTileImageType)
-        {
-            ListTileImageTypeModel = listTileImageType.Select(x => new TileImageTypeModel(x)).ToList();
-            SelectedTileType = ListTileImageTypeModel.First();
+            return TileImageTypes.GetBitmapTile(NameLower);
         }
     }
 }

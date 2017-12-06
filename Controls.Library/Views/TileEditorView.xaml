@@ -14,8 +14,8 @@
 
         <StackPanel Margin="10" Grid.Row="0">
             <ComboBox Name="CmbTileColor"
-                      ItemsSource = "{Binding ListTileColorModel}"
-                      SelectedItem = "{Binding SelectedTileColorModel, Mode=TwoWay}"
+                      ItemsSource = "{Binding ListTileColorViewModel}"
+                      SelectedItem = "{Binding SelectedTileColorViewModel, Mode=TwoWay}"
                       Width="Auto">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -30,14 +30,14 @@
 
         <StackPanel Margin="10" Grid.Row="1">
             <ComboBox Name="CmbTileImageType"
-                  ItemsSource = "{Binding ListTileImageTypeModel}"
-                  SelectedItem = "{Binding SelectedTileImageTypeModel, Mode=TwoWay}"
+                  ItemsSource = "{Binding ListTileImageTypeViewModel}"
+                  SelectedItem = "{Binding SelectedTileImageTypeViewModel, Mode=TwoWay}"
                   Width="Auto">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Name}" Width="Auto" />
-                            <Image Width="Auto" Height="20" Source="{Binding BitmapUri}"/>
+                            <Image Width="Auto" Height="20" Source="{Binding Bitmap}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>

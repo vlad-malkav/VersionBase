@@ -1,49 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Media;
 using Controls.Library.Models;
-using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.ViewModels
 {
     public class TileColorViewModel
     {
-        public List<TileColorModel> ListTileColorModel { get; set; }
+        public string Name { get; set; }
+        public Brush ColorBrush { get; set; }
 
-        private TileColorModel _selectedTileColor;
+        public TileColorViewModel() { }
 
-        public TileColorModel SelectedTileColor
+        public TileColorViewModel(TileColorModel tileColorModel)
         {
-            get
-            {
-                return _selectedTileColor;
-            }
-
-            set
-            {
-                _selectedTileColor = value;
-            }
-        }
-
-        public TileColorViewModel()
-        {
-            LoadTileColors();
-        }
-
-        public TileColorViewModel(List<TileColor> listTileColor)
-        {
-            FillListTileColorModel(listTileColor);
-        }
-
-        public void LoadTileColors()
-        {
-            List<TileColor> listTileColor = TileColors.GetAllTileColors();
-            FillListTileColorModel(listTileColor);
-        }
-
-        private void FillListTileColorModel(List<TileColor> listTileColor)
-        {
-            ListTileColorModel = listTileColor.Select(x => new TileColorModel(x)).ToList();
-            SelectedTileColor = ListTileColorModel.First();
+            Name = tileColorModel.Name;
+            ColorBrush = new SolidColorBrush(tileColorModel.GetMediaColor());
         }
     }
 }
