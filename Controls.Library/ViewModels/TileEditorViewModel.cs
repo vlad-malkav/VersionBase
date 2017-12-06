@@ -14,22 +14,22 @@ namespace Controls.Library.ViewModels
         private TileImageTypeModel _selectedTileImageTypeModel;
         public TileImageTypeModel SelectedTileImageTypeModel
         {
-            get => _selectedTileImageTypeModel;
-            set => _selectedTileImageTypeModel = value;
+            get { return _selectedTileImageTypeModel; }
+            set { _selectedTileImageTypeModel = value; }
         }
 
         public List<TileColorModel> ListTileColorModel { get; set; }
-        private TileColorModel _selectedTileColor;
-        public TileColorModel SelectedTileColor
+        private TileColorModel _selectedTileColorModel;
+        public TileColorModel SelectedTileColorModel
         {
-            get => _selectedTileColor;
-            set => _selectedTileColor = value;
+            get { return _selectedTileColorModel; }
+            set { _selectedTileColorModel = value; }
         }
 
         public TileEditorViewModel(TileEditorModel tileEditorModel)
         {
             ListTileColorModel = tileEditorModel.ListTileColor.Select(x => new TileColorModel(x)).ToList();
-            SelectedTileColor = ListTileColorModel.First();
+            SelectedTileColorModel = ListTileColorModel.First();
             ListTileImageTypeModel = tileEditorModel.ListTileImageType.Select(x => new TileImageTypeModel(x)).ToList();
             SelectedTileImageTypeModel = ListTileImageTypeModel.First();
         }

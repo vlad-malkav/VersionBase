@@ -19,23 +19,29 @@ namespace Controls.Library.ViewModels
     public class HexMapViewModel
     {
         public List<HexModel> ListHexModel { get; set; }
-        public ObservableCollection<UIElement> ListPolygon{ get; set; }
+        public ObservableCollection<UIElement> ListPolygon { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
 
         public HexMapViewModel()
         {
+            Width = 300;
+            Height = 300;
             ListHexModel = GenerateListHexModel(10, 10, 25);
             ListPolygon = new ObservableCollection<UIElement>(ListHexModel.Select(x => x.Polygon));
             SetHexButtonActions();
         }
 
-        public HexMapViewModel(List<HexModel> listHexModel)
+        public HexMapViewModel(List<HexModel> listHexModel, double width, double height)
         {
+            Width = width;
+            Height = height;
             ListHexModel = listHexModel;
             ListPolygon = new ObservableCollection<UIElement>(ListHexModel.Select(x => x.Polygon));
             SetHexButtonActions();
         }
 
-        public List<HexModel> GenerateListHexModel(int columns, int rows, double cellSize)
+        public static List<HexModel> GenerateListHexModel(int columns, int rows, double cellSize)
         {
             List<HexModel> listHexModel = new List<HexModel>();
 
