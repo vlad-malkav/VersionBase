@@ -1,26 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Resources;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Xml.Serialization;
 using Controls.Library.Events;
 using Controls.Library.Models;
 using Controls.Library.ViewModels;
-using Controls.Library.Views;
 using VersionBase.Libraries.Events;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
-using Color = System.Drawing.Color;
-using FontFamily = System.Windows.Media.FontFamily;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // namespace: Honeycombs
@@ -45,6 +34,10 @@ namespace VersionBase
         //Models
         public TileEditorModel TileEditorModel;
         public HexMapModel HexMapModel;
+        //Data
+        public HexMapData HexMapData;
+        public List<TileColor> ListTileColor;
+        public List<TileImageType> ListTileImageType;
 
         public MainWindow()
         {
@@ -52,38 +45,31 @@ namespace VersionBase
             InitializeComponent();
         }
 
-        public static List<HexModel> GenerateListHexModel(int columns, int rows, double cellSize)
-        {
-            List <HexModel> listHexModel = new List<HexModel>();
-
-            List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
-
-            for (int row = 0; row < rows; row++)
-            {
-                for (int col = 0; col < columns; col++)
-                {
-                    TileData tileData = new TileData(new TileColor(Color.LightGreen), listTileImageType[TileTypeCurrent++ % listTileImageType.Count]);
-                    HexData hexDataTmp = new HexData(col, row, "-", tileData, cellSize);
-                    listHexModel.Add(new HexModel(hexDataTmp));
-                }
-            }
-            return listHexModel;
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Get sizes that will fit within our window
             HexMapDrawing.GetCombSize(Main.ActualHeight, Main.ActualWidth, ColCount, RowCount, out CellSize, out CombWidth, out CombHeight);
             
-            List<TileColor> listTileColor = TileColors.GetAllTileColors();
-            List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
-            TileEditorModel = new TileEditorModel(listTileColor, listTileImageType);
+            ListTileColor = TileColors.GetAllTileColors();
+            ListTileImageType = TileImageTypes.GetAllTileImageTypes();
+            TileEditorModel = new TileEditorModel(ListTileColor, ListTileImageType);
             TileEditorViewModel = new TileEditorViewModel(TileEditorModel);
             TileEditorViewControl.DataContext = TileEditorViewModel;
 
             //Generate the hex map
-            var listHexModel = HexMapViewModel.GenerateListHexModel(RowCount, ColCount, CellSize);
-            HexMapModel = new HexMapModel(listHexModel, CombWidth, CombHeight, CellSize, RowCount, ColCount);
+            try
+            {
+                XmlSerializer xs = new XmlSerializer(typeof(HexMapData));
+                using (var sr = new StreamReader(@"c:\temp\garage.xml"))
+                {
+                    HexMapData = (HexMapData) xs.Deserialize(sr);
+                }
+            }
+            catch (Exception)
+            {
+                HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);
+            }
+            HexMapModel = new HexMapModel(HexMapData, CombWidth, CombHeight, CellSize);
             HexMapViewModel = new HexMapViewModel(HexMapModel);
             HexMapViewControl.DataContext = HexMapViewModel;
 
@@ -118,6 +104,10 @@ namespace VersionBase
 
             selectedHexModel.TileColorModel = selectedTileColorModel;
             selectedHexModel.TileImageTypeModel = selectedTileTypeModel;
+
+            var selectedHexData = HexMapData.GetHexData(msg.Column, msg.Row);
+            selectedHexData.TileData.TileColor = ListTileColor.FirstOrDefault(x => x.Name == selectedTileColorModel.Name);
+            selectedHexData.TileData.TileImageType = ListTileImageType.FirstOrDefault(x => x.ToString() == selectedTileTypeModel.NameLower);
         }
 
         private void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
@@ -130,6 +120,10 @@ namespace VersionBase
                 TileEditorViewModel.GetTileColorViewModel(selectedHexModel.TileColorModel.Name);
             TileEditorViewModel.SelectedTileImageTypeViewModel =
                 TileEditorViewModel.GetTileImageTypeViewModel(selectedHexModel.TileImageTypeModel.Name);
+
+            XmlSerializer xs = new XmlSerializer(typeof(HexMapData));
+            TextWriter tw = new StreamWriter(@"c:\temp\garage.xml");
+            xs.Serialize(tw, HexMapData);
         }
     }
 }
