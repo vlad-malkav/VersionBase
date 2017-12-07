@@ -24,10 +24,10 @@ Roadmap :
 ** [X] TileColorModel : virer le tilecolor, prendre le ARGB
 ** [X] TileImageTypeModel : virer le TileImageType, conserver le reste
 * [X] Possibilité d'écouter le changement d'une donnée dans le ViewModel ? Comme un Selected, dans le setter ?
+* [X] Ajouter les Ressources > Images dans le projet (où ?), et les utiliser (path relatif)
 * [X] Interface UI : afficher le type de terrain sélectionné sur clic droit (sélectionner dans listes ?)
 * [ ] Checkbox Edit Mode
 * [ ] Récupération enum par string (pour BDD)
-* [X] Ajouter les Ressources > Images dans le projet (où ?), et les utiliser (path relatif)
 * [ ] Faire un MVVM pour la Carte
 * [ ] Faire un MVVM pour l'Interface Gauche
 * [ ] Faire un MVVM pour l'Interface Droite
@@ -39,8 +39,9 @@ Roadmap :
 * [ ] Regénération d'une carte (avec demande dimensions)
 * [ ] Créer un objet TileSet, contenant la liste des types de terrain, référencé dans Map ?
 * [ ] Ajouter toutes les tiles d'origine dans l'objet TileSet (interface ?), et en faire une version pour chaque set de tiles que j'ai, et faire un Enum + ue fonction pour récupérer le bon
-
-* Sauvegarde / rechargement de Map par BDD
+* [ ] Sauvegarde / rechargement de Map
+** [ ] Par Sérialisation
+** [ ] Par BDD
 
 
 
