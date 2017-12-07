@@ -26,13 +26,23 @@ Roadmap :
 * [X] Possibilité d'écouter le changement d'une donnée dans le ViewModel ? Comme un Selected, dans le setter ?
 * [X] Ajouter les Ressources > Images dans le projet (où ?), et les utiliser (path relatif)
 * [X] Interface UI : afficher le type de terrain sélectionné sur clic droit (sélectionner dans listes ?)
+* [ ] Lire https://blog.rsuter.com/recommendations-best-practices-implementing-mvvm-xaml-net-applications/
+** [ ] Mettre en place une ViewModelBase et une INotifyPropertyChanged base classes, qui implémentent les fonctions nécessaires
+** [X] Toujours assigner le ViewModel en DataContext
+** [ ] Sa logique de commande
+** [ ] Ne pas set le datacontext par binding dans xaml qui instancie la vue; Cf son code
+** [ ] VM Constr ss param appelé dans VS *, donc need fct Initialize
+** [ ] View lien VM via ServiceLocator
+** [ ] Explorer sa méthode de comm' pr message, surtout callback !
+** [ ] Chaque binding doit être typé
+** [ ] 
+** [ ] 
 * [ ] Interface UI : Menu en haut
 ** [X] Première implémentation
 ** [ ] Menu en haut : récupérer le bouton cliqué , Sinon une fonction différente par bouton 
 ** [ ] Menu en haut : à partir de là, mieux lier menuitem et fonction associée, peut-être un constructeur avec Model ?
 ** [ ] Menu en haut : Le Model doit comporter la Command qui va être associée, de façon à ce que dans le code MainWindow je puisse les définir
 * [ ] ABSOLUMENT : un système pour gérer toutes ces commandes lancées de partout. On va possiblement devoir disposer de classes supplémentaires pour composer l'application
-* [ ] Lire https://blog.rsuter.com/recommendations-best-practices-implementing-mvvm-xaml-net-applications/
 * [ ] Checkbox Edit Mode
 * [ ] Récupération enum par string (pour BDD)
 * [ ] Faire un MVVM pour la Carte
