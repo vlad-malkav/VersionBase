@@ -9,9 +9,8 @@ namespace VersionBase.Libraries.Hexes
         public int Column { get; set; }
         public int Row { get; set; }
 
-        public HexData(){}
 
-        public HexData(int column, int row, string text, TileData tileData)
+        public HexData(int column, int row, string text, TileData tileData, double cellSize)
         {
             Column = column;
             Row = row;

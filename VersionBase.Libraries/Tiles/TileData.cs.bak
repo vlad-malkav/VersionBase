@@ -7,8 +7,6 @@ namespace VersionBase.Libraries.Tiles
     {
         public TileColor TileColor { get; set; }
         public TileImageType TileImageType { get; set; }
-        
-        public TileData(){}
 
         public TileData(TileColor tileColor, TileImageType? tileImageType)
         {

@@ -8,8 +8,6 @@
         public byte Green { get; set; }
         public byte Blue { get; set; }
 
-        public TileColor(){}
-
         public TileColor(System.Windows.Media.Color windowsMediaColor)
         {
             Name = windowsMediaColor.ToString();
