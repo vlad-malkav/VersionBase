@@ -60,7 +60,7 @@ namespace VersionBase
             try
             {
                 XmlSerializer xs = new XmlSerializer(typeof(HexMapData));
-                using (var sr = new StreamReader(@"c:\temp\garage.xml"))
+                using (var sr = new StreamReader(Environment.CurrentDirectory + "\\garage.xml"))
                 {
                     HexMapData = (HexMapData) xs.Deserialize(sr);
                 }
@@ -81,6 +81,8 @@ namespace VersionBase
             {
                 hexModel.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(HexModel_PropertyChanged);
             }
+
+            TopMenuViewControl.DataContext = new TopMenuViewModel();
         }
 
         void HexModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -122,7 +124,7 @@ namespace VersionBase
                 TileEditorViewModel.GetTileImageTypeViewModel(selectedHexModel.TileImageTypeModel.Name);
 
             XmlSerializer xs = new XmlSerializer(typeof(HexMapData));
-            TextWriter tw = new StreamWriter(@"c:\temp\garage.xml");
+            TextWriter tw = new StreamWriter(Environment.CurrentDirectory+"\\garage.xml");
             xs.Serialize(tw, HexMapData);
         }
     }

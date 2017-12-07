@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-21964300384
+41552745661
 
-21665363412
+24663995584
 701506578287
-Views\HexMapView.xaml;Views\TileEditorView.xaml;
+Themes\Controls.Library.Style.xaml;Views\HexMapView.xaml;Views\TileEditorView.xaml;Views\TopMenuView.xaml;
 
-True
+False
 

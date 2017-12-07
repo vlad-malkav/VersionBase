@@ -62,14 +62,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HexMapViewModel.cs" />
     <Compile Include="ViewModels\HexViewModel.cs" />
+    <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="ViewModels\TileColorViewModel.cs" />
     <Compile Include="ViewModels\TileEditorViewModel.cs" />
     <Compile Include="ViewModels\TileImageTypeViewModel.cs" />
+    <Compile Include="ViewModels\TopMenuViewModel.cs" />
     <Compile Include="Views\HexMapView.xaml.cs">
       <DependentUpon>HexMapView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TileEditorView.xaml.cs">
       <DependentUpon>TileEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopMenuView.xaml.cs">
+      <DependentUpon>TopMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VML\ViewModelLocator.cs" />
   </ItemGroup>
@@ -78,11 +83,19 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Themes\Controls.Library.Style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\HexMapView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TileEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TopMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

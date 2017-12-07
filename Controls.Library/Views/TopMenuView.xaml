@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Controls.Library.Views.TopMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:Controls.Library.ViewModels"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewModels:TopMenuViewModel/>
+    </UserControl.DataContext>
+    <Menu>
+        <MenuItem Header="{Binding Header}" ItemsSource="{Binding MenuOptions}">
+            <MenuItem.ItemContainerStyle>
+                <Style TargetType="MenuItem">
+                    <Setter Property="Header" Value="{Binding Text}" />
+                    <Setter Property="Command" Value="{Binding Command}"/>
+                </Style>
+            </MenuItem.ItemContainerStyle>
+        </MenuItem>
+    </Menu>
+</UserControl>

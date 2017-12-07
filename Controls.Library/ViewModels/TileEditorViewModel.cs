@@ -33,6 +33,8 @@ namespace Controls.Library.ViewModels
             }
         }
 
+        public TileEditorViewModel() { }
+
         public TileEditorViewModel(TileEditorModel tileEditorModel)
         {
             ListTileColorViewModel = tileEditorModel.ListTileColorModel.Select(x => new TileColorViewModel(x)).ToList();

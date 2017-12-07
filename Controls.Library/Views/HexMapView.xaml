@@ -4,13 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vml="clr-namespace:Controls.Library.VML"
+             xmlns:viewModels="clr-namespace:Controls.Library.ViewModels"
              mc:Ignorable="d"  Height="{Binding Height}" Width="{Binding Width}">
+    <UserControl.DataContext>
+        <viewModels:HexMapViewModel/>
+    </UserControl.DataContext>
 
-    <ItemsControl ItemsSource="{Binding ListPolygon}">
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <Canvas x:Name="Test1" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Aqua" Width="{Binding Width}" Height="{Binding Height}"/>
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-    </ItemsControl>
+    <Grid>
+        <ItemsControl ItemsSource="{Binding ListPolygon}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas x:Name="Test1" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Aqua" Width="{Binding Width}" Height="{Binding Height}"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </Grid>
 </UserControl>

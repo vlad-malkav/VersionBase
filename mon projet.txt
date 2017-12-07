@@ -26,6 +26,7 @@ Roadmap :
 * [X] Possibilité d'écouter le changement d'une donnée dans le ViewModel ? Comme un Selected, dans le setter ?
 * [X] Ajouter les Ressources > Images dans le projet (où ?), et les utiliser (path relatif)
 * [X] Interface UI : afficher le type de terrain sélectionné sur clic droit (sélectionner dans listes ?)
+* [ ] Interface UI : Menu en haut
 * [ ] Checkbox Edit Mode
 * [ ] Récupération enum par string (pour BDD)
 * [ ] Faire un MVVM pour la Carte
@@ -34,7 +35,6 @@ Roadmap :
 * [ ] Dessiner Rivière, route
 * [ ] Sélection Rivière, route
 * [ ] Rivière : possibilité d'identifier les hexagones où elle passe ? La direction ?
-* [ ] Interface UI : Menu en haut
 * [ ] Au lancement, demander dimensions (et type terrain de base ?)
 * [ ] Regénération d'une carte (avec demande dimensions)
 * [ ] Créer un objet TileSet, contenant la liste des types de terrain, référencé dans Map ?
@@ -43,7 +43,7 @@ Roadmap :
 ** [ ] Par Sérialisation
 ** [ ] Par BDD
 
-
+https://blog.rsuter.com/recommendations-best-practices-implementing-mvvm-xaml-net-applications/
 
 Ressources :
 * "Adam, unity":http://t-machine.org/index.php/author/adam/
