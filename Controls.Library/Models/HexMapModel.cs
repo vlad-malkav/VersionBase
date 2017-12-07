@@ -20,48 +20,22 @@ namespace Controls.Library.Models
 
         public HexMapModel()
         {
-            Width = 300;
-            Height = 300;
-            Columns = 10;
-            Rows = 10;
-            CellSize = 25;
-            ListHexModel = GenerateListHexModel(Columns, Rows, CellSize);
+            ListHexModel = new List<HexModel>();
         }
 
-        public HexMapModel(List<HexModel> listHexModel, double width, double height, double cellSize, int rows, int colums)
+        public HexMapModel(HexMapData hexMapData, double width, double height, double cellSize)
         {
             Width = width;
             Height = height;
             CellSize = cellSize;
-            Columns = colums;
-            Rows = rows;
-            ListHexModel = listHexModel;
+            Columns = hexMapData.Columns;
+            Rows = hexMapData.Rows;
+            ListHexModel = hexMapData.ListHexData.Select(x => new HexModel(x)).ToList();
         }
 
         public HexModel GetHexModel(int column, int row)
         {
             return ListHexModel.FirstOrDefault(x => x.Column == column && x.Row == row);
-        }
-
-        public static List<HexModel> GenerateListHexModel(int columns, int rows, double cellSize)
-        {
-            List<HexModel> listHexModel = new List<HexModel>();
-
-            List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
-
-            int tileTypeCurrent = 0;
-
-            for (int row = 0; row < rows; row++)
-            {
-                for (int col = 0; col < columns; col++)
-                {
-                    TileData tileData = new TileData(new TileColor(Color.LightGreen),
-                        listTileImageType[tileTypeCurrent++ % listTileImageType.Count]);
-                    HexData hexDataTmp = new HexData(col, row, "-", tileData, cellSize);
-                    listHexModel.Add(new HexModel(hexDataTmp));
-                }
-            }
-            return listHexModel;
         }
     }
 }
