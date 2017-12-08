@@ -6,25 +6,25 @@
 
     <DockPanel>
         <controls:TopMenuView DockPanel.Dock="Top" x:Name="TopMenuViewControl" DataContext="{Binding TopMenuViewModel}"/>
-        <Grid>
-            <Grid.Resources>
-                <ResourceDictionary Source="Themes/SimpleStyle.xaml"/>
-            </Grid.Resources>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid Width="200">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <controls:TileEditorView Grid.Row="0" x:Name="TileEditorViewControl" DataContext="{Binding TileEditorViewModel}" Height="Auto" VerticalAlignment="Top"/>
-            </Grid>
-            <Grid Grid.Column="1" x:Name="Main" Margin="5,5,5,0" Height="Auto" Width="300" HorizontalAlignment="Right" Background="Gray">
-                <controls:HexMapView x:Name="HexMapViewControl" DataContext="{Binding HexMapViewModel}"/>
-            </Grid>
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary Source="Themes/SimpleStyle.xaml"/>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid Width="200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+                <controls:TileEditorView Grid.Row="0" x:Name="TileEditorViewControl" Height="Auto" VerticalAlignment="Top"/>
         </Grid>
+        <Grid Grid.Column="1" x:Name="Main" Margin="5,5,5,0" Height="Auto" Width="300" HorizontalAlignment="Right" Background="Gray">
+            <controls:HexMapView x:Name="HexMapViewControl"/>
+        </Grid>
+    </Grid>
 
     </DockPanel>
 </Window>

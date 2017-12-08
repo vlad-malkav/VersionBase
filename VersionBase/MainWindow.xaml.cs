@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 using Controls.Library.Events;
 using Controls.Library.Models;
 using Controls.Library.ViewModels;
-using VersionBase.Libraries.Events;
+using MyToolkit.Messaging;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
 
@@ -28,9 +28,6 @@ namespace VersionBase
         private double CombWidth = 100;
         private double CellSize = 100;
         private HexModel SelectedHex;
-        //ViewModels
-        public TileEditorViewModel TileEditorViewModel;
-        public HexMapViewModel HexMapViewModel;
         //Models
         public TileEditorModel TileEditorModel;
         public HexMapModel HexMapModel;
@@ -38,6 +35,9 @@ namespace VersionBase
         public HexMapData HexMapData;
         public List<TileColor> ListTileColor;
         public List<TileImageType> ListTileImageType;
+        //ViewModels
+        public HexMapViewModel HexMapViewModel;
+        public TileEditorViewModel TileEditorViewModel;
 
         public MainWindow()
         {
@@ -53,8 +53,9 @@ namespace VersionBase
             ListTileColor = TileColors.GetAllTileColors();
             ListTileImageType = TileImageTypes.GetAllTileImageTypes();
             TileEditorModel = new TileEditorModel(ListTileColor, ListTileImageType);
-            TileEditorViewModel = new TileEditorViewModel(TileEditorModel);
-            TileEditorViewControl.DataContext = TileEditorViewModel;
+            TileEditorViewModel = new TileEditorViewModel();
+            TileEditorViewModel.ApplyModel(TileEditorModel);
+            TileEditorViewControl.ViewModel = TileEditorViewModel;
 
             //Generate the hex map
             try
@@ -69,17 +70,19 @@ namespace VersionBase
             {
                 HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);
             }
+            //HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);
             HexMapModel = new HexMapModel(HexMapData, CombWidth, CombHeight, CellSize);
-            HexMapViewModel = new HexMapViewModel(HexMapModel);
-            HexMapViewControl.DataContext = HexMapViewModel;
+            HexMapViewModel = new HexMapViewModel();
+            HexMapViewModel.ApplyModel(HexMapModel);
+            HexMapViewControl.ViewModel = HexMapViewModel;
 
             // Subscribe to Events
-            EventSystem.Subscribe<HexClickedLeftButtonMessage>(HexClickedLeftButtonMessageFunction);
-            EventSystem.Subscribe<HexClickedRightButtonMessage>(HexClickedRightButtonMessageFunction);
+            Messenger.Default.Register<HexClickedLeftButtonMessage>(this, HexClickedLeftButtonMessageFunction);
+            Messenger.Default.Register<HexClickedRightButtonMessage>(this, HexClickedRightButtonMessageFunction);
 
             foreach (HexModel hexModel in HexMapModel.ListHexModel)
             {
-                hexModel.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(HexModel_PropertyChanged);
+                //hexModel.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(HexModel_PropertyChanged);
             }
 
             TopMenuViewControl.DataContext = new TopMenuViewModel();
@@ -91,37 +94,60 @@ namespace VersionBase
             if (e.PropertyName == "TileColorModel" || e.PropertyName == "TileImageTypeModel")
             {
                 var selectedHexViewModel = HexMapViewModel.GetHexViewModel(hexModel.Column, hexModel.Row);
-                selectedHexViewModel.UpdateTileData(hexModel.TileColorModel.GetDrawingColor(), hexModel.TileImageTypeModel.GetBitmap());
+                //selectedHexViewModel.UpdateTileData(hexModel.TileColorModel.GetDrawingColor(), hexModel.TileImageTypeModel.GetBitmap());
+                selectedHexViewModel.UpdateFromHexModel(hexModel);
             }
         }
 
-        private void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msg)
+        private async void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msgHexClickedLeftButtonMessage)
         {
-            var selectedTileColorModel = TileEditorModel.GetTileColorModel(TileEditorViewModel.SelectedTileColorViewModel.Name);
-            var selectedTileTypeModel = TileEditorModel.GetTileImageTypeModel(TileEditorViewModel.SelectedTileImageTypeViewModel.Name);
+            GetSelectedColorImageIdsRequestMessage msgGetSelectedColorImageNamesRequestMessage = new GetSelectedColorImageIdsRequestMessage();
+            var resultGetSelectedColorImageNamesRequestMessage = await Messenger.Default.SendAsync(msgGetSelectedColorImageNamesRequestMessage);
+            string tileColorModelId = resultGetSelectedColorImageNamesRequestMessage.Result.Item1;
+            string tileImageTypeModelId = resultGetSelectedColorImageNamesRequestMessage.Result.Item2;
 
-            var selectedHexViewModel = HexMapViewModel.GetHexViewModel(msg.Column, msg.Row);
+            GetTileColorTileImageTypeModelsFromIdRequestMessage msgGetTileColorTileImageTypeModelsFromNameRequestMessage = new GetTileColorTileImageTypeModelsFromIdRequestMessage
+            {
+                TileColorModelId = tileColorModelId,
+                TileImageTypeModelId = tileImageTypeModelId
+            };
+            var resultGetTileColorTileImageTypeModelsFromNameRequestMessage = await Messenger.Default.SendAsync(msgGetTileColorTileImageTypeModelsFromNameRequestMessage);
 
-            var selectedHexModel = HexMapModel.GetHexModel(selectedHexViewModel.Column, selectedHexViewModel.Row);
+            GetHexModelFromPositionRequestMessage msgGetHexModelFromPositionRequestMessage = new GetHexModelFromPositionRequestMessage
+            {
+                Column = msgHexClickedLeftButtonMessage.Column,
+                Row = msgHexClickedLeftButtonMessage.Row
+            };
+            var resultGetHexModelFromPositionRequestMessage = await Messenger.Default.SendAsync(msgGetHexModelFromPositionRequestMessage);
+            HexModel hexModel = resultGetHexModelFromPositionRequestMessage.Result;
 
-            selectedHexModel.TileColorModel = selectedTileColorModel;
-            selectedHexModel.TileImageTypeModel = selectedTileTypeModel;
+            hexModel.TileColorModel =
+                resultGetTileColorTileImageTypeModelsFromNameRequestMessage.Result.Item1;
+            hexModel.TileImageTypeModel =
+                resultGetTileColorTileImageTypeModelsFromNameRequestMessage.Result.Item2;
 
-            var selectedHexData = HexMapData.GetHexData(msg.Column, msg.Row);
-            selectedHexData.TileData.TileColor = ListTileColor.FirstOrDefault(x => x.Name == selectedTileColorModel.Name);
-            selectedHexData.TileData.TileImageType = ListTileImageType.FirstOrDefault(x => x.ToString() == selectedTileTypeModel.NameLower);
+            //TODO : définir le flow de modification de la DATA
+            var selectedHexData = HexMapData.GetHexData(msgHexClickedLeftButtonMessage.Column, msgHexClickedLeftButtonMessage.Row);
+            selectedHexData.TileData.TileColor = ListTileColor.FirstOrDefault(x => x.Id == tileColorModelId);
+            selectedHexData.TileData.TileImageType = ListTileImageType.FirstOrDefault(x => x.ToString() == tileImageTypeModelId);
         }
 
-        private void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
+        private async void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msgHexClickedRightButtonMessage)
         {
-            var selectedHexViewModel = HexMapViewModel.GetHexViewModel(msg.Column, msg.Row);
+            GetHexModelFromPositionRequestMessage msgGetHexModelFromPositionRequestMessage = new GetHexModelFromPositionRequestMessage
+            {
+                Column = msgHexClickedRightButtonMessage.Column,
+                Row = msgHexClickedRightButtonMessage.Row
+            };
+            var resultGetHexModelFromPositionRequestMessage = await Messenger.Default.SendAsync(msgGetHexModelFromPositionRequestMessage);
+            HexModel hexModel = resultGetHexModelFromPositionRequestMessage.Result;
 
-            var selectedHexModel = HexMapModel.GetHexModel(selectedHexViewModel.Column, selectedHexViewModel.Row);
-
-            TileEditorViewModel.SelectedTileColorViewModel =
-                TileEditorViewModel.GetTileColorViewModel(selectedHexModel.TileColorModel.Name);
-            TileEditorViewModel.SelectedTileImageTypeViewModel =
-                TileEditorViewModel.GetTileImageTypeViewModel(selectedHexModel.TileImageTypeModel.Name);
+            SetSelectedColorImageIdsRequestMessage msgSetSelectedColorImageIdsRequestMessage = new SetSelectedColorImageIdsRequestMessage
+            {
+                TileColorModelId = hexModel.TileColorModel.Id,
+                TileImageTypeModelId = hexModel.TileImageTypeModel.Id
+            };
+            Messenger.Default.Send(msgSetSelectedColorImageIdsRequestMessage);
 
             XmlSerializer xs = new XmlSerializer(typeof(HexMapData));
             TextWriter tw = new StreamWriter(Environment.CurrentDirectory+"\\garage.xml");
