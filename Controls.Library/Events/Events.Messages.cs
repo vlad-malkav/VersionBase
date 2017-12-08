@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Controls.Library.Models;
-using VersionBase.Libraries.Tiles;
+using MyToolkit.Messaging;
 
 namespace Controls.Library.Events
 {
@@ -20,13 +16,30 @@ namespace Controls.Library.Events
         public int Row { get; set; }
     }
 
-    public class TileRequestAskedMessage
+    public class GetSelectedColorImageIdsRequestMessage : CallbackMessage<Tuple<string, string>>
     {
-        
     }
 
-    public class TileRequestAnsweredMessage
+    public class SetSelectedColorImageIdsRequestMessage
     {
-        public TileData TileData { get; set; }
+        public string TileColorModelId { get; set; }
+        public string TileImageTypeModelId { get; set; }
+    }
+
+    public class GetTileColorTileImageTypeModelsFromIdRequestMessage : CallbackMessage<Tuple<TileColorModel, TileImageTypeModel>>
+    {
+        public string TileColorModelId { get; set; }
+        public string TileImageTypeModelId { get; set; }
+    }
+
+    public class GetHexModelFromPositionRequestMessage : CallbackMessage<HexModel>
+    {
+        public int Column { get; set; }
+        public int Row { get; set; }
+    }
+
+    public class HexModelUpdatedMessage
+    {
+        public HexModel HexModel { get; set; }
     }
 }

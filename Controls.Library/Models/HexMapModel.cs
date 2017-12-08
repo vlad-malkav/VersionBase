@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Drawing;
 using System.Linq;
-using System.Windows;
-using Controls.Library.ViewModels;
+using Controls.Library.Events;
+using MyToolkit.Messaging;
 using VersionBase.Libraries.Hexes;
-using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
@@ -31,6 +28,12 @@ namespace Controls.Library.Models
             Columns = hexMapData.Columns;
             Rows = hexMapData.Rows;
             ListHexModel = hexMapData.ListHexData.Select(x => new HexModel(x)).ToList();
+            Messenger.Default.Register<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
+        }
+
+        private void GetHexModelFromPositionRequestMessageFunction(GetHexModelFromPositionRequestMessage msg)
+        {
+            msg.CallSuccessCallback(GetHexModel(msg.Column, msg.Row));
         }
 
         public HexModel GetHexModel(int column, int row)

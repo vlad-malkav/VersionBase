@@ -5,6 +5,7 @@ namespace Controls.Library.Models
 {
     public class TileImageTypeModel
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public string NameLower { get; set; }
 
@@ -12,6 +13,7 @@ namespace Controls.Library.Models
 
         public TileImageTypeModel(TileImageType tileImageType)
         {
+            Id = tileImageType.ToString();
             NameLower = tileImageType.ToString();
             Name = tileImageType.ToString().ToUpper();
         }

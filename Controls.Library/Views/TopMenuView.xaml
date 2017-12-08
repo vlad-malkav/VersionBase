@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:Controls.Library.ViewModels"
              mc:Ignorable="d">
-    <UserControl.DataContext>
-        <viewModels:TopMenuViewModel/>
-    </UserControl.DataContext>
-    <Menu>
+    <UserControl.Resources>
+        <viewModels:TopMenuViewModel x:Key="ViewModel"/>
+    </UserControl.Resources>
+
+    <Menu DataContext="{DynamicResource ViewModel}">
         <MenuItem Header="{Binding Header}" ItemsSource="{Binding MenuOptions}">
             <MenuItem.ItemContainerStyle>
                 <Style TargetType="MenuItem">

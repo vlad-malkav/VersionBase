@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
 using System.Windows.Media.Imaging;
 using Controls.Library.Commands;
+using MyToolkit.Mvvm;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.ViewModels
 {
-    public class TopMenuViewModel
+    public class TopMenuViewModel : ViewModelBase
     {
         public string Header { get; set; }
 

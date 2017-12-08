@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
+using MyToolkit.Mvvm;
 
 namespace Controls.Library.ViewModels
 {
-    public class MenuItemViewModel
+    public class MenuItemViewModel : ViewModelBase
     {
         public string Text { get; set; }
         public List<MenuItemViewModel> Children { get; private set; }

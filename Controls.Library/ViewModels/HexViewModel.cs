@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+using System.Windows.Input;
 using System.Windows.Shapes;
+using Controls.Library.Events;
 using Controls.Library.Models;
+using MyToolkit.Messaging;
+using MyToolkit.Mvvm;
 using VersionBase.Libraries.Hexes;
 
 namespace Controls.Library.ViewModels
 {
-    public class HexViewModel
+    public class HexViewModel : ViewModelBase
     {
         public string Text { get; set; }
         public int Column { get; set; }
@@ -21,18 +20,29 @@ namespace Controls.Library.ViewModels
         public Bitmap Bitmap { get; set; }
         public Polygon Polygon { get; set; }
 
-        public HexViewModel() { }
+        public HexViewModel()
+        {
+            Selected = false;
+            Polygon = new Polygon();
+            Polygon.MouseLeftButtonDown += MouseLeftButtonDown;
+            Polygon.MouseRightButtonDown += MouseRightButtonDown;
+        }
 
         public HexViewModel(HexModel hexModel, double cellSize)
+            :this()
+        {
+            CellSize = cellSize;
+            UpdateFromHexModel(hexModel);
+        }
+
+        public void UpdateFromHexModel(HexModel hexModel)
         {
             Text = hexModel.Text;
             Column = hexModel.Column;
             Row = hexModel.Row;
-            Selected = false;
-            CellSize = cellSize;
             Color = hexModel.TileColorModel.GetDrawingColor();
             Bitmap = hexModel.TileImageTypeModel.GetBitmap();
-            Polygon = HexMapDrawing.GenerateAndFillHexPolygon(Column, Row, CellSize, Color, Bitmap);
+            RegeneratePolygon();
         }
 
         public void UpdateCellSize(double cellSize)
@@ -50,6 +60,28 @@ namespace Controls.Library.ViewModels
         public void RegeneratePolygon()
         {
             HexMapDrawing.UpdateAndFillHexPolygon(Polygon, Column, Row, CellSize, Color, Bitmap);
+        }
+
+        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Broadcast Events
+            Messenger.Default.Send(
+                new HexClickedLeftButtonMessage
+                {
+                    Column = Column,
+                    Row = Row
+                });
+        }
+
+        private void MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Broadcast Events
+            Messenger.Default.Send(
+                new HexClickedRightButtonMessage
+                {
+                    Column = Column,
+                    Row = Row
+                });
         }
     }
 }

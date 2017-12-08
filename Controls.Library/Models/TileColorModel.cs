@@ -5,11 +5,17 @@ namespace Controls.Library.Models
 {
     public class TileColorModel
     {
+        private string _id { get; set; }
         private string _name;
         private byte _alpha;
         private byte _blue;
         private byte _green;
         private byte _red;
+
+        public string Id
+        {
+            get { return _id; }
+        }
 
         public string Name
         {
@@ -40,6 +46,7 @@ namespace Controls.Library.Models
 
         public TileColorModel(TileColor tileColor)
         {
+            _id = tileColor.Id;
             _name = tileColor.Name;
             _alpha = tileColor.Alpha;
             _red = tileColor.Red;

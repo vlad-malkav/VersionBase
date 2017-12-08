@@ -1,14 +1,11 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Shapes;
-using Controls.Library.Annotations;
+﻿using Controls.Library.Events;
+using MyToolkit.Messaging;
+using MyToolkit.Model;
 using VersionBase.Libraries.Hexes;
-using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
-    public class HexModel : INotifyPropertyChanged
+    public class HexModel : ObservableObject
     {
         private string _text;
         private int _column;
@@ -34,13 +31,13 @@ namespace Controls.Library.Models
         public TileColorModel TileColorModel
         {
             get { return _tileColorModel; }
-            set { _tileColorModel = value; OnPropertyChanged("TileColorModel"); }
+            set { _tileColorModel = value; RaisePropertyChanged("TileColorModel"); }
         }
 
         public TileImageTypeModel TileImageTypeModel
         {
             get { return _tileImageTypeModel; }
-            set { _tileImageTypeModel = value; OnPropertyChanged("TileImageTypeModel"); }
+            set { _tileImageTypeModel = value; RaisePropertyChanged("TileImageTypeModel"); }
         }
 
         public HexModel() { }
@@ -52,14 +49,24 @@ namespace Controls.Library.Models
             _row = hexData.Row;
             _tileColorModel = new TileColorModel(hexData.TileData.TileColor);
             _tileImageTypeModel = new TileImageTypeModel(hexData.TileData.TileImageType);
+            PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(HexModel_PropertyChanged);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        void HexModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var ttt = this;
+            // Broadcast Events
+            Messenger.Default.Send(
+                new HexModelUpdatedMessage
+                {
+                    HexModel = (HexModel) sender
+                });
+            /*HexModel hexModel = (HexModel) sender;
+            if (e.PropertyName == "TileColorModel" || e.PropertyName == "TileImageTypeModel")
+            {
+                var selectedHexViewModel = HexMapViewModel.GetHexViewModel(hexModel.Column, hexModel.Row);
+                selectedHexViewModel.UpdateTileData(hexModel.TileColorModel.GetDrawingColor(), hexModel.TileImageTypeModel.GetBitmap());
+            }*/
         }
     }
 }

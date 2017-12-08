@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Controls.Library.Annotations;
+using Controls.Library.Events;
 using Controls.Library.Models;
-using VersionBase.Libraries.Tiles;
+using MyToolkit.Messaging;
+using MyToolkit.Mvvm;
 
 namespace Controls.Library.ViewModels
 {
-    public class TileEditorViewModel : INotifyPropertyChanged
+    public class TileEditorViewModel : ViewModelBase // from MyToolkit
     {
         public List<TileImageTypeViewModel> ListTileImageTypeViewModel { get; set; }
         private TileImageTypeViewModel _selectedTileImageTypeModel;
@@ -19,7 +16,7 @@ namespace Controls.Library.ViewModels
         {
             get { return _selectedTileImageTypeModel; }
             set { _selectedTileImageTypeModel = value;
-                OnPropertyChanged("SelectedTileImageTypeViewModel");
+                RaisePropertyChanged("SelectedTileImageTypeViewModel");
             }
         }
 
@@ -29,36 +26,41 @@ namespace Controls.Library.ViewModels
         {
             get { return _selectedTileColorViewModel; }
             set { _selectedTileColorViewModel = value;
-                OnPropertyChanged("SelectedTileColorViewModel");
+                RaisePropertyChanged("SelectedTileColorViewModel");
             }
         }
 
         public TileEditorViewModel() { }
 
-        public TileEditorViewModel(TileEditorModel tileEditorModel)
+        public void ApplyModel(TileEditorModel tileEditorModel)
         {
             ListTileColorViewModel = tileEditorModel.ListTileColorModel.Select(x => new TileColorViewModel(x)).ToList();
             SelectedTileColorViewModel = ListTileColorViewModel.First();
             ListTileImageTypeViewModel = tileEditorModel.ListTileImageTypeModel.Select(x => new TileImageTypeViewModel(x)).ToList();
             SelectedTileImageTypeViewModel = ListTileImageTypeViewModel.First();
+            Messenger.Default.Register<GetSelectedColorImageIdsRequestMessage>(this, GetSelectedColorImageIdsRequestMessageFunction);
+            Messenger.Default.Register<SetSelectedColorImageIdsRequestMessage>(this, SetSelectedColorImageIdsRequestMessageFunction); 
         }
 
-        public TileColorViewModel GetTileColorViewModel(string name)
+        private void GetSelectedColorImageIdsRequestMessageFunction(GetSelectedColorImageIdsRequestMessage msg)
         {
-            return ListTileColorViewModel.FirstOrDefault(x => x.Name == name);
+            msg.CallSuccessCallback(new Tuple<string, string>(SelectedTileColorViewModel.Id, SelectedTileImageTypeViewModel.Id));
         }
 
-        public TileImageTypeViewModel GetTileImageTypeViewModel(string name)
+        private void SetSelectedColorImageIdsRequestMessageFunction(SetSelectedColorImageIdsRequestMessage msg)
         {
-            return ListTileImageTypeViewModel.FirstOrDefault(x => x.Name == name);
+            SelectedTileColorViewModel = GetTileColorViewModelFromId(msg.TileColorModelId);
+            SelectedTileImageTypeViewModel = GetTileImageTypeViewModelFromId(msg.TileImageTypeModelId);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public TileColorViewModel GetTileColorViewModelFromId(string id)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            return ListTileColorViewModel.FirstOrDefault(x => x.Id == id);
+        }
+
+        public TileImageTypeViewModel GetTileImageTypeViewModelFromId(string id)
+        {
+            return ListTileImageTypeViewModel.FirstOrDefault(x => x.Id == id);
         }
     }
 }

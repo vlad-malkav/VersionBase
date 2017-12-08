@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Media.Imaging;
 using Controls.Library.Models;
+using MyToolkit.Mvvm;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.ViewModels
 {
-    public class TileImageTypeViewModel
+    public class TileImageTypeViewModel : ViewModelBase // from MyToolkit
     {
+        private string _id;
+
+        public string Id
+        {
+            get { return _id; }
+        }
+
         public string Name { get; set; }
         public string NameLower { get; set; }
         public BitmapImage Bitmap { get; set; }
@@ -21,6 +24,7 @@ namespace Controls.Library.ViewModels
 
         public TileImageTypeViewModel(TileImageTypeModel tileImageTypeModel)
         {
+            _id = tileImageTypeModel.Id;
             Name = tileImageTypeModel.Name;
             NameLower = tileImageTypeModel.NameLower;
             Bitmap = GetBitmapImage();

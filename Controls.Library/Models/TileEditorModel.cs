@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Controls.Library.Events;
+using MyToolkit.Messaging;
 using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
@@ -16,16 +16,24 @@ namespace Controls.Library.Models
         {
             ListTileColorModel = listTileColor.Select(x => new TileColorModel(x)).ToList();
             ListTileImageTypeModel = listTileImageType.Select(x => new TileImageTypeModel(x)).ToList();
+            Messenger.Default.Register<GetTileColorTileImageTypeModelsFromIdRequestMessage>(this, RequestSelectedColorImageIds);
         }
 
-        public TileColorModel GetTileColorModel(string name)
+        private void RequestSelectedColorImageIds(GetTileColorTileImageTypeModelsFromIdRequestMessage msg)
         {
-            return ListTileColorModel.FirstOrDefault(x => x.Name == name);
+            msg.CallSuccessCallback(new Tuple<TileColorModel, TileImageTypeModel>(
+                GetTileColorModelFromId(msg.TileColorModelId),
+                GetTileImageTypeModelFromId(msg.TileImageTypeModelId)));
         }
 
-        public TileImageTypeModel GetTileImageTypeModel(string name)
+        public TileColorModel GetTileColorModelFromId(string id)
         {
-            return ListTileImageTypeModel.FirstOrDefault(x => x.Name == name);
+            return ListTileColorModel.FirstOrDefault(x => x.Id == id);
+        }
+
+        public TileImageTypeModel GetTileImageTypeModelFromId(string id)
+        {
+            return ListTileImageTypeModel.FirstOrDefault(x => x.Id == id);
         }
     }
 }
