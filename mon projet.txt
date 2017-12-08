@@ -27,21 +27,21 @@ Roadmap :
 * [X] Ajouter les Ressources > Images dans le projet (où ?), et les utiliser (path relatif)
 * [X] Interface UI : afficher le type de terrain sélectionné sur clic droit (sélectionner dans listes ?)
 * [ ] Lire https://blog.rsuter.com/recommendations-best-practices-implementing-mvvm-xaml-net-applications/
-** [ ] Mettre en place une ViewModelBase et une INotifyPropertyChanged base classes, qui implémentent les fonctions nécessaires
+** [X] Mettre en place une ViewModelBase et une INotifyPropertyChanged base classes, qui implémentent les fonctions nécessaires
 ** [X] Toujours assigner le ViewModel en DataContext
-** [ ] Sa logique de commande
-** [ ] Ne pas set le datacontext par binding dans xaml qui instancie la vue; Cf son code
+** [X] Ajouter Mytoolkit au projet : https://github.com/RSuter/MyToolkit/blob/master/README.md - le récupérer par NuGet
+** [ ] Sa logique de commande ==> Menu ?
+** [X] Ne pas set le datacontext par binding dans xaml qui instancie la vue; Cf son code ==> méthode perso : get set vm dans le view, view.viewmodel = xxx pour le rajouter
 ** [ ] VM Constr ss param appelé dans VS *, donc need fct Initialize
 ** [ ] View lien VM via ServiceLocator
-** [ ] Explorer sa méthode de comm' pr message, surtout callback !
-** [ ] Chaque binding doit être typé
-** [ ] 
-** [ ] 
+** [ ] Explorer sa méthode de comm' pr message, surtout callback ! => à mettre en place d'abord dans le clic sur polygon pour les échanges
+** [X] Le choix entre user control et templated control peut attendre d'avoir plusieurs applications
 * [ ] Interface UI : Menu en haut
 ** [X] Première implémentation
 ** [ ] Menu en haut : récupérer le bouton cliqué , Sinon une fonction différente par bouton 
 ** [ ] Menu en haut : à partir de là, mieux lier menuitem et fonction associée, peut-être un constructeur avec Model ?
 ** [ ] Menu en haut : Le Model doit comporter la Command qui va être associée, de façon à ce que dans le code MainWindow je puisse les définir
+* [ ] Lien Models <=> Data : on récupère Data, on créée les Models, mais met-on à jour Data quand Model change ? Idéalement, V => VM => M
 * [ ] ABSOLUMENT : un système pour gérer toutes ces commandes lancées de partout. On va possiblement devoir disposer de classes supplémentaires pour composer l'application
 * [ ] Checkbox Edit Mode
 * [ ] Récupération enum par string (pour BDD)
