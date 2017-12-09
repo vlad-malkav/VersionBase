@@ -18,10 +18,12 @@ G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Version
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Version Base.exe
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Version Base.pdb
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Controls.Library.dll
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\MyToolkit.dll
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Prism.dll
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\VersionBase.Libraries.dll
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Controls.Library.pdb
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\VersionBase.Libraries.pdb
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\MyToolkit.xml
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Prism.xml
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.csprojResolveAssemblyReference.cache
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\MainWindow.baml
@@ -35,3 +37,7 @@ G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.csproj.CoreCompileInputs.cache
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.exe
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.pdb
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Views\GameView.g.cs
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\GeneratedInternalTypeHelper.g.cs
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base_MarkupCompile.lref
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Views\GameView.baml

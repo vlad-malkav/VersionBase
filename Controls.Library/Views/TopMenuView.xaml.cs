@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using Controls.Library.ViewModels;
 
 namespace Controls.Library.Views
 {
@@ -10,6 +11,15 @@ namespace Controls.Library.Views
         public TopMenuView()
         {
             InitializeComponent();
+        }
+
+        public TopMenuViewModel ViewModel
+        {
+            get { return (TopMenuViewModel)Resources["ViewModel"]; }
+            set
+            {
+                Resources["ViewModel"] = value;
+            }
         }
     }
 }

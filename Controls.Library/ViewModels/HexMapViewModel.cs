@@ -25,11 +25,11 @@ namespace Controls.Library.ViewModels
             ListPolygon = new ObservableCollection<UIElement>();
         }
 
-        public void ApplyModel(HexMapModel hexMapModel)
+        public void ApplyModel(HexMapModel hexMapModel, double width, double height, double cellSize)
         {
-            Width = hexMapModel.Width;
-            Height = hexMapModel.Height;
-            CellSize = hexMapModel.CellSize;
+            Width = width;
+            Height = height;
+            CellSize = cellSize;
             Columns = hexMapModel.Rows;
             Rows = hexMapModel.Rows;
             ListHexViewModel = hexMapModel.ListHexModel.Select(x => new HexViewModel(x, CellSize)).ToList();

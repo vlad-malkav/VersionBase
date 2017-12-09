@@ -10,21 +10,15 @@ namespace Controls.Library.Models
     {
         public int Columns { get; set; }
         public int Rows { get; set; }
-        public double CellSize { get; set; }
         public List<HexModel> ListHexModel { get; set; }
-        public double Width { get; set; }
-        public double Height { get; set; }
 
         public HexMapModel()
         {
             ListHexModel = new List<HexModel>();
         }
 
-        public HexMapModel(HexMapData hexMapData, double width, double height, double cellSize)
+        public void ImportData(HexMapData hexMapData)
         {
-            Width = width;
-            Height = height;
-            CellSize = cellSize;
             Columns = hexMapData.Columns;
             Rows = hexMapData.Rows;
             ListHexModel = hexMapData.ListHexData.Select(x => new HexModel(x)).ToList();

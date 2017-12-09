@@ -11,12 +11,12 @@
     </UserControl.Resources>
 
     <Grid DataContext="{DynamicResource ViewModel}">
-    <ItemsControl ItemsSource="{Binding ListPolygon}">
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" Background="Aqua" Width="{Binding Width}" Height="{Binding Height}"/>
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-    </ItemsControl>
+        <ItemsControl ItemsSource="{Binding ListPolygon}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="Aqua" Width="{Binding Width}" Height="{Binding Height}"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </Grid>
 </UserControl>

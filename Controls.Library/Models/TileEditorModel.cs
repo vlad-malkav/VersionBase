@@ -12,11 +12,19 @@ namespace Controls.Library.Models
         public List<TileColorModel> ListTileColorModel { get; set; }
         public List<TileImageTypeModel> ListTileImageTypeModel { get; set; }
 
-        public TileEditorModel(List<TileColor> listTileColor, List<TileImageType> listTileImageType)
+        public TileEditorModel()
+        {
+            Messenger.Default.Register<GetTileColorTileImageTypeModelsFromIdRequestMessage>(this, RequestSelectedColorImageIds);
+        }
+
+        public void ImportListTileColor(List<TileColor> listTileColor)
         {
             ListTileColorModel = listTileColor.Select(x => new TileColorModel(x)).ToList();
+        }
+
+        public void ImportListTileImageType(List<TileImageType> listTileImageType)
+        {
             ListTileImageTypeModel = listTileImageType.Select(x => new TileImageTypeModel(x)).ToList();
-            Messenger.Default.Register<GetTileColorTileImageTypeModelsFromIdRequestMessage>(this, RequestSelectedColorImageIds);
         }
 
         private void RequestSelectedColorImageIds(GetTileColorTileImageTypeModelsFromIdRequestMessage msg)

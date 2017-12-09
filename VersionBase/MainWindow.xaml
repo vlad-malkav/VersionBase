@@ -2,29 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:Controls.Library.Views;assembly=Controls.Library"
-        Title="Honeycomb" Height="400" Width="500" Loaded="Window_Loaded" ResizeMode="CanResize">
+        xmlns:views="clr-namespace:VersionBase.Views"
+        Title="Honeycomb" Height="400" Width="500" Loaded="Window_Loaded" ResizeMode="CanResize" x:Name="Main" >
 
-    <DockPanel>
-        <controls:TopMenuView DockPanel.Dock="Top" x:Name="TopMenuViewControl" DataContext="{Binding TopMenuViewModel}"/>
-    <Grid>
-        <Grid.Resources>
-            <ResourceDictionary Source="Themes/SimpleStyle.xaml"/>
-        </Grid.Resources>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid Width="200">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-                <controls:TileEditorView Grid.Row="0" x:Name="TileEditorViewControl" Height="Auto" VerticalAlignment="Top"/>
-        </Grid>
-        <Grid Grid.Column="1" x:Name="Main" Margin="5,5,5,0" Height="Auto" Width="300" HorizontalAlignment="Right" Background="Gray">
-            <controls:HexMapView x:Name="HexMapViewControl"/>
-        </Grid>
-    </Grid>
-
-    </DockPanel>
+    <views:GameView x:Name="GameViewControl"/>
 </Window>

@@ -33,19 +33,20 @@ Roadmap :
 ** [ ] Sa logique de commande ==> Menu ?
 ** [X] Ne pas set le datacontext par binding dans xaml qui instancie la vue; Cf son code ==> méthode perso : get set vm dans le view, view.viewmodel = xxx pour le rajouter
 ** [ ] VM Constr ss param appelé dans VS *, donc need fct Initialize
-** [ ] View lien VM via ServiceLocator
+** [ ] View lien VM via ServiceLocator (pour les services seulement)
 ** [ ] Explorer sa méthode de comm' pr message, surtout callback ! => à mettre en place d'abord dans le clic sur polygon pour les échanges
 ** [X] Le choix entre user control et templated control peut attendre d'avoir plusieurs applications
 * [ ] Interface UI : Menu en haut
 ** [X] Première implémentation
-** [ ] Menu en haut : récupérer le bouton cliqué , Sinon une fonction différente par bouton 
+** [X] Menu en haut : récupérer le bouton cliqué , Sinon une fonction différente par bouton 
 ** [ ] Menu en haut : à partir de là, mieux lier menuitem et fonction associée, peut-être un constructeur avec Model ?
-** [ ] Menu en haut : Le Model doit comporter la Command qui va être associée, de façon à ce que dans le code MainWindow je puisse les définir
+** [ ] Menu en haut : command = msg ou  Le Model doit comporter la Command qui va être associée, de façon à ce que dans le code MainWindow je puisse les définir
+** [ ] Menu en haut : un enum pour les éléments de menu ? en lien avec model ? (pas urgent)
 * [ ] Lien Models <=> Data : on récupère Data, on créée les Models, mais met-on à jour Data quand Model change ? Idéalement, V => VM => M
 * [ ] ABSOLUMENT : un système pour gérer toutes ces commandes lancées de partout. On va possiblement devoir disposer de classes supplémentaires pour composer l'application
 * [ ] Checkbox Edit Mode
 * [ ] Récupération enum par string (pour BDD)
-* [ ] Faire un MVVM pour la Carte
+* [X] Faire un MVVM pour la Carte
 * [ ] Faire un MVVM pour l'Interface Gauche
 * [ ] Faire un MVVM pour l'Interface Droite
 * [ ] Dessiner Rivière, route
@@ -55,9 +56,7 @@ Roadmap :
 * [ ] Regénération d'une carte (avec demande dimensions)
 * [ ] Créer un objet TileSet, contenant la liste des types de terrain, référencé dans Map ?
 * [ ] Ajouter toutes les tiles d'origine dans l'objet TileSet (interface ?), et en faire une version pour chaque set de tiles que j'ai, et faire un Enum + ue fonction pour récupérer le bon
-* [ ] Sauvegarde / rechargement de Map
-** [ ] Par Sérialisation
-** [ ] Par BDD
+* [ ] Sauvegarde / rechargement de Map par Sérialisation
 
 https://blog.rsuter.com/recommendations-best-practices-implementing-mvvm-xaml-net-applications/
 

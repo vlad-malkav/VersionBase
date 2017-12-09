@@ -12,39 +12,25 @@ namespace Controls.Library.ViewModels
     {
         public string Header { get; set; }
 
-        public List<MenuItemViewModel> MenuOptions
-        {
-            get
-            {
-                var menu = new List<MenuItemViewModel>();
-                if (ListStringTest.Count > 0)
-                {
-                    var mi = new MenuItemViewModel("O_pen");
-                    foreach (var fl in ListStringTest)
-                    {
-                        menu.Add(new MenuItemViewModel(fl)
-                            { Command = new MyICommand(OnClickSurTruc) });
-                    }
-                    menu.Add(mi);
-                }
-
-
-                menu.Add(new MenuItemViewModel("VisualStyleElement.ToolTip.Close _All") { Command = new MyICommand(OnClickSurMachin) });
-                return menu;
-            }
-        }
-        public List<string> ListStringTest { get; set; }
-
-        public BitmapImage Image { get; set; }
+        public List<MenuItemViewModel> ListMenuItemViewModel { get; set; }
 
         public TopMenuViewModel()
         {
-            ListStringTest = new List<string>();
-            ListStringTest.Add("A");
-            ListStringTest.Add("B");
-            ListStringTest.Add("V");
+            ListMenuItemViewModel = new List<MenuItemViewModel>();
+        }
+
+        public void ApplyModel()
+        {
             Header = "head head";
-            Image = HexMapDrawing.GenerateTileBitmapImage(Color.LightGreen, TileImageTypes.GetBitmapTile("empty"));
+            MenuItemViewModel menuFichier = new MenuItemViewModel("Fichier");
+            menuFichier.ListMenuItemViewModel.Add(new MenuItemViewModel("New"));
+            menuFichier.ListMenuItemViewModel.Add(new MenuItemViewModel("Load"));
+            menuFichier.ListMenuItemViewModel.Add(new MenuItemViewModel("Save"));
+            menuFichier.ListMenuItemViewModel.Add(new MenuItemViewModel("Quit"));
+            ListMenuItemViewModel.Add(menuFichier);
+            MenuItemViewModel menuOptions = new MenuItemViewModel("Options");
+            menuOptions.ListMenuItemViewModel.Add(new MenuItemViewModel("Option1"));
+            ListMenuItemViewModel.Add(menuOptions);
         }
 
         public void OnClickSurTruc()

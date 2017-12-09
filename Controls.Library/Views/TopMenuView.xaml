@@ -9,14 +9,16 @@
         <viewModels:TopMenuViewModel x:Key="ViewModel"/>
     </UserControl.Resources>
 
-    <Menu DataContext="{DynamicResource ViewModel}">
-        <MenuItem Header="{Binding Header}" ItemsSource="{Binding MenuOptions}">
-            <MenuItem.ItemContainerStyle>
-                <Style TargetType="MenuItem">
-                    <Setter Property="Header" Value="{Binding Text}" />
-                    <Setter Property="Command" Value="{Binding Command}"/>
+        <Menu DataContext="{DynamicResource ViewModel}" ItemsSource="{Binding ListMenuItemViewModel}">
+            <Menu.ItemContainerStyle>
+                <Style TargetType="{x:Type MenuItem}">
+                    <Setter Property="Command" Value="{Binding Command}" />
                 </Style>
-            </MenuItem.ItemContainerStyle>
-        </MenuItem>
-    </Menu>
+            </Menu.ItemContainerStyle>
+            <Menu.ItemTemplate>
+            <HierarchicalDataTemplate DataType="{x:Type viewModels:MenuItemViewModel}" ItemsSource="{Binding Path=ListMenuItemViewModel}">
+                    <TextBlock Text="{Binding Header}"/>
+                </HierarchicalDataTemplate>
+            </Menu.ItemTemplate>
+        </Menu>
 </UserControl>

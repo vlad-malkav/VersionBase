@@ -1,19 +1,32 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
+using Controls.Library.Commands;
+using Controls.Library.Events;
+using MyToolkit.Messaging;
 using MyToolkit.Mvvm;
 
 namespace Controls.Library.ViewModels
 {
     public class MenuItemViewModel : ViewModelBase
     {
-        public string Text { get; set; }
-        public List<MenuItemViewModel> Children { get; private set; }
+        public string Header { get; set; }
+        public List<MenuItemViewModel> ListMenuItemViewModel { get; set; }
         public ICommand Command { get; set; }
 
-        public MenuItemViewModel(string item)
+        public MenuItemViewModel()
         {
-            Text = item;
-            Children = new List<MenuItemViewModel>();
+            ListMenuItemViewModel = new List<MenuItemViewModel>();
+        }
+
+        public MenuItemViewModel(string header)
+            : this()
+        {
+            Header = header;
+            Command = new MyICommand(() => Messenger.Default.Send(
+                new MenuItemClickedMessage
+                {
+                    Name = header
+                }));
         }
     }
 }

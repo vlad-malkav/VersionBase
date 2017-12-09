@@ -42,4 +42,9 @@ namespace Controls.Library.Events
     {
         public HexModel HexModel { get; set; }
     }
+
+    public class MenuItemClickedMessage
+    {
+        public string Name { get; set; }
+    }
 }
