@@ -26,37 +26,44 @@ Roadmap :
 * [X] Possibilité d'écouter le changement d'une donnée dans le ViewModel ? Comme un Selected, dans le setter ?
 * [X] Ajouter les Ressources > Images dans le projet (où ?), et les utiliser (path relatif)
 * [X] Interface UI : afficher le type de terrain sélectionné sur clic droit (sélectionner dans listes ?)
-* [ ] Lire https://blog.rsuter.com/recommendations-best-practices-implementing-mvvm-xaml-net-applications/
+* [X] Lire https://blog.rsuter.com/recommendations-best-practices-implementing-mvvm-xaml-net-applications/
 ** [X] Mettre en place une ViewModelBase et une INotifyPropertyChanged base classes, qui implémentent les fonctions nécessaires
 ** [X] Toujours assigner le ViewModel en DataContext
 ** [X] Ajouter Mytoolkit au projet : https://github.com/RSuter/MyToolkit/blob/master/README.md - le récupérer par NuGet
-** [ ] Sa logique de commande ==> Menu ?
+** [X] Sa logique de commande ==> Menu ?
 ** [X] Ne pas set le datacontext par binding dans xaml qui instancie la vue; Cf son code ==> méthode perso : get set vm dans le view, view.viewmodel = xxx pour le rajouter
-** [ ] VM Constr ss param appelé dans VS *, donc need fct Initialize
-** [ ] View lien VM via ServiceLocator (pour les services seulement)
-** [ ] Explorer sa méthode de comm' pr message, surtout callback ! => à mettre en place d'abord dans le clic sur polygon pour les échanges
+** [X] Explorer sa méthode de comm' pr message, surtout callback ! => à mettre en place d'abord dans le clic sur polygon pour les échanges
 ** [X] Le choix entre user control et templated control peut attendre d'avoir plusieurs applications
 * [ ] Interface UI : Menu en haut
 ** [X] Première implémentation
 ** [X] Menu en haut : récupérer le bouton cliqué , Sinon une fonction différente par bouton 
-** [ ] Menu en haut : à partir de là, mieux lier menuitem et fonction associée, peut-être un constructeur avec Model ?
-** [ ] Menu en haut : command = msg ou  Le Model doit comporter la Command qui va être associée, de façon à ce que dans le code MainWindow je puisse les définir
-** [ ] Menu en haut : un enum pour les éléments de menu ? en lien avec model ? (pas urgent)
-* [ ] Lien Models <=> Data : on récupère Data, on créée les Models, mais met-on à jour Data quand Model change ? Idéalement, V => VM => M
-* [ ] ABSOLUMENT : un système pour gérer toutes ces commandes lancées de partout. On va possiblement devoir disposer de classes supplémentaires pour composer l'application
+** [X] Menu en haut : command = msg
+** [ ] Menu en haut : gérer la structure du menu par un fichier de configuration ? Clairement pas urgent
+* [X] Lien Models <=> Data : on récupère Data, on créée les Models, mais met-on à jour Data quand Model change ? Idéalement, V => VM => M
+* [X] ABSOLUMENT : un système pour gérer toutes ces commandes lancées de partout. On va possiblement devoir disposer de classes supplémentaires pour composer l'application. On a déjà le système des EventMessage d'un côté, EventLogic de l'autre. Il faudrait rassembler les fonctions ainsi : EventMessage les messages, EventLogic les liens EventMessage / GameLogic, et GameLogic les fonctions
+* [X] Sauvegarde / rechargement de Map par Sérialisation
 * [ ] Checkbox Edit Mode
-* [ ] Récupération enum par string (pour BDD)
+* [ ] Préparation passage BDD
+** [ ] Récupération enum par string (pour BDD)
+** [ ] Fichier "constant" pour les couleurs et les images, gestion par ID
 * [X] Faire un MVVM pour la Carte
-* [ ] Faire un MVVM pour l'Interface Gauche
-* [ ] Faire un MVVM pour l'Interface Droite
-* [ ] Dessiner Rivière, route
-* [ ] Sélection Rivière, route
-* [ ] Rivière : possibilité d'identifier les hexagones où elle passe ? La direction ?
+* [ ] Faire un MVVM pour l'Interface Gauche (LeftPanel) (au lieu de TileEditor)
+** [ ] UserControl LeftPanel (simple pour le moment)
+** [ ] Rajouter un champ de texte contenant la Description
+* [ ] Rivières et Routes
+** [ ] Réfléchir à comment enregistrer les données de localisation des points d'une rivière. Possiblement s'organiser avec les points centraux comme référence, et des fonctions de traduction
+** [ ] River(Data,Model,ViewModel,View)
+** [ ] Road(Data,Model,ViewModel,View)
+** [ ] Dessiner Rivière, route
+** [ ] Sélection Rivière, route
+** [ ] Rivière : possibilité d'identifier les hexagones où elle passe ? La direction ?
 * [ ] Au lancement, demander dimensions (et type terrain de base ?)
 * [ ] Regénération d'une carte (avec demande dimensions)
 * [ ] Créer un objet TileSet, contenant la liste des types de terrain, référencé dans Map ?
 * [ ] Ajouter toutes les tiles d'origine dans l'objet TileSet (interface ?), et en faire une version pour chaque set de tiles que j'ai, et faire un Enum + ue fonction pour récupérer le bon
-* [ ] Sauvegarde / rechargement de Map par Sérialisation
+* [ ] Séparer les fonctions de Save / Load / New dans un autre fichier
+* [ ] Redimensionnement avec boutons +/-
+* [ ] Redimensionnement en cas de redimensionnement de fenêtre
 
 https://blog.rsuter.com/recommendations-best-practices-implementing-mvvm-xaml-net-applications/
 

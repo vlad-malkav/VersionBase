@@ -61,7 +61,7 @@ namespace VersionBase.Libraries.Hexes
                 {
                     TileData tileData = new TileData(new TileColor(Color.LightGreen),
                         listTileImageType[tileTypeCurrent++ % listTileImageType.Count]);
-                    HexData hexDataTmp = new HexData(col, row, "-", tileData);
+                    HexData hexDataTmp = new HexData(col, row, "2", tileData);
                     listHexData.Add(hexDataTmp);
                 }
             }

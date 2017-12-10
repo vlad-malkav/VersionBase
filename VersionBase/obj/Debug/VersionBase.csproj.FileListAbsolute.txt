@@ -14,6 +14,14 @@ G:\Games\RPG\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.csproj.Gen
 G:\Games\RPG\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.csproj.CoreCompileInputs.cache
 G:\Games\RPG\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.exe
 G:\Games\RPG\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.pdb
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.csprojResolveAssemblyReference.cache
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Themes\SimpleStyle.baml
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\MainWindow.g.cs
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Views\GameView.g.cs
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\App.g.cs
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\GeneratedInternalTypeHelper.g.cs
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base_MarkupCompile.cache
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base_MarkupCompile.lref
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Version Base.exe.config
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Version Base.exe
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Version Base.pdb
@@ -25,19 +33,11 @@ G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Control
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\VersionBase.Libraries.pdb
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\MyToolkit.xml
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\bin\Debug\Prism.xml
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.csprojResolveAssemblyReference.cache
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\MainWindow.baml
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Themes\SimpleStyle.baml
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\MainWindow.g.cs
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\App.g.cs
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base_MarkupCompile.cache
+G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Views\GameView.baml
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.g.resources
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.Properties.Resources.resources
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.csproj.GenerateResource.Cache
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.csproj.CoreCompileInputs.cache
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.exe
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.pdb
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Views\GameView.g.cs
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\GeneratedInternalTypeHelper.g.cs
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base_MarkupCompile.lref
-G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Views\GameView.baml

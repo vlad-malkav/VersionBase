@@ -38,6 +38,14 @@ namespace Controls.Library.Events
         public int Row { get; set; }
     }
 
+    public class UpdateColorImageModelsFromIdsMessage
+    {
+        public int Column { get; set; }
+        public int Row { get; set; }
+        public string TileColorModelId { get; set; }
+        public string TileImageTypeModelId { get; set; }
+    }
+
     public class HexModelUpdatedMessage
     {
         public HexModel HexModel { get; set; }
@@ -46,5 +54,20 @@ namespace Controls.Library.Events
     public class MenuItemClickedMessage
     {
         public string Name { get; set; }
+    }
+
+    public class LoadMessage
+    {
+
+    }
+
+    public class SaveMessage
+    {
+
+    }
+
+    public class QuitMessage
+    {
+
     }
 }

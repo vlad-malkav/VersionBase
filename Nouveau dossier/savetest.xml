@@ -1,0 +1,3039 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ListTileColor>
+    <TileColor>
+      <Id>Color [ActiveBorder]</Id>
+      <Name>Color [ActiveBorder]</Name>
+      <Alpha>255</Alpha>
+      <Red>180</Red>
+      <Green>180</Green>
+      <Blue>180</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ActiveCaption]</Id>
+      <Name>Color [ActiveCaption]</Name>
+      <Alpha>255</Alpha>
+      <Red>153</Red>
+      <Green>180</Green>
+      <Blue>209</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ActiveCaptionText]</Id>
+      <Name>Color [ActiveCaptionText]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [AppWorkspace]</Id>
+      <Name>Color [AppWorkspace]</Name>
+      <Alpha>255</Alpha>
+      <Red>171</Red>
+      <Green>171</Green>
+      <Blue>171</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Control]</Id>
+      <Name>Color [Control]</Name>
+      <Alpha>255</Alpha>
+      <Red>240</Red>
+      <Green>240</Green>
+      <Blue>240</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ControlDark]</Id>
+      <Name>Color [ControlDark]</Name>
+      <Alpha>255</Alpha>
+      <Red>160</Red>
+      <Green>160</Green>
+      <Blue>160</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ControlDarkDark]</Id>
+      <Name>Color [ControlDarkDark]</Name>
+      <Alpha>255</Alpha>
+      <Red>105</Red>
+      <Green>105</Green>
+      <Blue>105</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ControlLight]</Id>
+      <Name>Color [ControlLight]</Name>
+      <Alpha>255</Alpha>
+      <Red>227</Red>
+      <Green>227</Green>
+      <Blue>227</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ControlLightLight]</Id>
+      <Name>Color [ControlLightLight]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ControlText]</Id>
+      <Name>Color [ControlText]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Desktop]</Id>
+      <Name>Color [Desktop]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [GrayText]</Id>
+      <Name>Color [GrayText]</Name>
+      <Alpha>255</Alpha>
+      <Red>109</Red>
+      <Green>109</Green>
+      <Blue>109</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Highlight]</Id>
+      <Name>Color [Highlight]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>120</Green>
+      <Blue>215</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [HighlightText]</Id>
+      <Name>Color [HighlightText]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [HotTrack]</Id>
+      <Name>Color [HotTrack]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>102</Green>
+      <Blue>204</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [InactiveBorder]</Id>
+      <Name>Color [InactiveBorder]</Name>
+      <Alpha>255</Alpha>
+      <Red>244</Red>
+      <Green>247</Green>
+      <Blue>252</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [InactiveCaption]</Id>
+      <Name>Color [InactiveCaption]</Name>
+      <Alpha>255</Alpha>
+      <Red>191</Red>
+      <Green>205</Green>
+      <Blue>219</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [InactiveCaptionText]</Id>
+      <Name>Color [InactiveCaptionText]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Info]</Id>
+      <Name>Color [Info]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>225</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [InfoText]</Id>
+      <Name>Color [InfoText]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Menu]</Id>
+      <Name>Color [Menu]</Name>
+      <Alpha>255</Alpha>
+      <Red>240</Red>
+      <Green>240</Green>
+      <Blue>240</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MenuText]</Id>
+      <Name>Color [MenuText]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ScrollBar]</Id>
+      <Name>Color [ScrollBar]</Name>
+      <Alpha>255</Alpha>
+      <Red>200</Red>
+      <Green>200</Green>
+      <Blue>200</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Window]</Id>
+      <Name>Color [Window]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [WindowFrame]</Id>
+      <Name>Color [WindowFrame]</Name>
+      <Alpha>255</Alpha>
+      <Red>100</Red>
+      <Green>100</Green>
+      <Blue>100</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [WindowText]</Id>
+      <Name>Color [WindowText]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Transparent]</Id>
+      <Name>Color [Transparent]</Name>
+      <Alpha>0</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [AliceBlue]</Id>
+      <Name>Color [AliceBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>240</Red>
+      <Green>248</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [AntiqueWhite]</Id>
+      <Name>Color [AntiqueWhite]</Name>
+      <Alpha>255</Alpha>
+      <Red>250</Red>
+      <Green>235</Green>
+      <Blue>215</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Aqua]</Id>
+      <Name>Color [Aqua]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Aquamarine]</Id>
+      <Name>Color [Aquamarine]</Name>
+      <Alpha>255</Alpha>
+      <Red>127</Red>
+      <Green>255</Green>
+      <Blue>212</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Azure]</Id>
+      <Name>Color [Azure]</Name>
+      <Alpha>255</Alpha>
+      <Red>240</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Beige]</Id>
+      <Name>Color [Beige]</Name>
+      <Alpha>255</Alpha>
+      <Red>245</Red>
+      <Green>245</Green>
+      <Blue>220</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Bisque]</Id>
+      <Name>Color [Bisque]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>228</Green>
+      <Blue>196</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Black]</Id>
+      <Name>Color [Black]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [BlanchedAlmond]</Id>
+      <Name>Color [BlanchedAlmond]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>235</Green>
+      <Blue>205</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Blue]</Id>
+      <Name>Color [Blue]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [BlueViolet]</Id>
+      <Name>Color [BlueViolet]</Name>
+      <Alpha>255</Alpha>
+      <Red>138</Red>
+      <Green>43</Green>
+      <Blue>226</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Brown]</Id>
+      <Name>Color [Brown]</Name>
+      <Alpha>255</Alpha>
+      <Red>165</Red>
+      <Green>42</Green>
+      <Blue>42</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [BurlyWood]</Id>
+      <Name>Color [BurlyWood]</Name>
+      <Alpha>255</Alpha>
+      <Red>222</Red>
+      <Green>184</Green>
+      <Blue>135</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [CadetBlue]</Id>
+      <Name>Color [CadetBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>95</Red>
+      <Green>158</Green>
+      <Blue>160</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Chartreuse]</Id>
+      <Name>Color [Chartreuse]</Name>
+      <Alpha>255</Alpha>
+      <Red>127</Red>
+      <Green>255</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Chocolate]</Id>
+      <Name>Color [Chocolate]</Name>
+      <Alpha>255</Alpha>
+      <Red>210</Red>
+      <Green>105</Green>
+      <Blue>30</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Coral]</Id>
+      <Name>Color [Coral]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>127</Green>
+      <Blue>80</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [CornflowerBlue]</Id>
+      <Name>Color [CornflowerBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>100</Red>
+      <Green>149</Green>
+      <Blue>237</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Cornsilk]</Id>
+      <Name>Color [Cornsilk]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>248</Green>
+      <Blue>220</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Crimson]</Id>
+      <Name>Color [Crimson]</Name>
+      <Alpha>255</Alpha>
+      <Red>220</Red>
+      <Green>20</Green>
+      <Blue>60</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Cyan]</Id>
+      <Name>Color [Cyan]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkBlue]</Id>
+      <Name>Color [DarkBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>139</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkCyan]</Id>
+      <Name>Color [DarkCyan]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>139</Green>
+      <Blue>139</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkGoldenrod]</Id>
+      <Name>Color [DarkGoldenrod]</Name>
+      <Alpha>255</Alpha>
+      <Red>184</Red>
+      <Green>134</Green>
+      <Blue>11</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkGray]</Id>
+      <Name>Color [DarkGray]</Name>
+      <Alpha>255</Alpha>
+      <Red>169</Red>
+      <Green>169</Green>
+      <Blue>169</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkGreen]</Id>
+      <Name>Color [DarkGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>100</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkKhaki]</Id>
+      <Name>Color [DarkKhaki]</Name>
+      <Alpha>255</Alpha>
+      <Red>189</Red>
+      <Green>183</Green>
+      <Blue>107</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkMagenta]</Id>
+      <Name>Color [DarkMagenta]</Name>
+      <Alpha>255</Alpha>
+      <Red>139</Red>
+      <Green>0</Green>
+      <Blue>139</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkOliveGreen]</Id>
+      <Name>Color [DarkOliveGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>85</Red>
+      <Green>107</Green>
+      <Blue>47</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkOrange]</Id>
+      <Name>Color [DarkOrange]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>140</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkOrchid]</Id>
+      <Name>Color [DarkOrchid]</Name>
+      <Alpha>255</Alpha>
+      <Red>153</Red>
+      <Green>50</Green>
+      <Blue>204</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkRed]</Id>
+      <Name>Color [DarkRed]</Name>
+      <Alpha>255</Alpha>
+      <Red>139</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkSalmon]</Id>
+      <Name>Color [DarkSalmon]</Name>
+      <Alpha>255</Alpha>
+      <Red>233</Red>
+      <Green>150</Green>
+      <Blue>122</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkSeaGreen]</Id>
+      <Name>Color [DarkSeaGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>143</Red>
+      <Green>188</Green>
+      <Blue>139</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkSlateBlue]</Id>
+      <Name>Color [DarkSlateBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>72</Red>
+      <Green>61</Green>
+      <Blue>139</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkSlateGray]</Id>
+      <Name>Color [DarkSlateGray]</Name>
+      <Alpha>255</Alpha>
+      <Red>47</Red>
+      <Green>79</Green>
+      <Blue>79</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkTurquoise]</Id>
+      <Name>Color [DarkTurquoise]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>206</Green>
+      <Blue>209</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DarkViolet]</Id>
+      <Name>Color [DarkViolet]</Name>
+      <Alpha>255</Alpha>
+      <Red>148</Red>
+      <Green>0</Green>
+      <Blue>211</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DeepPink]</Id>
+      <Name>Color [DeepPink]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>20</Green>
+      <Blue>147</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DeepSkyBlue]</Id>
+      <Name>Color [DeepSkyBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>191</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DimGray]</Id>
+      <Name>Color [DimGray]</Name>
+      <Alpha>255</Alpha>
+      <Red>105</Red>
+      <Green>105</Green>
+      <Blue>105</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [DodgerBlue]</Id>
+      <Name>Color [DodgerBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>30</Red>
+      <Green>144</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Firebrick]</Id>
+      <Name>Color [Firebrick]</Name>
+      <Alpha>255</Alpha>
+      <Red>178</Red>
+      <Green>34</Green>
+      <Blue>34</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [FloralWhite]</Id>
+      <Name>Color [FloralWhite]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>250</Green>
+      <Blue>240</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ForestGreen]</Id>
+      <Name>Color [ForestGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>34</Red>
+      <Green>139</Green>
+      <Blue>34</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Fuchsia]</Id>
+      <Name>Color [Fuchsia]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>0</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Gainsboro]</Id>
+      <Name>Color [Gainsboro]</Name>
+      <Alpha>255</Alpha>
+      <Red>220</Red>
+      <Green>220</Green>
+      <Blue>220</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [GhostWhite]</Id>
+      <Name>Color [GhostWhite]</Name>
+      <Alpha>255</Alpha>
+      <Red>248</Red>
+      <Green>248</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Gold]</Id>
+      <Name>Color [Gold]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>215</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Goldenrod]</Id>
+      <Name>Color [Goldenrod]</Name>
+      <Alpha>255</Alpha>
+      <Red>218</Red>
+      <Green>165</Green>
+      <Blue>32</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Gray]</Id>
+      <Name>Color [Gray]</Name>
+      <Alpha>255</Alpha>
+      <Red>128</Red>
+      <Green>128</Green>
+      <Blue>128</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Green]</Id>
+      <Name>Color [Green]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>128</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [GreenYellow]</Id>
+      <Name>Color [GreenYellow]</Name>
+      <Alpha>255</Alpha>
+      <Red>173</Red>
+      <Green>255</Green>
+      <Blue>47</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Honeydew]</Id>
+      <Name>Color [Honeydew]</Name>
+      <Alpha>255</Alpha>
+      <Red>240</Red>
+      <Green>255</Green>
+      <Blue>240</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [HotPink]</Id>
+      <Name>Color [HotPink]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>105</Green>
+      <Blue>180</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [IndianRed]</Id>
+      <Name>Color [IndianRed]</Name>
+      <Alpha>255</Alpha>
+      <Red>205</Red>
+      <Green>92</Green>
+      <Blue>92</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Indigo]</Id>
+      <Name>Color [Indigo]</Name>
+      <Alpha>255</Alpha>
+      <Red>75</Red>
+      <Green>0</Green>
+      <Blue>130</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Ivory]</Id>
+      <Name>Color [Ivory]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>240</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Khaki]</Id>
+      <Name>Color [Khaki]</Name>
+      <Alpha>255</Alpha>
+      <Red>240</Red>
+      <Green>230</Green>
+      <Blue>140</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Lavender]</Id>
+      <Name>Color [Lavender]</Name>
+      <Alpha>255</Alpha>
+      <Red>230</Red>
+      <Green>230</Green>
+      <Blue>250</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LavenderBlush]</Id>
+      <Name>Color [LavenderBlush]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>240</Green>
+      <Blue>245</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LawnGreen]</Id>
+      <Name>Color [LawnGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>124</Red>
+      <Green>252</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LemonChiffon]</Id>
+      <Name>Color [LemonChiffon]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>250</Green>
+      <Blue>205</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightBlue]</Id>
+      <Name>Color [LightBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>173</Red>
+      <Green>216</Green>
+      <Blue>230</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightCoral]</Id>
+      <Name>Color [LightCoral]</Name>
+      <Alpha>255</Alpha>
+      <Red>240</Red>
+      <Green>128</Green>
+      <Blue>128</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightCyan]</Id>
+      <Name>Color [LightCyan]</Name>
+      <Alpha>255</Alpha>
+      <Red>224</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightGoldenrodYellow]</Id>
+      <Name>Color [LightGoldenrodYellow]</Name>
+      <Alpha>255</Alpha>
+      <Red>250</Red>
+      <Green>250</Green>
+      <Blue>210</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightGray]</Id>
+      <Name>Color [LightGray]</Name>
+      <Alpha>255</Alpha>
+      <Red>211</Red>
+      <Green>211</Green>
+      <Blue>211</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightGreen]</Id>
+      <Name>Color [LightGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>144</Red>
+      <Green>238</Green>
+      <Blue>144</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightPink]</Id>
+      <Name>Color [LightPink]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>182</Green>
+      <Blue>193</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightSalmon]</Id>
+      <Name>Color [LightSalmon]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>160</Green>
+      <Blue>122</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightSeaGreen]</Id>
+      <Name>Color [LightSeaGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>32</Red>
+      <Green>178</Green>
+      <Blue>170</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightSkyBlue]</Id>
+      <Name>Color [LightSkyBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>135</Red>
+      <Green>206</Green>
+      <Blue>250</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightSlateGray]</Id>
+      <Name>Color [LightSlateGray]</Name>
+      <Alpha>255</Alpha>
+      <Red>119</Red>
+      <Green>136</Green>
+      <Blue>153</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightSteelBlue]</Id>
+      <Name>Color [LightSteelBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>176</Red>
+      <Green>196</Green>
+      <Blue>222</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LightYellow]</Id>
+      <Name>Color [LightYellow]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>224</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Lime]</Id>
+      <Name>Color [Lime]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>255</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [LimeGreen]</Id>
+      <Name>Color [LimeGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>50</Red>
+      <Green>205</Green>
+      <Blue>50</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Linen]</Id>
+      <Name>Color [Linen]</Name>
+      <Alpha>255</Alpha>
+      <Red>250</Red>
+      <Green>240</Green>
+      <Blue>230</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Magenta]</Id>
+      <Name>Color [Magenta]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>0</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Maroon]</Id>
+      <Name>Color [Maroon]</Name>
+      <Alpha>255</Alpha>
+      <Red>128</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MediumAquamarine]</Id>
+      <Name>Color [MediumAquamarine]</Name>
+      <Alpha>255</Alpha>
+      <Red>102</Red>
+      <Green>205</Green>
+      <Blue>170</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MediumBlue]</Id>
+      <Name>Color [MediumBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>205</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MediumOrchid]</Id>
+      <Name>Color [MediumOrchid]</Name>
+      <Alpha>255</Alpha>
+      <Red>186</Red>
+      <Green>85</Green>
+      <Blue>211</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MediumPurple]</Id>
+      <Name>Color [MediumPurple]</Name>
+      <Alpha>255</Alpha>
+      <Red>147</Red>
+      <Green>112</Green>
+      <Blue>219</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MediumSeaGreen]</Id>
+      <Name>Color [MediumSeaGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>60</Red>
+      <Green>179</Green>
+      <Blue>113</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MediumSlateBlue]</Id>
+      <Name>Color [MediumSlateBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>123</Red>
+      <Green>104</Green>
+      <Blue>238</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MediumSpringGreen]</Id>
+      <Name>Color [MediumSpringGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>250</Green>
+      <Blue>154</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MediumTurquoise]</Id>
+      <Name>Color [MediumTurquoise]</Name>
+      <Alpha>255</Alpha>
+      <Red>72</Red>
+      <Green>209</Green>
+      <Blue>204</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MediumVioletRed]</Id>
+      <Name>Color [MediumVioletRed]</Name>
+      <Alpha>255</Alpha>
+      <Red>199</Red>
+      <Green>21</Green>
+      <Blue>133</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MidnightBlue]</Id>
+      <Name>Color [MidnightBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>25</Red>
+      <Green>25</Green>
+      <Blue>112</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MintCream]</Id>
+      <Name>Color [MintCream]</Name>
+      <Alpha>255</Alpha>
+      <Red>245</Red>
+      <Green>255</Green>
+      <Blue>250</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MistyRose]</Id>
+      <Name>Color [MistyRose]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>228</Green>
+      <Blue>225</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Moccasin]</Id>
+      <Name>Color [Moccasin]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>228</Green>
+      <Blue>181</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [NavajoWhite]</Id>
+      <Name>Color [NavajoWhite]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>222</Green>
+      <Blue>173</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Navy]</Id>
+      <Name>Color [Navy]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>128</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [OldLace]</Id>
+      <Name>Color [OldLace]</Name>
+      <Alpha>255</Alpha>
+      <Red>253</Red>
+      <Green>245</Green>
+      <Blue>230</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Olive]</Id>
+      <Name>Color [Olive]</Name>
+      <Alpha>255</Alpha>
+      <Red>128</Red>
+      <Green>128</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [OliveDrab]</Id>
+      <Name>Color [OliveDrab]</Name>
+      <Alpha>255</Alpha>
+      <Red>107</Red>
+      <Green>142</Green>
+      <Blue>35</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Orange]</Id>
+      <Name>Color [Orange]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>165</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [OrangeRed]</Id>
+      <Name>Color [OrangeRed]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>69</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Orchid]</Id>
+      <Name>Color [Orchid]</Name>
+      <Alpha>255</Alpha>
+      <Red>218</Red>
+      <Green>112</Green>
+      <Blue>214</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [PaleGoldenrod]</Id>
+      <Name>Color [PaleGoldenrod]</Name>
+      <Alpha>255</Alpha>
+      <Red>238</Red>
+      <Green>232</Green>
+      <Blue>170</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [PaleGreen]</Id>
+      <Name>Color [PaleGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>152</Red>
+      <Green>251</Green>
+      <Blue>152</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [PaleTurquoise]</Id>
+      <Name>Color [PaleTurquoise]</Name>
+      <Alpha>255</Alpha>
+      <Red>175</Red>
+      <Green>238</Green>
+      <Blue>238</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [PaleVioletRed]</Id>
+      <Name>Color [PaleVioletRed]</Name>
+      <Alpha>255</Alpha>
+      <Red>219</Red>
+      <Green>112</Green>
+      <Blue>147</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [PapayaWhip]</Id>
+      <Name>Color [PapayaWhip]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>239</Green>
+      <Blue>213</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [PeachPuff]</Id>
+      <Name>Color [PeachPuff]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>218</Green>
+      <Blue>185</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Peru]</Id>
+      <Name>Color [Peru]</Name>
+      <Alpha>255</Alpha>
+      <Red>205</Red>
+      <Green>133</Green>
+      <Blue>63</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Pink]</Id>
+      <Name>Color [Pink]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>192</Green>
+      <Blue>203</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Plum]</Id>
+      <Name>Color [Plum]</Name>
+      <Alpha>255</Alpha>
+      <Red>221</Red>
+      <Green>160</Green>
+      <Blue>221</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [PowderBlue]</Id>
+      <Name>Color [PowderBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>176</Red>
+      <Green>224</Green>
+      <Blue>230</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Purple]</Id>
+      <Name>Color [Purple]</Name>
+      <Alpha>255</Alpha>
+      <Red>128</Red>
+      <Green>0</Green>
+      <Blue>128</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Red]</Id>
+      <Name>Color [Red]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [RosyBrown]</Id>
+      <Name>Color [RosyBrown]</Name>
+      <Alpha>255</Alpha>
+      <Red>188</Red>
+      <Green>143</Green>
+      <Blue>143</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [RoyalBlue]</Id>
+      <Name>Color [RoyalBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>65</Red>
+      <Green>105</Green>
+      <Blue>225</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [SaddleBrown]</Id>
+      <Name>Color [SaddleBrown]</Name>
+      <Alpha>255</Alpha>
+      <Red>139</Red>
+      <Green>69</Green>
+      <Blue>19</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Salmon]</Id>
+      <Name>Color [Salmon]</Name>
+      <Alpha>255</Alpha>
+      <Red>250</Red>
+      <Green>128</Green>
+      <Blue>114</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [SandyBrown]</Id>
+      <Name>Color [SandyBrown]</Name>
+      <Alpha>255</Alpha>
+      <Red>244</Red>
+      <Green>164</Green>
+      <Blue>96</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [SeaGreen]</Id>
+      <Name>Color [SeaGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>46</Red>
+      <Green>139</Green>
+      <Blue>87</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [SeaShell]</Id>
+      <Name>Color [SeaShell]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>245</Green>
+      <Blue>238</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Sienna]</Id>
+      <Name>Color [Sienna]</Name>
+      <Alpha>255</Alpha>
+      <Red>160</Red>
+      <Green>82</Green>
+      <Blue>45</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Silver]</Id>
+      <Name>Color [Silver]</Name>
+      <Alpha>255</Alpha>
+      <Red>192</Red>
+      <Green>192</Green>
+      <Blue>192</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [SkyBlue]</Id>
+      <Name>Color [SkyBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>135</Red>
+      <Green>206</Green>
+      <Blue>235</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [SlateBlue]</Id>
+      <Name>Color [SlateBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>106</Red>
+      <Green>90</Green>
+      <Blue>205</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [SlateGray]</Id>
+      <Name>Color [SlateGray]</Name>
+      <Alpha>255</Alpha>
+      <Red>112</Red>
+      <Green>128</Green>
+      <Blue>144</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Snow]</Id>
+      <Name>Color [Snow]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>250</Green>
+      <Blue>250</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [SpringGreen]</Id>
+      <Name>Color [SpringGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>255</Green>
+      <Blue>127</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [SteelBlue]</Id>
+      <Name>Color [SteelBlue]</Name>
+      <Alpha>255</Alpha>
+      <Red>70</Red>
+      <Green>130</Green>
+      <Blue>180</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Tan]</Id>
+      <Name>Color [Tan]</Name>
+      <Alpha>255</Alpha>
+      <Red>210</Red>
+      <Green>180</Green>
+      <Blue>140</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Teal]</Id>
+      <Name>Color [Teal]</Name>
+      <Alpha>255</Alpha>
+      <Red>0</Red>
+      <Green>128</Green>
+      <Blue>128</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Thistle]</Id>
+      <Name>Color [Thistle]</Name>
+      <Alpha>255</Alpha>
+      <Red>216</Red>
+      <Green>191</Green>
+      <Blue>216</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Tomato]</Id>
+      <Name>Color [Tomato]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>99</Green>
+      <Blue>71</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Turquoise]</Id>
+      <Name>Color [Turquoise]</Name>
+      <Alpha>255</Alpha>
+      <Red>64</Red>
+      <Green>224</Green>
+      <Blue>208</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Violet]</Id>
+      <Name>Color [Violet]</Name>
+      <Alpha>255</Alpha>
+      <Red>238</Red>
+      <Green>130</Green>
+      <Blue>238</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Wheat]</Id>
+      <Name>Color [Wheat]</Name>
+      <Alpha>255</Alpha>
+      <Red>245</Red>
+      <Green>222</Green>
+      <Blue>179</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [White]</Id>
+      <Name>Color [White]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [WhiteSmoke]</Id>
+      <Name>Color [WhiteSmoke]</Name>
+      <Alpha>255</Alpha>
+      <Red>245</Red>
+      <Green>245</Green>
+      <Blue>245</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [Yellow]</Id>
+      <Name>Color [Yellow]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>0</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [YellowGreen]</Id>
+      <Name>Color [YellowGreen]</Name>
+      <Alpha>255</Alpha>
+      <Red>154</Red>
+      <Green>205</Green>
+      <Blue>50</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ButtonFace]</Id>
+      <Name>Color [ButtonFace]</Name>
+      <Alpha>255</Alpha>
+      <Red>240</Red>
+      <Green>240</Green>
+      <Blue>240</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ButtonHighlight]</Id>
+      <Name>Color [ButtonHighlight]</Name>
+      <Alpha>255</Alpha>
+      <Red>255</Red>
+      <Green>255</Green>
+      <Blue>255</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [ButtonShadow]</Id>
+      <Name>Color [ButtonShadow]</Name>
+      <Alpha>255</Alpha>
+      <Red>160</Red>
+      <Green>160</Green>
+      <Blue>160</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [GradientActiveCaption]</Id>
+      <Name>Color [GradientActiveCaption]</Name>
+      <Alpha>255</Alpha>
+      <Red>185</Red>
+      <Green>209</Green>
+      <Blue>234</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [GradientInactiveCaption]</Id>
+      <Name>Color [GradientInactiveCaption]</Name>
+      <Alpha>255</Alpha>
+      <Red>215</Red>
+      <Green>228</Green>
+      <Blue>242</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MenuBar]</Id>
+      <Name>Color [MenuBar]</Name>
+      <Alpha>255</Alpha>
+      <Red>240</Red>
+      <Green>240</Green>
+      <Blue>240</Blue>
+    </TileColor>
+    <TileColor>
+      <Id>Color [MenuHighlight]</Id>
+      <Name>Color [MenuHighlight]</Name>
+      <Alpha>255</Alpha>
+      <Red>51</Red>
+      <Green>153</Green>
+      <Blue>255</Blue>
+    </TileColor>
+  </ListTileColor>
+  <ListTileImageType>
+    <TileImageType>empty</TileImageType>
+    <TileImageType>badlands</TileImageType>
+    <TileImageType>cactus</TileImageType>
+    <TileImageType>cultivatedfarmland</TileImageType>
+    <TileImageType>deadforest</TileImageType>
+    <TileImageType>deadforesthills</TileImageType>
+    <TileImageType>deadforestmountain</TileImageType>
+    <TileImageType>deadforestmountains</TileImageType>
+    <TileImageType>dunes</TileImageType>
+    <TileImageType>evergreen</TileImageType>
+    <TileImageType>evergreenhills</TileImageType>
+    <TileImageType>evergreenmountain</TileImageType>
+    <TileImageType>evergreenmountains</TileImageType>
+    <TileImageType>forestedhills</TileImageType>
+    <TileImageType>forestedmountain</TileImageType>
+    <TileImageType>forestedmountains</TileImageType>
+    <TileImageType>grassland</TileImageType>
+    <TileImageType>grassyhills</TileImageType>
+    <TileImageType>heavycactus</TileImageType>
+    <TileImageType>heavyevergreen</TileImageType>
+    <TileImageType>heavyforest</TileImageType>
+    <TileImageType>hills</TileImageType>
+    <TileImageType>jungle</TileImageType>
+    <TileImageType>junglehills</TileImageType>
+    <TileImageType>lightforest</TileImageType>
+    <TileImageType>marsh</TileImageType>
+    <TileImageType>mountain</TileImageType>
+    <TileImageType>mountains</TileImageType>
+    <TileImageType>reefs</TileImageType>
+    <TileImageType>rockydesert</TileImageType>
+    <TileImageType>sandydesert</TileImageType>
+    <TileImageType>swamp</TileImageType>
+    <TileImageType>volcano</TileImageType>
+    <TileImageType>volcanodormant</TileImageType>
+  </ListTileImageType>
+  <HexMapData>
+    <Columns>10</Columns>
+    <Rows>10</Rows>
+    <ListHexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>badlands</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>cactus</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>cultivatedfarmland</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforest</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforesthills</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforestmountain</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforestmountains</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>dunes</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreen</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>0</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreenhills</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreenmountain</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreenmountains</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>forestedhills</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>forestedmountain</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>forestedmountains</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>grassland</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>grassyhills</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>heavycactus</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>heavyevergreen</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>1</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>heavyforest</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>hills</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>jungle</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>junglehills</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>lightforest</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>marsh</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>mountain</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>mountains</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>reefs</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>rockydesert</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>2</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>sandydesert</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>swamp</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>volcano</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=180, G=180, B=180]</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Alpha>255</Alpha>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=180, G=180, B=180]</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Alpha>255</Alpha>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>badlands</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=180, G=180, B=180]</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Alpha>255</Alpha>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>cultivatedfarmland</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforest</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforesthills</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>3</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforestmountain</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforestmountains</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=180, G=180, B=180]</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Alpha>255</Alpha>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreen</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=180, G=180, B=180]</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Alpha>255</Alpha>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreenmountain</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreenmountains</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>forestedhills</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>forestedmountain</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>forestedmountains</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>4</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>grassland</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>grassyhills</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>heavycactus</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>heavyevergreen</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>heavyforest</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=180, G=180, B=180]</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Alpha>255</Alpha>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>jungle</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>junglehills</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>lightforest</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>marsh</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>5</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>mountain</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>mountains</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>reefs</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>rockydesert</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>sandydesert</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>swamp</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>volcano</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=180, G=180, B=180]</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Alpha>255</Alpha>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>badlands</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>6</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>cactus</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>cultivatedfarmland</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforest</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforesthills</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforestmountain</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>deadforestmountains</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>dunes</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreen</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreenhills</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreenmountain</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>7</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>evergreenmountains</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>forestedhills</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>forestedmountain</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=180, G=180, B=180]</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Alpha>255</Alpha>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>grassland</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>grassyhills</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>heavycactus</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=180, G=180, B=180]</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Alpha>255</Alpha>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
+          </TileColor>
+          <TileImageType>empty</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>heavyforest</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>hills</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>8</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>jungle</TileImageType>
+        </TileData>
+        <Column>0</Column>
+        <Row>9</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>junglehills</TileImageType>
+        </TileData>
+        <Column>1</Column>
+        <Row>9</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>lightforest</TileImageType>
+        </TileData>
+        <Column>2</Column>
+        <Row>9</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>marsh</TileImageType>
+        </TileData>
+        <Column>3</Column>
+        <Row>9</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>mountain</TileImageType>
+        </TileData>
+        <Column>4</Column>
+        <Row>9</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>mountains</TileImageType>
+        </TileData>
+        <Column>5</Column>
+        <Row>9</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>reefs</TileImageType>
+        </TileData>
+        <Column>6</Column>
+        <Row>9</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>rockydesert</TileImageType>
+        </TileData>
+        <Column>7</Column>
+        <Row>9</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>sandydesert</TileImageType>
+        </TileData>
+        <Column>8</Column>
+        <Row>9</Row>
+      </HexData>
+      <HexData>
+        <Text>2</Text>
+        <TileData>
+          <TileColor>
+            <Id>Color [A=255, R=144, G=238, B=144]</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Alpha>255</Alpha>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColor>
+          <TileImageType>swamp</TileImageType>
+        </TileData>
+        <Column>9</Column>
+        <Row>9</Row>
+      </HexData>
+    </ListHexData>
+  </HexMapData>
+</GameData>

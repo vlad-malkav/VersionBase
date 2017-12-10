@@ -35,6 +35,12 @@ namespace Controls.Library.ViewModels
             UpdateFromHexModel(hexModel);
         }
 
+        public void UnsubscribePolygonEvents()
+        {
+            Polygon.MouseLeftButtonDown -= MouseLeftButtonDown;
+            Polygon.MouseRightButtonDown -= MouseRightButtonDown;
+        }
+
         public void UpdateFromHexModel(HexModel hexModel)
         {
             Text = hexModel.Text;
@@ -60,10 +66,12 @@ namespace Controls.Library.ViewModels
         public void RegeneratePolygon()
         {
             HexMapDrawing.UpdateAndFillHexPolygon(Polygon, Column, Row, CellSize, Color, Bitmap);
+            Polygon.Tag = Text;
         }
 
         private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            object tag = ((Polygon) sender).Tag;
             // Broadcast Events
             Messenger.Default.Send(
                 new HexClickedLeftButtonMessage

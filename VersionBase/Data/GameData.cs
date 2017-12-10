@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Controls.Library.Models;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
+using VersionBase.Model;
 
 namespace VersionBase.Data
 {
@@ -21,25 +23,32 @@ namespace VersionBase.Data
             ColCount = 10;
             ListTileColor = TileColors.GetAllTileColors();
             ListTileImageType = TileImageTypes.GetAllTileImageTypes();
-            HexMapData = null;
+            HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);
+        }
 
-            //Generate the hex map
-            try
-            {
-                XmlSerializer xs = new XmlSerializer(typeof(HexMapData));
-                using (var sr = new StreamReader(Environment.CurrentDirectory + "\\garage.xml"))
-                {
-                    HexMapData = (HexMapData)xs.Deserialize(sr);
-                }
-            }
-            catch (Exception)
-            {
-            }
+        public void SaveGameModel(GameModel gameModel, GameData gameData)
+        {
+            SaveHexMapModel(gameModel.HexMapModel, gameData.HexMapData);
+        }
 
-            if (HexMapData == null || HexMapData.Columns != ColCount || HexMapData.Rows != RowCount)
+        public void SaveHexMapModel(HexMapModel hexMapModel, HexMapData hexMapData)
+        {
+            foreach (var hexModel in hexMapModel.ListHexModel)
             {
-                HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);
+                HexData hexData = hexMapData.GetHexData(hexModel.Column, hexModel.Row);
+                SaveHexModel(hexModel, hexData);
             }
+        }
+
+        public void SaveHexModel(HexModel hexModel, HexData hexData)
+        {
+            hexData.TileData.TileColor = new TileColor(hexModel.TileColorModel.GetDrawingColor());
+            TileImageType tileImageType;
+            if (Enum.TryParse(hexModel.TileImageTypeModel.Id, out tileImageType))
+            {
+                hexData.TileData.TileImageType = tileImageType;
+            }
+            hexData.Text = hexModel.Text;
         }
     }
 }

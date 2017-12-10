@@ -30,16 +30,30 @@ namespace Controls.Library.ViewModels
             }
         }
 
-        public TileEditorViewModel() { }
+        public TileEditorViewModel()
+        {
+            ListTileColorViewModel = new List<TileColorViewModel>();
+            ListTileImageTypeViewModel = new List<TileImageTypeViewModel>();
+        }
 
         public void ApplyModel(TileEditorModel tileEditorModel)
         {
-            ListTileColorViewModel = tileEditorModel.ListTileColorModel.Select(x => new TileColorViewModel(x)).ToList();
+            Messenger.Default.Deregister<GetSelectedColorImageIdsRequestMessage>(this, GetSelectedColorImageIdsRequestMessageFunction);
+            Messenger.Default.Deregister<SetSelectedColorImageIdsRequestMessage>(this, SetSelectedColorImageIdsRequestMessageFunction);
+            ListTileColorViewModel.Clear();
+            foreach (var tileColorModel in tileEditorModel.ListTileColorModel)
+            {
+                ListTileColorViewModel.Add(new TileColorViewModel(tileColorModel));
+            }
             SelectedTileColorViewModel = ListTileColorViewModel.First();
-            ListTileImageTypeViewModel = tileEditorModel.ListTileImageTypeModel.Select(x => new TileImageTypeViewModel(x)).ToList();
+            ListTileImageTypeViewModel.Clear();
+            foreach (var tileImageTypeModel in tileEditorModel.ListTileImageTypeModel)
+            {
+                ListTileImageTypeViewModel.Add(new TileImageTypeViewModel(tileImageTypeModel));
+            }
             SelectedTileImageTypeViewModel = ListTileImageTypeViewModel.First();
             Messenger.Default.Register<GetSelectedColorImageIdsRequestMessage>(this, GetSelectedColorImageIdsRequestMessageFunction);
-            Messenger.Default.Register<SetSelectedColorImageIdsRequestMessage>(this, SetSelectedColorImageIdsRequestMessageFunction); 
+            Messenger.Default.Register<SetSelectedColorImageIdsRequestMessage>(this, SetSelectedColorImageIdsRequestMessageFunction);
         }
 
         private void GetSelectedColorImageIdsRequestMessageFunction(GetSelectedColorImageIdsRequestMessage msg)

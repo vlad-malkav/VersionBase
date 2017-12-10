@@ -1,38 +1,67 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 using Controls.Library.Events;
 using MyToolkit.Messaging;
 using VersionBase.Libraries.Hexes;
+using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
     public class HexMapModel
     {
-        public int Columns { get; set; }
-        public int Rows { get; set; }
-        public List<HexModel> ListHexModel { get; set; }
+        private int _columns;
+        private int _rows;
+        private List<HexModel> _listHexModel;
+
+        public int Columns
+        {
+            get { return _columns; }
+        }
+
+        public int Rows
+        {
+            get { return _rows; }
+        }
+
+        public List<HexModel> ListHexModel
+        {
+            get { return _listHexModel; }
+        }
 
         public HexMapModel()
         {
-            ListHexModel = new List<HexModel>();
+            _listHexModel = new List<HexModel>();
         }
 
         public void ImportData(HexMapData hexMapData)
         {
-            Columns = hexMapData.Columns;
-            Rows = hexMapData.Rows;
-            ListHexModel = hexMapData.ListHexData.Select(x => new HexModel(x)).ToList();
+            Messenger.Default.Deregister<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
+            _columns = hexMapData.Columns;
+            _rows = hexMapData.Rows;
+            _listHexModel.Clear();
+            foreach (var hexData in hexMapData.ListHexData)
+            {
+                _listHexModel.Add(new HexModel(hexData));
+            }
             Messenger.Default.Register<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
-        }
-
-        private void GetHexModelFromPositionRequestMessageFunction(GetHexModelFromPositionRequestMessage msg)
-        {
-            msg.CallSuccessCallback(GetHexModel(msg.Column, msg.Row));
         }
 
         public HexModel GetHexModel(int column, int row)
         {
             return ListHexModel.FirstOrDefault(x => x.Column == column && x.Row == row);
+        }
+
+        public void UpdateHexModel(int column, int row, TileColorModel tileColorModel, TileImageTypeModel tileImageTypeModel)
+        {
+            HexModel hexModel = GetHexModel(column, row);
+            hexModel.UpdateColorImageTypeModels(tileColorModel, tileImageTypeModel);
+        }
+
+        private void GetHexModelFromPositionRequestMessageFunction(GetHexModelFromPositionRequestMessage msg)
+        {
+            msg.CallSuccessCallback(GetHexModel(msg.Column, msg.Row));
         }
     }
 }

@@ -27,19 +27,34 @@ namespace Controls.Library.ViewModels
 
         public void ApplyModel(HexMapModel hexMapModel, double width, double height, double cellSize)
         {
+            Messenger.Default.Deregister<HexModelUpdatedMessage>(this, HexModelUpdatedMessageFunction);
             Width = width;
             Height = height;
             CellSize = cellSize;
             Columns = hexMapModel.Rows;
             Rows = hexMapModel.Rows;
-            ListHexViewModel = hexMapModel.ListHexModel.Select(x => new HexViewModel(x, CellSize)).ToList();
-            ListPolygon = new ObservableCollection<UIElement>(ListHexViewModel.Select(x => x.Polygon));
+            foreach (var hexViewModel in ListHexViewModel)
+            {
+                hexViewModel.UnsubscribePolygonEvents();
+            }
+            ListHexViewModel.Clear();
+            ListPolygon.Clear();
+            foreach (var hexModel in hexMapModel.ListHexModel)
+            {
+                ListHexViewModel.Add(new HexViewModel(hexModel, CellSize));
+            }
+            foreach (var hexViewModel in ListHexViewModel)
+            {
+                ListPolygon.Add(hexViewModel.Polygon);
+            }
             Messenger.Default.Register<HexModelUpdatedMessage>(this, HexModelUpdatedMessageFunction);
         }
 
         private void HexModelUpdatedMessageFunction(HexModelUpdatedMessage msgHexModelUpdatedMessage)
         {
-            GetHexViewModel(msgHexModelUpdatedMessage.HexModel.Column, msgHexModelUpdatedMessage.HexModel.Row).UpdateFromHexModel(msgHexModelUpdatedMessage.HexModel);
+            var hexViewModel = GetHexViewModel(msgHexModelUpdatedMessage.HexModel.Column, msgHexModelUpdatedMessage.HexModel.Row);
+            if(hexViewModel != null)
+                hexViewModel.UpdateFromHexModel(msgHexModelUpdatedMessage.HexModel);
         }
 
         public HexViewModel GetHexViewModel(int column, int row)

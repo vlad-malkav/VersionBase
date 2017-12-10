@@ -1,7 +1,10 @@
-﻿using Controls.Library.Events;
+﻿using System;
+using System.Windows.Media;
+using Controls.Library.Events;
 using MyToolkit.Messaging;
 using MyToolkit.Model;
 using VersionBase.Libraries.Hexes;
+using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
@@ -31,25 +34,11 @@ namespace Controls.Library.Models
         public TileColorModel TileColorModel
         {
             get { return _tileColorModel; }
-            set { _tileColorModel = value;
-                Messenger.Default.Send(
-                new HexModelUpdatedMessage
-                {
-                    HexModel = this
-                });
-            }
         }
 
         public TileImageTypeModel TileImageTypeModel
         {
             get { return _tileImageTypeModel; }
-            set { _tileImageTypeModel = value;
-                Messenger.Default.Send(
-                    new HexModelUpdatedMessage
-                    {
-                        HexModel = this
-                    });
-            }
         }
 
         public HexModel() { }
@@ -61,6 +50,18 @@ namespace Controls.Library.Models
             _row = hexData.Row;
             _tileColorModel = new TileColorModel(hexData.TileData.TileColor);
             _tileImageTypeModel = new TileImageTypeModel(hexData.TileData.TileImageType);
+        }
+
+        public void UpdateColorImageTypeModels(TileColorModel tileColorModel, TileImageTypeModel tileImageTypeModel)
+        {
+            _tileColorModel = tileColorModel;
+            _tileImageTypeModel = tileImageTypeModel;
+
+            Messenger.Default.Send(
+                new HexModelUpdatedMessage
+                {
+                    HexModel = this
+                });
         }
     }
 }

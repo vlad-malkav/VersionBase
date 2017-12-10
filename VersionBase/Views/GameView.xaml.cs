@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Controls.Library.Annotations;
 using VersionBase.ViewModels;
 
 namespace VersionBase.Views
@@ -19,7 +22,7 @@ namespace VersionBase.Views
     /// <summary>
     /// Interaction logic for GameView.xaml
     /// </summary>
-    public partial class GameView : UserControl
+    public partial class GameView : UserControl, INotifyPropertyChanged
     {
         public GameView()
         {
@@ -36,6 +39,14 @@ namespace VersionBase.Views
                 HexMapViewControl.ViewModel = value.HexMapViewModel;
                 TopMenuViewControl.ViewModel = value.TopMenuViewModel;
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

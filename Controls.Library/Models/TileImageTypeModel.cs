@@ -5,17 +5,32 @@ namespace Controls.Library.Models
 {
     public class TileImageTypeModel
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string NameLower { get; set; }
+        private string _id;
+        private string _name;
+        private string _nameLower;
+
+        public string Id
+        {
+            get { return _id; }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+        }
+
+        public string NameLower
+        {
+            get { return _nameLower; }
+        }
 
         public TileImageTypeModel() { }
 
         public TileImageTypeModel(TileImageType tileImageType)
         {
-            Id = tileImageType.ToString();
-            NameLower = tileImageType.ToString();
-            Name = tileImageType.ToString().ToUpper();
+            _id = tileImageType.ToString();
+            _nameLower = tileImageType.ToString();
+            _name = tileImageType.ToString().ToUpper();
         }
 
         public Bitmap GetBitmap()

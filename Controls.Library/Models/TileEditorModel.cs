@@ -9,29 +9,41 @@ namespace Controls.Library.Models
 {
     public class TileEditorModel
     {
-        public List<TileColorModel> ListTileColorModel { get; set; }
-        public List<TileImageTypeModel> ListTileImageTypeModel { get; set; }
+        private List<TileColorModel> _listTileColorModel;
+        private List<TileImageTypeModel> _listTileImageTypeModel;
+
+        public List<TileColorModel> ListTileColorModel
+        {
+            get { return _listTileColorModel; }
+        }
+
+        public List<TileImageTypeModel> ListTileImageTypeModel
+        {
+            get { return _listTileImageTypeModel; }
+        }
 
         public TileEditorModel()
         {
-            Messenger.Default.Register<GetTileColorTileImageTypeModelsFromIdRequestMessage>(this, RequestSelectedColorImageIds);
+            _listTileColorModel = new List<TileColorModel>();
+            _listTileImageTypeModel = new List<TileImageTypeModel>();
         }
 
         public void ImportListTileColor(List<TileColor> listTileColor)
         {
-            ListTileColorModel = listTileColor.Select(x => new TileColorModel(x)).ToList();
+            _listTileColorModel.Clear();
+            foreach (var tileColor in listTileColor)
+            {
+                _listTileColorModel.Add(new TileColorModel(tileColor));
+            }
         }
 
         public void ImportListTileImageType(List<TileImageType> listTileImageType)
         {
-            ListTileImageTypeModel = listTileImageType.Select(x => new TileImageTypeModel(x)).ToList();
-        }
-
-        private void RequestSelectedColorImageIds(GetTileColorTileImageTypeModelsFromIdRequestMessage msg)
-        {
-            msg.CallSuccessCallback(new Tuple<TileColorModel, TileImageTypeModel>(
-                GetTileColorModelFromId(msg.TileColorModelId),
-                GetTileImageTypeModelFromId(msg.TileImageTypeModelId)));
+            _listTileImageTypeModel.Clear();
+            foreach (var tileImageType in listTileImageType)
+            {
+                _listTileImageTypeModel.Add(new TileImageTypeModel(tileImageType));
+            }
         }
 
         public TileColorModel GetTileColorModelFromId(string id)
