@@ -42,13 +42,13 @@ Roadmap :
 * [X] Lien Models <=> Data : on récupère Data, on créée les Models, mais met-on à jour Data quand Model change ? Idéalement, V => VM => M
 * [X] ABSOLUMENT : un système pour gérer toutes ces commandes lancées de partout. On va possiblement devoir disposer de classes supplémentaires pour composer l'application. On a déjà le système des EventMessage d'un côté, EventLogic de l'autre. Il faudrait rassembler les fonctions ainsi : EventMessage les messages, EventLogic les liens EventMessage / GameLogic, et GameLogic les fonctions
 * [X] Sauvegarde / rechargement de Map par Sérialisation
-* [ ] Checkbox Edit Mode
 * [ ] Préparation passage BDD
 ** [ ] Récupération enum par string (pour BDD)
 ** [ ] Fichier "constant" pour les couleurs et les images, gestion par ID
 * [X] Faire un MVVM pour la Carte
 * [ ] Faire un MVVM pour l'Interface Gauche (LeftPanel) (au lieu de TileEditor)
 ** [ ] UserControl LeftPanel (simple pour le moment)
+** [ ] Menu déroulant contenant les "modes". Edition Hex, Selection Hex, Edition Road/River, etc.
 ** [ ] Rajouter un champ de texte contenant la Description
 * [ ] Rivières et Routes
 ** [ ] Réfléchir à comment enregistrer les données de localisation des points d'une rivière. Possiblement s'organiser avec les points centraux comme référence, et des fonctions de traduction
