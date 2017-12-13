@@ -57,6 +57,13 @@ namespace VersionBase
             Messenger.Default.Register<QuitMessage>(this, Quit);
         }
 
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            // calculates incorrect when window is maximized
+            //var t1 = this.ActualWidth - 20;
+            //var t2 = this.ActualHeight - 190;
+        }
+
         private void Load(LoadMessage msg)
         {
             // Create an instance of the open file dialog box.

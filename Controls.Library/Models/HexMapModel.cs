@@ -37,6 +37,7 @@ namespace Controls.Library.Models
 
         public void ImportData(HexMapData hexMapData)
         {
+            Messenger.Default.Deregister<UpdateHexColorImageModels>(this, UpdateHexColorImageModelsFunction);
             Messenger.Default.Deregister<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
             _columns = hexMapData.Columns;
             _rows = hexMapData.Rows;
@@ -46,6 +47,7 @@ namespace Controls.Library.Models
                 _listHexModel.Add(new HexModel(hexData));
             }
             Messenger.Default.Register<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
+            Messenger.Default.Register<UpdateHexColorImageModels>(this, UpdateHexColorImageModelsFunction);
         }
 
         public HexModel GetHexModel(int column, int row)
@@ -62,6 +64,22 @@ namespace Controls.Library.Models
         private void GetHexModelFromPositionRequestMessageFunction(GetHexModelFromPositionRequestMessage msg)
         {
             msg.CallSuccessCallback(GetHexModel(msg.Column, msg.Row));
+        }
+
+        public void UpdateHexColorImageModelsFunction(UpdateHexColorImageModels msg)
+        {
+            UpdateColorImageModelsFromIds(
+                msg.Column,
+                msg.Row,
+                msg.TileColorModel,
+                msg.TileImageTypeModel);
+        }
+
+        public void UpdateColorImageModelsFromIds(int column, int row, TileColorModel tileColorModel, TileImageTypeModel tileImageTypeModel)
+        {
+            GetHexModel(column, row).UpdateColorImageTypeModels(
+                tileColorModel,
+                tileImageTypeModel);
         }
     }
 }

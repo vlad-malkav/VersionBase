@@ -15,32 +15,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Controls.Library.Annotations;
-using VersionBase.ViewModels;
+using Controls.Library.ViewModels;
 
-namespace VersionBase.Views
+namespace Controls.Library.Views
 {
     /// <summary>
-    /// Interaction logic for GameView.xaml
+    /// Interaction logic for TopPanelView.xaml
     /// </summary>
-    public partial class GameView : UserControl, INotifyPropertyChanged
+    public partial class TopPanelView : UserControl, INotifyPropertyChanged
     {
-        public GameView()
+        public TopPanelView()
         {
             InitializeComponent();
         }
 
-        public GameViewModel ViewModel
+        public TopPanelViewModel ViewModel
         {
-            get { return (GameViewModel)Resources["ViewModel"]; }
+            get { return (TopPanelViewModel)Resources["ViewModel"]; }
             set
             {
                 Resources["ViewModel"] = value;
-                HexMapViewControl.ViewModel = value.HexMapViewModel;
-                TopMenuViewControl.ViewModel = value.TopMenuViewModel;
-                LeftPanelViewControl.ViewModel = value.LeftPanelViewModel;
-                RightPanelViewControl.ViewModel = value.RightPanelViewModel;
-                TopMenuViewControl.ViewModel = value.TopMenuViewModel;
-                BottomPanelViewControl.ViewModel = value.BottomPanelViewModel;
             }
         }
 

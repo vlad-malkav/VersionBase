@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\App.xaml
-31942058075
+4-816513211
 
-111771055078
+121125021734
 71-136817572
-MainWindow.xaml;Themes\SimpleStyle.xaml;Views\GameView.xaml;
+MainWindow.xaml;Themes\SimpleStyle.xaml;Views\Dialogs\NewHexMapDialog.xaml;Views\GameView.xaml;
 
 False
 

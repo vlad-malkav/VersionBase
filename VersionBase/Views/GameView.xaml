@@ -6,28 +6,22 @@
              xmlns:views="clr-namespace:Controls.Library.Views;assembly=Controls.Library"
              xmlns:viewModels="clr-namespace:VersionBase.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="800">
     <UserControl.Resources>
         <viewModels:GameViewModel x:Key="ViewModel"/>
     </UserControl.Resources>
     <DockPanel DataContext="{DynamicResource ViewModel}">
-        <views:TopMenuView DockPanel.Dock="Top" x:Name="TopMenuViewControl" DataContext="{Binding TopMenuViewModel}"/>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid Width="200">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <views:TileEditorView Grid.Row="0" x:Name="TileEditorViewControl" DataContext="{Binding TileEditorViewModel}" Height="Auto" VerticalAlignment="Top"/>
-            </Grid>
-            <Grid Grid.Column="1" Margin="5,5,5,0" Height="Auto" Width="300" HorizontalAlignment="Right" Background="Gray">
-                <views:HexMapView x:Name="HexMapViewControl" DataContext="{Binding HexMapViewModel}"/>
-            </Grid>
+        <Grid DockPanel.Dock="Top" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <views:TopMenuView Grid.Row="0" x:Name="TopMenuViewControl" DataContext="{Binding TopMenuViewModel}"/>
+            <views:TopPanelView Grid.Row="1" x:Name="TopPanelViewControl" DataContext="{Binding TopPanelViewModel}" HorizontalAlignment="Left"/>
         </Grid>
-
+        <views:BottomPanelView DockPanel.Dock="Bottom" x:Name="BottomPanelViewControl" DataContext="{Binding BottomPanelViewModel}" HorizontalAlignment="Left"/>
+        <views:LeftPanelView DockPanel.Dock="Left" x:Name="LeftPanelViewControl" DataContext="{Binding LeftPanelViewModel}" VerticalAlignment="Top"/>
+        <views:RightPanelView DockPanel.Dock="Right" x:Name="RightPanelViewControl" DataContext="{Binding RightPanelViewModel}" VerticalAlignment="Top"/>
+        <views:HexMapView x:Name="HexMapViewControl" DataContext="{Binding HexMapViewModel}"/>
     </DockPanel>
 </UserControl>

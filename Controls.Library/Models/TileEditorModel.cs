@@ -26,6 +26,7 @@ namespace Controls.Library.Models
         {
             _listTileColorModel = new List<TileColorModel>();
             _listTileImageTypeModel = new List<TileImageTypeModel>();
+            Messenger.Default.Register<GetTileColorTileImageTypeModelsFromIdRequestMessage>(this, RequestSelectedColorImageIdsFunction);
         }
 
         public void ImportListTileColor(List<TileColor> listTileColor)
@@ -54,6 +55,13 @@ namespace Controls.Library.Models
         public TileImageTypeModel GetTileImageTypeModelFromId(string id)
         {
             return ListTileImageTypeModel.FirstOrDefault(x => x.Id == id);
+        }
+
+        private void RequestSelectedColorImageIdsFunction(GetTileColorTileImageTypeModelsFromIdRequestMessage msg)
+        {
+            msg.CallSuccessCallback(new Tuple<TileColorModel, TileImageTypeModel>(
+                GetTileColorModelFromId(msg.TileColorModelId),
+                GetTileImageTypeModelFromId(msg.TileImageTypeModelId)));
         }
     }
 }

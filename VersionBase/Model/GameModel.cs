@@ -14,54 +14,49 @@ namespace VersionBase.Model
     public class GameModel
     {
         private HexMapModel _hexMapModel;
-        private TileEditorModel _tileEditorModel;
-
-        public TileEditorModel TileEditorModel
-        {
-            get { return _tileEditorModel; }
-        }
+        private LeftPanelModel _leftPanelModel;
+        private RightPanelModel _rightPanelModel;
+        private TopPanelModel _topPanelModel;
+        private BottomPanelModel _bottomPanelModel;
 
         public HexMapModel HexMapModel
         {
             get { return _hexMapModel; }
         }
 
+        public LeftPanelModel LeftPanelModel
+        {
+            get { return _leftPanelModel; }
+        }
+
+        public RightPanelModel RightPanelModel
+        {
+            get { return _rightPanelModel; }
+        }
+
+        public TopPanelModel TopPanelModel
+        {
+            get { return _topPanelModel; }
+        }
+
+        public BottomPanelModel BottomPanelModel
+        {
+            get { return _bottomPanelModel; }
+        }
+
         public GameModel()
         {
-            _tileEditorModel = new TileEditorModel();
             _hexMapModel = new HexMapModel();
-            Messenger.Default.Register<GetTileColorTileImageTypeModelsFromIdRequestMessage>(this, RequestSelectedColorImageIdsFunction);
-            Messenger.Default.Register<UpdateColorImageModelsFromIdsMessage>(this, UpdateColorImageModelsFromIdsMessageFunction);
+            _leftPanelModel = new LeftPanelModel();
+            _rightPanelModel = new RightPanelModel();
+            _topPanelModel = new TopPanelModel();
+            _bottomPanelModel = new BottomPanelModel();
         }
 
         public void ImportGameData(GameData gameData)
         {
-            _tileEditorModel.ImportListTileColor(gameData.ListTileColor);
-            _tileEditorModel.ImportListTileImageType(gameData.ListTileImageType);
             _hexMapModel.ImportData(gameData.HexMapData);
-        }
-
-        public void UpdateColorImageModelsFromIdsMessageFunction(UpdateColorImageModelsFromIdsMessage msg)
-        {
-            UpdateColorImageModelsFromIds(
-                msg.Column,
-                msg.Row,
-                msg.TileColorModelId,
-                msg.TileImageTypeModelId);
-        }
-
-        public void UpdateColorImageModelsFromIds(int column, int row, string tileColorId, string tileImageTypeId)
-        {
-            _hexMapModel.GetHexModel(column, row).UpdateColorImageTypeModels(
-                _tileEditorModel.GetTileColorModelFromId(tileColorId),
-                _tileEditorModel.GetTileImageTypeModelFromId(tileImageTypeId));
-        }
-
-        private void RequestSelectedColorImageIdsFunction(GetTileColorTileImageTypeModelsFromIdRequestMessage msg)
-        {
-            msg.CallSuccessCallback(new Tuple<TileColorModel, TileImageTypeModel>(
-                _tileEditorModel.GetTileColorModelFromId(msg.TileColorModelId),
-                _tileEditorModel.GetTileImageTypeModelFromId(msg.TileImageTypeModelId)));
+            _leftPanelModel.ImportTileEditorData(gameData.ListTileColor, gameData.ListTileImageType);
         }
     }
 }

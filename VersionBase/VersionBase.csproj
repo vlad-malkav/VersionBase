@@ -66,6 +66,9 @@
     <Compile Include="Logic\EventLogic.cs" />
     <Compile Include="Logic\GameLogic.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
+    <Compile Include="Views\Dialogs\NewHexMapDialog.xaml.cs">
+      <DependentUpon>NewHexMapDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GameView.xaml.cs">
       <DependentUpon>GameView.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Themes\SimpleStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\NewHexMapDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +135,8 @@
       <Name>VersionBase.Libraries</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\Dialogs\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,7 +47,7 @@ Roadmap :
 ** [ ] Fichier "constant" pour les couleurs et les images, gestion par ID
 * [X] Faire un MVVM pour la Carte
 * [ ] Faire un MVVM pour l'Interface Gauche (LeftPanel) (au lieu de TileEditor)
-** [ ] UserControl LeftPanel (simple pour le moment)
+** [X] UserControl LeftPanel (simple pour le moment)
 ** [ ] Menu déroulant contenant les "modes". Edition Hex, Selection Hex, Edition Road/River, etc.
 ** [ ] Rajouter un champ de texte contenant la Description
 * [ ] Rivières et Routes

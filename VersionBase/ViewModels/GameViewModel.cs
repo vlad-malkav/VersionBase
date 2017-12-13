@@ -13,23 +13,34 @@ namespace VersionBase.ViewModels
     {
         public TopMenuViewModel TopMenuViewModel { get; set; }
         public HexMapViewModel HexMapViewModel { get; set; }
-        public TileEditorViewModel TileEditorViewModel { get; set; }
+        public LeftPanelViewModel LeftPanelViewModel { get; set; }
+        public RightPanelViewModel RightPanelViewModel { get; set; }
+        public TopPanelViewModel TopPanelViewModel { get; set; }
+        public BottomPanelViewModel BottomPanelViewModel { get; set; }
 
         public GameViewModel()
         {
             TopMenuViewModel = new TopMenuViewModel();
             HexMapViewModel = new HexMapViewModel();
-            TileEditorViewModel = new TileEditorViewModel();
+            LeftPanelViewModel = new LeftPanelViewModel();
+            RightPanelViewModel = new RightPanelViewModel();
+            TopPanelViewModel = new TopPanelViewModel();
+            BottomPanelViewModel = new BottomPanelViewModel();
         }
 
         public void ApplyModel(GameModel gameModel, double actualHeight, double actualWidth)
         {
             // Get sizes that will fit within our window
-            double width, height, cellSize;
-            HexMapDrawing.GetCombSize(actualHeight, actualWidth, gameModel.HexMapModel.Columns, gameModel.HexMapModel.Rows, out cellSize, out width, out height);
+            double hexMapWidth, hexMapHeight, width, height, cellSize;
+            hexMapWidth = actualWidth;
+            hexMapHeight = actualHeight;
+            HexMapDrawing.GetCombSize(hexMapHeight, hexMapWidth, gameModel.HexMapModel.Columns, gameModel.HexMapModel.Rows, out cellSize, out width, out height);
             HexMapViewModel.ApplyModel(gameModel.HexMapModel, width, height, cellSize);
-            TileEditorViewModel.ApplyModel(gameModel.TileEditorModel);
             TopMenuViewModel.ApplyModel();
+            LeftPanelViewModel.ApplyModel(gameModel.LeftPanelModel);
+            RightPanelViewModel.ApplyModel(gameModel.RightPanelModel);
+            TopPanelViewModel.ApplyModel(gameModel.TopPanelModel);
+            BottomPanelViewModel.ApplyModel(gameModel.BottomPanelModel);
         }
     }
 }

@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:Controls.Library.Views;assembly=Controls.Library"
         xmlns:views="clr-namespace:VersionBase.Views"
-        Title="Honeycomb" Height="400" Width="500" Loaded="Window_Loaded" ResizeMode="CanResize" x:Name="Main" >
+        SizeChanged="Window_SizeChanged"
+        Title="Honeycomb" Height="600" Width="800" Loaded="Window_Loaded" ResizeMode="CanResize" x:Name="Main" >
 
     <views:GameView x:Name="GameViewControl"/>
 </Window>
