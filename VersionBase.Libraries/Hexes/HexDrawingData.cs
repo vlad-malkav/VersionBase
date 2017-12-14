@@ -14,37 +14,37 @@ namespace VersionBase.Libraries.Hexes
 
         public int Column
         {
-            get => _Column;
+            get { return _Column; }
         }
 
         public int Row
         {
-            get => _Row;
+            get { return _Row; }
         }
 
         public double CellSize
         {
-            get => _CellSize;
+            get { return _CellSize; }
         }
 
         public double CellX
         {
-            get => _CellX;
+            get { return _CellX; }
         }
 
         public double CellY
         {
-            get => _CellY;
+            get { return _CellY; }
         }
 
         public double CellHeight
         {
-            get => _CellHeight;
+            get { return _CellHeight; }
         }
 
         public double RowHeight
         {
-            get => _RowHeight;
+            get { return _RowHeight; }
         }
 
 
