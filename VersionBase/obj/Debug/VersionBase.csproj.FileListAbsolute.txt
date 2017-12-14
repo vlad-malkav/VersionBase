@@ -43,3 +43,6 @@ G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\VersionBase.csproj.CoreCompileInputs.cache
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.exe
 G:\Programmation\Projets C#\Mon Projet\VersionBase\VersionBase\obj\Debug\Version Base.pdb
+U:\DL\MP\VB\VersionBase\VersionBase\bin\Debug\Version Base.exe.config
+U:\DL\MP\VB\VersionBase\VersionBase\obj\Debug\Version Base.exe
+U:\DL\MP\VB\VersionBase\VersionBase\obj\Debug\Version Base.pdb
