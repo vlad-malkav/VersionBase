@@ -1,3 +1,38 @@
+Idées générales à rajouter dans le Doc :
+* TestDrivenDeveloppement
+** Définition : https://fr.wikipedia.org/wiki/Test_driven_development
+** Introduction : http://igm.univ-mlv.fr/~dr/XPOSE2009/TDD/pagesHTML/PresentationTDD.html
+** Mise en œuvre du TDD dans le cycle de développement : http://www.les-traducteurs-agiles.org/tdd/2015/01/06/les-cycles-du-developpement-pilote-par-les-tests.html
+** Exemple concret d’application du TDD : http://bruno-orsier.developpez.com/tutoriels/TDD/pentaminos/
+* Mise en place des TTD :
+** Test unitaire : https://fr.wikipedia.org/wiki/Test_unitaire
+** Framework de tests unitaires : NUnit
+** Mock : https://fr.wikipedia.org/wiki/Mock_(programmation_orient%C3%A9e_objet)
+** Librairie pour faciliter Mock : MOQ
+** Tuto : https://openclassrooms.com/courses/programmez-en-oriente-objet-avec-c/les-tests-unitaires-5
+* Faire de l'Analyse Statique de programmes
+** https://fr.wikipedia.org/wiki/Analyse_statique_de_programmes
+** L’analyse statique du code sera effectuée par l’outil SonarQube : https://fr.wikipedia.org/wiki/SonarQube , https://www.sonarqube.org/
+** SonarLint est une extension pour VisualStudio permettant d’avoir un retour directement dans l’IDE de l’évaluation des règles définies dans SonarQube : http://www.sonarlint.org/visualstudio/index.html
+* Intégration continue
+** Lecture -  http://skalp.developpez.com/traductions/martin-fowler-integration-continue/#LV
+** Lecture -  https://openclassrooms.com/courses/integration-continue
+** Lecture -  https://stackoverflow.com/questions/1991071/continuous-integration-for-a-small-net-open-source-project
+** Outils : https://www.gocd.org, Visual Studio Team Services
+* Héberger le site chez moi
+** http://www.finalclap.com/faq/266-serveur-web-hebergement-maison-chez-soi
+** https://www.assistance.bouyguestelecom.fr/internet-bbox/services-bbox/heberger-serveurs-dns-dynamique-pro
+** Avoir possiblement un moyen d'accéder directement à ce "serveur" (remote desktop par exemple)
+* Lier le code à une BDD : Entity Framework, en mode "code first"
+** http://pmusso.developpez.com/tutoriels/dotnet/entity-framework/introduction/
+** https://msdn.microsoft.com/fr-fr/library/gg696172(v=vs.103).aspx
+** Cela permettra d'implémenter les Data correctement - mais il est possible de s'en inspirer à l'avance. Un projet à part, donc
+* Système de génération de documentation
+** Doxygen : https://fr.wikipedia.org/wiki/Doxygen
+* Lectures diverses :
+** GIT : https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/best-practices
+** https://www.gocd.org/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source.html
+
 Roadmap :
 * [X] Merge couleur et image
 * [X] Terrain = image OU couleur + image, liste
