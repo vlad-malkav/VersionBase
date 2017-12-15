@@ -29,9 +29,18 @@ Idées générales à rajouter dans le Doc :
 ** Cela permettra d'implémenter les Data correctement - mais il est possible de s'en inspirer à l'avance. Un projet à part, donc
 * Système de génération de documentation
 ** Doxygen : https://fr.wikipedia.org/wiki/Doxygen
+* D'après le document IBM 0.9.2 & le code :
+** Ce pourrait être une bonne idée que certains évènements contiennent l'objet qui les a généré (mais c'est déjà le cas pour plusieurs évènements)
+** Différenciation XxxxEvent / XxxxCommand ? (tous deux sont des objets Event, mais une Commande représente une commande lancée ?)
+** Réfléchir à avoir une Application englobant le projet
 * Lectures diverses :
 ** GIT : https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/best-practices
 ** https://www.gocd.org/2017/11/28/confessions-continuous-delivery-experts-gocd-open-source.html
+* Relire https://blog.rsuter.com/recommendations-best-practices-implementing-mvvm-xaml-net-applications/
+** Implémenter mieux les Commands, de façon à avoir un fonctionnement générique ?
+** A relire régulièrement au fur et à mesure de l'implémentation de nouvelles logiques
+** Chercher d'autres documents de best practices
+* Se renseigner sur WCF : https://fr.wikipedia.org/wiki/Windows_Communication_Foundation
 
 Roadmap :
 * [X] Merge couleur et image
