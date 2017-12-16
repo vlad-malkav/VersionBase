@@ -4,18 +4,20 @@ namespace VersionBase.Libraries.Hexes
 {
     public class HexData
     {
-        public string Text { get; set; }
+        public string Description { get; set; }
+        public int DegreExploration { get; set; }
         public TileData TileData { get; set; }
         public int Column { get; set; }
         public int Row { get; set; }
 
         public HexData(){}
 
-        public HexData(int column, int row, string text, TileData tileData)
+        public HexData(int column, int row, string description, int degreExploration, TileData tileData)
         {
             Column = column;
             Row = row;
-            Text = text;
+            Description = description;
+            DegreExploration = degreExploration;
             TileData = tileData;
         }
     }

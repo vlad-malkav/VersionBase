@@ -31,28 +31,26 @@ namespace VersionBase.Logic
                 case "New":
                     break;
                 case "Load":
-                    LoadMessage msgLoadMessage = new LoadMessage();
-                    Messenger.Default.Send(msgLoadMessage);
+                    Messenger.Default.Send(new LoadMessage());
                     break;
                 case "Save":
-                    SaveMessage msgSaveMessage = new SaveMessage();
-                    Messenger.Default.Send(msgSaveMessage);
+                    Messenger.Default.Send(new SaveMessage());
                     break;
                 case "Quit":
-                    QuitMessage msgQuitMessage = new QuitMessage();
-                    Messenger.Default.Send(msgQuitMessage);
+                    Messenger.Default.Send(new QuitMessage());
                     break;
             }
         }
 
         public static void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
         {
-            GameLogic.SetSelectedColorImageFromHexPosition(msg.Column, msg.Row);
+            GameLogic.SelectHex(msg.HexViewModel.Column, msg.HexViewModel.Row);
+            GameLogic.SetSelectedColorImageFromHexPosition(msg.HexViewModel.Column, msg.HexViewModel.Row);
         }
 
         public static void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msg)
         {
-            GameLogic.UpdateHexModelWithSelectedColorImage(msg.Column, msg.Row);
+            GameLogic.UpdateHexModelWithSelectedColorImage(msg.HexViewModel.Column, msg.HexViewModel.Row);
         }
 
         #endregion

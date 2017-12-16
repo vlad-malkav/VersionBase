@@ -30,7 +30,7 @@ namespace VersionBase.Libraries.Hexes
             {
                 for (int row = 0; row < Rows; row++)
                 {
-                    ListHexData.Add(new HexData(col, row, "", emptyTileData));
+                    ListHexData.Add(new HexData(col, row, "", 0, emptyTileData));
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace VersionBase.Libraries.Hexes
                 {
                     TileData tileData = new TileData(new TileColor(Color.LightGreen),
                         listTileImageType[tileTypeCurrent++ % listTileImageType.Count]);
-                    HexData hexDataTmp = new HexData(col, row, "2", tileData);
+                    HexData hexDataTmp = new HexData(col, row, "escription de l'hex "+col+"-"+row, tileTypeCurrent++ % 7, tileData);
                     listHexData.Add(hexDataTmp);
                 }
             }

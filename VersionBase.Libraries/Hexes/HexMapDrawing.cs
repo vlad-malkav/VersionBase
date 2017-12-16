@@ -1,41 +1,104 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Resources;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using VersionBase.Libraries.Tiles;
 using Color = System.Drawing.Color;
+using FontFamily = System.Windows.Media.FontFamily;
 using Point = System.Windows.Point;
 
 namespace VersionBase.Libraries.Hexes
 {
     public static class HexMapDrawing
     {
-        public static Polygon GenerateAndFillHexPolygon(int column, int row, double cellSize, Color color, Bitmap bitmap)
-        {
-            var hex = new Polygon();
-            UpdateAndFillHexPolygon(hex, column, row, cellSize, color, bitmap);
-            return hex;
-        }
-
-        public static void UpdateAndFillHexPolygon(Polygon hex, int column, int row, double cellSize, Color color, Bitmap bitmap)
+        public static void UpdateAndFillHexShapes(
+            Polygon insidePolygon, Polygon borderPolygon,
+            Grid gridLabel, List<Line> listLineExploration,
+            int column, int row, double cellSize,
+            Color color, Bitmap bitmap,
+            string label, int degreExploration, bool selected)
         {
             HexDrawingData hexDrawingData = new HexDrawingData(column, row, cellSize);
-            hex.Points.Clear();
-            hex.Points.Add(new Point(hexDrawingData.CellX - hexDrawingData.CellSize, hexDrawingData.CellY));
-            hex.Points.Add(new Point(hexDrawingData.CellX - hexDrawingData.CellSize / 2, hexDrawingData.CellY + hexDrawingData.CellHeight / 2));
-            hex.Points.Add(new Point(hexDrawingData.CellX + hexDrawingData.CellSize / 2, hexDrawingData.CellY + hexDrawingData.CellHeight / 2));
-            hex.Points.Add(new Point(hexDrawingData.CellX + hexDrawingData.CellSize, hexDrawingData.CellY));
-            hex.Points.Add(new Point(hexDrawingData.CellX + hexDrawingData.CellSize / 2, hexDrawingData.CellY - hexDrawingData.CellHeight / 2));
-            hex.Points.Add(new Point(hexDrawingData.CellX - hexDrawingData.CellSize / 2, hexDrawingData.CellY - hexDrawingData.CellHeight / 2));
+            FillInsidePolygon(hexDrawingData, insidePolygon, color, bitmap);
+            UpdateBorderPolygon(hexDrawingData, borderPolygon, selected);
+            UpdateHexLabel(hexDrawingData, gridLabel, label);
+            UpdateAndFillHexLineExploration(hexDrawingData, listLineExploration, degreExploration);
+        }
 
-            hex.Fill = new ImageBrush(GenerateTileBitmapImage(color, bitmap));
-            hex.Stroke = new SolidColorBrush(Colors.Black);
-            hex.StrokeThickness = hexDrawingData.CellSize / 10;
+        public static void FillInsidePolygon(HexDrawingData hexDrawingData, Polygon insidePolygon, Color color, Bitmap bitmap)
+        {
+            insidePolygon.Points.Clear();
+            foreach (var outerSummitPoint in hexDrawingData.ListOuterSummitPoints)
+            {
+                insidePolygon.Points.Add(outerSummitPoint);
+            }
+
+            insidePolygon.Fill = new ImageBrush(GenerateTileBitmapImage(color, bitmap));
+            insidePolygon.Tag = "InsidePolygon";
+            Canvas.SetZIndex(insidePolygon,0);
+        }
+
+        public static void UpdateBorderPolygon(HexDrawingData hexDrawingData, Polygon borderPolygon, bool selected)
+        {
+            borderPolygon.Points.Clear();
+            foreach (var outerSummitPoint in hexDrawingData.ListOuterSummitPoints)
+            {
+                borderPolygon.Points.Add(outerSummitPoint);
+            }
+            
+            borderPolygon.Stroke = new SolidColorBrush(selected ? Colors.DarkOrange : Colors.Black);
+            borderPolygon.StrokeThickness = hexDrawingData.CellSize / (selected ? 5 : 10);
+            borderPolygon.Tag = "BorderPolygon";
+            Canvas.SetZIndex(borderPolygon, selected ? 100 : 10);
+        }
+
+        public static void UpdateHexLabel(HexDrawingData hexDrawingData, Grid gridLabel, string label)
+        {
+            gridLabel.Width = gridLabel.Height = (2 * hexDrawingData.CellSize) * 0.8;
+            gridLabel.SetValue(Canvas.LeftProperty, hexDrawingData.CellX - hexDrawingData.CellSize * 0.8);
+            gridLabel.SetValue(Canvas.TopProperty, hexDrawingData.CellY - hexDrawingData.CellSize * 0.8);
+            gridLabel.IsHitTestVisible = false;
+
+            gridLabel.Children.Clear();
+            var labelTextBlock = new TextBlock
+            {
+                Text = label,
+                FontFamily = new FontFamily("Segoe"),
+                FontSize = hexDrawingData.CellSize / 3.5,
+                Background = new SolidColorBrush(Colors.Azure),
+            };
+            labelTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
+            labelTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+            labelTextBlock.IsHitTestVisible = false;
+            labelTextBlock.FontWeight = FontWeights.Bold;
+            gridLabel.Children.Add(labelTextBlock);
+            gridLabel.Tag = "Label";
+        }
+
+        public static void UpdateAndFillHexLineExploration(HexDrawingData hexDrawingData, List<Line> listLineExploration, int degreExploration)
+        {
+            if (listLineExploration.Count != 6) return;
+
+            for (int i = 0; i < degreExploration; i++)
+            {
+                listLineExploration[i].X1 = hexDrawingData.ListOuterSummitPoints[i].X;
+                listLineExploration[i].Y1 = hexDrawingData.ListOuterSummitPoints[i].Y;
+                listLineExploration[i].X2 = hexDrawingData.ListInnerSummitPoints[i].X;
+                listLineExploration[i].Y2 = hexDrawingData.ListInnerSummitPoints[i].Y;
+                listLineExploration[i].Tag = "Line";
+                listLineExploration[i].Stroke = new SolidColorBrush(Colors.Gold);
+                listLineExploration[i].StrokeThickness = hexDrawingData.CellSize / 8;
+                Canvas.SetZIndex(listLineExploration[i], 2);
+            }
         }
 
         public static void GetCombSize(double actualHeight, double actualWidth, int columns, int rows, out double cellSize, out double combWidth, out double combHeight)

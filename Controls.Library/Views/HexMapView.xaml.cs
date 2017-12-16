@@ -1,5 +1,7 @@
 ﻿using System.Windows.Controls;
+using Controls.Library.Events;
 using Controls.Library.ViewModels;
+using MyToolkit.Messaging;
 
 namespace Controls.Library.Views
 {
@@ -11,6 +13,18 @@ namespace Controls.Library.Views
         public HexMapView()
         {
             InitializeComponent();
+            Messenger.Default.Register<HexViewModelSelectedMessage>(this, HexViewSelectedMessageFunction);
+            Messenger.Default.Register<HexViewModelUnselectedMessage>(this, HexViewUnselectedMessageFunction);
+        }
+        
+        private void HexViewSelectedMessageFunction(HexViewModelSelectedMessage msgHexSelectedMessage)
+        {
+            //Canvas.SetZIndex(msgHexSelectedMessage.HexViewModel.InsidePolygon, 1000);
+        }
+
+        private void HexViewUnselectedMessageFunction(HexViewModelUnselectedMessage msgHexUnselectedMessage)
+        {
+            //Canvas.SetZIndex(msgHexUnselectedMessage.HexViewModel.InsidePolygon, 0);
         }
 
         public HexMapViewModel ViewModel

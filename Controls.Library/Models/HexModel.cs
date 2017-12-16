@@ -10,17 +10,14 @@ namespace Controls.Library.Models
 {
     public class HexModel
     {
-        private string _text;
         private int _column;
         private int _row;
+        private bool _selected;
         private TileColorModel _tileColorModel;
         private TileImageTypeModel _tileImageTypeModel;
-
-        public string Text
-        {
-            get { return _text; }
-        }
-
+        private string _description;
+        private int _degreExploration;
+        
         public int Column
         {
             get { return _column; }
@@ -29,6 +26,11 @@ namespace Controls.Library.Models
         public int Row
         {
             get { return _row; }
+        }
+
+        public bool Selected
+        {
+            get { return _selected; }
         }
 
         public TileColorModel TileColorModel
@@ -41,11 +43,22 @@ namespace Controls.Library.Models
             get { return _tileImageTypeModel; }
         }
 
+        public string Description
+        {
+            get { return _description; }
+        }
+
+        public int DegreExploration
+        {
+            get { return _degreExploration; }
+        }
+
         public HexModel() { }
 
         public HexModel(HexData hexData)
         {
-            _text = hexData.Text;
+            _description = hexData.Description;
+            _degreExploration = hexData.DegreExploration;
             _column = hexData.Column;
             _row = hexData.Row;
             _tileColorModel = new TileColorModel(hexData.TileData.TileColor);
@@ -62,6 +75,37 @@ namespace Controls.Library.Models
                 {
                     HexModel = this
                 });
+        }
+
+        public void SelectHex()
+        {
+            if (!_selected)
+            {
+                _selected = true;
+                Messenger.Default.Send(
+                    new HexModelSelectedMessage
+                    {
+                        HexModel = this
+                    });
+            }
+        }
+
+        public void UnselectHex()
+        {
+            if (_selected)
+            {
+                _selected = false;
+                Messenger.Default.Send(
+                    new HexModelUnselectedMessage
+                    {
+                        HexModel = this
+                    });
+            }
+        }
+
+        public string GetLabel()
+        {
+            return Column + "-" + Row;
         }
     }
 }

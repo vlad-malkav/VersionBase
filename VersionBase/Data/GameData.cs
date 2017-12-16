@@ -48,7 +48,8 @@ namespace VersionBase.Data
             {
                 hexData.TileData.TileImageType = tileImageType;
             }
-            hexData.Text = hexModel.Text;
+            hexData.DegreExploration = hexModel.DegreExploration;
+            hexData.Description = hexModel.Description;
         }
     }
 }

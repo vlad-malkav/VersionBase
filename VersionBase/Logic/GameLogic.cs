@@ -61,25 +61,33 @@ namespace VersionBase.Logic
         public static async void UpdateHexModelWithSelectedColorImage(int column, int row)
         {
             Tuple<TileColorModel, TileImageTypeModel> tupleColorImageIds = await GetSelectedTileColorTileImageTypeModels();
-            UpdateHexColorImageModels msgUpdateHexColorImageModels = new UpdateHexColorImageModels
+            Messenger.Default.Send(new UpdateHexColorImageModels
             {
                 Column = column,
                 Row = row,
                 TileColorModel = tupleColorImageIds.Item1,
                 TileImageTypeModel = tupleColorImageIds.Item2
-            };
-            Messenger.Default.Send(msgUpdateHexColorImageModels);
+            });
+        }
+
+        public static void SelectHex(int column, int row)
+        {
+            HexModel hexModel = GetHexModelFromPosition(column, row).Result;
+            Messenger.Default.Send(new SelectHexMessage
+            {
+                Column = column,
+                Row = row
+            });
         }
 
         public static void SetSelectedColorImageFromHexPosition(int column, int row)
         {
             HexModel hexModel = GetHexModelFromPosition(column, row).Result;
-            SetSelectedColorImageIdsRequestMessage msgSetSelectedColorImageIdsRequestMessage = new SetSelectedColorImageIdsRequestMessage
+            Messenger.Default.Send(new SetSelectedColorImageIdsRequestMessage
             {
                 TileColorModelId = hexModel.TileColorModel.Id,
                 TileImageTypeModelId = hexModel.TileImageTypeModel.Id
-            };
-            Messenger.Default.Send(msgSetSelectedColorImageIdsRequestMessage);
+            });
         }
 
         #endregion

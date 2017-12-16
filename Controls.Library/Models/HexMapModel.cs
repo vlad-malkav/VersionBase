@@ -48,6 +48,7 @@ namespace Controls.Library.Models
             }
             Messenger.Default.Register<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
             Messenger.Default.Register<UpdateHexColorImageModels>(this, UpdateHexColorImageModelsFunction);
+            Messenger.Default.Register<SelectHexMessage>(this, SelectHexMessageFunction);
         }
 
         public HexModel GetHexModel(int column, int row)
@@ -64,6 +65,17 @@ namespace Controls.Library.Models
         private void GetHexModelFromPositionRequestMessageFunction(GetHexModelFromPositionRequestMessage msg)
         {
             msg.CallSuccessCallback(GetHexModel(msg.Column, msg.Row));
+        }
+
+        private void SelectHexMessageFunction(SelectHexMessage msg)
+        {
+            HexModel nextSelectedHexModel = GetHexModel(msg.Column, msg.Row);
+            HexModel previousSelectedHexModel = ListHexModel.FirstOrDefault(x => x.Selected);
+            if (previousSelectedHexModel != null)
+            {
+                previousSelectedHexModel.UnselectHex();
+            }
+            nextSelectedHexModel.SelectHex();
         }
 
         public void UpdateHexColorImageModelsFunction(UpdateHexColorImageModels msg)
