@@ -22,7 +22,7 @@
             <ComboBox Name="CmbTileColor"
                       ItemsSource = "{Binding ListTileColorViewModel}"
                       SelectedItem = "{Binding SelectedTileColorViewModel, Mode=TwoWay}"
-                      IsHitTestVisible="{Binding IsActive}" Focusable="{Binding IsActive}"
+                      IsReadOnly="{Binding IsHexSelected}"  IsHitTestVisible="{Binding IsHexUnselected}" Focusable="{Binding IsHexUnselected}"
                       Width="Auto">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -39,7 +39,7 @@
             <ComboBox Name="CmbTileImageType"
                   ItemsSource = "{Binding ListTileImageTypeViewModel}"
                   SelectedItem = "{Binding SelectedTileImageTypeViewModel, Mode=TwoWay}"
-                      IsHitTestVisible="{Binding IsActive}" Focusable="{Binding IsActive}"
+                      IsReadOnly="{Binding IsHexSelected}"  IsHitTestVisible="{Binding IsHexUnselected}" Focusable="{Binding IsHexUnselected}"
                   Width="Auto">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -62,18 +62,25 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="{Binding Label, Mode=TwoWay}"/>
-            <TextBlock Grid.Row="1" Text="{Binding SelectedTileColorViewModel.Name}"/>
-            <TextBlock Grid.Row="2" Text="{Binding SelectedTileImageTypeViewModel.Name}"/>
-            <ComboBox Grid.Row="3" SelectedIndex="{Binding DegreExploration, Mode=TwoWay}">
-                <ComboBoxItem>0/6</ComboBoxItem>
-                <ComboBoxItem>1/6</ComboBoxItem>
-                <ComboBoxItem>2/6</ComboBoxItem>
-                <ComboBoxItem>3/6</ComboBoxItem>
-                <ComboBoxItem>4/6</ComboBoxItem>
-                <ComboBoxItem>5/6</ComboBoxItem>
-                <ComboBoxItem>6/6</ComboBoxItem>
-            </ComboBox>
-            <TextBox Grid.Row="4" Text="{Binding Description, Mode=TwoWay}" Height="50"/>
+            <TextBlock Grid.Row="1" Text="{Binding SelectedHexColor}"/>
+            <TextBlock Grid.Row="2" Text="{Binding SelectedHexImage}"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0">Exploration</TextBlock>
+                <TextBlock Grid.Column="1" Text="{Binding DegreExploration}"/>
+                <Button Grid.Column="2" Command="{Binding DegreExplorationPlusCommand}">+</Button>
+                <TextBlock Grid.Column="3"> /</TextBlock>
+                <Button Grid.Column="4" Command="{Binding DegreExplorationMinusCommand}">-</Button>
+            </Grid>
+            <TextBox Grid.Row="4"
+                     IsReadOnly="{Binding IsHexUnselected}"  IsHitTestVisible="{Binding IsHexSelected}" Focusable="{Binding IsHexSelected}"
+                     Text="{Binding Description, Mode=TwoWay}" Height="50"/>
             <Button Grid.Row="5" Command="{Binding SaveButtonCommand}">Save</Button>
         </Grid>
     </Grid>

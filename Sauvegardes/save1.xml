@@ -1610,7 +1610,7 @@
     <ListHexData>
       <HexData>
         <Description>Description de l'hex 0-0</Description>
-        <DegreExploration>5</DegreExploration>
+        <DegreExploration>1</DegreExploration>
         <TileData>
           <TileColor>
             <Id>Color-255.144.238.144</Id>
@@ -2035,7 +2035,7 @@
             <Blue>144</Blue>
             <FromMedia>false</FromMedia>
           </TileColor>
-          <TileImageType>evergreenmountains</TileImageType>
+          <TileImageType>jungle</TileImageType>
         </TileData>
         <Column>3</Column>
         <Row>2</Row>
@@ -2071,7 +2071,7 @@
             <Blue>144</Blue>
             <FromMedia>false</FromMedia>
           </TileColor>
-          <TileImageType>grassland</TileImageType>
+          <TileImageType>jungle</TileImageType>
         </TileData>
         <Column>5</Column>
         <Row>2</Row>
@@ -2611,7 +2611,7 @@
             <Blue>144</Blue>
             <FromMedia>false</FromMedia>
           </TileColor>
-          <TileImageType>dunes</TileImageType>
+          <TileImageType>jungle</TileImageType>
         </TileData>
         <Column>5</Column>
         <Row>5</Row>
@@ -2665,7 +2665,7 @@
             <Blue>144</Blue>
             <FromMedia>false</FromMedia>
           </TileColor>
-          <TileImageType>forestedmountain</TileImageType>
+          <TileImageType>jungle</TileImageType>
         </TileData>
         <Column>8</Column>
         <Row>5</Row>
@@ -2989,7 +2989,7 @@
             <Blue>144</Blue>
             <FromMedia>false</FromMedia>
           </TileColor>
-          <TileImageType>grassland</TileImageType>
+          <TileImageType>jungle</TileImageType>
         </TileData>
         <Column>6</Column>
         <Row>7</Row>
@@ -3097,7 +3097,7 @@
             <Blue>144</Blue>
             <FromMedia>false</FromMedia>
           </TileColor>
-          <TileImageType>reefs</TileImageType>
+          <TileImageType>jungle</TileImageType>
         </TileData>
         <Column>2</Column>
         <Row>8</Row>

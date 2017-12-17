@@ -88,7 +88,7 @@ namespace VersionBase.Libraries.Hexes
         {
             if (listLineExploration.Count != 6) return;
 
-            for (int i = 0; i < degreExploration; i++)
+            for (int i = 0; i < 6; i++)
             {
                 listLineExploration[i].X1 = hexDrawingData.ListOuterSummitPoints[i].X;
                 listLineExploration[i].Y1 = hexDrawingData.ListOuterSummitPoints[i].Y;
@@ -97,6 +97,7 @@ namespace VersionBase.Libraries.Hexes
                 listLineExploration[i].Tag = "Line";
                 listLineExploration[i].Stroke = new SolidColorBrush(Colors.Gold);
                 listLineExploration[i].StrokeThickness = hexDrawingData.CellSize / 8;
+                listLineExploration[i].Visibility = i >= degreExploration ? Visibility.Hidden : Visibility.Visible;
                 Canvas.SetZIndex(listLineExploration[i], 2);
             }
         }

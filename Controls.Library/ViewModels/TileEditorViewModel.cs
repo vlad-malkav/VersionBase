@@ -13,10 +13,7 @@ using MyToolkit.Utilities;
 namespace Controls.Library.ViewModels
 {
     public class TileEditorViewModel : ViewModelBase // from MyToolkit
-    {
-        public bool IsActive { get; set; }
-
-        public List<TileImageTypeViewModel> ListTileImageTypeViewModel { get; set; }
+    {   public List<TileImageTypeViewModel> ListTileImageTypeViewModel { get; set; }
         private TileImageTypeViewModel _selectedTileImageTypeModel;
         public TileImageTypeViewModel SelectedTileImageTypeViewModel
         {
@@ -37,9 +34,36 @@ namespace Controls.Library.ViewModels
             }
         }
 
+        private bool _isHexSelected;
+        private bool _isHexUnselected;
+
+        public bool IsHexSelected
+        {
+            get { return _isHexSelected; }
+            set
+            {
+                _isHexSelected = value;
+                RaisePropertyChanged("IsHexSelected");
+            }
+        }
+
+        public bool IsHexUnselected
+        {
+            get { return _isHexUnselected; }
+            set
+            {
+                _isHexUnselected = value;
+                RaisePropertyChanged("IsHexUnselected");
+            }
+        }
+
+        #region Hex Data
+
         private string _label;
         private string _description;
         private int _degreExploration;
+        private string _selectedHexColor;
+        private string _selectedHexImage;
 
         public string Label
         {
@@ -65,21 +89,46 @@ namespace Controls.Library.ViewModels
             }
         }
 
+        public string SelectedHexColor
+        {
+            get { return _selectedHexColor; }
+            set { _selectedHexColor = value;
+                RaisePropertyChanged("SelectedHexColor");
+            }
+        }
+
+        public string SelectedHexImage
+        {
+            get { return _selectedHexImage; }
+            set { _selectedHexImage = value;
+                RaisePropertyChanged("SelectedHexImage");
+            }
+        }
+
         public int? SelectedHexColumn = null;
         public int? SelectedHexRow = null;
 
+        #endregion
+
         public ICommand SaveButtonCommand { get; private set; }
+        public ICommand DegreExplorationPlusCommand { get; private set; }
+        public ICommand DegreExplorationMinusCommand { get; private set; }
 
         public TileEditorViewModel()
         {
-            IsActive = true;
+            SetHexSelectedState(false);
             ListTileColorViewModel = new List<TileColorViewModel>();
             ListTileImageTypeViewModel = new List<TileImageTypeViewModel>();
             SaveButtonCommand = new RelayCommand(() => SaveButtonAction());
+            DegreExplorationPlusCommand = new RelayCommand(
+                () => DegreExploration++);
+            DegreExplorationMinusCommand = new RelayCommand(
+                () => DegreExploration--);
         }
 
         public void ApplyModel(TileEditorModel tileEditorModel)
         {
+            UnselectHex();
             UnregisterMessages();
             ListTileColorViewModel.Clear();
             foreach (var tileColorModel in tileEditorModel.ListTileColorModel)
@@ -129,22 +178,42 @@ namespace Controls.Library.ViewModels
 
         private void HexModelSelectedMessageFunction(HexModelSelectedMessage msgHexModelSelectedMessage)
         {
-            Label = msgHexModelSelectedMessage.HexModel.GetLabel();
-            Description = msgHexModelSelectedMessage.HexModel.Description;
-            DegreExploration = msgHexModelSelectedMessage.HexModel.DegreExploration;
-            SelectedHexColumn = msgHexModelSelectedMessage.HexModel.Column;
-            SelectedHexRow = msgHexModelSelectedMessage.HexModel.Row;
-            IsActive = false;
+            SelectHex(msgHexModelSelectedMessage.HexModel);
+        }
+
+        private void SelectHex(HexModel hexModel)
+        {
+            Label = hexModel.GetLabel();
+            Description = hexModel.Description;
+            DegreExploration = hexModel.DegreExploration;
+            SelectedHexColumn = hexModel.Column;
+            SelectedHexRow = hexModel.Row;
+            SelectedHexColor = hexModel.TileColorModel.Name;
+            SelectedHexImage = hexModel.TileImageTypeModel.Name;
+            SetHexSelectedState(true);
         }
 
         private void HexModelUnselectedMessageFunction(HexModelUnselectedMessage msgHexModelUnselectedMessagee)
         {
+            UnselectHex();
+        }
+
+        private void UnselectHex()
+        {
             Label = "";
             Description = "";
             DegreExploration = 0;
+            SelectedHexColor = "";
+            SelectedHexImage = "";
             SelectedHexColumn = null;
             SelectedHexRow = null;
-            IsActive = true;
+            SetHexSelectedState(false);
+        }
+
+        private void SetHexSelectedState(bool isHexSelected)
+        {
+            IsHexSelected = isHexSelected;
+            IsHexUnselected = !IsHexSelected;
         }
 
         private void HexViewUnselectedMessageFunction(HexViewModelUnselectedMessage msgHexUnselectedMessage)

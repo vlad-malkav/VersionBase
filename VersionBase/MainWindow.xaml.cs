@@ -92,7 +92,6 @@ namespace VersionBase
                     GameData = (GameData) xs.Deserialize(reader);
                     GameModel.ImportGameData(GameData);
                     GameViewControl.ViewModel.ApplyModel(GameModel, Main.ActualHeight, Main.ActualWidth);
-
                 }
                 fileStream.Close();
             }
