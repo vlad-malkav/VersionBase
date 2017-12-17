@@ -24,13 +24,14 @@ namespace Controls.Library.ViewModels
 
         public HexMapViewModel()
         {
+            UnregisterMessages();
             ListHexViewModel = new List<HexViewModel>();
             ListUIElement = new ObservableCollection<UIElement>();
+            RegisterMessages();
         }
 
         public void ApplyModel(HexMapModel hexMapModel, double width, double height, double cellSize)
         {
-            UnregisterMessages();
             Width = width;
             Height = height;
             CellSize = cellSize;
@@ -52,7 +53,6 @@ namespace Controls.Library.ViewModels
                 }
             }
 
-            RegisterMessages();
         }
 
         private void UnregisterMessages()

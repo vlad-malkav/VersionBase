@@ -61,10 +61,16 @@ namespace Controls.Library.Events
         public int Row { get; set; }
     }
 
-    public class UpdateHexColorImageModels : HexCoordinatesMessage
+    public class UpdateHexColorImageModelsMessage : HexCoordinatesMessage
     {
         public TileColorModel TileColorModel { get; set; }
         public TileImageTypeModel TileImageTypeModel { get; set; }
+    }
+
+    public class UpdateHexDescriptionDegreExplorationMessage : HexCoordinatesMessage
+    {
+        public string Description { get; set; }
+        public int DegreExploration { get; set; }
     }
 
     public class HexModelUpdatedMessage : HexModelMessage { }
