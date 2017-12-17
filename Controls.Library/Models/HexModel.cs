@@ -77,6 +77,18 @@ namespace Controls.Library.Models
                 });
         }
 
+        public void UpdateDescriptionDegreExploration(string description, int degreExploration)
+        {
+            _description = description;
+            _degreExploration = degreExploration;
+
+            Messenger.Default.Send(
+                new HexModelUpdatedMessage
+                {
+                    HexModel = this
+                });
+        }
+
         public void SelectHex()
         {
             if (!_selected)

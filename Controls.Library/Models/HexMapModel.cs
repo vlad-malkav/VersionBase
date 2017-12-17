@@ -30,15 +30,17 @@ namespace Controls.Library.Models
             get { return _listHexModel; }
         }
 
+        private bool MessageRegistered { get; set; }
+
         public HexMapModel()
         {
+            UnregisterMessages();
             _listHexModel = new List<HexModel>();
+            RegisterMessages();
         }
 
         public void ImportData(HexMapData hexMapData)
         {
-            Messenger.Default.Deregister<UpdateHexColorImageModels>(this, UpdateHexColorImageModelsFunction);
-            Messenger.Default.Deregister<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
             _columns = hexMapData.Columns;
             _rows = hexMapData.Rows;
             _listHexModel.Clear();
@@ -46,9 +48,30 @@ namespace Controls.Library.Models
             {
                 _listHexModel.Add(new HexModel(hexData));
             }
-            Messenger.Default.Register<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
-            Messenger.Default.Register<UpdateHexColorImageModels>(this, UpdateHexColorImageModelsFunction);
-            Messenger.Default.Register<SelectHexMessage>(this, SelectHexMessageFunction);
+        }
+
+        private void UnregisterMessages()
+        {
+            if (MessageRegistered)
+            {
+                Messenger.Default.Deregister<SelectHexMessage>(this, SelectHexMessageFunction);
+                Messenger.Default.Deregister<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
+                Messenger.Default.Deregister<UpdateHexColorImageModelsMessage>(this, UpdateHexColorImageModelsFunction);
+                Messenger.Default.Deregister<UpdateHexDescriptionDegreExplorationMessage>(this, UpdateHexDescriptionDegreExplorationMessageFunction);
+                MessageRegistered = false;
+            }
+        }
+
+        private void RegisterMessages()
+        {
+            if (!MessageRegistered)
+            {
+                Messenger.Default.Register<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
+                Messenger.Default.Register<UpdateHexColorImageModelsMessage>(this, UpdateHexColorImageModelsFunction);
+                Messenger.Default.Register<SelectHexMessage>(this, SelectHexMessageFunction);
+                Messenger.Default.Register<UpdateHexDescriptionDegreExplorationMessage>(this, UpdateHexDescriptionDegreExplorationMessageFunction);
+                MessageRegistered = true;
+            }
         }
 
         public HexModel GetHexModel(int column, int row)
@@ -74,11 +97,16 @@ namespace Controls.Library.Models
             if (previousSelectedHexModel != null)
             {
                 previousSelectedHexModel.UnselectHex();
+                if (previousSelectedHexModel != nextSelectedHexModel)
+                    nextSelectedHexModel.SelectHex();
             }
-            nextSelectedHexModel.SelectHex();
+            else
+            {
+                nextSelectedHexModel.SelectHex();
+            }
         }
 
-        public void UpdateHexColorImageModelsFunction(UpdateHexColorImageModels msg)
+        public void UpdateHexColorImageModelsFunction(UpdateHexColorImageModelsMessage msg)
         {
             UpdateColorImageModelsFromIds(
                 msg.Column,
@@ -92,6 +120,23 @@ namespace Controls.Library.Models
             GetHexModel(column, row).UpdateColorImageTypeModels(
                 tileColorModel,
                 tileImageTypeModel);
+        }
+
+        public void UpdateHexDescriptionDegreExplorationMessageFunction(
+            UpdateHexDescriptionDegreExplorationMessage msg)
+        {
+            UpdateHexDescriptionDegreExploration(
+                msg.Column,
+                msg.Row,
+                msg.Description,
+                msg.DegreExploration);
+        }
+
+        public void UpdateHexDescriptionDegreExploration(int column, int row, string description, int degreExploration)
+        {
+            GetHexModel(column, row).UpdateDescriptionDegreExploration(
+                description,
+                degreExploration);
         }
     }
 }

@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModels="clr-namespace:Controls.Library.ViewModels"
+             xmlns:views="clr-namespace:Controls.Library.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="300">
     <UserControl.Resources>
         <viewModels:TileEditorViewModel x:Key="ViewModel"/>
     </UserControl.Resources>
@@ -14,12 +15,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <StackPanel Margin="10" Grid.Row="0">
             <ComboBox Name="CmbTileColor"
                       ItemsSource = "{Binding ListTileColorViewModel}"
                       SelectedItem = "{Binding SelectedTileColorViewModel, Mode=TwoWay}"
+                      IsEditable="{Binding IsActive}" IsHitTestVisible="{Binding IsActive}" Focusable="{Binding IsActive}"
                       Width="Auto">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -36,6 +39,7 @@
             <ComboBox Name="CmbTileImageType"
                   ItemsSource = "{Binding ListTileImageTypeViewModel}"
                   SelectedItem = "{Binding SelectedTileImageTypeViewModel, Mode=TwoWay}"
+                      IsEditable="{Binding IsActive}" IsHitTestVisible="{Binding IsActive}" Focusable="{Binding IsActive}"
                   Width="Auto">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -47,5 +51,30 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
         </StackPanel>
+        
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="{Binding Label, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="1" Text="{Binding SelectedTileColorViewModel.Name}"/>
+            <TextBlock Grid.Row="2" Text="{Binding SelectedTileImageTypeViewModel.Name}"/>
+            <ComboBox Grid.Row="3" SelectedIndex="{Binding DegreExploration, Mode=TwoWay}">
+                <ComboBoxItem>0/6</ComboBoxItem>
+                <ComboBoxItem>1/6</ComboBoxItem>
+                <ComboBoxItem>2/6</ComboBoxItem>
+                <ComboBoxItem>3/6</ComboBoxItem>
+                <ComboBoxItem>4/6</ComboBoxItem>
+                <ComboBoxItem>5/6</ComboBoxItem>
+                <ComboBoxItem>6/6</ComboBoxItem>
+            </ComboBox>
+            <TextBox Grid.Row="4" Text="{Binding Description, Mode=TwoWay}" Height="50"/>
+            <Button Grid.Row="5" Command="{Binding SaveButtonCommand}">Save</Button>
+        </Grid>
     </Grid>
 </UserControl>

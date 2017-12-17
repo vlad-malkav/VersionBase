@@ -61,7 +61,7 @@ namespace VersionBase.Logic
         public static async void UpdateHexModelWithSelectedColorImage(int column, int row)
         {
             Tuple<TileColorModel, TileImageTypeModel> tupleColorImageIds = await GetSelectedTileColorTileImageTypeModels();
-            Messenger.Default.Send(new UpdateHexColorImageModels
+            Messenger.Default.Send(new UpdateHexColorImageModelsMessage
             {
                 Column = column,
                 Row = row,

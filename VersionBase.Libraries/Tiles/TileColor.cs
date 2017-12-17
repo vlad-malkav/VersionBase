@@ -8,17 +8,18 @@
         public byte Red { get; set; }
         public byte Green { get; set; }
         public byte Blue { get; set; }
+        public bool FromMedia { get; set; }
 
         public TileColor(){}
 
         public TileColor(System.Windows.Media.Color windowsMediaColor)
         {
-            Id = windowsMediaColor.ToString();
             Name = windowsMediaColor.ToString();
             Alpha = windowsMediaColor.A;
             Red = windowsMediaColor.R;
             Green = windowsMediaColor.G;
             Blue = windowsMediaColor.B;
+            Id = "Color-" + Alpha + "." + Red + "." + Green + "." + Blue;
         }
 
         public TileColor(System.Drawing.Color drawingColor)
@@ -29,6 +30,7 @@
             Red = drawingColor.R;
             Green = drawingColor.G;
             Blue = drawingColor.B;
+            Id = "Color-" + Alpha + "." + Red + "." + Green + "." + Blue;
         }
 
         public System.Windows.Media.Color GetWindowsMediaColor()
