@@ -22,7 +22,7 @@
             <ComboBox Name="CmbTileColor"
                       ItemsSource = "{Binding ListTileColorViewModel}"
                       SelectedItem = "{Binding SelectedTileColorViewModel, Mode=TwoWay}"
-                      IsEditable="{Binding IsActive}" IsHitTestVisible="{Binding IsActive}" Focusable="{Binding IsActive}"
+                      IsHitTestVisible="{Binding IsActive}" Focusable="{Binding IsActive}"
                       Width="Auto">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -39,7 +39,7 @@
             <ComboBox Name="CmbTileImageType"
                   ItemsSource = "{Binding ListTileImageTypeViewModel}"
                   SelectedItem = "{Binding SelectedTileImageTypeViewModel, Mode=TwoWay}"
-                      IsEditable="{Binding IsActive}" IsHitTestVisible="{Binding IsActive}" Focusable="{Binding IsActive}"
+                      IsHitTestVisible="{Binding IsActive}" Focusable="{Binding IsActive}"
                   Width="Auto">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
