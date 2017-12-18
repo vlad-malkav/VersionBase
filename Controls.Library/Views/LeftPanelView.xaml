@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <viewModels:LeftPanelViewModel x:Key="ViewModel"/>
     </UserControl.Resources>
-    <Grid Width="200" Height="Auto" Background="Blue" DataContext="{DynamicResource ViewModel}">
+    <Grid Width="200" Height="{Binding ActualHeight, RelativeSource = {RelativeSource AncestorType = {x:Type Grid}}}" Background="Blue" DataContext="{DynamicResource ViewModel}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>

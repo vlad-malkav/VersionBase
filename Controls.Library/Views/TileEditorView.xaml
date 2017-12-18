@@ -11,7 +11,7 @@
         <viewModels:TileEditorViewModel x:Key="ViewModel"/>
     </UserControl.Resources>
 
-    <Grid Background="Gray" DataContext="{DynamicResource ViewModel}">
+    <Grid DataContext="{DynamicResource ViewModel}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -74,9 +74,9 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0">Exploration</TextBlock>
                 <TextBlock Grid.Column="1" Text="{Binding DegreExploration}"/>
-                <Button Grid.Column="2" Command="{Binding DegreExplorationPlusCommand}">+</Button>
+                <Button Grid.Column="2" Command="{Binding DegreExplorationPlusCommand}" CommandParameter="{Binding DegreExploration}">+</Button>
                 <TextBlock Grid.Column="3"> /</TextBlock>
-                <Button Grid.Column="4" Command="{Binding DegreExplorationMinusCommand}">-</Button>
+                <Button Grid.Column="4" Command="{Binding DegreExplorationMinusCommand}" CommandParameter="{Binding DegreExploration}">-</Button>
             </Grid>
             <TextBox Grid.Row="4"
                      IsReadOnly="{Binding IsHexUnselected}"  IsHitTestVisible="{Binding IsHexSelected}" Focusable="{Binding IsHexSelected}"

@@ -17,11 +17,21 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <views:TopMenuView Grid.Row="0" x:Name="TopMenuViewControl" DataContext="{Binding TopMenuViewModel}"/>
-            <views:TopPanelView Grid.Row="1" x:Name="TopPanelViewControl" DataContext="{Binding TopPanelViewModel}" HorizontalAlignment="Left"/>
+            <Grid Grid.Row="1" Background="Violet">
+                <views:TopPanelView x:Name="TopPanelViewControl" DataContext="{Binding TopPanelViewModel}" HorizontalAlignment="Left"/>
+            </Grid>
         </Grid>
-        <views:BottomPanelView DockPanel.Dock="Bottom" x:Name="BottomPanelViewControl" DataContext="{Binding BottomPanelViewModel}" HorizontalAlignment="Left"/>
-        <views:LeftPanelView DockPanel.Dock="Left" x:Name="LeftPanelViewControl" DataContext="{Binding LeftPanelViewModel}" VerticalAlignment="Top"/>
-        <views:RightPanelView DockPanel.Dock="Right" x:Name="RightPanelViewControl" DataContext="{Binding RightPanelViewModel}" VerticalAlignment="Top"/>
-        <views:HexMapView x:Name="HexMapViewControl" DataContext="{Binding HexMapViewModel}"/>
+        <Grid DockPanel.Dock="Bottom" Background="Orange">
+            <views:BottomPanelView x:Name="BottomPanelViewControl" DataContext="{Binding BottomPanelViewModel}" HorizontalAlignment="Left"/>
+        </Grid>
+        <Grid DockPanel.Dock="Left" Background="LightGray">
+            <views:LeftPanelView x:Name="LeftPanelViewControl" DataContext="{Binding LeftPanelViewModel}" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid DockPanel.Dock="Right" Background="Pink">
+            <views:RightPanelView x:Name="RightPanelViewControl" DataContext="{Binding RightPanelViewModel}" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid>
+            <views:HexMapView x:Name="HexMapViewControl" DataContext="{Binding HexMapViewModel}"/>
+        </Grid>
     </DockPanel>
 </UserControl>

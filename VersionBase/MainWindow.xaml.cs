@@ -48,7 +48,7 @@ namespace VersionBase
             GameModel = new GameModel();
             GameModel.ImportGameData(GameData);
             GameViewModel = new GameViewModel();
-            GameViewModel.ApplyModel(GameModel, Main.ActualHeight, Main.ActualWidth);
+            GameViewModel.ApplyModel(GameModel, GameViewControl.HexMapViewControl.ActualHeight, GameViewControl.HexMapViewControl.ActualWidth);
             GameViewControl.ViewModel = GameViewModel;
 
             BaseLogic = new GameLogic();
@@ -130,10 +130,4 @@ namespace VersionBase
             this.Close();
         }
     }
-}
-
-// Create the Event Message
-public class TickerSymbolSelectedMessage
-{
-    public string StockSymbol { get; set; }
 }

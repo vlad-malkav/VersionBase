@@ -19,8 +19,8 @@ namespace Controls.Library.ViewModels
         public double CellSize { get; set; }
         public List<HexViewModel> ListHexViewModel { get; set; }
         public ObservableCollection<UIElement> ListUIElement { get; set; }
-        public double Width { get; set; }
-        public double Height { get; set; }
+        //public double Width { get; set; }
+        //public double Height { get; set; }
 
         public HexMapViewModel()
         {
@@ -32,10 +32,10 @@ namespace Controls.Library.ViewModels
 
         public void ApplyModel(HexMapModel hexMapModel, double width, double height, double cellSize)
         {
-            Width = width;
-            Height = height;
+            //Width = width;
+            //Height = height;
             CellSize = cellSize;
-            Columns = hexMapModel.Rows;
+            Columns = hexMapModel.Columns;
             Rows = hexMapModel.Rows;
             foreach (var hexViewModel in ListHexViewModel)
             {

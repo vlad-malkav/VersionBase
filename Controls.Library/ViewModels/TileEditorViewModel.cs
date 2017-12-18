@@ -44,6 +44,9 @@ namespace Controls.Library.ViewModels
             {
                 _isHexSelected = value;
                 RaisePropertyChanged("IsHexSelected");
+                if (SaveButtonCommand != null) SaveButtonCommand.RaiseCanExecuteChanged();
+                if (DegreExplorationMinusCommand != null) DegreExplorationMinusCommand.RaiseCanExecuteChanged();
+                if (DegreExplorationPlusCommand != null) DegreExplorationPlusCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -86,6 +89,8 @@ namespace Controls.Library.ViewModels
             get { return _degreExploration; }
             set { _degreExploration = value;
                 RaisePropertyChanged("DegreExploration");
+                if(DegreExplorationMinusCommand != null) DegreExplorationMinusCommand.RaiseCanExecuteChanged();
+                if (DegreExplorationPlusCommand != null) DegreExplorationPlusCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -110,20 +115,26 @@ namespace Controls.Library.ViewModels
 
         #endregion
 
-        public ICommand SaveButtonCommand { get; private set; }
-        public ICommand DegreExplorationPlusCommand { get; private set; }
-        public ICommand DegreExplorationMinusCommand { get; private set; }
+        public RelayCommand SaveButtonCommand { get; private set; }
+        public RelayCommand DegreExplorationPlusCommand { get; private set; }
+        public RelayCommand DegreExplorationMinusCommand { get; private set; }
 
         public TileEditorViewModel()
         {
             SetHexSelectedState(false);
             ListTileColorViewModel = new List<TileColorViewModel>();
             ListTileImageTypeViewModel = new List<TileImageTypeViewModel>();
-            SaveButtonCommand = new RelayCommand(() => SaveButtonAction());
-            DegreExplorationPlusCommand = new RelayCommand(
-                () => DegreExploration++);
-            DegreExplorationMinusCommand = new RelayCommand(
-                () => DegreExploration--);
+            SaveButtonCommand = new RelayCommand(
+                () => SaveButtonAction(),
+                () => IsHexSelected);
+            
+                DegreExplorationPlusCommand = new RelayCommand(
+                    () => DegreExploration++,
+                    () => DegreExploration < 6 && IsHexSelected);
+            
+                DegreExplorationMinusCommand = new RelayCommand(
+                    () => DegreExploration--,
+                    () => DegreExploration > 0 && IsHexSelected);
         }
 
         public void ApplyModel(TileEditorModel tileEditorModel)
