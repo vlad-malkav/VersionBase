@@ -23,6 +23,8 @@ namespace Controls.Library.ViewModels
         public int Column { get; set; }
         public int Row { get; set; }
         public bool Selected { get; set; }
+        public double XCenterMod { get; set; }
+        public double YCenterMod { get; set; }
         public double CellSize { get; set; }
         public Color Color { get; set; }
         public Bitmap Bitmap { get; set; }
@@ -46,10 +48,12 @@ namespace Controls.Library.ViewModels
             InsidePolygon.MouseRightButtonDown += MouseRightButtonDown;
         }
 
-        public HexViewModel(HexModel hexModel, double cellSize)
+        public HexViewModel(HexModel hexModel, double xCenterMod, double yCenterMod, double cellSize)
             :this()
         {
             CellSize = cellSize;
+            XCenterMod = xCenterMod;
+            YCenterMod = yCenterMod;
             UpdateFromHexModel(hexModel);
         }
 
@@ -112,10 +116,18 @@ namespace Controls.Library.ViewModels
             }
         }
 
-        public void UpdateCellSize(double cellSize)
+        public void UpdateDrawing(double xCenterMod, double yCenterMod, double cellSize)
         {
+            XCenterMod = xCenterMod;
+            YCenterMod = yCenterMod;
             CellSize = cellSize;
             RegeneratePolygon();
+        }
+
+        public void Move(double moveX, double moveY)
+        {
+            HexDrawingData.Move(InsidePolygon, moveX, moveY);
+            HexDrawingData.Move(BorderPolygon, moveX, moveY);
         }
 
         public void UpdateTileData(Color color, Bitmap bitmap)
@@ -134,6 +146,8 @@ namespace Controls.Library.ViewModels
                 ListLineExploration,
                 Column,
                 Row,
+                XCenterMod,
+                YCenterMod,
                 CellSize,
                 Color,
                 Bitmap,

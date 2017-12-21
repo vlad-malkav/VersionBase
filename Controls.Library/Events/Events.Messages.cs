@@ -94,4 +94,18 @@ namespace Controls.Library.Events
     {
 
     }
+
+    public class MoveCanvasRequestMessage
+    {
+        public double XMovement { get; set; }
+        public double YMovement { get; set; }
+
+        public MoveCanvasRequestMessage() { }
+
+        public MoveCanvasRequestMessage(double xMovement, double yMovement)
+        {
+            XMovement = xMovement;
+            YMovement = yMovement;
+        }
+    }
 }

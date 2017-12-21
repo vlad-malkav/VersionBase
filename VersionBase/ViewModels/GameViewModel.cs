@@ -35,7 +35,13 @@ namespace VersionBase.ViewModels
             hexMapWidth = actualWidth;
             hexMapHeight = actualHeight;
             HexMapDrawing.GetCombSize(hexMapHeight, hexMapWidth, gameModel.HexMapModel.Columns, gameModel.HexMapModel.Rows, out cellSize, out width, out height);
-            HexMapViewModel.ApplyModel(gameModel.HexMapModel, width, height, cellSize);
+            double xCenterOriginal = HexMapDrawing.GetTrueXCenter(cellSize, gameModel.HexMapModel.Columns);
+            double yCenterrOriginal = HexMapDrawing.GetTrueYCenter(cellSize, gameModel.HexMapModel.Columns, gameModel.HexMapModel.Rows);
+            double xCenterNew = (hexMapWidth / 2);
+            double yCenterNew = (hexMapHeight / 2);
+            double xCenterMod = xCenterNew - xCenterOriginal;
+            double yCenterMod = yCenterNew - yCenterrOriginal;
+            HexMapViewModel.ApplyModel(gameModel.HexMapModel, width, height, xCenterMod, yCenterMod, cellSize);
             TopMenuViewModel.ApplyModel();
             LeftPanelViewModel.ApplyModel(gameModel.LeftPanelModel);
             RightPanelViewModel.ApplyModel(gameModel.RightPanelModel);

@@ -39,6 +39,18 @@ namespace VersionBase.Logic
                 case "Quit":
                     Messenger.Default.Send(new QuitMessage());
                     break;
+                case "GoLeft":
+                    Messenger.Default.Send(new MoveCanvasRequestMessage(-100,0));
+                    break;
+                case "GoRight":
+                    Messenger.Default.Send(new MoveCanvasRequestMessage(100,0));
+                    break;
+                case "GoUp":
+                    Messenger.Default.Send(new MoveCanvasRequestMessage(0,100));
+                    break;
+                case "GoDown":
+                    Messenger.Default.Send(new MoveCanvasRequestMessage(0,-100));
+                    break;
             }
         }
 

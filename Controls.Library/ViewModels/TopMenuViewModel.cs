@@ -28,6 +28,12 @@ namespace Controls.Library.ViewModels
             menuFichier.ListMenuItemViewModel.Add(new MenuItemViewModel("Save"));
             menuFichier.ListMenuItemViewModel.Add(new MenuItemViewModel("Quit"));
             ListMenuItemViewModel.Add(menuFichier);
+            MenuItemViewModel menuMove = new MenuItemViewModel("Move");
+            menuMove.ListMenuItemViewModel.Add(new MenuItemViewModel("GoLeft"));
+            menuMove.ListMenuItemViewModel.Add(new MenuItemViewModel("GoRight"));
+            menuMove.ListMenuItemViewModel.Add(new MenuItemViewModel("GoUp"));
+            menuMove.ListMenuItemViewModel.Add(new MenuItemViewModel("GoDown"));
+            ListMenuItemViewModel.Add(menuMove);
             MenuItemViewModel menuOptions = new MenuItemViewModel("Options");
             menuOptions.ListMenuItemViewModel.Add(new MenuItemViewModel("Option1"));
             ListMenuItemViewModel.Add(menuOptions);

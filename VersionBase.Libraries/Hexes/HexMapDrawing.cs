@@ -23,28 +23,33 @@ namespace VersionBase.Libraries.Hexes
         public static void UpdateAndFillHexShapes(
             Polygon insidePolygon, Polygon borderPolygon,
             Grid gridLabel, List<Line> listLineExploration,
-            int column, int row, double cellSize,
+            int column, int row,
+            double xCenterMod, double yCenterMod, double cellSize,
             Color color, Bitmap bitmap,
             string label, int degreExploration, bool selected)
         {
-            HexDrawingData hexDrawingData = new HexDrawingData(column, row, cellSize);
-            FillInsidePolygon(hexDrawingData, insidePolygon, color, bitmap);
+            HexDrawingData hexDrawingData = new HexDrawingData(column, row, xCenterMod, yCenterMod, cellSize);
+            DrawInsidePolygon(hexDrawingData, insidePolygon);
+            FillInsidePolygon(insidePolygon, color, bitmap);
             UpdateBorderPolygon(hexDrawingData, borderPolygon, selected);
             UpdateHexLabel(hexDrawingData, gridLabel, label);
             UpdateAndFillHexLineExploration(hexDrawingData, listLineExploration, degreExploration);
         }
 
-        public static void FillInsidePolygon(HexDrawingData hexDrawingData, Polygon insidePolygon, Color color, Bitmap bitmap)
+        public static void DrawInsidePolygon(HexDrawingData hexDrawingData, Polygon insidePolygon)
         {
             insidePolygon.Points.Clear();
             foreach (var outerSummitPoint in hexDrawingData.ListOuterSummitPoints)
             {
                 insidePolygon.Points.Add(outerSummitPoint);
             }
-
-            insidePolygon.Fill = new ImageBrush(GenerateTileBitmapImage(color, bitmap));
             insidePolygon.Tag = "InsidePolygon";
-            Canvas.SetZIndex(insidePolygon,0);
+            Canvas.SetZIndex(insidePolygon, 0);
+        }
+
+        public static void FillInsidePolygon(Polygon insidePolygon, Color color, Bitmap bitmap)
+        {
+            insidePolygon.Fill = new ImageBrush(GenerateTileBitmapImage(color, bitmap));
         }
 
         public static void UpdateBorderPolygon(HexDrawingData hexDrawingData, Polygon borderPolygon, bool selected)
@@ -105,12 +110,37 @@ namespace VersionBase.Libraries.Hexes
         public static void GetCombSize(double actualHeight, double actualWidth, int columns, int rows, out double cellSize, out double combWidth, out double combHeight)
         {
             double columnFactor = (3 * columns + 1) / 1.5;
+            //DESBONAL : fullscreen
+            //columnFactor = (0.5 + 1.5 * columns);
             double rowFactor = (Math.Sqrt(3) * (2 * rows + 1)) / 1.5;
+            //DESBONAL : fullscreen
+            //rowFactor = (Math.Sqrt(3) * (2 * rows + 1)) / 2;
             double cellFromWidth = actualWidth / columnFactor;
             double cellFromHeight = actualHeight / rowFactor;
             cellSize = Math.Min(cellFromWidth, cellFromHeight);
             combWidth = cellSize * columnFactor;
             combHeight = cellSize * rowFactor;
+        }
+
+        public static double GetTrueWidth(double cellSize, int columns)
+        {
+            return cellSize + Math.Max(0, columns - 1) * 1.5 * cellSize;
+        }
+
+        public static double GetTrueHeight(double cellSize, int columns, int rows)
+        {
+            double cellHeight = HexDrawingData.GetCellHeight(cellSize);
+            return rows * cellHeight + columns > 1 ? cellHeight : 0;
+        }
+
+        public static double GetTrueXCenter(double cellSize, int columns)
+        {
+            return HexDrawingData.GetCellX(cellSize, 0, 0) - cellSize + GetTrueWidth(cellSize, columns) / 2;
+        }
+
+        public static double GetTrueYCenter(double cellSize, int columns, int rows)
+        {
+            return HexDrawingData.GetCellY(cellSize, 0, 0, 0) - HexDrawingData.GetCellHeight(cellSize) + GetTrueHeight(cellSize, columns, rows) / 2;
         }
 
         #region Bitmap Functions

@@ -19,8 +19,8 @@ namespace VersionBase.Data
 
         public GameData()
         {
-            RowCount = 10;
-            ColCount = 10;
+            RowCount = 20;
+            ColCount = 20;
             ListTileColor = TileColors.GetAllTileColors();
             ListTileImageType = TileImageTypes.GetAllTileImageTypes();
             HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);

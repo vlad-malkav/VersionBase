@@ -16,6 +16,8 @@ namespace Controls.Library.ViewModels
     {
         public int Columns { get; set; }
         public int Rows { get; set; }
+        public double XCenterMod { get; set; }
+        public double YCenterMod { get; set; }
         public double CellSize { get; set; }
         public List<HexViewModel> ListHexViewModel { get; set; }
         public ObservableCollection<UIElement> ListUIElement { get; set; }
@@ -30,10 +32,12 @@ namespace Controls.Library.ViewModels
             RegisterMessages();
         }
 
-        public void ApplyModel(HexMapModel hexMapModel, double width, double height, double cellSize)
+        public void ApplyModel(HexMapModel hexMapModel, double width, double height, double xCenterMod, double yCenterMod, double cellSize)
         {
             //Width = width;
             //Height = height;
+            XCenterMod = xCenterMod;
+            YCenterMod = yCenterMod;
             CellSize = cellSize;
             Columns = hexMapModel.Columns;
             Rows = hexMapModel.Rows;
@@ -45,7 +49,7 @@ namespace Controls.Library.ViewModels
             ListUIElement.Clear();
             foreach (var hexModel in hexMapModel.ListHexModel)
             {
-                var hexViewModel = new HexViewModel(hexModel, CellSize);
+                var hexViewModel = new HexViewModel(hexModel, XCenterMod, YCenterMod, CellSize);
                 ListHexViewModel.Add(hexViewModel);
                 foreach (UIElement uiElement in hexViewModel.GetAllUIElements())
                 {
@@ -60,6 +64,7 @@ namespace Controls.Library.ViewModels
             Messenger.Default.Deregister<HexModelUpdatedMessage>(this, HexModelUpdatedMessageFunction);
             Messenger.Default.Deregister<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Deregister<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
+            Messenger.Default.Deregister<MoveCanvasRequestMessage>(this, MoveCanvasRequestMessageFunction);
         }
 
         private void RegisterMessages()
@@ -67,6 +72,7 @@ namespace Controls.Library.ViewModels
             Messenger.Default.Register<HexModelUpdatedMessage>(this, HexModelUpdatedMessageFunction);
             Messenger.Default.Register<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Register<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
+            Messenger.Default.Register<MoveCanvasRequestMessage>(this, MoveCanvasRequestMessageFunction);
         }
 
         private void HexModelUpdatedMessageFunction(HexModelUpdatedMessage msgHexModelUpdatedMessage)
@@ -88,6 +94,16 @@ namespace Controls.Library.ViewModels
             var hexViewModel = GetHexViewModel(msgHexUnselectedMessage.HexModel.Column, msgHexUnselectedMessage.HexModel.Row);
             if (hexViewModel != null)
                 hexViewModel.UnselectHex();
+        }
+
+        private void MoveCanvasRequestMessageFunction(MoveCanvasRequestMessage msg)
+        {
+            foreach (var hexViewModel in ListHexViewModel)
+            {
+                /*hexViewModel.XCenterMod += msg.XMovement;
+                hexViewModel.YCenterMod += msg.YMovement;*/
+                hexViewModel.Move(msg.XMovement, msg.YMovement);
+            }
         }
 
         public HexViewModel GetHexViewModel(int column, int row)
