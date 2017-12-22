@@ -73,7 +73,9 @@ namespace Controls.Library.Events
         public int DegreExploration { get; set; }
     }
 
-    public class HexModelUpdatedMessage : HexModelMessage { }
+    public class HexTileUpdatedMessage : HexModelMessage { }
+
+    public class HexDegreExplorationUpdatedMessage : HexModelMessage { }
 
     public class MenuItemClickedMessage
     {

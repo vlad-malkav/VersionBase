@@ -61,6 +61,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawing\DrawingFunctions.cs" />
     <Compile Include="Events\EventSystem.cs" />
     <Compile Include="Hexes\HexDrawingData.cs" />
     <Compile Include="Hexes\HexData.cs" />

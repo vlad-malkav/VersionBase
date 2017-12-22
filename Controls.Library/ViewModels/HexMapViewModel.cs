@@ -49,7 +49,9 @@ namespace Controls.Library.ViewModels
             ListUIElement.Clear();
             foreach (var hexModel in hexMapModel.ListHexModel)
             {
-                var hexViewModel = new HexViewModel(hexModel, XCenterMod, YCenterMod, CellSize);
+                var hexViewModel = new HexViewModel();
+                hexViewModel.UpdateFromHexModel(hexModel);
+                hexViewModel.UpdateDrawingDimensions(XCenterMod, YCenterMod,CellSize);
                 ListHexViewModel.Add(hexViewModel);
                 foreach (UIElement uiElement in hexViewModel.GetAllUIElements())
                 {
@@ -61,7 +63,8 @@ namespace Controls.Library.ViewModels
 
         private void UnregisterMessages()
         {
-            Messenger.Default.Deregister<HexModelUpdatedMessage>(this, HexModelUpdatedMessageFunction);
+            Messenger.Default.Deregister<HexTileUpdatedMessage>(this, HexTileUpdatedMessageFunction);
+            Messenger.Default.Deregister<HexDegreExplorationUpdatedMessage>(this, HexDegreExplorationUpdatedMessageFunction);
             Messenger.Default.Deregister<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Deregister<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
             Messenger.Default.Deregister<MoveCanvasRequestMessage>(this, MoveCanvasRequestMessageFunction);
@@ -69,29 +72,39 @@ namespace Controls.Library.ViewModels
 
         private void RegisterMessages()
         {
-            Messenger.Default.Register<HexModelUpdatedMessage>(this, HexModelUpdatedMessageFunction);
+            Messenger.Default.Register<HexTileUpdatedMessage>(this, HexTileUpdatedMessageFunction);
+            Messenger.Default.Register<HexDegreExplorationUpdatedMessage>(this, HexDegreExplorationUpdatedMessageFunction);
             Messenger.Default.Register<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Register<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
             Messenger.Default.Register<MoveCanvasRequestMessage>(this, MoveCanvasRequestMessageFunction);
         }
 
-        private void HexModelUpdatedMessageFunction(HexModelUpdatedMessage msgHexModelUpdatedMessage)
+        private void HexTileUpdatedMessageFunction(HexTileUpdatedMessage msg)
         {
-            var hexViewModel = GetHexViewModel(msgHexModelUpdatedMessage.HexModel.Column, msgHexModelUpdatedMessage.HexModel.Row);
+            var hexViewModel = GetHexViewModel(msg.HexModel.Column, msg.HexModel.Row);
             if (hexViewModel != null)
-                hexViewModel.UpdateFromHexModel(msgHexModelUpdatedMessage.HexModel);
+                hexViewModel.UpdateTileData(
+                    msg.HexModel.TileColorModel.GetDrawingColor(),
+                    msg.HexModel.TileImageTypeModel.GetBitmap());
         }
 
-        private void HexSelectedMessageFunction(HexModelSelectedMessage msgHexSelectedMessage)
+        private void HexDegreExplorationUpdatedMessageFunction(HexDegreExplorationUpdatedMessage msg)
         {
-            var hexViewModel = GetHexViewModel(msgHexSelectedMessage.HexModel.Column, msgHexSelectedMessage.HexModel.Row);
+            var hexViewModel = GetHexViewModel(msg.HexModel.Column, msg.HexModel.Row);
+            if (hexViewModel != null)
+                hexViewModel.UpdateDegreExploration(msg.HexModel.DegreExploration);
+        }
+
+        private void HexSelectedMessageFunction(HexModelSelectedMessage msg)
+        {
+            var hexViewModel = GetHexViewModel(msg.HexModel.Column, msg.HexModel.Row);
             if (hexViewModel != null)
                 hexViewModel.SelectHex();
         }
 
-        private void HexUnselectedMessageFunction(HexModelUnselectedMessage msgHexUnselectedMessage)
+        private void HexUnselectedMessageFunction(HexModelUnselectedMessage msg)
         {
-            var hexViewModel = GetHexViewModel(msgHexUnselectedMessage.HexModel.Column, msgHexUnselectedMessage.HexModel.Row);
+            var hexViewModel = GetHexViewModel(msg.HexModel.Column, msg.HexModel.Row);
             if (hexViewModel != null)
                 hexViewModel.UnselectHex();
         }
@@ -100,8 +113,6 @@ namespace Controls.Library.ViewModels
         {
             foreach (var hexViewModel in ListHexViewModel)
             {
-                /*hexViewModel.XCenterMod += msg.XMovement;
-                hexViewModel.YCenterMod += msg.YMovement;*/
                 hexViewModel.Move(msg.XMovement, msg.YMovement);
             }
         }

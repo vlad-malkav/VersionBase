@@ -46,10 +46,10 @@ namespace VersionBase.Logic
                     Messenger.Default.Send(new MoveCanvasRequestMessage(100,0));
                     break;
                 case "GoUp":
-                    Messenger.Default.Send(new MoveCanvasRequestMessage(0,100));
+                    Messenger.Default.Send(new MoveCanvasRequestMessage(0, -100));
                     break;
                 case "GoDown":
-                    Messenger.Default.Send(new MoveCanvasRequestMessage(0,-100));
+                    Messenger.Default.Send(new MoveCanvasRequestMessage(0, 100));
                     break;
             }
         }

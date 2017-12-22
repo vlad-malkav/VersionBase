@@ -71,7 +71,7 @@ namespace Controls.Library.Models
             _tileImageTypeModel = tileImageTypeModel;
 
             Messenger.Default.Send(
-                new HexModelUpdatedMessage
+                new HexTileUpdatedMessage
                 {
                     HexModel = this
                 });
@@ -83,7 +83,7 @@ namespace Controls.Library.Models
             _degreExploration = degreExploration;
 
             Messenger.Default.Send(
-                new HexModelUpdatedMessage
+                new HexDegreExplorationUpdatedMessage
                 {
                     HexModel = this
                 });
