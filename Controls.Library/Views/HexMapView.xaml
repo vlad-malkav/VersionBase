@@ -4,12 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:Controls.Library.ViewModels"
+             d:DataContext="{d:DesignInstance viewModels:HexMapViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d">
-    <UserControl.Resources>
-        <viewModels:HexMapViewModel x:Key="ViewModel"/>
-    </UserControl.Resources>
 
-    <Grid DataContext="{DynamicResource ViewModel}">
+    <Grid x:Name="CanvasUIElement"
+          Width="{Binding ActualWidth, RelativeSource = {RelativeSource AncestorType = {x:Type Grid}}}"
+          Height="{Binding ActualHeight, RelativeSource = {RelativeSource AncestorType = {x:Type Grid}}}">
         <ItemsControl ItemsSource="{Binding ListUIElement}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

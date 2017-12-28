@@ -77,7 +77,7 @@ namespace Controls.Library.ViewModels
             Column = hexModel.Column;
             Row = hexModel.Row;
             Color = hexModel.TileColorModel.GetDrawingColor();
-            Bitmap = hexModel.TileImageTypeModel.GetBitmap();
+            Bitmap = hexModel.TileImageModel.Bitmap;
 
             HexDrawingData.SetHexCoordinates(Column, Row);
         }
@@ -87,7 +87,7 @@ namespace Controls.Library.ViewModels
             if (!Selected)
             {
                 Selected = true;
-                HexMapDrawing.UpdateBorderPolygon(HexDrawingData, BorderPolygon, Selected);
+                HexMapDrawing.UpdateBorderPolygonSelected(HexDrawingData, BorderPolygon, Selected);
 
                 Messenger.Default.Send(
                     new HexViewModelSelectedMessage
@@ -102,7 +102,7 @@ namespace Controls.Library.ViewModels
             if (Selected)
             {
                 Selected = false;
-                HexMapDrawing.UpdateBorderPolygon(HexDrawingData, BorderPolygon, Selected);
+                HexMapDrawing.UpdateBorderPolygonSelected(HexDrawingData, BorderPolygon, Selected);
 
                 Messenger.Default.Send(
                     new HexViewModelUnselectedMessage
@@ -110,6 +110,22 @@ namespace Controls.Library.ViewModels
                         HexViewModel = this
                     });
             }
+        }
+
+        public void Zoom(double zoomMultiplicator)
+        {
+            XCenterMod = XCenterMod * zoomMultiplicator;
+            YCenterMod = YCenterMod * zoomMultiplicator;
+            CellSize = CellSize * zoomMultiplicator;
+
+            HexDrawingData.UpdateDrawing(/*XCenterMod, YCenterMod,*/ CellSize);
+
+            HexMapDrawing.UpdateInsidePolygon(HexDrawingData, InsidePolygon);
+            HexMapDrawing.DrawBorderPolygon(HexDrawingData,BorderPolygon);
+            HexMapDrawing.UpdateHexLabel(HexDrawingData,GridLabel);
+            HexMapDrawing.UpdateHexLineExploration(HexDrawingData,ListLineExploration);
+
+            Move(XCenterMod,YCenterMod);
         }
 
         public void UpdateDrawingDimensions(double xCenterMod, double yCenterMod, double cellSize)
@@ -142,7 +158,7 @@ namespace Controls.Library.ViewModels
         {
             Color = color;
             Bitmap = bitmap;
-            HexMapDrawing.UpdateInsidePolygon(InsidePolygon, Color, Bitmap);
+            HexMapDrawing.UpdateInsidePolygonFill(InsidePolygon, Color, Bitmap);
         }
 
         public void UpdateDegreExploration(int degreExploration)
@@ -150,7 +166,7 @@ namespace Controls.Library.ViewModels
             DegreExploration = degreExploration;
             for (int i = 0; i < ListLineExploration.Count; i++)
             {
-                HexMapDrawing.UpdateLineExploration(ListLineExploration[i], i, DegreExploration);
+                HexMapDrawing.UpdateLineExplorationVisibility(ListLineExploration[i], i, DegreExploration);
             }
         }
 

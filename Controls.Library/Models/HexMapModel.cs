@@ -79,10 +79,10 @@ namespace Controls.Library.Models
             return ListHexModel.FirstOrDefault(x => x.Column == column && x.Row == row);
         }
 
-        public void UpdateHexModel(int column, int row, TileColorModel tileColorModel, TileImageTypeModel tileImageTypeModel)
+        public void UpdateHexModel(int column, int row, TileColorModel tileColorModel, TileImageModel tileImageModel)
         {
             HexModel hexModel = GetHexModel(column, row);
-            hexModel.UpdateColorImageTypeModels(tileColorModel, tileImageTypeModel);
+            hexModel.UpdateColorImageModels(tileColorModel, tileImageModel);
         }
 
         private void GetHexModelFromPositionRequestMessageFunction(GetHexModelFromPositionRequestMessage msg)
@@ -112,14 +112,14 @@ namespace Controls.Library.Models
                 msg.Column,
                 msg.Row,
                 msg.TileColorModel,
-                msg.TileImageTypeModel);
+                msg.TileImageModel);
         }
 
-        public void UpdateColorImageModelsFromIds(int column, int row, TileColorModel tileColorModel, TileImageTypeModel tileImageTypeModel)
+        public void UpdateColorImageModelsFromIds(int column, int row, TileColorModel tileColorModel, TileImageModel tileImageModel)
         {
-            GetHexModel(column, row).UpdateColorImageTypeModels(
+            GetHexModel(column, row).UpdateColorImageModels(
                 tileColorModel,
-                tileImageTypeModel);
+                tileImageModel);
         }
 
         public void UpdateHexDescriptionDegreExplorationMessageFunction(

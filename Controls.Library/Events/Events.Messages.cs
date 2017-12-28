@@ -46,13 +46,13 @@ namespace Controls.Library.Events
     public class SetSelectedColorImageIdsRequestMessage
     {
         public string TileColorModelId { get; set; }
-        public string TileImageTypeModelId { get; set; }
+        public string TileImageModelId { get; set; }
     }
 
-    public class GetTileColorTileImageTypeModelsFromIdRequestMessage : CallbackMessage<Tuple<TileColorModel, TileImageTypeModel>>
+    public class GetTileColorTileImageModelsFromIdRequestMessage : CallbackMessage<Tuple<TileColorModel, TileImageModel>>
     {
         public string TileColorModelId { get; set; }
-        public string TileImageTypeModelId { get; set; }
+        public string TileImageModelId { get; set; }
     }
 
     public class GetHexModelFromPositionRequestMessage : CallbackMessage<HexModel>
@@ -64,7 +64,7 @@ namespace Controls.Library.Events
     public class UpdateHexColorImageModelsMessage : HexCoordinatesMessage
     {
         public TileColorModel TileColorModel { get; set; }
-        public TileImageTypeModel TileImageTypeModel { get; set; }
+        public TileImageModel TileImageModel { get; set; }
     }
 
     public class UpdateHexDescriptionDegreExplorationMessage : HexCoordinatesMessage
@@ -80,6 +80,11 @@ namespace Controls.Library.Events
     public class MenuItemClickedMessage
     {
         public string Name { get; set; }
+    }
+
+    public class NewMessage
+    {
+
     }
 
     public class LoadMessage
@@ -108,6 +113,16 @@ namespace Controls.Library.Events
         {
             XMovement = xMovement;
             YMovement = yMovement;
+        }
+    }
+
+    public class ZoomCanvasRequestMessage
+    {
+        public double ZoomMultiplicator { get; set; }
+
+        public ZoomCanvasRequestMessage(double zoomMultiplicator)
+        {
+            ZoomMultiplicator = zoomMultiplicator;
         }
     }
 }

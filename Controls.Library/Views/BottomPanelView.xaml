@@ -5,11 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:views="clr-namespace:Controls.Library.Views"
              xmlns:viewModels="clr-namespace:Controls.Library.ViewModels"
+             d:DataContext="{d:DesignInstance viewModels:BottomPanelViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d" >
-    <UserControl.Resources>
-        <viewModels:BottomPanelViewModel x:Key="ViewModel"/>
-    </UserControl.Resources>
-    <Grid Height="0" Width="{Binding ActualWidth, RelativeSource = {RelativeSource AncestorType = {x:Type Grid}}}"   DataContext="{DynamicResource ViewModel}" Background="DarkOrange">
+    <Grid Height="0" Width="{Binding ActualWidth, RelativeSource = {RelativeSource AncestorType = {x:Type Grid}}}" Background="DarkOrange">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>

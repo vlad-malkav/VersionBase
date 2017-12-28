@@ -23,6 +23,11 @@ namespace VersionBase.Libraries.Tiles
             return (Bitmap)Properties.Tileset_Set_1.ResourceManager.GetObject(tileImageTypeName);
         }
 
+        public static Bitmap GetBitmapTile(TileImageType tileImageType)
+        {
+            return (Bitmap)Properties.Tileset_Set_1.ResourceManager.GetObject(tileImageType.ToString());
+        }
+
         /*
         private const string path =
             ".\\Resources\\Images\\Set1\\";

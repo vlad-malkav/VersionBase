@@ -21,10 +21,10 @@ namespace Controls.Library.Models
             _tileEditorModel = new TileEditorModel();
         }
 
-        public void ImportTileEditorData(List<TileColor> listTileColor, List<TileImageType> listTileImageType)
+        public void ImportTileEditorData(List<TileColor> listTileColor, List<TileImage> listTileImage)
         {
             _tileEditorModel.ImportListTileColor(listTileColor);
-            _tileEditorModel.ImportListTileImageType(listTileImageType);
+            _tileEditorModel.ImportListTileImage(listTileImage);
         }
     }
 }

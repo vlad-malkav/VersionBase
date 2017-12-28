@@ -17,6 +17,7 @@ namespace Controls.Library.ViewModels
         public TopMenuViewModel()
         {
             ListMenuItemViewModel = new List<MenuItemViewModel>();
+            ApplyModel();
         }
 
         public void ApplyModel()
@@ -34,6 +35,10 @@ namespace Controls.Library.ViewModels
             menuMove.ListMenuItemViewModel.Add(new MenuItemViewModel("GoUp"));
             menuMove.ListMenuItemViewModel.Add(new MenuItemViewModel("GoDown"));
             ListMenuItemViewModel.Add(menuMove);
+            MenuItemViewModel menuZoom = new MenuItemViewModel("Zoom");
+            menuZoom.ListMenuItemViewModel.Add(new MenuItemViewModel("ZoomIn"));
+            menuZoom.ListMenuItemViewModel.Add(new MenuItemViewModel("ZoomOut"));
+            ListMenuItemViewModel.Add(menuZoom);
             MenuItemViewModel menuOptions = new MenuItemViewModel("Options");
             menuOptions.ListMenuItemViewModel.Add(new MenuItemViewModel("Option1"));
             ListMenuItemViewModel.Add(menuOptions);

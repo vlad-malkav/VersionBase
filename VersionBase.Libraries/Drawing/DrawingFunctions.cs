@@ -17,6 +17,24 @@ namespace VersionBase.Libraries.Drawing
             return new Point((a.X + b.X) / 2, (a.Y + b.Y) / 2);
         }
 
+        public static System.Windows.Media.Color SystemDrawingColorToWindowsMediaColor(System.Drawing.Color systemDrawingColor)
+        {
+            return System.Windows.Media.Color.FromArgb(
+                systemDrawingColor.A,
+                systemDrawingColor.R,
+                systemDrawingColor.G,
+                systemDrawingColor.B);
+        }
+
+        public static System.Drawing.Color WindowsMediaColorToSystemDrawingColor(System.Windows.Media.Color systemWindowsMediaColor)
+        {
+            return System.Drawing.Color.FromArgb(
+                systemWindowsMediaColor.A,
+                systemWindowsMediaColor.R,
+                systemWindowsMediaColor.G,
+                systemWindowsMediaColor.B);
+        }
+
         #region Move Functions
 
         public static void MovePolygon(Polygon polygon, double moveX, double moveY)

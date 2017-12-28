@@ -44,14 +44,12 @@ namespace VersionBase
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GameData = new GameData();
             GameModel = new GameModel();
-            GameModel.ImportGameData(GameData);
             GameViewModel = new GameViewModel();
-            GameViewModel.ApplyModel(GameModel, GameViewControl.HexMapViewControl.ActualHeight, GameViewControl.HexMapViewControl.ActualWidth);
-            GameViewControl.ViewModel = GameViewModel;
+            GameViewControl.DataContext = GameViewModel;
 
             BaseLogic = new GameLogic();
+            Messenger.Default.Register<NewMessage>(this, New);
             Messenger.Default.Register<LoadMessage>(this, Load);
             Messenger.Default.Register<SaveMessage>(this, Save);
             Messenger.Default.Register<QuitMessage>(this, Quit);
@@ -62,6 +60,14 @@ namespace VersionBase
             // calculates incorrect when window is maximized
             //var t1 = this.ActualWidth - 20;
             //var t2 = this.ActualHeight - 190;
+        }
+
+        private void New(NewMessage msg)
+        {
+            GameData = new GameData();
+            GameModel.ImportGameData(GameData);
+            Tuple<double, double> canvasWidthHeight = GameViewControl.HexMapViewControl.GetCanvasDimensions();
+            GameViewModel.ApplyModel(GameModel, canvasWidthHeight.Item2, canvasWidthHeight.Item1);
         }
 
         private void Load(LoadMessage msg)
@@ -91,7 +97,8 @@ namespace VersionBase
                 {
                     GameData = (GameData) xs.Deserialize(reader);
                     GameModel.ImportGameData(GameData);
-                    GameViewControl.ViewModel.ApplyModel(GameModel, Main.ActualHeight, Main.ActualWidth);
+                    Tuple<double, double> canvasWidthHeight = GameViewControl.HexMapViewControl.GetCanvasDimensions();
+                        GameViewControl.ViewModel.ApplyModel(GameModel, canvasWidthHeight.Item2, canvasWidthHeight.Item1);
                 }
                 fileStream.Close();
             }

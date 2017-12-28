@@ -14,15 +14,15 @@ namespace VersionBase.Data
         private int RowCount { get; set; }
         private int ColCount { get; set; }
         public List<TileColor> ListTileColor;
-        public List<TileImageType> ListTileImageType;
+        public List<TileImage> ListTileImage;
         public HexMapData HexMapData;
 
         public GameData()
         {
-            RowCount = 20;
+            RowCount = 5;
             ColCount = 20;
             ListTileColor = TileColors.GetAllTileColors();
-            ListTileImageType = TileImageTypes.GetAllTileImageTypes();
+            ListTileImage = TileImages.GetAllTileImages();
             HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);
         }
 
@@ -44,9 +44,9 @@ namespace VersionBase.Data
         {
             hexData.TileData.TileColor = new TileColor(hexModel.TileColorModel.GetDrawingColor());
             TileImageType tileImageType;
-            if (Enum.TryParse(hexModel.TileImageTypeModel.Id, out tileImageType))
+            if (Enum.TryParse(hexModel.TileImageModel.Id, out tileImageType))
             {
-                hexData.TileData.TileImageType = tileImageType;
+                hexData.TileData.TileImage = new TileImage(tileImageType);
             }
             hexData.DegreExploration = hexModel.DegreExploration;
             hexData.Description = hexModel.Description;

@@ -25,7 +25,7 @@ namespace VersionBase.Libraries.Hexes
             Columns = columns;
             Rows = rows;
             ListHexData = new List<HexData>();
-            TileData emptyTileData = new TileData(new TileColor(Color.Transparent), TileImageType.empty);
+            TileData emptyTileData = new TileData(new TileColor(Color.Transparent), new TileImage(TileImageType.empty));
             for (int col = 0; col < Columns; col++)
             {
                 for (int row = 0; row < Rows; row++)
@@ -51,7 +51,7 @@ namespace VersionBase.Libraries.Hexes
         {
             List<HexData> listHexData = new List<HexData>();
 
-            List<TileImageType> listTileImageType = TileImageTypes.GetAllTileImageTypes();
+            List<TileImage> listTileImage = TileImages.GetAllTileImages();
 
             int tileTypeCurrent = 0;
 
@@ -60,7 +60,7 @@ namespace VersionBase.Libraries.Hexes
                 for (int col = 0; col < columns; col++)
                 {
                     TileData tileData = new TileData(new TileColor(Color.LightGreen),
-                        listTileImageType[tileTypeCurrent++ % listTileImageType.Count]);
+                        listTileImage[tileTypeCurrent++ % listTileImage.Count]);
                     HexData hexDataTmp = new HexData(col, row, "Description de l'hex "+col+"-"+row, tileTypeCurrent++ % 7, tileData);
                     listHexData.Add(hexDataTmp);
                 }

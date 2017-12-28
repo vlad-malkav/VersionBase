@@ -14,7 +14,7 @@ namespace Controls.Library.Models
         private int _row;
         private bool _selected;
         private TileColorModel _tileColorModel;
-        private TileImageTypeModel _tileImageTypeModel;
+        private TileImageModel _tileImageModel;
         private string _description;
         private int _degreExploration;
         
@@ -38,9 +38,9 @@ namespace Controls.Library.Models
             get { return _tileColorModel; }
         }
 
-        public TileImageTypeModel TileImageTypeModel
+        public TileImageModel TileImageModel
         {
-            get { return _tileImageTypeModel; }
+            get { return _tileImageModel; }
         }
 
         public string Description
@@ -62,13 +62,13 @@ namespace Controls.Library.Models
             _column = hexData.Column;
             _row = hexData.Row;
             _tileColorModel = new TileColorModel(hexData.TileData.TileColor);
-            _tileImageTypeModel = new TileImageTypeModel(hexData.TileData.TileImageType);
+            _tileImageModel = new TileImageModel(hexData.TileData.TileImage);
         }
 
-        public void UpdateColorImageTypeModels(TileColorModel tileColorModel, TileImageTypeModel tileImageTypeModel)
+        public void UpdateColorImageModels(TileColorModel tileColorModel, TileImageModel tileImageModel)
         {
             _tileColorModel = tileColorModel;
-            _tileImageTypeModel = tileImageTypeModel;
+            _tileImageModel = tileImageModel;
 
             Messenger.Default.Send(
                 new HexTileUpdatedMessage

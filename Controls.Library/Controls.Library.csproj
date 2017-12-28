@@ -66,7 +66,7 @@
     <Compile Include="Models\LeftPanelModel.cs" />
     <Compile Include="Models\TileColorModel.cs" />
     <Compile Include="Models\TileEditorModel.cs" />
-    <Compile Include="Models\TileImageTypeModel.cs" />
+    <Compile Include="Models\TileImageModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HexMapViewModel.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="ViewModels\TileColorViewModel.cs" />
     <Compile Include="ViewModels\TileEditorViewModel.cs" />
-    <Compile Include="ViewModels\TileImageTypeViewModel.cs" />
+    <Compile Include="ViewModels\TileImageViewModel.cs" />
     <Compile Include="ViewModels\TopMenuViewModel.cs" />
     <Compile Include="Views\HexMapView.xaml.cs">
       <DependentUpon>HexMapView.xaml</DependentUpon>

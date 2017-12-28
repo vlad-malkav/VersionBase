@@ -4,12 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:Controls.Library.ViewModels"
+             d:DataContext="{d:DesignInstance viewModels:TopMenuViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d">
-    <UserControl.Resources>
-        <viewModels:TopMenuViewModel x:Key="ViewModel"/>
-    </UserControl.Resources>
 
-        <Menu DataContext="{DynamicResource ViewModel}" ItemsSource="{Binding ListMenuItemViewModel}">
+        <Menu ItemsSource="{Binding ListMenuItemViewModel}">
             <Menu.ItemContainerStyle>
                 <Style TargetType="{x:Type MenuItem}">
                     <Setter Property="Command" Value="{Binding Command}" />

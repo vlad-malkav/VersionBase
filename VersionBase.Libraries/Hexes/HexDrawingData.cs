@@ -18,7 +18,6 @@ namespace VersionBase.Libraries.Hexes
         private double _cellX;
         private double _cellY;
         private double _cellHeight;
-        private double _rowHeight;
         private List<Point> _listOuterSummitPoints;
         private List<Point> _listOuterMiddlePoints;
         private List<Point> _listInnerSummitPoints;
@@ -63,11 +62,6 @@ namespace VersionBase.Libraries.Hexes
             get { return _cellHeight; }
         }
 
-        public double RowHeight
-        {
-            get { return _rowHeight; }
-        }
-
         public List<Point> ListOuterSummitPoints
         {
             get { return _listOuterSummitPoints; }
@@ -103,7 +97,6 @@ namespace VersionBase.Libraries.Hexes
             //_yCenterMod = yCenterMod;
             _cellSize = cellSize;
             _cellHeight = GetCellHeight(CellSize);
-            _rowHeight = GetRowHeight(CellSize, Row);
             //DESBONAL : fullscreen _rowHeight = (Math.Sqrt(3)) * CellSize * _row;
             _cellX = GetCellX(CellSize, Column/*, XCenterMod*/);
             _cellY = GetCellY(CellSize, Column, Row/*, YCenterMod*/);
@@ -139,24 +132,26 @@ namespace VersionBase.Libraries.Hexes
 
         #region Static functions
 
+        public static double GetCellWidth(double cellSize)
+        {
+            return cellSize * 2;
+        }
+
         public static double GetCellHeight(double cellSize)
         {
             return cellSize * Math.Sqrt(3);
         }
 
-        public static double GetRowHeight(double cellSize, int row)
+        public static double GetCellX(double cellSize, int column)
         {
-            return (cellSize * Math.Sqrt(3) / 2) + (cellSize * Math.Sqrt(3)) * (row + 1);
+            return GetCellWidth(cellSize) * (0.5 + 0.75 * column);
         }
 
-        public static double GetCellX(double cellSize, int column/*, double xCenterMod*/)
+        public static double GetCellY(double cellSize, int column, int row)
         {
-            return cellSize + (3 * cellSize / 2) * column /*+ xCenterMod*/;
-        }
-
-        public static double GetCellY(double cellSize, int column, int row/*, double yCenterMod*/)
-        {
-            return GetRowHeight(cellSize, row) + ((column & 1) == 1 ? GetCellHeight(cellSize) / 2 : 0) /*+ yCenterMod*/;
+            return GetCellHeight(cellSize) * (
+                ((column & 1) == 1 ? 1 : 0.5)
+                + row);
         }
 
         #endregion Static functions

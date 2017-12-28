@@ -5,13 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModels="clr-namespace:Controls.Library.ViewModels"
              xmlns:views="clr-namespace:Controls.Library.Views"
+             d:DataContext="{d:DesignInstance viewModels:TileEditorViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="300">
-    <UserControl.Resources>
-        <viewModels:TileEditorViewModel x:Key="ViewModel"/>
-    </UserControl.Resources>
 
-    <Grid DataContext="{DynamicResource ViewModel}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -36,9 +34,9 @@
         </StackPanel>
 
         <StackPanel Margin="10" Grid.Row="1">
-            <ComboBox Name="CmbTileImageType"
-                  ItemsSource = "{Binding ListTileImageTypeViewModel}"
-                  SelectedItem = "{Binding SelectedTileImageTypeViewModel, Mode=TwoWay}"
+            <ComboBox Name="CmbTileImage"
+                  ItemsSource = "{Binding ListTileImageViewModel}"
+                  SelectedItem = "{Binding SelectedTileImageViewModel, Mode=TwoWay}"
                       IsReadOnly="{Binding IsHexSelected}"  IsHitTestVisible="{Binding IsHexUnselected}" Focusable="{Binding IsHexUnselected}"
                   Width="Auto">
                 <ComboBox.ItemTemplate>

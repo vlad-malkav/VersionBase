@@ -6,14 +6,14 @@ namespace VersionBase.Libraries.Tiles
     public class TileData
     {
         public TileColor TileColor { get; set; }
-        public TileImageType TileImageType { get; set; }
+        public TileImage TileImage { get; set; }
         
         public TileData(){}
 
-        public TileData(TileColor tileColor, TileImageType? tileImageType)
+        public TileData(TileColor tileColor, TileImage tileImage)
         {
             TileColor = tileColor;
-            TileImageType = tileImageType ?? TileImageType.empty;
+            TileImage = tileImage;
         }
     }
 }

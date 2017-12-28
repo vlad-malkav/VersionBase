@@ -26,23 +26,23 @@ namespace VersionBase.ViewModels
             RightPanelViewModel = new RightPanelViewModel();
             TopPanelViewModel = new TopPanelViewModel();
             BottomPanelViewModel = new BottomPanelViewModel();
+            TopMenuViewModel.ApplyModel();
         }
 
         public void ApplyModel(GameModel gameModel, double actualHeight, double actualWidth)
         {
             // Get sizes that will fit within our window
-            double hexMapWidth, hexMapHeight, width, height, cellSize;
+            double hexMapWidth, hexMapHeight, cellSize;
             hexMapWidth = actualWidth;
             hexMapHeight = actualHeight;
-            HexMapDrawing.GetCombSize(hexMapHeight, hexMapWidth, gameModel.HexMapModel.Columns, gameModel.HexMapModel.Rows, out cellSize, out width, out height);
-            double xCenterOriginal = HexMapDrawing.GetTrueXCenter(cellSize, gameModel.HexMapModel.Columns);
-            double yCenterrOriginal = HexMapDrawing.GetTrueYCenter(cellSize, gameModel.HexMapModel.Columns, gameModel.HexMapModel.Rows);
+            HexMapDrawing.GetCombSize(hexMapHeight, hexMapWidth, gameModel.HexMapModel.Columns, gameModel.HexMapModel.Rows, out cellSize);
+            double xCenterOriginal = HexMapDrawing.GetOriginalXCenter(cellSize, gameModel.HexMapModel.Columns);
+            double yCenterOriginal = HexMapDrawing.GetOriginalYCenter(cellSize, gameModel.HexMapModel.Columns, gameModel.HexMapModel.Rows);
             double xCenterNew = (hexMapWidth / 2);
             double yCenterNew = (hexMapHeight / 2);
             double xCenterMod = xCenterNew - xCenterOriginal;
-            double yCenterMod = yCenterNew - yCenterrOriginal;
-            HexMapViewModel.ApplyModel(gameModel.HexMapModel, width, height, xCenterMod, yCenterMod, cellSize);
-            TopMenuViewModel.ApplyModel();
+            double yCenterMod = yCenterNew - yCenterOriginal;
+            HexMapViewModel.ApplyModel(gameModel.HexMapModel, xCenterMod, yCenterMod, cellSize);
             LeftPanelViewModel.ApplyModel(gameModel.LeftPanelModel);
             RightPanelViewModel.ApplyModel(gameModel.RightPanelModel);
             TopPanelViewModel.ApplyModel(gameModel.TopPanelModel);

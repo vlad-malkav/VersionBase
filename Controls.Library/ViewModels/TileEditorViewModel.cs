@@ -13,13 +13,13 @@ using MyToolkit.Utilities;
 namespace Controls.Library.ViewModels
 {
     public class TileEditorViewModel : ViewModelBase // from MyToolkit
-    {   public List<TileImageTypeViewModel> ListTileImageTypeViewModel { get; set; }
-        private TileImageTypeViewModel _selectedTileImageTypeModel;
-        public TileImageTypeViewModel SelectedTileImageTypeViewModel
+    {   public List<TileImageViewModel> ListTileImageViewModel { get; set; }
+        private TileImageViewModel _selectedTileImageModel;
+        public TileImageViewModel SelectedTileImageViewModel
         {
-            get { return _selectedTileImageTypeModel; }
-            set { _selectedTileImageTypeModel = value;
-                RaisePropertyChanged("SelectedTileImageTypeViewModel");
+            get { return _selectedTileImageModel; }
+            set { _selectedTileImageModel = value;
+                RaisePropertyChanged("SelectedTileImageViewModel");
             }
         }
 
@@ -118,12 +118,14 @@ namespace Controls.Library.ViewModels
         public RelayCommand SaveButtonCommand { get; private set; }
         public RelayCommand DegreExplorationPlusCommand { get; private set; }
         public RelayCommand DegreExplorationMinusCommand { get; private set; }
-
+        private int TimeUnique { get; set; }
         public TileEditorViewModel()
         {
+            TimeUnique = DateTime.Now.Millisecond;
+            UnregisterMessages();
             SetHexSelectedState(false);
             ListTileColorViewModel = new List<TileColorViewModel>();
-            ListTileImageTypeViewModel = new List<TileImageTypeViewModel>();
+            ListTileImageViewModel = new List<TileImageViewModel>();
             SaveButtonCommand = new RelayCommand(
                 () => SaveButtonAction(),
                 () => IsHexSelected);
@@ -135,25 +137,24 @@ namespace Controls.Library.ViewModels
                 DegreExplorationMinusCommand = new RelayCommand(
                     () => DegreExploration--,
                     () => DegreExploration > 0 && IsHexSelected);
+            RegisterMessages();
         }
 
         public void ApplyModel(TileEditorModel tileEditorModel)
         {
             UnselectHex();
-            UnregisterMessages();
             ListTileColorViewModel.Clear();
             foreach (var tileColorModel in tileEditorModel.ListTileColorModel)
             {
                 ListTileColorViewModel.Add(new TileColorViewModel(tileColorModel));
             }
             SelectedTileColorViewModel = ListTileColorViewModel.First();
-            ListTileImageTypeViewModel.Clear();
-            foreach (var tileImageTypeModel in tileEditorModel.ListTileImageTypeModel)
+            ListTileImageViewModel.Clear();
+            foreach (var tileImageModel in tileEditorModel.ListTileImageModel)
             {
-                ListTileImageTypeViewModel.Add(new TileImageTypeViewModel(tileImageTypeModel));
+                ListTileImageViewModel.Add(new TileImageViewModel(tileImageModel));
             }
-            SelectedTileImageTypeViewModel = ListTileImageTypeViewModel.First();
-            RegisterMessages();
+            SelectedTileImageViewModel = ListTileImageViewModel.First();
         }
 
         public void SaveButtonAction()
@@ -200,7 +201,7 @@ namespace Controls.Library.ViewModels
             SelectedHexColumn = hexModel.Column;
             SelectedHexRow = hexModel.Row;
             SelectedHexColor = hexModel.TileColorModel.Name;
-            SelectedHexImage = hexModel.TileImageTypeModel.Name;
+            SelectedHexImage = hexModel.TileImageModel.Name;
             SetHexSelectedState(true);
         }
 
@@ -227,20 +228,15 @@ namespace Controls.Library.ViewModels
             IsHexUnselected = !IsHexSelected;
         }
 
-        private void HexViewUnselectedMessageFunction(HexViewModelUnselectedMessage msgHexUnselectedMessage)
-        {
-
-        }
-
         private void GetSelectedColorImageIdsRequestMessageFunction(GetSelectedColorImageIdsRequestMessage msg)
         {
-            msg.CallSuccessCallback(new Tuple<string, string>(SelectedTileColorViewModel.Id, SelectedTileImageTypeViewModel.Id));
+            msg.CallSuccessCallback(new Tuple<string, string>(SelectedTileColorViewModel.Id, SelectedTileImageViewModel.Id));
         }
 
         private void SetSelectedColorImageIdsRequestMessageFunction(SetSelectedColorImageIdsRequestMessage msg)
         {
             SelectedTileColorViewModel = GetTileColorViewModelFromId(msg.TileColorModelId);
-            SelectedTileImageTypeViewModel = GetTileImageTypeViewModelFromId(msg.TileImageTypeModelId);
+            SelectedTileImageViewModel = GetTileImageViewModelFromId(msg.TileImageModelId);
         }
 
         public TileColorViewModel GetTileColorViewModelFromId(string id)
@@ -248,9 +244,9 @@ namespace Controls.Library.ViewModels
             return ListTileColorViewModel.FirstOrDefault(x => x.Id == id);
         }
 
-        public TileImageTypeViewModel GetTileImageTypeViewModelFromId(string id)
+        public TileImageViewModel GetTileImageViewModelFromId(string id)
         {
-            return ListTileImageTypeViewModel.FirstOrDefault(x => x.Id == id);
+            return ListTileImageViewModel.FirstOrDefault(x => x.Id == id);
         }
     }
 }

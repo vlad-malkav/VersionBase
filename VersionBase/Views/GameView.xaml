@@ -5,13 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:Controls.Library.Views;assembly=Controls.Library"
              xmlns:viewModels="clr-namespace:VersionBase.ViewModels"
+             d:DataContext="{d:DesignInstance viewModels:GameViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="800">
-    <UserControl.Resources>
-        <viewModels:GameViewModel x:Key="ViewModel"/>
-    </UserControl.Resources>
-    <DockPanel DataContext="{DynamicResource ViewModel}">
-        <Grid DockPanel.Dock="Top" >
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" ZIndex="2000">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -21,13 +19,13 @@
                 <views:TopPanelView x:Name="TopPanelViewControl" DataContext="{Binding TopPanelViewModel}" HorizontalAlignment="Left"/>
             </Grid>
         </Grid>
-        <Grid DockPanel.Dock="Bottom" Background="Orange">
+        <Grid DockPanel.Dock="Bottom" Background="Orange" ZIndex="2000">
             <views:BottomPanelView x:Name="BottomPanelViewControl" DataContext="{Binding BottomPanelViewModel}" HorizontalAlignment="Left"/>
         </Grid>
-        <Grid DockPanel.Dock="Left" Background="LightGray">
+        <Grid DockPanel.Dock="Left" Background="LightGray" ZIndex="2000">
             <views:LeftPanelView x:Name="LeftPanelViewControl" DataContext="{Binding LeftPanelViewModel}" VerticalAlignment="Top"/>
         </Grid>
-        <Grid DockPanel.Dock="Right" Background="Pink">
+        <Grid DockPanel.Dock="Right" Background="Pink" ZIndex="2000">
             <views:RightPanelView x:Name="RightPanelViewControl" DataContext="{Binding RightPanelViewModel}" VerticalAlignment="Top"/>
         </Grid>
         <Grid>

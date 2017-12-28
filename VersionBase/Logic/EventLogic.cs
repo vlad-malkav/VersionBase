@@ -29,6 +29,7 @@ namespace VersionBase.Logic
             switch (msgMenuItemClickedMessage.Name)
             {
                 case "New":
+                    Messenger.Default.Send(new NewMessage());
                     break;
                 case "Load":
                     Messenger.Default.Send(new LoadMessage());
@@ -50,6 +51,12 @@ namespace VersionBase.Logic
                     break;
                 case "GoDown":
                     Messenger.Default.Send(new MoveCanvasRequestMessage(0, 100));
+                    break;
+                case "ZoomIn":
+                    Messenger.Default.Send(new ZoomCanvasRequestMessage(1.25));
+                    break;
+                case "ZoomOut":
+                    Messenger.Default.Send(new ZoomCanvasRequestMessage(0.8));
                     break;
             }
         }

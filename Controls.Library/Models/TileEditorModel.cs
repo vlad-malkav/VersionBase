@@ -10,23 +10,23 @@ namespace Controls.Library.Models
     public class TileEditorModel
     {
         private List<TileColorModel> _listTileColorModel;
-        private List<TileImageTypeModel> _listTileImageTypeModel;
+        private List<TileImageModel> _listTileImageModel;
 
         public List<TileColorModel> ListTileColorModel
         {
             get { return _listTileColorModel; }
         }
 
-        public List<TileImageTypeModel> ListTileImageTypeModel
+        public List<TileImageModel> ListTileImageModel
         {
-            get { return _listTileImageTypeModel; }
+            get { return _listTileImageModel; }
         }
 
         public TileEditorModel()
         {
             _listTileColorModel = new List<TileColorModel>();
-            _listTileImageTypeModel = new List<TileImageTypeModel>();
-            Messenger.Default.Register<GetTileColorTileImageTypeModelsFromIdRequestMessage>(this, RequestSelectedColorImageIdsFunction);
+            _listTileImageModel = new List<TileImageModel>();
+            Messenger.Default.Register<GetTileColorTileImageModelsFromIdRequestMessage>(this, RequestSelectedColorImageIdsFunction);
         }
 
         public void ImportListTileColor(List<TileColor> listTileColor)
@@ -38,12 +38,12 @@ namespace Controls.Library.Models
             }
         }
 
-        public void ImportListTileImageType(List<TileImageType> listTileImageType)
+        public void ImportListTileImage(List<TileImage> listTileImage)
         {
-            _listTileImageTypeModel.Clear();
-            foreach (var tileImageType in listTileImageType)
+            _listTileImageModel.Clear();
+            foreach (var tileImage in listTileImage)
             {
-                _listTileImageTypeModel.Add(new TileImageTypeModel(tileImageType));
+                _listTileImageModel.Add(new TileImageModel(tileImage));
             }
         }
 
@@ -52,16 +52,16 @@ namespace Controls.Library.Models
             return ListTileColorModel.FirstOrDefault(x => x.Id == id);
         }
 
-        public TileImageTypeModel GetTileImageTypeModelFromId(string id)
+        public TileImageModel GetTileImageModelFromId(string id)
         {
-            return ListTileImageTypeModel.FirstOrDefault(x => x.Id == id);
+            return ListTileImageModel.FirstOrDefault(x => x.Id == id);
         }
 
-        private void RequestSelectedColorImageIdsFunction(GetTileColorTileImageTypeModelsFromIdRequestMessage msg)
+        private void RequestSelectedColorImageIdsFunction(GetTileColorTileImageModelsFromIdRequestMessage msg)
         {
-            msg.CallSuccessCallback(new Tuple<TileColorModel, TileImageTypeModel>(
+            msg.CallSuccessCallback(new Tuple<TileColorModel, TileImageModel>(
                 GetTileColorModelFromId(msg.TileColorModelId),
-                GetTileImageTypeModelFromId(msg.TileImageTypeModelId)));
+                GetTileImageModelFromId(msg.TileImageModelId)));
         }
     }
 }

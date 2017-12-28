@@ -56,7 +56,7 @@ namespace VersionBase.Model
         public void ImportGameData(GameData gameData)
         {
             _hexMapModel.ImportData(gameData.HexMapData);
-            _leftPanelModel.ImportTileEditorData(gameData.ListTileColor, gameData.ListTileImageType);
+            _leftPanelModel.ImportTileEditorData(gameData.ListTileColor, gameData.ListTileImage);
         }
     }
 }

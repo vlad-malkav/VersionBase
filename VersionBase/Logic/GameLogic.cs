@@ -18,7 +18,7 @@ namespace VersionBase.Logic
 
         #region Game functions
 
-        public static async Task<Tuple<string, string>> GetSelectedTileColorTileImageTypeIds()
+        public static async Task<Tuple<string, string>> GetSelectedTileColorTileImageIds()
         {
             GetSelectedColorImageIdsRequestMessage msgGetSelectedColorImageNamesRequestMessage = new GetSelectedColorImageIdsRequestMessage();
             var resultGetSelectedColorImageNamesRequestMessage = await Messenger.Default.SendAsync(msgGetSelectedColorImageNamesRequestMessage);
@@ -28,23 +28,23 @@ namespace VersionBase.Logic
                 resultGetSelectedColorImageNamesRequestMessage.Result.Item2);
         }
 
-        public static async Task<Tuple<TileColorModel, TileImageTypeModel>> GetSelectedTileColorTileImageTypeModels()
+        public static async Task<Tuple<TileColorModel, TileImageModel>> GetSelectedTileColorTileImageModels()
         {
-            Tuple<string, string> tupleSelectedTileColorTileImageTypeIds = GetSelectedTileColorTileImageTypeIds().Result;
-            string tileColorModelId = tupleSelectedTileColorTileImageTypeIds.Item1;
-            string tileImageTypeModelId = tupleSelectedTileColorTileImageTypeIds.Item2;
+            Tuple<string, string> tupleSelectedTileColorTileImageIds = GetSelectedTileColorTileImageIds().Result;
+            string tileColorModelId = tupleSelectedTileColorTileImageIds.Item1;
+            string tileImageTypeModelId = tupleSelectedTileColorTileImageIds.Item2;
 
-            GetTileColorTileImageTypeModelsFromIdRequestMessage msgGetTileColorTileImageTypeModelsFromIdRequestMessage
-                = new GetTileColorTileImageTypeModelsFromIdRequestMessage
+            GetTileColorTileImageModelsFromIdRequestMessage msg
+                = new GetTileColorTileImageModelsFromIdRequestMessage
                 {
                     TileColorModelId = tileColorModelId,
-                    TileImageTypeModelId = tileImageTypeModelId
+                    TileImageModelId = tileImageTypeModelId
                 };
-            var resultGetTileColorTileImageTypeModelsFromIdRequestMessage = await Messenger.Default.SendAsync(msgGetTileColorTileImageTypeModelsFromIdRequestMessage);
+            var resultGetTileColorTileImageModelsFromIdRequestMessage = await Messenger.Default.SendAsync(msg);
 
-            return new Tuple<TileColorModel, TileImageTypeModel>(
-                resultGetTileColorTileImageTypeModelsFromIdRequestMessage.Result.Item1,
-                resultGetTileColorTileImageTypeModelsFromIdRequestMessage.Result.Item2);
+            return new Tuple<TileColorModel, TileImageModel>(
+                resultGetTileColorTileImageModelsFromIdRequestMessage.Result.Item1,
+                resultGetTileColorTileImageModelsFromIdRequestMessage.Result.Item2);
         }
 
         public static async Task<HexModel> GetHexModelFromPosition(int column, int row)
@@ -60,13 +60,13 @@ namespace VersionBase.Logic
 
         public static async void UpdateHexModelWithSelectedColorImage(int column, int row)
         {
-            Tuple<TileColorModel, TileImageTypeModel> tupleColorImageIds = await GetSelectedTileColorTileImageTypeModels();
+            Tuple<TileColorModel, TileImageModel> tupleColorImageIds = await GetSelectedTileColorTileImageModels();
             Messenger.Default.Send(new UpdateHexColorImageModelsMessage
             {
                 Column = column,
                 Row = row,
                 TileColorModel = tupleColorImageIds.Item1,
-                TileImageTypeModel = tupleColorImageIds.Item2
+                TileImageModel = tupleColorImageIds.Item2
             });
         }
 
@@ -86,7 +86,7 @@ namespace VersionBase.Logic
             Messenger.Default.Send(new SetSelectedColorImageIdsRequestMessage
             {
                 TileColorModelId = hexModel.TileColorModel.Id,
-                TileImageTypeModelId = hexModel.TileImageTypeModel.Id
+                TileImageModelId = hexModel.TileImageModel.Id
             });
         }
 

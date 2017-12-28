@@ -76,6 +76,8 @@
     <Compile Include="Tiles\TileData.cs" />
     <Compile Include="Tiles\TileColor.cs" />
     <Compile Include="Tiles\TileColors.cs" />
+    <Compile Include="Tiles\TileImage.cs" />
+    <Compile Include="Tiles\TileImages.cs" />
     <Compile Include="Tiles\TileImageTypes.cs" />
     <Compile Include="Tiles\TileImageType.cs" />
   </ItemGroup>

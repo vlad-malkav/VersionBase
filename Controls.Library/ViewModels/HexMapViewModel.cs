@@ -21,8 +21,8 @@ namespace Controls.Library.ViewModels
         public double CellSize { get; set; }
         public List<HexViewModel> ListHexViewModel { get; set; }
         public ObservableCollection<UIElement> ListUIElement { get; set; }
-        //public double Width { get; set; }
-        //public double Height { get; set; }
+
+        #region base functions
 
         public HexMapViewModel()
         {
@@ -32,10 +32,8 @@ namespace Controls.Library.ViewModels
             RegisterMessages();
         }
 
-        public void ApplyModel(HexMapModel hexMapModel, double width, double height, double xCenterMod, double yCenterMod, double cellSize)
+        public void ApplyModel(HexMapModel hexMapModel, double xCenterMod, double yCenterMod, double cellSize)
         {
-            //Width = width;
-            //Height = height;
             XCenterMod = xCenterMod;
             YCenterMod = yCenterMod;
             CellSize = cellSize;
@@ -51,15 +49,79 @@ namespace Controls.Library.ViewModels
             {
                 var hexViewModel = new HexViewModel();
                 hexViewModel.UpdateFromHexModel(hexModel);
-                hexViewModel.UpdateDrawingDimensions(XCenterMod, YCenterMod,CellSize);
+                hexViewModel.UpdateDrawingDimensions(0, 0, CellSize);
                 ListHexViewModel.Add(hexViewModel);
                 foreach (UIElement uiElement in hexViewModel.GetAllUIElements())
                 {
                     ListUIElement.Add(uiElement);
                 }
             }
-
+            MoveCanvas(XCenterMod, YCenterMod);
         }
+
+        #endregion base functions
+
+        #region Utility Functions
+
+        public HexViewModel GetHexViewModel(int column, int row)
+        {
+            return ListHexViewModel.FirstOrDefault(x => x.Column == column && x.Row == row);
+        }
+
+        #endregion Utility Functions
+
+        public void UpdateHexViewModelFromModel_TileData(HexModel hexModel)
+        {
+            var hexViewModel = GetHexViewModel(hexModel.Column, hexModel.Row);
+            if (hexViewModel != null)
+                hexViewModel.UpdateTileData(
+                    hexModel.TileColorModel.GetDrawingColor(),
+                    hexModel.TileImageModel.Bitmap);
+        }
+
+        public void UpdateHexViewModelFromModel_DegreExploration(HexModel hexModel)
+        {
+            var hexViewModel = GetHexViewModel(hexModel.Column, hexModel.Row);
+            if (hexViewModel != null)
+                hexViewModel.UpdateDegreExploration(hexModel.DegreExploration);
+        }
+
+        public void UpdateHexViewModelFromModel_SelectHex(HexModel hexModel)
+        {
+            var hexViewModel = GetHexViewModel(hexModel.Column, hexModel.Row);
+            if (hexViewModel != null)
+                hexViewModel.SelectHex();
+        }
+
+        public void UpdateHexViewModelFromModel_UnselectHex(HexModel hexModel)
+        {
+            var hexViewModel = GetHexViewModel(hexModel.Column, hexModel.Row);
+            if (hexViewModel != null)
+                hexViewModel.UnselectHex();
+        }
+
+        public void ZoomCanvas(double zoomMultiplicator)
+        {
+            XCenterMod *= zoomMultiplicator;
+            YCenterMod *= zoomMultiplicator;
+            foreach (var hexViewModel in ListHexViewModel)
+            {
+                hexViewModel.Zoom(zoomMultiplicator);
+            }
+            MoveCanvas(XCenterMod, YCenterMod);
+        }
+
+        public void MoveCanvas(double xMovement, double yMovement)
+        {
+            XCenterMod += xMovement;
+            YCenterMod += yMovement;
+            foreach (var hexViewModel in ListHexViewModel)
+            {
+                hexViewModel.Move(xMovement, yMovement);
+            }
+        }
+
+        #region Event Functions
 
         private void UnregisterMessages()
         {
@@ -68,6 +130,7 @@ namespace Controls.Library.ViewModels
             Messenger.Default.Deregister<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Deregister<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
             Messenger.Default.Deregister<MoveCanvasRequestMessage>(this, MoveCanvasRequestMessageFunction);
+            Messenger.Default.Deregister<ZoomCanvasRequestMessage>(this, ZoomCanvasRequestMessageFunction);
         }
 
         private void RegisterMessages()
@@ -77,49 +140,39 @@ namespace Controls.Library.ViewModels
             Messenger.Default.Register<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Register<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
             Messenger.Default.Register<MoveCanvasRequestMessage>(this, MoveCanvasRequestMessageFunction);
+            Messenger.Default.Register<ZoomCanvasRequestMessage>(this, ZoomCanvasRequestMessageFunction);
         }
 
         private void HexTileUpdatedMessageFunction(HexTileUpdatedMessage msg)
         {
-            var hexViewModel = GetHexViewModel(msg.HexModel.Column, msg.HexModel.Row);
-            if (hexViewModel != null)
-                hexViewModel.UpdateTileData(
-                    msg.HexModel.TileColorModel.GetDrawingColor(),
-                    msg.HexModel.TileImageTypeModel.GetBitmap());
+            UpdateHexViewModelFromModel_TileData(msg.HexModel);
         }
 
         private void HexDegreExplorationUpdatedMessageFunction(HexDegreExplorationUpdatedMessage msg)
         {
-            var hexViewModel = GetHexViewModel(msg.HexModel.Column, msg.HexModel.Row);
-            if (hexViewModel != null)
-                hexViewModel.UpdateDegreExploration(msg.HexModel.DegreExploration);
+            UpdateHexViewModelFromModel_DegreExploration(msg.HexModel);
         }
 
         private void HexSelectedMessageFunction(HexModelSelectedMessage msg)
         {
-            var hexViewModel = GetHexViewModel(msg.HexModel.Column, msg.HexModel.Row);
-            if (hexViewModel != null)
-                hexViewModel.SelectHex();
+            UpdateHexViewModelFromModel_SelectHex(msg.HexModel);
         }
 
         private void HexUnselectedMessageFunction(HexModelUnselectedMessage msg)
         {
-            var hexViewModel = GetHexViewModel(msg.HexModel.Column, msg.HexModel.Row);
-            if (hexViewModel != null)
-                hexViewModel.UnselectHex();
+            UpdateHexViewModelFromModel_UnselectHex(msg.HexModel);
         }
 
         private void MoveCanvasRequestMessageFunction(MoveCanvasRequestMessage msg)
         {
-            foreach (var hexViewModel in ListHexViewModel)
-            {
-                hexViewModel.Move(msg.XMovement, msg.YMovement);
-            }
+            MoveCanvas(msg.XMovement, msg.YMovement);
         }
 
-        public HexViewModel GetHexViewModel(int column, int row)
+        private void ZoomCanvasRequestMessageFunction(ZoomCanvasRequestMessage msg)
         {
-            return ListHexViewModel.FirstOrDefault(x => x.Column == column && x.Row == row);
+            ZoomCanvas(msg.ZoomMultiplicator);
         }
+
+        #endregion Event Functions
     }
 }
