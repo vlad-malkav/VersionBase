@@ -1,10 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Media.Imaging;
-using Controls.Library.Commands;
 using MyToolkit.Mvvm;
-using VersionBase.Libraries.Hexes;
-using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.ViewModels
 {
@@ -17,7 +12,6 @@ namespace Controls.Library.ViewModels
         public TopMenuViewModel()
         {
             ListMenuItemViewModel = new List<MenuItemViewModel>();
-            ApplyModel();
         }
 
         public void ApplyModel()
@@ -42,16 +36,6 @@ namespace Controls.Library.ViewModels
             MenuItemViewModel menuOptions = new MenuItemViewModel("Options");
             menuOptions.ListMenuItemViewModel.Add(new MenuItemViewModel("Option1"));
             ListMenuItemViewModel.Add(menuOptions);
-        }
-
-        public void OnClickSurTruc()
-        {
-
-        }
-
-        public void OnClickSurMachin()
-        {
-
         }
     }
 }

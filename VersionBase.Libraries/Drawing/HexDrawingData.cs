@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using VersionBase.Libraries.Drawing;
 
-namespace VersionBase.Libraries.Hexes
+namespace VersionBase.Libraries.Drawing
 {
     public class HexDrawingData
     {
@@ -91,15 +87,12 @@ namespace VersionBase.Libraries.Hexes
             _row = row;
         }
 
-        public void UpdateDrawing(/*double xCenterMod, double yCenterMod,*/ double cellSize)
+        public void UpdateDrawing(double cellSize)
         {
-            //_xCenterMod = xCenterMod;
-            //_yCenterMod = yCenterMod;
             _cellSize = cellSize;
             _cellHeight = GetCellHeight(CellSize);
-            //DESBONAL : fullscreen _rowHeight = (Math.Sqrt(3)) * CellSize * _row;
-            _cellX = GetCellX(CellSize, Column/*, XCenterMod*/);
-            _cellY = GetCellY(CellSize, Column, Row/*, YCenterMod*/);
+            _cellX = GetCellX(CellSize, Column);
+            _cellY = GetCellY(CellSize, Column, Row);
             RegeneratePoints();
         }
 

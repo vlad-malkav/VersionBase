@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Xml.Serialization;
 using Controls.Library.Models;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
@@ -19,8 +17,8 @@ namespace VersionBase.Data
 
         public GameData()
         {
-            RowCount = 5;
-            ColCount = 20;
+            RowCount = 15;
+            ColCount = 15;
             ListTileColor = TileColors.GetAllTileColors();
             ListTileImage = TileImages.GetAllTileImages();
             HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);

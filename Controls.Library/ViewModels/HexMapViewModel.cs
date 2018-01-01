@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
 using Controls.Library.Events;
 using Controls.Library.Models;
 using MyToolkit.Messaging;
 using MyToolkit.Mvvm;
+using VersionBase.Libraries.Drawing;
 
 namespace Controls.Library.ViewModels
 {
@@ -16,8 +15,8 @@ namespace Controls.Library.ViewModels
     {
         public int Columns { get; set; }
         public int Rows { get; set; }
-        public double XCenterMod { get; set; }
-        public double YCenterMod { get; set; }
+        public double HexMapCenterX { get; set; }
+        public double HexMapCenterY { get; set; }
         public double CellSize { get; set; }
         public List<HexViewModel> ListHexViewModel { get; set; }
         public ObservableCollection<UIElement> ListUIElement { get; set; }
@@ -32,10 +31,14 @@ namespace Controls.Library.ViewModels
             RegisterMessages();
         }
 
-        public void ApplyModel(HexMapModel hexMapModel, double xCenterMod, double yCenterMod, double cellSize)
+        public async void ApplyModel(HexMapModel hexMapModel)
         {
-            XCenterMod = xCenterMod;
-            YCenterMod = yCenterMod;
+            GetHexMapCanvasDimensionsRequestMessage msg = new GetHexMapCanvasDimensionsRequestMessage();
+            var result = await Messenger.Default.SendAsync(msg);
+            double hexMapCanvasWidth = result.Result.Item1;
+            double hexMapCanvasHeight = result.Result.Item2;
+
+            double cellSize = HexMapDrawing.GetCellSize(hexMapCanvasHeight, hexMapCanvasWidth, hexMapModel.Columns, hexMapModel.Rows);
             CellSize = cellSize;
             Columns = hexMapModel.Columns;
             Rows = hexMapModel.Rows;
@@ -49,14 +52,18 @@ namespace Controls.Library.ViewModels
             {
                 var hexViewModel = new HexViewModel();
                 hexViewModel.UpdateFromHexModel(hexModel);
-                hexViewModel.UpdateDrawingDimensions(0, 0, CellSize);
+                hexViewModel.SetCellSize(CellSize);
                 ListHexViewModel.Add(hexViewModel);
                 foreach (UIElement uiElement in hexViewModel.GetAllUIElements())
                 {
                     ListUIElement.Add(uiElement);
                 }
             }
-            MoveCanvas(XCenterMod, YCenterMod);
+
+            HexMapCenterX = HexMapDrawing.GetRedrawnHexMapXCenter(CellSize, Columns);
+            HexMapCenterY = HexMapDrawing.GetRedrawnHexMapYCenter(CellSize, Columns, Rows);
+
+            CenterHexMap();
         }
 
         #endregion base functions
@@ -100,21 +107,57 @@ namespace Controls.Library.ViewModels
                 hexViewModel.UnselectHex();
         }
 
-        public void ZoomCanvas(double zoomMultiplicator)
+        public async void CenterHexMap()
         {
-            XCenterMod *= zoomMultiplicator;
-            YCenterMod *= zoomMultiplicator;
+            GetHexMapCanvasDimensionsRequestMessage msg = new GetHexMapCanvasDimensionsRequestMessage();
+            var result = await Messenger.Default.SendAsync(msg);
+            double hexMapCanvasWidth = result.Result.Item1;
+            double hexMapCanvasHeight = result.Result.Item2;
+            
+            double xCenterNew = (hexMapCanvasWidth / 2);
+            double yCenterNew = (hexMapCanvasHeight / 2);
+            double xCenterMod = xCenterNew - HexMapCenterX;
+            double yCenterMod = yCenterNew - HexMapCenterY;
+
+            MoveCanvas(xCenterMod, yCenterMod);
+            HexMapCenterX = xCenterNew;
+            HexMapCenterY = yCenterNew;
+        }
+
+        public async void ZoomCanvas(double zoomMultiplicator)
+        {
+            double oldCenterX = HexMapCenterX;
+            double oldCenterY = HexMapCenterY;
+
+            GetHexMapCanvasDimensionsRequestMessage msg = new GetHexMapCanvasDimensionsRequestMessage();
+            var result = await Messenger.Default.SendAsync(msg);
+            double oldHexMapCanvasWidth = result.Result.Item1;
+            double oldHexMapCanvasHeight = result.Result.Item2;
+            double oldHexMapCanvasX = oldHexMapCanvasWidth / 2;
+            double oldHexMapCanvasY = oldHexMapCanvasHeight / 2;
+
+            double xMove = oldCenterX - oldHexMapCanvasX;
+            double yMove = oldCenterY - oldHexMapCanvasY;
+
+            CellSize = CellSize * zoomMultiplicator;
+
             foreach (var hexViewModel in ListHexViewModel)
             {
-                hexViewModel.Zoom(zoomMultiplicator);
+                hexViewModel.UpdateCellSize(CellSize);
             }
-            MoveCanvas(XCenterMod, YCenterMod);
+
+            HexMapCenterX = HexMapDrawing.GetRedrawnHexMapXCenter(CellSize, Columns);
+            HexMapCenterY = HexMapDrawing.GetRedrawnHexMapYCenter(CellSize, Columns, Rows);
+
+            CenterHexMap();
+
+            MoveCanvas(xMove * zoomMultiplicator, yMove * zoomMultiplicator);
         }
 
         public void MoveCanvas(double xMovement, double yMovement)
         {
-            XCenterMod += xMovement;
-            YCenterMod += yMovement;
+            HexMapCenterX += xMovement;
+            HexMapCenterY += yMovement;
             foreach (var hexViewModel in ListHexViewModel)
             {
                 hexViewModel.Move(xMovement, yMovement);
@@ -129,8 +172,7 @@ namespace Controls.Library.ViewModels
             Messenger.Default.Deregister<HexDegreExplorationUpdatedMessage>(this, HexDegreExplorationUpdatedMessageFunction);
             Messenger.Default.Deregister<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Deregister<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
-            Messenger.Default.Deregister<MoveCanvasRequestMessage>(this, MoveCanvasRequestMessageFunction);
-            Messenger.Default.Deregister<ZoomCanvasRequestMessage>(this, ZoomCanvasRequestMessageFunction);
+            Messenger.Default.Deregister<GeneralMapTransformationMessage>(this, GeneralMapTransformationMessageFunction);
         }
 
         private void RegisterMessages()
@@ -139,8 +181,8 @@ namespace Controls.Library.ViewModels
             Messenger.Default.Register<HexDegreExplorationUpdatedMessage>(this, HexDegreExplorationUpdatedMessageFunction);
             Messenger.Default.Register<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Register<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
-            Messenger.Default.Register<MoveCanvasRequestMessage>(this, MoveCanvasRequestMessageFunction);
-            Messenger.Default.Register<ZoomCanvasRequestMessage>(this, ZoomCanvasRequestMessageFunction);
+            Messenger.Default.Register<GeneralMapTransformationMessage>(this, GeneralMapTransformationMessageFunction);
+            Messenger.Default.Register<GeneralMapTransformationMessage>(this, GeneralMapTransformationMessageFunction);
         }
 
         private void HexTileUpdatedMessageFunction(HexTileUpdatedMessage msg)
@@ -163,14 +205,20 @@ namespace Controls.Library.ViewModels
             UpdateHexViewModelFromModel_UnselectHex(msg.HexModel);
         }
 
-        private void MoveCanvasRequestMessageFunction(MoveCanvasRequestMessage msg)
+        private void GeneralMapTransformationMessageFunction(GeneralMapTransformationMessage msg)
         {
-            MoveCanvas(msg.XMovement, msg.YMovement);
-        }
-
-        private void ZoomCanvasRequestMessageFunction(ZoomCanvasRequestMessage msg)
-        {
-            ZoomCanvas(msg.ZoomMultiplicator);
+            if (Math.Abs(msg.XMovement) > 0 || Math.Abs(msg.YMovement) > 0)
+            {
+                MoveCanvas(msg.XMovement, msg.YMovement);
+            }
+            if (Math.Abs(msg.ZoomMultiplicator) > 0)
+            {
+                ZoomCanvas(msg.ZoomMultiplicator);
+            }
+            if (msg.DoCenter)
+            {
+                CenterHexMap();
+            }
         }
 
         #endregion Event Functions

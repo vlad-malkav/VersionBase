@@ -13,7 +13,28 @@ namespace Controls.Library.Views
     {
         public HexMapView()
         {
+            UnregisterMessages();
             InitializeComponent();
+            RegisterMessages();
+        }
+
+
+
+        private void UnregisterMessages()
+        {
+            Messenger.Default.Deregister<GetHexMapCanvasDimensionsRequestMessage>(this,
+                GetHexMapCanvasDimensionsRequestMessageFunction);
+        }
+
+        private void RegisterMessages()
+        {
+            Messenger.Default.Register<GetHexMapCanvasDimensionsRequestMessage>(this,
+                GetHexMapCanvasDimensionsRequestMessageFunction);
+        }
+
+        private void GetHexMapCanvasDimensionsRequestMessageFunction(GetHexMapCanvasDimensionsRequestMessage msg)
+        {
+            msg.CallSuccessCallback(GetCanvasDimensions());
         }
 
         public HexMapViewModel ViewModel

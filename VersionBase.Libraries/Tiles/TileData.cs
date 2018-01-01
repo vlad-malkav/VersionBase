@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Media.Imaging;
-
-namespace VersionBase.Libraries.Tiles
+﻿namespace VersionBase.Libraries.Tiles
 {
     public class TileData
     {

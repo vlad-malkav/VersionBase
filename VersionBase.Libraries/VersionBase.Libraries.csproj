@@ -62,11 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Drawing\DrawingFunctions.cs" />
+    <Compile Include="Drawing\ZIndexes.cs" />
+    <Compile Include="Enums\EnumFunctions.cs" />
     <Compile Include="Events\EventSystem.cs" />
-    <Compile Include="Hexes\HexDrawingData.cs" />
+    <Compile Include="Drawing\HexDrawingData.cs" />
     <Compile Include="Hexes\HexData.cs" />
     <Compile Include="Hexes\HexMapData.cs" />
-    <Compile Include="Hexes\HexMapDrawing.cs" />
+    <Compile Include="Drawing\HexMapDrawing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Tileset-Set-1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -318,5 +320,6 @@
   <ItemGroup>
     <None Include="Images\Tilesets\Set-1\whaling.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,7 +12,7 @@ namespace VersionBase.Logic
 
         public GameLogic()
         {
-            EventLogic = new EventLogic();
+            EventLogic = new EventLogic(this);
             EventLogic.SubscribeToEvents();
         }
 

@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Drawing;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Shapes;
 using Controls.Library.Events;
 using Controls.Library.Models;
 using MyToolkit.Messaging;
 using MyToolkit.Mvvm;
 using VersionBase.Libraries.Drawing;
-using VersionBase.Libraries.Hexes;
 using Color = System.Drawing.Color;
 
 namespace Controls.Library.ViewModels
@@ -25,9 +21,7 @@ namespace Controls.Library.ViewModels
         public int Column { get; set; }
         public int Row { get; set; }
         public bool Selected { get; set; }
-        public double XCenterMod { get; set; }
-        public double YCenterMod { get; set; }
-        public double CellSize { get; set; }
+        private double CellSize { get; set; }
         public Color Color { get; set; }
         public Bitmap Bitmap { get; set; }
         public Polygon InsidePolygon { get; private set; }
@@ -87,7 +81,7 @@ namespace Controls.Library.ViewModels
             if (!Selected)
             {
                 Selected = true;
-                HexMapDrawing.UpdateBorderPolygonSelected(HexDrawingData, BorderPolygon, Selected);
+                HexMapDrawing.BorderPolygon_UpdateSelected(HexDrawingData, BorderPolygon, Selected);
 
                 Messenger.Default.Send(
                     new HexViewModelSelectedMessage
@@ -102,7 +96,7 @@ namespace Controls.Library.ViewModels
             if (Selected)
             {
                 Selected = false;
-                HexMapDrawing.UpdateBorderPolygonSelected(HexDrawingData, BorderPolygon, Selected);
+                HexMapDrawing.BorderPolygon_UpdateSelected(HexDrawingData, BorderPolygon, Selected);
 
                 Messenger.Default.Send(
                     new HexViewModelUnselectedMessage
@@ -112,39 +106,26 @@ namespace Controls.Library.ViewModels
             }
         }
 
-        public void Zoom(double zoomMultiplicator)
+        public void SetCellSize(double cellSize)
         {
-            XCenterMod = XCenterMod * zoomMultiplicator;
-            YCenterMod = YCenterMod * zoomMultiplicator;
-            CellSize = CellSize * zoomMultiplicator;
-
-            HexDrawingData.UpdateDrawing(/*XCenterMod, YCenterMod,*/ CellSize);
-
-            HexMapDrawing.UpdateInsidePolygon(HexDrawingData, InsidePolygon);
-            HexMapDrawing.DrawBorderPolygon(HexDrawingData,BorderPolygon);
-            HexMapDrawing.UpdateHexLabel(HexDrawingData,GridLabel);
-            HexMapDrawing.UpdateHexLineExploration(HexDrawingData,ListLineExploration);
-
-            Move(XCenterMod,YCenterMod);
-        }
-
-        public void UpdateDrawingDimensions(double xCenterMod, double yCenterMod, double cellSize)
-        {
-            XCenterMod = 0;
-            YCenterMod = 0;
             CellSize = cellSize;
 
-            HexDrawingData.UpdateDrawing(/*XCenterMod, YCenterMod,*/ CellSize);
+            HexDrawingData.UpdateDrawing(CellSize);
 
             GenerateShapes();
+        }
 
-            Move(xCenterMod, yCenterMod);
+        public void UpdateCellSize(double cellSize)
+        {
+            CellSize = cellSize;
+
+            HexDrawingData.UpdateDrawing(CellSize);
+
+            UpdateShapes();
         }
 
         public void Move(double moveX, double moveY)
         {
-            XCenterMod += moveX;
-            YCenterMod += moveY;
             DrawingFunctions.MovePolygon(InsidePolygon, moveX, moveY);
             DrawingFunctions.MovePolygon(BorderPolygon, moveX, moveY);
             DrawingFunctions.MoveGrid(GridLabel, moveX, moveY);
@@ -158,7 +139,7 @@ namespace Controls.Library.ViewModels
         {
             Color = color;
             Bitmap = bitmap;
-            HexMapDrawing.UpdateInsidePolygonFill(InsidePolygon, Color, Bitmap);
+            HexMapDrawing.InsidePolygon_UpdateFill(InsidePolygon, Color, Bitmap);
         }
 
         public void UpdateDegreExploration(int degreExploration)
@@ -166,15 +147,24 @@ namespace Controls.Library.ViewModels
             DegreExploration = degreExploration;
             for (int i = 0; i < ListLineExploration.Count; i++)
             {
-                HexMapDrawing.UpdateLineExplorationVisibility(ListLineExploration[i], i, DegreExploration);
+                HexMapDrawing.LineExploration_UpdateVisibility(ListLineExploration[i], i, DegreExploration);
             }
         }
 
-        public void GenerateShapes() {
-            HexMapDrawing.DrawInsidePolygon(HexDrawingData, InsidePolygon, Color, Bitmap);
-            HexMapDrawing.DrawBorderPolygon(HexDrawingData, BorderPolygon);
-            HexMapDrawing.DrawHexLabel(HexDrawingData, GridLabel, Label);
-            HexMapDrawing.DrawHexLineExploration(HexDrawingData, ListLineExploration, DegreExploration);
+        public void GenerateShapes()
+        {
+            HexMapDrawing.InsidePolygon_Draw(HexDrawingData, InsidePolygon, Color, Bitmap);
+            HexMapDrawing.BorderPolygon_Draw(HexDrawingData, BorderPolygon);
+            HexMapDrawing.HexLabel_Draw(HexDrawingData, GridLabel, Label);
+            HexMapDrawing.HexLineExploration_Draw(HexDrawingData, ListLineExploration, DegreExploration);
+        }
+
+        public void UpdateShapes()
+        {
+            HexMapDrawing.InsidePolygon_Update(HexDrawingData, InsidePolygon);
+            HexMapDrawing.BorderPolygon_Draw(HexDrawingData, BorderPolygon);
+            HexMapDrawing.HexLabel_Draw(HexDrawingData, GridLabel, Label);
+            HexMapDrawing.HexLineExploration_Update(HexDrawingData, ListLineExploration);
         }
 
         private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

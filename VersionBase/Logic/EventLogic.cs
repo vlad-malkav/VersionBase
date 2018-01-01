@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Controls.Library.Events;
-using Controls.Library.Models;
+﻿using Controls.Library.Events;
 using MyToolkit.Messaging;
 
 namespace VersionBase.Logic
@@ -41,22 +38,40 @@ namespace VersionBase.Logic
                     Messenger.Default.Send(new QuitMessage());
                     break;
                 case "GoLeft":
-                    Messenger.Default.Send(new MoveCanvasRequestMessage(-100,0));
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        XMovement = -100
+                    });
                     break;
                 case "GoRight":
-                    Messenger.Default.Send(new MoveCanvasRequestMessage(100,0));
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        XMovement = 100
+                    });
                     break;
                 case "GoUp":
-                    Messenger.Default.Send(new MoveCanvasRequestMessage(0, -100));
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        YMovement = -100
+                    });
                     break;
                 case "GoDown":
-                    Messenger.Default.Send(new MoveCanvasRequestMessage(0, 100));
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        YMovement = 100
+                    });
                     break;
                 case "ZoomIn":
-                    Messenger.Default.Send(new ZoomCanvasRequestMessage(1.25));
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        ZoomMultiplicator = 1.25
+                    });
                     break;
                 case "ZoomOut":
-                    Messenger.Default.Send(new ZoomCanvasRequestMessage(0.8));
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        ZoomMultiplicator = 0.8
+                    });
                     break;
             }
         }

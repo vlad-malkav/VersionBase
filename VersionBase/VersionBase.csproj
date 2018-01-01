@@ -64,6 +64,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\GameData.cs" />
+    <Compile Include="Data\GameMode.cs" />
     <Compile Include="Logic\EventLogic.cs" />
     <Compile Include="Logic\GameLogic.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />

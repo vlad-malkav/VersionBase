@@ -10,7 +10,23 @@
     <Grid ZIndex="2000" Width="200" Height="{Binding ActualHeight, RelativeSource = {RelativeSource AncestorType = {x:Type Grid}}}" Background="Blue">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <views:TileEditorView Grid.Row="0" x:Name="TileEditorViewControl" DataContext="{Binding TileEditorViewModel}" VerticalAlignment="Top"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Margin="0 5 10 5">Mode :</TextBlock>
+            <ComboBox Name="CmbTileColor"
+                          ItemsSource = "{Binding ListGameModeViewModel}"
+                          SelectedItem = "{Binding SelectedGameModeViewModel, Mode=TwoWay}"
+                          Width="Auto">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <views:TileEditorView Grid.Row="1" x:Name="TileEditorViewControl" DataContext="{Binding TileEditorViewModel}" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

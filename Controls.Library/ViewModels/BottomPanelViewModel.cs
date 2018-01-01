@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Controls.Library.Models;
-using VersionBase.Libraries.Hexes;
+﻿using Controls.Library.Models;
 
 namespace Controls.Library.ViewModels
 {

@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
 using System.Xml.Serialization;
 using Controls.Library.Events;
-using Controls.Library.Models;
-using Controls.Library.ViewModels;
 using Microsoft.Win32;
 using MyToolkit.Messaging;
 using VersionBase.Data;
-using VersionBase.Libraries.Hexes;
-using VersionBase.Libraries.Tiles;
 using VersionBase.Logic;
 using VersionBase.Model;
 using VersionBase.ViewModels;
@@ -67,7 +61,7 @@ namespace VersionBase
             GameData = new GameData();
             GameModel.ImportGameData(GameData);
             Tuple<double, double> canvasWidthHeight = GameViewControl.HexMapViewControl.GetCanvasDimensions();
-            GameViewModel.ApplyModel(GameModel, canvasWidthHeight.Item2, canvasWidthHeight.Item1);
+            GameViewModel.ApplyModel(GameModel);
         }
 
         private void Load(LoadMessage msg)
@@ -97,13 +91,12 @@ namespace VersionBase
                 {
                     GameData = (GameData) xs.Deserialize(reader);
                     GameModel.ImportGameData(GameData);
-                    Tuple<double, double> canvasWidthHeight = GameViewControl.HexMapViewControl.GetCanvasDimensions();
-                        GameViewControl.ViewModel.ApplyModel(GameModel, canvasWidthHeight.Item2, canvasWidthHeight.Item1);
+                    GameViewControl.ViewModel.ApplyModel(GameModel);
                 }
                 fileStream.Close();
             }
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
             Dispatcher.Invoke(new Action(() => { }), DispatcherPriority.ContextIdle, null);

@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Resources;
-using System.Windows.Media.Imaging;
-using System.Reflection;
-using System.Resources;
-using System.Globalization; 
 
 namespace VersionBase.Libraries.Tiles
 {

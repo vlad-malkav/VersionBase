@@ -102,27 +102,21 @@ namespace Controls.Library.Events
 
     }
 
-    public class MoveCanvasRequestMessage
+    public class GeneralMapTransformationMessage
     {
         public double XMovement { get; set; }
         public double YMovement { get; set; }
-
-        public MoveCanvasRequestMessage() { }
-
-        public MoveCanvasRequestMessage(double xMovement, double yMovement)
-        {
-            XMovement = xMovement;
-            YMovement = yMovement;
-        }
+        public double ZoomMultiplicator { get; set; }
+        public bool DoCenter { get; set; }
     }
 
-    public class ZoomCanvasRequestMessage
+    public class GetHexMapCanvasDimensionsRequestMessage : CallbackMessage<Tuple<double, double>>
     {
-        public double ZoomMultiplicator { get; set; }
+    }
 
-        public ZoomCanvasRequestMessage(double zoomMultiplicator)
-        {
-            ZoomMultiplicator = zoomMultiplicator;
-        }
+    public class UpdateGameMode
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

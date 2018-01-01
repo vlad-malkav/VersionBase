@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Media.Imaging;
-using VersionBase.Libraries.Hexes;
+using VersionBase.Libraries.Drawing;
 
 namespace VersionBase.Libraries.Tiles
 {

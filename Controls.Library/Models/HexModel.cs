@@ -1,10 +1,6 @@
-﻿using System;
-using System.Windows.Media;
-using Controls.Library.Events;
+﻿using Controls.Library.Events;
 using MyToolkit.Messaging;
-using MyToolkit.Model;
 using VersionBase.Libraries.Hexes;
-using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {

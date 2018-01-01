@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Media;
 using Controls.Library.Events;
 using MyToolkit.Messaging;
 using VersionBase.Libraries.Hexes;
-using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {

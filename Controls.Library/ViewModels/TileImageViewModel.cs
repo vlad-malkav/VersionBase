@@ -1,9 +1,6 @@
-﻿using System.Drawing;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media.Imaging;
 using Controls.Library.Models;
 using MyToolkit.Mvvm;
-using VersionBase.Libraries.Hexes;
-using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.ViewModels
 {

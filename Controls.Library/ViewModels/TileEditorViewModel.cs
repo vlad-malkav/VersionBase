@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Documents;
-using System.Windows.Input;
 using Controls.Library.Events;
 using Controls.Library.Models;
 using MyToolkit.Command;
 using MyToolkit.Messaging;
 using MyToolkit.Mvvm;
-using MyToolkit.Utilities;
 
 namespace Controls.Library.ViewModels
 {
@@ -119,6 +116,7 @@ namespace Controls.Library.ViewModels
         public RelayCommand DegreExplorationPlusCommand { get; private set; }
         public RelayCommand DegreExplorationMinusCommand { get; private set; }
         private int TimeUnique { get; set; }
+
         public TileEditorViewModel()
         {
             TimeUnique = DateTime.Now.Millisecond;

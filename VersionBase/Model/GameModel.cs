@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Controls.Library.Events;
 using Controls.Library.Models;
-using MyToolkit.Messaging;
 using VersionBase.Data;
-using VersionBase.Libraries.Tiles;
+using VersionBase.Libraries.Enums;
 
 namespace VersionBase.Model
 {
@@ -57,6 +52,15 @@ namespace VersionBase.Model
         {
             _hexMapModel.ImportData(gameData.HexMapData);
             _leftPanelModel.ImportTileEditorData(gameData.ListTileColor, gameData.ListTileImage);
+
+            List<Tuple<int,string>> listIdNameGameMode = new List<Tuple<int, string>>();
+            foreach (GameMode gameMode in Enum.GetValues(typeof(GameMode)))
+            {
+                listIdNameGameMode.Add(new Tuple<int, string>(
+                    (int)gameMode,
+                    EnumFunctions.GetDescription(gameMode)));
+            }
+            _leftPanelModel.ImportGameModeData(listIdNameGameMode);
         }
     }
 }

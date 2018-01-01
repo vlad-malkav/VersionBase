@@ -30,6 +30,7 @@
         </Grid>
         <Grid>
             <views:HexMapView x:Name="HexMapViewControl" DataContext="{Binding HexMapViewModel}"/>
+            <views:TestControl HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         </Grid>
     </DockPanel>
 </UserControl>
