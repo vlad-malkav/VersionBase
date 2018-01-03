@@ -11,8 +11,8 @@ namespace VersionBase.Libraries.Tiles
         public string Name { get; set; }
         public string NameLower { get; set; }
         public TileImageType TileImageType { get; set; }
-        public Bitmap Bitmap { get; set; }
-        public BitmapImage BitmapImage { get; set; }
+        //public Bitmap Bitmap { get; set; }
+        //public BitmapImage BitmapImage { get; set; }
 
         public TileImage()
             :this(TileImageType.empty)
@@ -26,18 +26,18 @@ namespace VersionBase.Libraries.Tiles
             NameLower = tileImageType.ToString();
             Name = tileImageType.ToString().ToUpper();
             TileImageType = tileImageType;
-            Bitmap = TileImageTypes.GetBitmapTile(TileImageType);
-            BitmapImage= HexMapDrawing.Convert(TileImageTypes.GetBitmapTile(TileImageType));
+            //Bitmap = TileImageTypes.GetBitmapTile(TileImageType);
+            //BitmapImage= HexMapDrawing.Convert(TileImageTypes.GetBitmapTile(TileImageType));
         }
 
-        /*public Bitmap GetBitmap()
+        public Bitmap GetBitmap()
         {
-            return TileImageTypes.GetBitmapTile(TileImageType);
-        }*/
+            return /*Bitmap; */TileImageTypes.GetBitmapTile(TileImageType);
+        }
 
         public BitmapImage GetBitmapImage()
         {
-            return BitmapImage;//HexMapDrawing.Convert(TileImageTypes.GetBitmapTile(TileImageType));
+            return /*BitmapImage;*/HexMapDrawing.Convert(TileImageTypes.GetBitmapTile(TileImageType));
         }
     }
 }

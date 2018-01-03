@@ -103,7 +103,7 @@ namespace VersionBase
                 fileStream.Close();
             }
             }
-            catch (Exception)
+            catch (Exception e)
             {
             }
             Dispatcher.Invoke(new Action(() => { }), DispatcherPriority.ContextIdle, null);

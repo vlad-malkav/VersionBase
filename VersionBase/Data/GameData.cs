@@ -18,6 +18,8 @@ namespace VersionBase.Data
         public List<TileImage> ListTileImage;
         public HexMapData HexMapData;
 
+        public GameData() { }
+
         public GameData(int colCount, int rowCount)
         {
             ColCount = colCount;

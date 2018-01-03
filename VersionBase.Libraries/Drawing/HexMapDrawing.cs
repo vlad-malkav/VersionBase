@@ -176,7 +176,7 @@ namespace VersionBase.Libraries.Drawing
         {
             return GenerateTileBitmapImage(
                 tileData.TileColor.GetDrawingColor(),
-                tileData.TileImage.Bitmap);
+                tileData.TileImage.GetBitmap());
         }
 
         public static BitmapImage GenerateTileBitmapImage(Color color, Bitmap bitmapTile)

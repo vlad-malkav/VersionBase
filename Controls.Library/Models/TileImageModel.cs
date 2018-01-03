@@ -44,7 +44,7 @@ namespace Controls.Library.Models
             _id = tileImage.Id;
             _nameLower = tileImage.NameLower;
             _name = tileImage.Name;
-            _bitmap = tileImage.Bitmap;
+            _bitmap = tileImage.GetBitmap();
             _bitmapImage = tileImage.GetBitmapImage();
         }
     }
