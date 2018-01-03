@@ -51,8 +51,7 @@ namespace Controls.Library.ViewModels
             foreach (var hexModel in hexMapModel.ListHexModel)
             {
                 var hexViewModel = new HexViewModel();
-                hexViewModel.UpdateFromHexModel(hexModel);
-                hexViewModel.SetCellSize(CellSize);
+                hexViewModel.UpdateFromHexModel(hexModel, CellSize);
                 ListHexViewModel.Add(hexViewModel);
                 foreach (UIElement uiElement in hexViewModel.GetAllUIElements())
                 {

@@ -22,8 +22,8 @@ namespace Controls.Library.ViewModels
         public int Row { get; set; }
         public bool Selected { get; set; }
         private double CellSize { get; set; }
-        public Color Color { get; set; }
-        public Bitmap Bitmap { get; set; }
+        /*public Color Color { get; set; }
+        public Bitmap Bitmap { get; set; }*/
         public Polygon InsidePolygon { get; private set; }
         public Polygon BorderPolygon { get; private set; }
         public Grid GridLabel { get; set; }
@@ -63,17 +63,25 @@ namespace Controls.Library.ViewModels
             InsidePolygon.MouseRightButtonDown -= MouseRightButtonDown;
         }
 
-        public void UpdateFromHexModel(HexModel hexModel)
+        public void UpdateFromHexModel(HexModel hexModel, double cellSize)
         {
             Label = hexModel.GetLabel();
             Description = hexModel.Description;
             DegreExploration = hexModel.DegreExploration;
             Column = hexModel.Column;
             Row = hexModel.Row;
-            Color = hexModel.TileColorModel.GetDrawingColor();
-            Bitmap = hexModel.TileImageModel.Bitmap;
+            /*Color = hexModel.TileColorModel.GetDrawingColor();
+            Bitmap = hexModel.TileImageModel.Bitmap;*/
 
             HexDrawingData.SetHexCoordinates(Column, Row);
+
+            CellSize = cellSize;
+
+            HexDrawingData.UpdateDrawing(CellSize);
+
+            GenerateShapes();
+
+            UpdateTileData(hexModel.TileColorModel.GetDrawingColor(), hexModel.TileImageModel.Bitmap);
         }
 
         public void SelectHex()
@@ -106,15 +114,6 @@ namespace Controls.Library.ViewModels
             }
         }
 
-        public void SetCellSize(double cellSize)
-        {
-            CellSize = cellSize;
-
-            HexDrawingData.UpdateDrawing(CellSize);
-
-            GenerateShapes();
-        }
-
         public void UpdateCellSize(double cellSize)
         {
             CellSize = cellSize;
@@ -137,9 +136,9 @@ namespace Controls.Library.ViewModels
 
         public void UpdateTileData(Color color, Bitmap bitmap)
         {
-            Color = color;
-            Bitmap = bitmap;
-            HexMapDrawing.InsidePolygon_UpdateFill(InsidePolygon, Color, Bitmap);
+            /*Color = color;
+            Bitmap = bitmap;*/
+            HexMapDrawing.InsidePolygon_UpdateFill(InsidePolygon, color, bitmap);
         }
 
         public void UpdateDegreExploration(int degreExploration)
@@ -153,7 +152,7 @@ namespace Controls.Library.ViewModels
 
         public void GenerateShapes()
         {
-            HexMapDrawing.InsidePolygon_Draw(HexDrawingData, InsidePolygon, Color, Bitmap);
+            HexMapDrawing.InsidePolygon_Draw(HexDrawingData, InsidePolygon/*, Color, Bitmap*/);
             HexMapDrawing.BorderPolygon_Draw(HexDrawingData, BorderPolygon);
             HexMapDrawing.HexLabel_Draw(HexDrawingData, GridLabel, Label);
             HexMapDrawing.HexLineExploration_Draw(HexDrawingData, ListLineExploration, DegreExploration);

@@ -18,11 +18,11 @@ namespace VersionBase.Libraries.Drawing
 {
     public static class HexMapDrawing
     {
-        public static void InsidePolygon_Draw(HexDrawingData hexDrawingData, Polygon insidePolygon, Color color, Bitmap bitmap)
+        public static void InsidePolygon_Draw(HexDrawingData hexDrawingData, Polygon insidePolygon/*, Color color, Bitmap bitmap*/)
         {
             insidePolygon.Tag = "InsidePolygon";
             InsidePolygon_Update(hexDrawingData, insidePolygon);
-            InsidePolygon_UpdateFill(insidePolygon, color, bitmap);
+            //InsidePolygon_UpdateFill(insidePolygon, color, bitmap);
         }
 
         public static void InsidePolygon_Update(HexDrawingData hexDrawingData, Polygon insidePolygon)
@@ -189,15 +189,19 @@ namespace VersionBase.Libraries.Drawing
 
             if (bitmapTile != null)
             {
-                Bitmap bTileResized = new Bitmap(bitmapTile,
-                    (int)(bitmapTile.Width * scale), (int)(bitmapTile.Height * scale));
-                tileBitmapImage = Convert(SuperimposeB(GenerateTile(bTileResized, color), bitmapTile));
+                using (Bitmap bTileResized = new Bitmap(bitmapTile,
+                    (int) (bitmapTile.Width * scale), (int) (bitmapTile.Height * scale)))
+                {
+                    tileBitmapImage = Convert(SuperimposeB(GenerateTile(bTileResized, color), bitmapTile));
+                }
             }
             else
             {
-                Bitmap bTileResized = new Bitmap(bitmapTile,
-                    (int)(250 * scale), (int)(250 * scale));
-                tileBitmapImage = Convert(GenerateTile(bTileResized, color));
+                using (Bitmap bTileResized = new Bitmap(bitmapTile,
+                    (int) (250 * scale), (int) (250 * scale)))
+                {
+                    tileBitmapImage = Convert(GenerateTile(bTileResized, color));
+                }
             }
 
             return tileBitmapImage;
@@ -205,23 +209,27 @@ namespace VersionBase.Libraries.Drawing
 
         public static ImageSource GenerateTileImageSource(Color color, Bitmap bitmapTile)
         {
-            float scaleHeight = (float)2.5;
-            float scaleWidth = (float)2.5;
+            float scaleHeight = (float) 2.5;
+            float scaleWidth = (float) 2.5;
             float scale = Math.Min(scaleHeight, scaleWidth);
 
             ImageSource tileImageSource;
 
             if (bitmapTile != null)
             {
-                Bitmap bTileResized = new Bitmap(bitmapTile,
-                    (int)(bitmapTile.Width * scale), (int)(bitmapTile.Height * scale));
-                tileImageSource = ConvertToIS(SuperimposeB(GenerateTile(bTileResized, color), bitmapTile));
+                using (Bitmap bTileResized = new Bitmap(bitmapTile,
+                    (int) (bitmapTile.Width * scale), (int) (bitmapTile.Height * scale)))
+                {
+                    tileImageSource = ConvertToIS(SuperimposeB(GenerateTile(bTileResized, color), bitmapTile));
+                }
             }
             else
             {
-                Bitmap bTileResized = new Bitmap(bitmapTile,
-                    (int)(250 * scale), (int)(250 * scale));
-                tileImageSource = ConvertToIS(GenerateTile(bTileResized, color));
+                using (Bitmap bTileResized = new Bitmap(bitmapTile,
+                    (int) (250 * scale), (int) (250 * scale)))
+                {
+                    tileImageSource = ConvertToIS(GenerateTile(bTileResized, color));
+                }
             }
 
             return tileImageSource;
@@ -241,9 +249,7 @@ namespace VersionBase.Libraries.Drawing
             biImg.StreamSource = ms;
             biImg.EndInit();
 
-            ImageSource imgSrc = biImg as ImageSource;
-
-            return imgSrc;
+            return biImg;
         }
 
         public static ImageSource ConvertToIS(Bitmap bmp)
