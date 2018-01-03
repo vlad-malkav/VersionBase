@@ -59,6 +59,12 @@
     <Compile Include="Classes\InverseBoolConverter.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Events\Events.Messages.cs" />
+    <Compile Include="Forms\HexMapCreationInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HexMapCreationInputDialog.Designer.cs">
+      <DependentUpon>HexMapCreationInputDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\GameModeModel.cs" />
     <Compile Include="Models\HexMapModel.cs" />
     <Compile Include="Models\HexModel.cs" />
@@ -159,6 +165,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\HexMapCreationInputDialog.resx">
+      <DependentUpon>HexMapCreationInputDialog.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

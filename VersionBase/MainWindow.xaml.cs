@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Threading;
 using System.Xml.Serialization;
 using Controls.Library.Events;
+using Controls.Library.Forms;
 using Microsoft.Win32;
 using MyToolkit.Messaging;
 using VersionBase.Data;
@@ -58,10 +59,16 @@ namespace VersionBase
 
         private void New(NewMessage msg)
         {
-            GameData = new GameData();
-            GameModel.ImportGameData(GameData);
-            Tuple<double, double> canvasWidthHeight = GameViewControl.HexMapViewControl.GetCanvasDimensions();
-            GameViewModel.ApplyModel(GameModel);
+            HexMapCreationInputDialog dialog = new HexMapCreationInputDialog(
+                "Title", "Label", 10, 5);
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Tuple<int, int> result = dialog.Result;
+                GameData = new GameData(dialog.Result.Item1, dialog.Result.Item2);
+                GameModel.ImportGameData(GameData);
+                Tuple<double, double> canvasWidthHeight = GameViewControl.HexMapViewControl.GetCanvasDimensions();
+                GameViewModel.ApplyModel(GameModel);
+            }
         }
 
         private void Load(LoadMessage msg)

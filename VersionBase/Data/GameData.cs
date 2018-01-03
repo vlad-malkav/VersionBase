@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
+using Controls.Library.Forms;
 using Controls.Library.Models;
 using VersionBase.Libraries.Enums;
 using VersionBase.Libraries.Hexes;
@@ -16,10 +18,10 @@ namespace VersionBase.Data
         public List<TileImage> ListTileImage;
         public HexMapData HexMapData;
 
-        public GameData()
+        public GameData(int colCount, int rowCount)
         {
-            RowCount = 25;
-            ColCount = 25;
+            ColCount = colCount;
+            RowCount = rowCount;
             ListTileColor = TileColors.GetAllTileColors();
             ListTileImage = TileImages.GetAllTileImages();
             HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);
