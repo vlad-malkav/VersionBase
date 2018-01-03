@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Controls.Library.Models;
+using VersionBase.Libraries.Enums;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
 using VersionBase.Model;
@@ -17,8 +18,8 @@ namespace VersionBase.Data
 
         public GameData()
         {
-            RowCount = 15;
-            ColCount = 15;
+            RowCount = 25;
+            ColCount = 25;
             ListTileColor = TileColors.GetAllTileColors();
             ListTileImage = TileImages.GetAllTileImages();
             HexMapData = HexMapData.GeneratHexMapData(ColCount, RowCount);

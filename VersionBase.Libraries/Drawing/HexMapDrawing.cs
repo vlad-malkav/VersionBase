@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VersionBase.Libraries.Enums;
 using VersionBase.Libraries.Tiles;
 using Color = System.Drawing.Color;
 using FontFamily = System.Windows.Media.FontFamily;

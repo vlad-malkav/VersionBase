@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using VersionBase.Libraries.Enums;
 using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
@@ -31,13 +32,13 @@ namespace Controls.Library.Models
             _tileEditorModel.ImportListTileImage(listTileImage);
         }
 
-        public void ImportGameModeData(List<Tuple<int,string>> listGameModeData)
+        public void ImportGameModeData(List<GameMode> listGameMode)
         {
             _listGameModeModel.Clear();
-            foreach (var tupleIdName in listGameModeData)
+            foreach (var gameMode in listGameMode)
             {
                 GameModeModel gameModeModelTmp = new GameModeModel();
-                gameModeModelTmp.ImportGameModeData(tupleIdName.Item1, tupleIdName.Item2);
+                gameModeModelTmp.ImportGameModeData(gameMode);
                 _listGameModeModel.Add(gameModeModelTmp);
             }
         }

@@ -1,14 +1,12 @@
 ﻿using Controls.Library.Events;
 using MyToolkit.Messaging;
+using VersionBase.Data;
+using VersionBase.Libraries.Enums;
 
 namespace VersionBase.Logic
 {
-    public class EventLogic
+    public partial class GameLogic
     {
-        public EventLogic()
-        {
-            
-        }
 
         public void SubscribeToEvents()
         {
@@ -16,75 +14,62 @@ namespace VersionBase.Logic
             Messenger.Default.Register<HexClickedLeftButtonMessage>(this, HexClickedLeftButtonMessageFunction);
             Messenger.Default.Register<HexClickedRightButtonMessage>(this, HexClickedRightButtonMessageFunction);
             Messenger.Default.Register<MenuItemClickedMessage>(this, MenuItemClickedMessageFunction);
-            
+            Messenger.Default.Register<UpdateGameModeMessage>(this, UpdateGameModeMessageFunction);
+
         }
 
         #region Message functions
 
-        public static void MenuItemClickedMessageFunction(MenuItemClickedMessage msgMenuItemClickedMessage)
+        public void UpdateGameModeMessageFunction(UpdateGameModeMessage msg)
         {
-            switch (msgMenuItemClickedMessage.Name)
+            UpdateGameMode(msg.GameMode);
+        }
+
+        public void MenuItemClickedMessageFunction(MenuItemClickedMessage msg)
+        {
+            switch (msg.Name)
             {
                 case "New":
-                    Messenger.Default.Send(new NewMessage());
+                    NewMap();
                     break;
                 case "Load":
-                    Messenger.Default.Send(new LoadMessage());
+                    LoadMap();
                     break;
                 case "Save":
-                    Messenger.Default.Send(new SaveMessage());
+                    SaveMap();
                     break;
                 case "Quit":
-                    Messenger.Default.Send(new QuitMessage());
+                    QuitApplication();
                     break;
                 case "GoLeft":
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
-                    {
-                        XMovement = -100
-                    });
+                    MapTransformation(MapTransformationType.MoveLeft);
                     break;
                 case "GoRight":
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
-                    {
-                        XMovement = 100
-                    });
+                    MapTransformation(MapTransformationType.MoveRight);
                     break;
                 case "GoUp":
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
-                    {
-                        YMovement = -100
-                    });
+                    MapTransformation(MapTransformationType.MoveUp);
                     break;
                 case "GoDown":
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
-                    {
-                        YMovement = 100
-                    });
+                    MapTransformation(MapTransformationType.MoveDown);
                     break;
                 case "ZoomIn":
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
-                    {
-                        ZoomMultiplicator = 1.25
-                    });
+                    MapTransformation(MapTransformationType.ZoomIn);
                     break;
                 case "ZoomOut":
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
-                    {
-                        ZoomMultiplicator = 0.8
-                    });
+                    MapTransformation(MapTransformationType.ZoomOut);
                     break;
             }
         }
 
-        public static void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
+        public void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
         {
-            GameLogic.SelectHex(msg.HexViewModel.Column, msg.HexViewModel.Row);
-            GameLogic.SetSelectedColorImageFromHexPosition(msg.HexViewModel.Column, msg.HexViewModel.Row);
+            RightClicFunction(msg.HexViewModel);
         }
 
-        public static void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msg)
+        public void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msg)
         {
-            GameLogic.UpdateHexModelWithSelectedColorImage(msg.HexViewModel.Column, msg.HexViewModel.Row);
+            LeftClicFunction(msg.HexViewModel);
         }
 
         #endregion

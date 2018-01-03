@@ -1,24 +1,91 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Controls.Library.Annotations;
 using Controls.Library.Events;
 using Controls.Library.Models;
+using Controls.Library.ViewModels;
 using MyToolkit.Messaging;
+using VersionBase.Data;
+using VersionBase.Libraries.Enums;
 
 namespace VersionBase.Logic
 {
-    public class GameLogic
+    public partial class GameLogic
     {
-        public EventLogic EventLogic { get; set; }
+        public GameMode GameMode { get; set; }
 
         public GameLogic()
         {
-            EventLogic = new EventLogic(this);
-            EventLogic.SubscribeToEvents();
+            GameMode = GameMode.MapCreation;
+            SubscribeToEvents();
         }
 
-        #region Game functions
+        #region General functions
 
-        public static async Task<Tuple<string, string>> GetSelectedTileColorTileImageIds()
+        public void NewMap()
+        {
+            Messenger.Default.Send(new NewMessage());
+        }
+
+        public void LoadMap()
+        {
+            Messenger.Default.Send(new LoadMessage());
+        }
+
+        public void SaveMap()
+        {
+            Messenger.Default.Send(new SaveMessage());
+        }
+
+        public void QuitApplication()
+        {
+            Messenger.Default.Send(new QuitMessage());
+        }
+
+        public void UpdateGameMode(GameMode gameMode)
+        {
+            GameMode = gameMode;
+        }
+
+        #endregion General functions
+
+        #region Clic functions
+
+        public void LeftClicFunction(HexViewModel hexViewModel)
+        {
+            switch (GameMode)
+            {
+                case GameMode.MapCreation:
+                    UpdateHexModelWithSelectedColorImage(hexViewModel.Column, hexViewModel.Row);
+                    break;
+                case GameMode.HexEdition:
+                    SelectHex(hexViewModel.Column, hexViewModel.Row);
+                    break;
+                case GameMode.Visualization:
+                    SelectHex(hexViewModel.Column, hexViewModel.Row);
+                    break;
+            }
+        }
+
+        public void RightClicFunction(HexViewModel hexViewModel)
+        {
+            switch (GameMode)
+            {
+                case GameMode.MapCreation:
+                    SetSelectedColorImageFromHexPosition(hexViewModel.Column, hexViewModel.Row);
+                    break;
+                case GameMode.HexEdition:
+                    break;
+                case GameMode.Visualization:
+                    break;
+            }
+        }
+
+        #endregion Clic functions
+
+        #region Tile Editor functions
+
+        public async Task<Tuple<string, string>> GetSelectedTileColorTileImageIds()
         {
             GetSelectedColorImageIdsRequestMessage msgGetSelectedColorImageNamesRequestMessage = new GetSelectedColorImageIdsRequestMessage();
             var resultGetSelectedColorImageNamesRequestMessage = await Messenger.Default.SendAsync(msgGetSelectedColorImageNamesRequestMessage);
@@ -28,7 +95,7 @@ namespace VersionBase.Logic
                 resultGetSelectedColorImageNamesRequestMessage.Result.Item2);
         }
 
-        public static async Task<Tuple<TileColorModel, TileImageModel>> GetSelectedTileColorTileImageModels()
+        public async Task<Tuple<TileColorModel, TileImageModel>> GetSelectedTileColorTileImageModels()
         {
             Tuple<string, string> tupleSelectedTileColorTileImageIds = GetSelectedTileColorTileImageIds().Result;
             string tileColorModelId = tupleSelectedTileColorTileImageIds.Item1;
@@ -47,7 +114,11 @@ namespace VersionBase.Logic
                 resultGetTileColorTileImageModelsFromIdRequestMessage.Result.Item2);
         }
 
-        public static async Task<HexModel> GetHexModelFromPosition(int column, int row)
+        #endregion Tile Editor functions
+
+        #region Hex Functions
+
+        public async Task<HexModel> GetHexModelFromPosition(int column, int row)
         {
             GetHexModelFromPositionRequestMessage msgGetHexModelFromPositionRequestMessage = new GetHexModelFromPositionRequestMessage
             {
@@ -58,7 +129,7 @@ namespace VersionBase.Logic
             return resultGetHexModelFromPositionRequestMessage.Result;
         }
 
-        public static async void UpdateHexModelWithSelectedColorImage(int column, int row)
+        public async void UpdateHexModelWithSelectedColorImage(int column, int row)
         {
             Tuple<TileColorModel, TileImageModel> tupleColorImageIds = await GetSelectedTileColorTileImageModels();
             Messenger.Default.Send(new UpdateHexColorImageModelsMessage
@@ -70,9 +141,8 @@ namespace VersionBase.Logic
             });
         }
 
-        public static void SelectHex(int column, int row)
+        public void SelectHex(int column, int row)
         {
-            HexModel hexModel = GetHexModelFromPosition(column, row).Result;
             Messenger.Default.Send(new SelectHexMessage
             {
                 Column = column,
@@ -80,7 +150,7 @@ namespace VersionBase.Logic
             });
         }
 
-        public static void SetSelectedColorImageFromHexPosition(int column, int row)
+        public void SetSelectedColorImageFromHexPosition(int column, int row)
         {
             HexModel hexModel = GetHexModelFromPosition(column, row).Result;
             Messenger.Default.Send(new SetSelectedColorImageIdsRequestMessage
@@ -90,6 +160,53 @@ namespace VersionBase.Logic
             });
         }
 
-        #endregion
+        #endregion Hex Functions
+
+        #region General Map Modifications
+
+        public void MapTransformation(MapTransformationType direction)
+        {
+            switch (direction)
+            {
+                case MapTransformationType.MoveLeft:
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        XMovement = -100
+                    });
+                    break;
+                case MapTransformationType.MoveRight:
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        XMovement = 100
+                    });
+                    break;
+                case MapTransformationType.MoveUp:
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        YMovement = -100
+                    });
+                    break;
+                case MapTransformationType.MoveDown:
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        YMovement = 100
+                    });
+                    break;
+                case MapTransformationType.ZoomIn:
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        ZoomMultiplicator = 1.25
+                    });
+                    break;
+                case MapTransformationType.ZoomOut:
+                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    {
+                        ZoomMultiplicator = 0.8
+                    });
+                    break;
+            }
+        }
+
+        #endregion General Map Modifications
     }
 }

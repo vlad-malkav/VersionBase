@@ -17,10 +17,9 @@ namespace Controls.Library.ViewModels
             get { return _selectedGameModeViewModel; }
             set { _selectedGameModeViewModel = value;
                 RaisePropertyChanged("SelectedGameModeViewModel");
-                Messenger.Default.Send(new UpdateGameMode
+                Messenger.Default.Send(new UpdateGameModeMessage
                 {
-                    Id = _selectedGameModeViewModel.Id,
-                    Name = _selectedGameModeViewModel.Name
+                    GameMode = _selectedGameModeViewModel.GameMode
                 });
             }
         }
@@ -36,6 +35,7 @@ namespace Controls.Library.ViewModels
         public void ApplyModel(LeftPanelModel leftPanelModel)
         {
             TileEditorViewModel.ApplyModel(leftPanelModel.TileEditorModel);
+            ListGameModeViewModel.Clear();
             foreach (var gameModeModel in leftPanelModel.ListGameModeModel)
             {
                 GameModeViewModel gameModeViewModel = new GameModeViewModel();
@@ -44,7 +44,7 @@ namespace Controls.Library.ViewModels
             }
             if (ListGameModeViewModel.Count > 0)
             {
-                _selectedGameModeViewModel = ListGameModeViewModel.First();
+                SelectedGameModeViewModel = ListGameModeViewModel.First();
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace VersionBase.Libraries.Drawing
+﻿namespace VersionBase.Libraries.Enums
 {
     public static class ZIndexes
     {

@@ -2,6 +2,7 @@
 using Controls.Library.Models;
 using Controls.Library.ViewModels;
 using MyToolkit.Messaging;
+using VersionBase.Libraries.Enums;
 
 namespace Controls.Library.Events
 {
@@ -114,9 +115,8 @@ namespace Controls.Library.Events
     {
     }
 
-    public class UpdateGameMode
+    public class UpdateGameModeMessage
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public GameMode GameMode { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace VersionBase.Libraries.Tiles
+﻿namespace VersionBase.Libraries.Enums
 {
     public enum TileImageType
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace VersionBase.Data
+namespace VersionBase.Libraries.Enums
 {
     public enum GameMode
     {

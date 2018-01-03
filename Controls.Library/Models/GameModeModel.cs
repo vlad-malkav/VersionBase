@@ -1,9 +1,12 @@
-﻿namespace Controls.Library.Models
+﻿using VersionBase.Libraries.Enums;
+
+namespace Controls.Library.Models
 {
     public class GameModeModel
     {
         private int _id;
         private string _name;
+        private GameMode _gameMode;
 
         public int Id
         {
@@ -15,12 +18,18 @@
             get { return _name; }
         }
 
+        public GameMode GameMode
+        {
+            get { return _gameMode; }
+        }
+
         public GameModeModel() { }
 
-        public void ImportGameModeData(int id, string name)
+        public void ImportGameModeData(GameMode gameMode)
         {
-            _id = id;
-            _name = name;
+            _gameMode = gameMode;
+            _id = (int)GameMode;
+            _name = EnumFunctions.GetDescription(GameMode);
         }
     }
 }

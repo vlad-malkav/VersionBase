@@ -1,4 +1,5 @@
 ﻿using Controls.Library.Models;
+using VersionBase.Libraries.Enums;
 
 namespace Controls.Library.ViewModels
 {
@@ -6,6 +7,7 @@ namespace Controls.Library.ViewModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public GameMode GameMode { get; set; }
 
         public GameModeViewModel()
         {
@@ -16,6 +18,7 @@ namespace Controls.Library.ViewModels
         {
             Id = gameModeModel.Id;
             Name = gameModeModel.Name;
+            GameMode = gameModeModel.GameMode;
         }
     }
 }

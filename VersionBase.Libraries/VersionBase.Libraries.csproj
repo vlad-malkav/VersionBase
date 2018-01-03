@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Drawing\DrawingFunctions.cs" />
-    <Compile Include="Drawing\ZIndexes.cs" />
+    <Compile Include="Enums\GameMode.cs" />
+    <Compile Include="Enums\MapTransformationType.cs" />
+    <Compile Include="Enums\ZIndexes.cs" />
     <Compile Include="Enums\EnumFunctions.cs" />
     <Compile Include="Events\EventSystem.cs" />
     <Compile Include="Drawing\HexDrawingData.cs" />
@@ -81,7 +83,7 @@
     <Compile Include="Tiles\TileImage.cs" />
     <Compile Include="Tiles\TileImages.cs" />
     <Compile Include="Tiles\TileImageTypes.cs" />
-    <Compile Include="Tiles\TileImageType.cs" />
+    <Compile Include="Enums\TileImageType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -6,17 +6,62 @@ using Controls.Library.Models;
 using MyToolkit.Command;
 using MyToolkit.Messaging;
 using MyToolkit.Mvvm;
+using VersionBase.Libraries.Enums;
 
 namespace Controls.Library.ViewModels
 {
     public class TileEditorViewModel : ViewModelBase // from MyToolkit
-    {   public List<TileImageViewModel> ListTileImageViewModel { get; set; }
+    {
+
+        #region General Properties
+
+        private bool _isHexSelected;
+
+        public bool IsHexSelected
+        {
+            get { return _isHexSelected; }
+            set
+            {
+                if (_isHexSelected != value)
+                {
+                    _isHexSelected = value;
+                    RaisePropertyChanged("IsHexSelected");
+                    RefreshInterfaceButtons();
+                }
+            }
+        }
+
+        private GameMode _gameMode;
+
+        public GameMode GameMode
+        {
+            get { return _gameMode; }
+            set
+            {
+                if (_gameMode != value)
+                {
+                    _gameMode = value;
+                }
+            }
+        }
+
+        #endregion General Properties
+
+        #region Tile Editor Properties
+
+        public List<TileImageViewModel> ListTileImageViewModel { get; set; }
         private TileImageViewModel _selectedTileImageModel;
+
         public TileImageViewModel SelectedTileImageViewModel
         {
             get { return _selectedTileImageModel; }
-            set { _selectedTileImageModel = value;
-                RaisePropertyChanged("SelectedTileImageViewModel");
+            set
+            {
+                if (_selectedTileImageModel != value)
+                {
+                    _selectedTileImageModel = value;
+                    RaisePropertyChanged("SelectedTileImageViewModel");
+                }
             }
         }
 
@@ -26,36 +71,33 @@ namespace Controls.Library.ViewModels
         public TileColorViewModel SelectedTileColorViewModel
         {
             get { return _selectedTileColorViewModel; }
-            set { _selectedTileColorViewModel = value;
-                RaisePropertyChanged("SelectedTileColorViewModel");
-            }
-        }
-
-        private bool _isHexSelected;
-        private bool _isHexUnselected;
-
-        public bool IsHexSelected
-        {
-            get { return _isHexSelected; }
             set
             {
-                _isHexSelected = value;
-                RaisePropertyChanged("IsHexSelected");
-                if (SaveButtonCommand != null) SaveButtonCommand.RaiseCanExecuteChanged();
-                if (DegreExplorationMinusCommand != null) DegreExplorationMinusCommand.RaiseCanExecuteChanged();
-                if (DegreExplorationPlusCommand != null) DegreExplorationPlusCommand.RaiseCanExecuteChanged();
+                if (_selectedTileColorViewModel != value)
+                {
+                    _selectedTileColorViewModel = value;
+                    RaisePropertyChanged("SelectedTileColorViewModel");
+                }
             }
         }
 
-        public bool IsHexUnselected
+        private bool _tileEditionAvailable;
+
+        public bool TileEditionAvailable
         {
-            get { return _isHexUnselected; }
+            get { return _tileEditionAvailable; }
             set
             {
-                _isHexUnselected = value;
-                RaisePropertyChanged("IsHexUnselected");
+                if (_tileEditionAvailable != value)
+                {
+                    _tileEditionAvailable = value;
+                    RaisePropertyChanged("TileEditionAvailable");
+                    RefreshInterfaceButtons();
+                }
             }
         }
+
+        #endregion Tile Editor Properties
 
         #region Hex Data
 
@@ -68,42 +110,82 @@ namespace Controls.Library.ViewModels
         public string Label
         {
             get { return _label; }
-            set { _label = value;
-                RaisePropertyChanged("Label");
+            set
+            {
+                if (_label != value)
+                {
+                    _label = value;
+                    RaisePropertyChanged("Label");
+                }
             }
         }
 
         public string Description
         {
             get { return _description; }
-            set { _description = value;
-                RaisePropertyChanged("Description");
+            set
+            {
+                if (_description != value)
+                {
+                    _description = value;
+                    RaisePropertyChanged("Description");
+                }
             }
         }
 
         public int DegreExploration
         {
             get { return _degreExploration; }
-            set { _degreExploration = value;
-                RaisePropertyChanged("DegreExploration");
-                if(DegreExplorationMinusCommand != null) DegreExplorationMinusCommand.RaiseCanExecuteChanged();
-                if (DegreExplorationPlusCommand != null) DegreExplorationPlusCommand.RaiseCanExecuteChanged();
+            set
+            {
+                if (_degreExploration != value)
+                {
+                    _degreExploration = value;
+                    RaisePropertyChanged("DegreExploration");
+                    RefreshInterfaceButtons();
+                }
             }
         }
 
         public string SelectedHexColor
         {
             get { return _selectedHexColor; }
-            set { _selectedHexColor = value;
-                RaisePropertyChanged("SelectedHexColor");
+            set
+            {
+                if (_selectedHexColor != value)
+                {
+                    _selectedHexColor = value;
+                    RaisePropertyChanged("SelectedHexColor");
+                }
             }
         }
 
         public string SelectedHexImage
         {
             get { return _selectedHexImage; }
-            set { _selectedHexImage = value;
-                RaisePropertyChanged("SelectedHexImage");
+            set
+            {
+                if (_selectedHexImage != value)
+                {
+                    _selectedHexImage = value;
+                    RaisePropertyChanged("SelectedHexImage");
+                }
+            }
+        }
+
+        private bool _hexEditionAvailable;
+
+        public bool HexEditionAvailable
+        {
+            get { return _hexEditionAvailable; }
+            set
+            {
+                if (_hexEditionAvailable != value)
+                {
+                    _hexEditionAvailable = value;
+                    RaisePropertyChanged("HexEditionAvailable");
+                    RefreshInterfaceButtons();
+                }
             }
         }
 
@@ -115,27 +197,40 @@ namespace Controls.Library.ViewModels
         public RelayCommand SaveButtonCommand { get; private set; }
         public RelayCommand DegreExplorationPlusCommand { get; private set; }
         public RelayCommand DegreExplorationMinusCommand { get; private set; }
-        private int TimeUnique { get; set; }
 
         public TileEditorViewModel()
         {
-            TimeUnique = DateTime.Now.Millisecond;
             UnregisterMessages();
-            SetHexSelectedState(false);
+            IsHexSelected = false;
             ListTileColorViewModel = new List<TileColorViewModel>();
             ListTileImageViewModel = new List<TileImageViewModel>();
             SaveButtonCommand = new RelayCommand(
                 () => SaveButtonAction(),
-                () => IsHexSelected);
+                () => SaveButtonAvailable());
             
                 DegreExplorationPlusCommand = new RelayCommand(
                     () => DegreExploration++,
-                    () => DegreExploration < 6 && IsHexSelected);
+                    () => IsDegreExplorationPlusAvailable());
             
                 DegreExplorationMinusCommand = new RelayCommand(
                     () => DegreExploration--,
-                    () => DegreExploration > 0 && IsHexSelected);
+                    () => IsDegreExplorationMinusAvailable());
             RegisterMessages();
+        }
+
+        public bool SaveButtonAvailable()
+        {
+            return HexEditionAvailable && IsHexSelected;
+        }
+
+        public bool IsDegreExplorationPlusAvailable()
+        {
+            return HexEditionAvailable && IsHexSelected && DegreExploration < 6;
+        }
+
+        public bool IsDegreExplorationMinusAvailable()
+        {
+            return HexEditionAvailable && IsHexSelected && DegreExploration > 0;
         }
 
         public void ApplyModel(TileEditorModel tileEditorModel)
@@ -170,27 +265,6 @@ namespace Controls.Library.ViewModels
             }
         }
 
-        private void UnregisterMessages()
-        {
-            Messenger.Default.Deregister<GetSelectedColorImageIdsRequestMessage>(this, GetSelectedColorImageIdsRequestMessageFunction);
-            Messenger.Default.Deregister<SetSelectedColorImageIdsRequestMessage>(this, SetSelectedColorImageIdsRequestMessageFunction);
-            Messenger.Default.Deregister<HexModelSelectedMessage>(this, HexModelSelectedMessageFunction);
-            Messenger.Default.Deregister<HexModelUnselectedMessage>(this, HexModelUnselectedMessageFunction);
-        }
-
-        private void RegisterMessages()
-        {
-            Messenger.Default.Register<GetSelectedColorImageIdsRequestMessage>(this, GetSelectedColorImageIdsRequestMessageFunction);
-            Messenger.Default.Register<SetSelectedColorImageIdsRequestMessage>(this, SetSelectedColorImageIdsRequestMessageFunction);
-            Messenger.Default.Register<HexModelSelectedMessage>(this, HexModelSelectedMessageFunction);
-            Messenger.Default.Register<HexModelUnselectedMessage>(this, HexModelUnselectedMessageFunction);
-        }
-
-        private void HexModelSelectedMessageFunction(HexModelSelectedMessage msgHexModelSelectedMessage)
-        {
-            SelectHex(msgHexModelSelectedMessage.HexModel);
-        }
-
         private void SelectHex(HexModel hexModel)
         {
             Label = hexModel.GetLabel();
@@ -200,12 +274,7 @@ namespace Controls.Library.ViewModels
             SelectedHexRow = hexModel.Row;
             SelectedHexColor = hexModel.TileColorModel.Name;
             SelectedHexImage = hexModel.TileImageModel.Name;
-            SetHexSelectedState(true);
-        }
-
-        private void HexModelUnselectedMessageFunction(HexModelUnselectedMessage msgHexModelUnselectedMessagee)
-        {
-            UnselectHex();
+            IsHexSelected = true;
         }
 
         private void UnselectHex()
@@ -217,13 +286,70 @@ namespace Controls.Library.ViewModels
             SelectedHexImage = "";
             SelectedHexColumn = null;
             SelectedHexRow = null;
-            SetHexSelectedState(false);
+            IsHexSelected = false;
         }
 
-        private void SetHexSelectedState(bool isHexSelected)
+        public TileColorViewModel GetTileColorViewModelFromId(string id)
         {
-            IsHexSelected = isHexSelected;
-            IsHexUnselected = !IsHexSelected;
+            return ListTileColorViewModel.FirstOrDefault(x => x.Id == id);
+        }
+
+        public TileImageViewModel GetTileImageViewModelFromId(string id)
+        {
+            return ListTileImageViewModel.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void RefreshInterfaceButtons()
+        {
+            if (SaveButtonCommand != null) SaveButtonCommand.RaiseCanExecuteChanged();
+            if (DegreExplorationMinusCommand != null) DegreExplorationMinusCommand.RaiseCanExecuteChanged();
+            if (DegreExplorationPlusCommand != null) DegreExplorationPlusCommand.RaiseCanExecuteChanged();
+        }
+
+        public void OnHexSelected()
+        {
+            switch (GameMode)
+            {
+                case GameMode.MapCreation:
+                    HexEditionAvailable = false;
+                    break;
+                case GameMode.HexEdition:
+                    HexEditionAvailable = true;
+                    break;
+                case GameMode.Visualization:
+                    HexEditionAvailable = false;
+                    break;
+            }
+        }
+
+        #region Event functions
+
+        private void UnregisterMessages()
+        {
+            Messenger.Default.Deregister<GetSelectedColorImageIdsRequestMessage>(this, GetSelectedColorImageIdsRequestMessageFunction);
+            Messenger.Default.Deregister<SetSelectedColorImageIdsRequestMessage>(this, SetSelectedColorImageIdsRequestMessageFunction);
+            Messenger.Default.Deregister<HexModelSelectedMessage>(this, HexModelSelectedMessageFunction);
+            Messenger.Default.Deregister<HexModelUnselectedMessage>(this, HexModelUnselectedMessageFunction);
+            Messenger.Default.Deregister<UpdateGameModeMessage>(this, UpdateGameModeMessageFunction);
+        }
+
+        private void RegisterMessages()
+        {
+            Messenger.Default.Register<GetSelectedColorImageIdsRequestMessage>(this, GetSelectedColorImageIdsRequestMessageFunction);
+            Messenger.Default.Register<SetSelectedColorImageIdsRequestMessage>(this, SetSelectedColorImageIdsRequestMessageFunction);
+            Messenger.Default.Register<HexModelSelectedMessage>(this, HexModelSelectedMessageFunction);
+            Messenger.Default.Register<HexModelUnselectedMessage>(this, HexModelUnselectedMessageFunction);
+            Messenger.Default.Register<UpdateGameModeMessage>(this, UpdateGameModeMessageFunction);
+        }
+
+        private void HexModelSelectedMessageFunction(HexModelSelectedMessage msg)
+        {
+            SelectHex(msg.HexModel);
+        }
+
+        private void HexModelUnselectedMessageFunction(HexModelUnselectedMessage msg)
+        {
+            UnselectHex();
         }
 
         private void GetSelectedColorImageIdsRequestMessageFunction(GetSelectedColorImageIdsRequestMessage msg)
@@ -237,14 +363,26 @@ namespace Controls.Library.ViewModels
             SelectedTileImageViewModel = GetTileImageViewModelFromId(msg.TileImageModelId);
         }
 
-        public TileColorViewModel GetTileColorViewModelFromId(string id)
+        private void UpdateGameModeMessageFunction(UpdateGameModeMessage msg)
         {
-            return ListTileColorViewModel.FirstOrDefault(x => x.Id == id);
+            GameMode = msg.GameMode;
+            switch (GameMode)
+            {
+                case GameMode.MapCreation:
+                    HexEditionAvailable = false;
+                    TileEditionAvailable = true;
+                    break;
+                case GameMode.HexEdition:
+                    HexEditionAvailable = true;
+                    TileEditionAvailable = false;
+                    break;
+                case GameMode.Visualization:
+                    HexEditionAvailable = false;
+                    TileEditionAvailable = false;
+                    break;
+            }
         }
 
-        public TileImageViewModel GetTileImageViewModelFromId(string id)
-        {
-            return ListTileImageViewModel.FirstOrDefault(x => x.Id == id);
-        }
+        #endregion Event functions
     }
 }

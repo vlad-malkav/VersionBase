@@ -53,14 +53,12 @@ namespace VersionBase.Model
             _hexMapModel.ImportData(gameData.HexMapData);
             _leftPanelModel.ImportTileEditorData(gameData.ListTileColor, gameData.ListTileImage);
 
-            List<Tuple<int,string>> listIdNameGameMode = new List<Tuple<int, string>>();
+            List<GameMode> listGameMode = new List<GameMode>();
             foreach (GameMode gameMode in Enum.GetValues(typeof(GameMode)))
             {
-                listIdNameGameMode.Add(new Tuple<int, string>(
-                    (int)gameMode,
-                    EnumFunctions.GetDescription(gameMode)));
+                listGameMode.Add(gameMode);
             }
-            _leftPanelModel.ImportGameModeData(listIdNameGameMode);
+            _leftPanelModel.ImportGameModeData(listGameMode);
         }
     }
 }

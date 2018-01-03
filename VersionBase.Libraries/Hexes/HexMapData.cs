@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using VersionBase.Libraries.Enums;
 using VersionBase.Libraries.Tiles;
 
 namespace VersionBase.Libraries.Hexes
