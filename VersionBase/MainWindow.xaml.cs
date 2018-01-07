@@ -63,10 +63,8 @@ namespace VersionBase
                 "Title", "Label", 10, 5);
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Tuple<int, int> result = dialog.Result;
                 GameData = new GameData(dialog.Result.Item1, dialog.Result.Item2);
-                GameModel.ImportGameData(GameData);
-                Tuple<double, double> canvasWidthHeight = GameViewControl.HexMapViewControl.GetCanvasDimensions();
+                GameModel.ImportData(GameData);
                 GameViewModel.ApplyModel(GameModel);
             }
         }
@@ -97,8 +95,8 @@ namespace VersionBase
                 using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
                 {
                     GameData = (GameData) xs.Deserialize(reader);
-                    GameModel.ImportGameData(GameData);
-                    GameViewControl.ViewModel.ApplyModel(GameModel);
+                    GameModel.ImportData(GameData);
+                    GameViewModel.ApplyModel(GameModel);
                 }
                 fileStream.Close();
             }

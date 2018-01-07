@@ -10,7 +10,7 @@ using VersionBase.Libraries.Enums;
 
 namespace Controls.Library.ViewModels
 {
-    public class TileEditorViewModel : ViewModelBase // from MyToolkit
+    public class TileEditorViewModel : ViewModel<TileEditorModel>
     {
 
         #region General Properties
@@ -233,19 +233,23 @@ namespace Controls.Library.ViewModels
             return HexEditionAvailable && IsHexSelected && DegreExploration > 0;
         }
 
-        public void ApplyModel(TileEditorModel tileEditorModel)
+        public override void ApplyModel(TileEditorModel model)
         {
             UnselectHex();
             ListTileColorViewModel.Clear();
-            foreach (var tileColorModel in tileEditorModel.ListTileColorModel)
+            foreach (var tileColorModel in model.ListTileColorModel)
             {
-                ListTileColorViewModel.Add(new TileColorViewModel(tileColorModel));
+                TileColorViewModel tileColorVIewModel = new TileColorViewModel();
+                tileColorVIewModel.ApplyModel(tileColorModel);
+                ListTileColorViewModel.Add(tileColorVIewModel);
             }
             SelectedTileColorViewModel = ListTileColorViewModel.First();
             ListTileImageViewModel.Clear();
-            foreach (var tileImageModel in tileEditorModel.ListTileImageModel)
+            foreach (var tileImageModel in model.ListTileImageModel)
             {
-                ListTileImageViewModel.Add(new TileImageViewModel(tileImageModel));
+                TileImageViewModel tileImageViewModel = new TileImageViewModel();
+                tileImageViewModel.ApplyModel(tileImageModel);
+                ListTileImageViewModel.Add(tileImageViewModel);
             }
             SelectedTileImageViewModel = ListTileImageViewModel.First();
         }

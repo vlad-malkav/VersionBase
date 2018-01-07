@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using Controls.Library.Views;
 using VersionBase.ViewModels;
 
 namespace VersionBase.Views
@@ -6,7 +8,7 @@ namespace VersionBase.Views
     /// <summary>
     /// Interaction logic for GameView.xaml
     /// </summary>
-    public partial class GameView : UserControl
+    public partial class GameView : UserControl, IViewWithModel<GameViewModel>
     {
         public GameView()
         {
@@ -15,10 +17,10 @@ namespace VersionBase.Views
 
         public GameViewModel ViewModel
         {
-            get { return (GameViewModel)Resources["ViewModel"]; }
+            get { return (GameViewModel)((FrameworkElement)this).Resources["ViewModel"]; }
             set
             {
-                Resources["ViewModel"] = value;
+                ((FrameworkElement)this).Resources["ViewModel"] = value;
                 HexMapViewControl.ViewModel = value.HexMapViewModel;
                 TopMenuViewControl.ViewModel = value.TopMenuViewModel;
                 LeftPanelViewControl.ViewModel = value.LeftPanelViewModel;

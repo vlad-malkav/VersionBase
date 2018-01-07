@@ -6,7 +6,7 @@ namespace Controls.Library.Views
     /// <summary>
     /// Interaction logic for TileEditorView.xaml
     /// </summary>
-    public partial class TileEditorView : UserControl
+    public partial class TileEditorView : IViewWithModel<TileEditorViewModel>
     {
         public TileEditorView()
         {

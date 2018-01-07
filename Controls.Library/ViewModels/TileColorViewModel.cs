@@ -4,7 +4,7 @@ using MyToolkit.Mvvm;
 
 namespace Controls.Library.ViewModels
 {
-    public class TileColorViewModel : ViewModelBase
+    public class TileColorViewModel : ViewModel<TileColorModel>
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -12,11 +12,11 @@ namespace Controls.Library.ViewModels
 
         public TileColorViewModel() { }
 
-        public TileColorViewModel(TileColorModel tileColorModel)
+        public override void ApplyModel(TileColorModel model)
         {
-            Id = tileColorModel.Id;
-            Name = tileColorModel.Name;
-            ColorBrush = new SolidColorBrush(tileColorModel.GetMediaColor());
+            Id = model.Id;
+            Name = model.Name;
+            ColorBrush = new SolidColorBrush(model.GetMediaColor());
         }
     }
 }

@@ -13,8 +13,8 @@ namespace VersionBase.Logic
             // Subscribe to Events
             Messenger.Default.Register<HexClickedLeftButtonMessage>(this, HexClickedLeftButtonMessageFunction);
             Messenger.Default.Register<HexClickedRightButtonMessage>(this, HexClickedRightButtonMessageFunction);
-            Messenger.Default.Register<MenuItemClickedMessage>(this, MenuItemClickedMessageFunction);
             Messenger.Default.Register<UpdateGameModeMessage>(this, UpdateGameModeMessageFunction);
+            Messenger.Default.Register<MapTransformationTypeBroadcastMessage>(this, MapTransformationTypeBroadcastMessageFunction);
 
         }
 
@@ -25,43 +25,6 @@ namespace VersionBase.Logic
             UpdateGameMode(msg.GameMode);
         }
 
-        public void MenuItemClickedMessageFunction(MenuItemClickedMessage msg)
-        {
-            switch (msg.Name)
-            {
-                case "New":
-                    NewMap();
-                    break;
-                case "Load":
-                    LoadMap();
-                    break;
-                case "Save":
-                    SaveMap();
-                    break;
-                case "Quit":
-                    QuitApplication();
-                    break;
-                case "GoLeft":
-                    MapTransformation(MapTransformationType.MoveLeft);
-                    break;
-                case "GoRight":
-                    MapTransformation(MapTransformationType.MoveRight);
-                    break;
-                case "GoUp":
-                    MapTransformation(MapTransformationType.MoveUp);
-                    break;
-                case "GoDown":
-                    MapTransformation(MapTransformationType.MoveDown);
-                    break;
-                case "ZoomIn":
-                    MapTransformation(MapTransformationType.ZoomIn);
-                    break;
-                case "ZoomOut":
-                    MapTransformation(MapTransformationType.ZoomOut);
-                    break;
-            }
-        }
-
         public void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
         {
             RightClicFunction(msg.HexViewModel);
@@ -70,6 +33,11 @@ namespace VersionBase.Logic
         public void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msg)
         {
             LeftClicFunction(msg.HexViewModel);
+        }
+
+        public void MapTransformationTypeBroadcastMessageFunction(MapTransformationTypeBroadcastMessage msg)
+        {
+            MapTransformation(msg.MapTransformationType);
         }
 
         #endregion

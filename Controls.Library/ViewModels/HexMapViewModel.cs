@@ -11,7 +11,7 @@ using VersionBase.Libraries.Drawing;
 
 namespace Controls.Library.ViewModels
 {
-    public class HexMapViewModel : ViewModelBase
+    public class HexMapViewModel : ViewModel<HexMapModel>
     {
         public int Columns { get; set; }
         public int Rows { get; set; }
@@ -31,7 +31,7 @@ namespace Controls.Library.ViewModels
             RegisterMessages();
         }
 
-        public async void ApplyModel(HexMapModel hexMapModel)
+        public override async void ApplyModel(HexMapModel hexMapModel)
         {
             GetHexMapCanvasDimensionsRequestMessage msg = new GetHexMapCanvasDimensionsRequestMessage();
             var result = await Messenger.Default.SendAsync(msg);
@@ -51,7 +51,8 @@ namespace Controls.Library.ViewModels
             foreach (var hexModel in hexMapModel.ListHexModel)
             {
                 var hexViewModel = new HexViewModel();
-                hexViewModel.UpdateFromHexModel(hexModel, CellSize);
+                hexViewModel.ApplyModel(hexModel);
+                hexViewModel.InitializeCellSize(CellSize);
                 ListHexViewModel.Add(hexViewModel);
                 foreach (UIElement uiElement in hexViewModel.GetAllUIElements())
                 {
@@ -171,7 +172,7 @@ namespace Controls.Library.ViewModels
             Messenger.Default.Deregister<HexDegreExplorationUpdatedMessage>(this, HexDegreExplorationUpdatedMessageFunction);
             Messenger.Default.Deregister<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Deregister<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
-            Messenger.Default.Deregister<GeneralMapTransformationMessage>(this, GeneralMapTransformationMessageFunction);
+            Messenger.Default.Deregister<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
         }
 
         private void RegisterMessages()
@@ -180,8 +181,8 @@ namespace Controls.Library.ViewModels
             Messenger.Default.Register<HexDegreExplorationUpdatedMessage>(this, HexDegreExplorationUpdatedMessageFunction);
             Messenger.Default.Register<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Register<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
-            Messenger.Default.Register<GeneralMapTransformationMessage>(this, GeneralMapTransformationMessageFunction);
-            Messenger.Default.Register<GeneralMapTransformationMessage>(this, GeneralMapTransformationMessageFunction);
+            Messenger.Default.Register<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
+            Messenger.Default.Register<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
         }
 
         private void HexTileUpdatedMessageFunction(HexTileUpdatedMessage msg)
@@ -204,7 +205,7 @@ namespace Controls.Library.ViewModels
             UpdateHexViewModelFromModel_UnselectHex(msg.HexModel);
         }
 
-        private void GeneralMapTransformationMessageFunction(GeneralMapTransformationMessage msg)
+        private void MapTransformationRequestMessageFunction(MapTransformationRequestMessage msg)
         {
             if (Math.Abs(msg.XMovement) > 0 || Math.Abs(msg.YMovement) > 0)
             {

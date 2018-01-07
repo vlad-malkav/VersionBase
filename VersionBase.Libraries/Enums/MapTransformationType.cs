@@ -13,6 +13,7 @@ namespace VersionBase.Libraries.Enums
         MoveLeft = 2,
         MoveRight = 3,
         ZoomIn = 4,
-        ZoomOut = 5
+        ZoomOut = 5,
+        Recenter = 6
     }
 }

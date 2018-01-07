@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Controls.Library.Events;
 using MyToolkit.Messaging;
+using VersionBase.Libraries.Enums;
 
 namespace Controls.Library.Views
 {
@@ -25,72 +26,43 @@ namespace Controls.Library.Views
         private void PolygonNavigateUpAction(object sender, MouseButtonEventArgs e)
         {
             // Broadcast Events
-            Messenger.Default.Send(
-                new GeneralMapTransformationMessage
-                {
-                    XMovement = 0,
-                    YMovement = 100
-                });
+            Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.MoveUp));
         }
 
         private void PolygonNavigateDownAction(object sender, MouseButtonEventArgs e)
         {
             // Broadcast Events
-            Messenger.Default.Send(
-                new GeneralMapTransformationMessage
-                {
-                    XMovement = 0,
-                    YMovement = -100
-                });
+            Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.MoveDown));
         }
 
         private void PolygonNavigateLeftAction(object sender, MouseButtonEventArgs e)
         {
             // Broadcast Events
-            Messenger.Default.Send(
-                new GeneralMapTransformationMessage
-                {
-                    XMovement = 100,
-                    YMovement = 0
-                });
+            Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.MoveLeft));
         }
 
         private void PolygonNavigateRightAction(object sender, MouseButtonEventArgs e)
         {
             // Broadcast Events
-            Messenger.Default.Send(
-                new GeneralMapTransformationMessage
-                {
-                    XMovement = -100,
-                    YMovement = 0
-                });
+            Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.MoveRight));
         }
 
         private void PolygonZoomInAction(object sender, MouseButtonEventArgs e)
         {
             // Broadcast Events
-            Messenger.Default.Send(new GeneralMapTransformationMessage
-            {
-                ZoomMultiplicator = 1.25
-            });
+            Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.ZoomIn));
         }
 
         private void PolygonZoomOutAction(object sender, MouseButtonEventArgs e)
         {
             // Broadcast Events
-            Messenger.Default.Send(new GeneralMapTransformationMessage
-            {
-                ZoomMultiplicator = 0.8
-            });
+            Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.ZoomOut));
         }
 
         private void PolygonNavigateCenterAction(object sender, MouseButtonEventArgs e)
         {
             // Broadcast Events
-            Messenger.Default.Send(new GeneralMapTransformationMessage
-            {
-                DoCenter = true
-            });
+            Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.Recenter));
         }
     }
 }

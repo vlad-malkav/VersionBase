@@ -6,7 +6,7 @@ using VersionBase.Libraries.Enums;
 
 namespace VersionBase.Model
 {
-    public class GameModel
+    public class GameModel : Model<GameData>
     {
         private HexMapModel _hexMapModel;
         private LeftPanelModel _leftPanelModel;
@@ -48,7 +48,7 @@ namespace VersionBase.Model
             _bottomPanelModel = new BottomPanelModel();
         }
 
-        public void ImportGameData(GameData gameData)
+        public override void ImportData(GameData gameData)
         {
             _hexMapModel.ImportData(gameData.HexMapData);
             _leftPanelModel.ImportTileEditorData(gameData.ListTileColor, gameData.ListTileImage);

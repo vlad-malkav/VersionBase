@@ -7,7 +7,7 @@ using MyToolkit.Mvvm;
 
 namespace Controls.Library.ViewModels
 {
-    public class LeftPanelViewModel : ViewModelBase // from MyToolkit
+    public class LeftPanelViewModel : ViewModel<LeftPanelModel>
     {
         public List<GameModeViewModel> ListGameModeViewModel { get; set; }
 
@@ -32,11 +32,11 @@ namespace Controls.Library.ViewModels
             ListGameModeViewModel= new List<GameModeViewModel>();
         }
 
-        public void ApplyModel(LeftPanelModel leftPanelModel)
+        public override void ApplyModel(LeftPanelModel model)
         {
-            TileEditorViewModel.ApplyModel(leftPanelModel.TileEditorModel);
+            TileEditorViewModel.ApplyModel(model.TileEditorModel);
             ListGameModeViewModel.Clear();
-            foreach (var gameModeModel in leftPanelModel.ListGameModeModel)
+            foreach (var gameModeModel in model.ListGameModeModel)
             {
                 GameModeViewModel gameModeViewModel = new GameModeViewModel();
                 gameModeViewModel.ApplyModel(gameModeModel);

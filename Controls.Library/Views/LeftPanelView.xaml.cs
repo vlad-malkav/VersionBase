@@ -9,7 +9,7 @@ namespace Controls.Library.Views
     /// <summary>
     /// Interaction logic for LeftPanelView.xaml
     /// </summary>
-    public partial class LeftPanelView : UserControl, INotifyPropertyChanged
+    public partial class LeftPanelView : IViewWithModel<LeftPanelViewModel>
     {
         public LeftPanelView()
         {
@@ -24,14 +24,6 @@ namespace Controls.Library.Views
                 Resources["ViewModel"] = value;
                 TileEditorViewControl.ViewModel = value.TileEditorViewModel;
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Controls.Library.Views
     /// <summary>
     /// Interaction logic for HexMapView.xaml
     /// </summary>
-    public partial class HexMapView : UserControl
+    public partial class HexMapView : IViewWithModel<HexMapViewModel>
     {
         public HexMapView()
         {

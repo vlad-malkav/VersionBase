@@ -6,7 +6,7 @@ namespace Controls.Library.Views
     /// <summary>
     /// Interaction logic for TopMenu.xaml
     /// </summary>
-    public partial class TopMenuView : UserControl
+    public partial class TopMenuView : IViewWithModel<TopMenuViewModel>
     {
         public TopMenuView()
         {

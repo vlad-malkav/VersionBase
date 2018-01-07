@@ -169,39 +169,45 @@ namespace VersionBase.Logic
             switch (direction)
             {
                 case MapTransformationType.MoveLeft:
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    Messenger.Default.Send(new MapTransformationRequestMessage
                     {
                         XMovement = -100
                     });
                     break;
                 case MapTransformationType.MoveRight:
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    Messenger.Default.Send(new MapTransformationRequestMessage
                     {
                         XMovement = 100
                     });
                     break;
                 case MapTransformationType.MoveUp:
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    Messenger.Default.Send(new MapTransformationRequestMessage
                     {
                         YMovement = -100
                     });
                     break;
                 case MapTransformationType.MoveDown:
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    Messenger.Default.Send(new MapTransformationRequestMessage
                     {
                         YMovement = 100
                     });
                     break;
                 case MapTransformationType.ZoomIn:
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    Messenger.Default.Send(new MapTransformationRequestMessage
                     {
                         ZoomMultiplicator = 1.25
                     });
                     break;
                 case MapTransformationType.ZoomOut:
-                    Messenger.Default.Send(new GeneralMapTransformationMessage
+                    Messenger.Default.Send(new MapTransformationRequestMessage
                     {
                         ZoomMultiplicator = 0.8
+                    });
+                    break;
+                case MapTransformationType.Recenter:
+                    Messenger.Default.Send(new MapTransformationRequestMessage
+                    {
+                        DoCenter = true
                     });
                     break;
             }

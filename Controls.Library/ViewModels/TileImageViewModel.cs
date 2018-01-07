@@ -4,7 +4,7 @@ using MyToolkit.Mvvm;
 
 namespace Controls.Library.ViewModels
 {
-    public class TileImageViewModel : ViewModelBase // from MyToolkit
+    public class TileImageViewModel : ViewModel<TileImageModel>
     {
         private string _id;
 
@@ -19,12 +19,12 @@ namespace Controls.Library.ViewModels
 
         public TileImageViewModel() { }
 
-        public TileImageViewModel(TileImageModel tileImageModel)
+        public override void ApplyModel(TileImageModel model)
         {
-            _id = tileImageModel.Id;
-            Name = tileImageModel.Name;
-            NameLower = tileImageModel.NameLower;
-            Bitmap = tileImageModel.BitmapImage;
+            _id = model.Id;
+            Name = model.Name;
+            NameLower = model.NameLower;
+            Bitmap = model.BitmapImage;
         }
     }
 }

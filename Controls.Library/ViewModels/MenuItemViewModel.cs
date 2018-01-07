@@ -2,12 +2,13 @@
 using System.Windows.Input;
 using Controls.Library.Commands;
 using Controls.Library.Events;
+using Controls.Library.Models;
 using MyToolkit.Messaging;
 using MyToolkit.Mvvm;
 
 namespace Controls.Library.ViewModels
 {
-    public class MenuItemViewModel : ViewModelBase
+    public class MenuItemViewModel : ViewModel<MenuItemModel>
     {
         public string Header { get; set; }
         public List<MenuItemViewModel> ListMenuItemViewModel { get; set; }
@@ -18,15 +19,16 @@ namespace Controls.Library.ViewModels
             ListMenuItemViewModel = new List<MenuItemViewModel>();
         }
 
-        public MenuItemViewModel(string header)
-            : this()
+        public override void ApplyModel(MenuItemModel model)
         {
-            Header = header;
-            Command = new MyICommand(() => Messenger.Default.Send(
-                new MenuItemClickedMessage
-                {
-                    Name = header
-                }));
+            Header = model.Header;
+            Command = model.Command;
+            foreach (MenuItemModel menuItemModel in model.ListMenuItemModel)
+            {
+                MenuItemViewModel menuItemViewModel = new MenuItemViewModel();
+                menuItemViewModel.ApplyModel(menuItemModel);
+                ListMenuItemViewModel.Add(menuItemViewModel);
+            }
         }
     }
 }

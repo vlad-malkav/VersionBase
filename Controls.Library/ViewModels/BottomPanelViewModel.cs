@@ -2,13 +2,13 @@
 
 namespace Controls.Library.ViewModels
 {
-    public class BottomPanelViewModel
+    public class BottomPanelViewModel : ViewModel<BottomPanelModel>
     {
         public BottomPanelViewModel()
         {
         }
 
-        public void ApplyModel(BottomPanelModel BottomPanelModel)
+        public override void ApplyModel(BottomPanelModel BottomPanelModel)
         {
         }
     }

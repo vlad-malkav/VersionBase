@@ -9,7 +9,7 @@ namespace Controls.Library.Views
     /// <summary>
     /// Interaction logic for BottomPanelView.xaml
     /// </summary>
-    public partial class BottomPanelView : UserControl, INotifyPropertyChanged
+    public partial class BottomPanelView : IViewWithModel<BottomPanelViewModel>
     {
         public BottomPanelView()
         {
@@ -23,14 +23,6 @@ namespace Controls.Library.Views
             {
                 Resources["ViewModel"] = value;
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

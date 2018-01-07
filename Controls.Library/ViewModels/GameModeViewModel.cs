@@ -3,7 +3,7 @@ using VersionBase.Libraries.Enums;
 
 namespace Controls.Library.ViewModels
 {
-    public class GameModeViewModel
+    public class GameModeViewModel : ViewModel<GameModeModel>
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,7 +14,7 @@ namespace Controls.Library.ViewModels
 
         }
 
-        public void ApplyModel(GameModeModel gameModeModel)
+        public override void ApplyModel(GameModeModel gameModeModel)
         {
             Id = gameModeModel.Id;
             Name = gameModeModel.Name;

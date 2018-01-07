@@ -68,6 +68,9 @@
     <Compile Include="Models\GameModeModel.cs" />
     <Compile Include="Models\HexMapModel.cs" />
     <Compile Include="Models\HexModel.cs" />
+    <Compile Include="Models\MenuItemModel.cs" />
+    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\Model.cs" />
     <Compile Include="Models\TopPanelModel.cs" />
     <Compile Include="Models\BottomPanelModel.cs" />
     <Compile Include="Models\RightPanelModel.cs" />
@@ -80,7 +83,7 @@
     <Compile Include="ViewModels\GameModeViewModel.cs" />
     <Compile Include="ViewModels\HexMapViewModel.cs" />
     <Compile Include="ViewModels\HexViewModel.cs" />
-    <Compile Include="ViewModels\InterfacePanelViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\RightPanelViewModel.cs" />
     <Compile Include="ViewModels\BottomPanelViewModel.cs" />
     <Compile Include="ViewModels\TopPanelViewModel.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="ViewModels\TileEditorViewModel.cs" />
     <Compile Include="ViewModels\TileImageViewModel.cs" />
     <Compile Include="ViewModels\TopMenuViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\HexMapView.xaml.cs">
       <DependentUpon>HexMapView.xaml</DependentUpon>
     </Compile>
@@ -114,6 +118,7 @@
     <Compile Include="Views\TopMenuView.xaml.cs">
       <DependentUpon>TopMenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\IViewWithModel.cs" />
     <Compile Include="VML\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>

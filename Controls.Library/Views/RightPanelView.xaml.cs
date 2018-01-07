@@ -9,7 +9,7 @@ namespace Controls.Library.Views
     /// <summary>
     /// Interaction logic for RightPanelView.xaml
     /// </summary>
-    public partial class RightPanelView : UserControl, INotifyPropertyChanged
+    public partial class RightPanelView : IViewWithModel<RightPanelViewModel>
     {
         public RightPanelView()
         {
@@ -23,15 +23,6 @@ namespace Controls.Library.Views
             {
                 Resources["ViewModel"] = value;
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            if(PropertyChanged != null)
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

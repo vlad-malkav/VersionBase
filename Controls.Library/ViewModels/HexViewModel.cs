@@ -13,7 +13,7 @@ using Color = System.Drawing.Color;
 
 namespace Controls.Library.ViewModels
 {
-    public class HexViewModel : ViewModelBase
+    public class HexViewModel : ViewModel<HexModel>
     {
         public string Label { get; set; }
         public string Description { get; set; }
@@ -63,25 +63,25 @@ namespace Controls.Library.ViewModels
             InsidePolygon.MouseRightButtonDown -= MouseRightButtonDown;
         }
 
-        public void UpdateFromHexModel(HexModel hexModel, double cellSize)
+        public override void ApplyModel(HexModel model)
         {
-            Label = hexModel.GetLabel();
-            Description = hexModel.Description;
-            DegreExploration = hexModel.DegreExploration;
-            Column = hexModel.Column;
-            Row = hexModel.Row;
+            Label = model.GetLabel();
+            Description = model.Description;
+            DegreExploration = model.DegreExploration;
+            Column = model.Column;
+            Row = model.Row;
             /*Color = hexModel.TileColorModel.GetDrawingColor();
             Bitmap = hexModel.TileImageModel.Bitmap;*/
 
             HexDrawingData.SetHexCoordinates(Column, Row);
+            UpdateTileData(model.TileColorModel.GetDrawingColor(), model.TileImageModel.Bitmap);
+        }
 
+        public void InitializeCellSize(double cellSize)
+        {
             CellSize = cellSize;
-
             HexDrawingData.UpdateDrawing(CellSize);
-
             GenerateShapes();
-
-            UpdateTileData(hexModel.TileColorModel.GetDrawingColor(), hexModel.TileImageModel.Bitmap);
         }
 
         public void SelectHex()
@@ -136,8 +136,6 @@ namespace Controls.Library.ViewModels
 
         public void UpdateTileData(Color color, Bitmap bitmap)
         {
-            /*Color = color;
-            Bitmap = bitmap;*/
             HexMapDrawing.InsidePolygon_UpdateFill(InsidePolygon, color, bitmap);
         }
 

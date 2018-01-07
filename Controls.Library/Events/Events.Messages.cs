@@ -6,19 +6,24 @@ using VersionBase.Libraries.Enums;
 
 namespace Controls.Library.Events
 {
+    public abstract class BaseMessage
+    {
+        
+    }
+
     #region Basic Messages
 
-    public class HexViewModelMessage
+    public class HexViewModelMessage : BaseMessage
     {
         public HexViewModel HexViewModel { get; set; }
     }
 
-    public class HexModelMessage
+    public class HexModelMessage : BaseMessage
     {
         public HexModel HexModel { get; set; }
     }
 
-    public class HexCoordinatesMessage
+    public class HexCoordinatesMessage : BaseMessage
     {
         public int Column { get; set; }
         public int Row { get; set; }
@@ -44,7 +49,7 @@ namespace Controls.Library.Events
 
     public class HexViewModelUnselectedMessage : HexViewModelMessage { }
 
-    public class SetSelectedColorImageIdsRequestMessage
+    public class SetSelectedColorImageIdsRequestMessage : BaseMessage
     {
         public string TileColorModelId { get; set; }
         public string TileImageModelId { get; set; }
@@ -78,32 +83,44 @@ namespace Controls.Library.Events
 
     public class HexDegreExplorationUpdatedMessage : HexModelMessage { }
 
-    public class MenuItemClickedMessage
+    public class MenuItemClickedMessage : BaseMessage
     {
         public string Name { get; set; }
     }
 
-    public class NewMessage
+    public class NewMessage : BaseMessage
     {
 
     }
 
-    public class LoadMessage
+    public class LoadMessage : BaseMessage
     {
 
     }
 
-    public class SaveMessage
+    public class SaveMessage : BaseMessage
     {
 
     }
 
-    public class QuitMessage
+    public class QuitMessage : BaseMessage
     {
 
     }
 
-    public class GeneralMapTransformationMessage
+    public class MapTransformationTypeBroadcastMessage : BaseMessage
+    {
+        public MapTransformationType MapTransformationType { get; set; }
+
+        public MapTransformationTypeBroadcastMessage() { }
+
+        public MapTransformationTypeBroadcastMessage(MapTransformationType mapTransformationType)
+        {
+            MapTransformationType = mapTransformationType;
+        }
+    }
+
+    public class MapTransformationRequestMessage : BaseMessage
     {
         public double XMovement { get; set; }
         public double YMovement { get; set; }
@@ -115,7 +132,7 @@ namespace Controls.Library.Events
     {
     }
 
-    public class UpdateGameModeMessage
+    public class UpdateGameModeMessage : BaseMessage
     {
         public GameMode GameMode { get; set; }
     }
