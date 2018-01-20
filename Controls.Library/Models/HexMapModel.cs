@@ -6,7 +6,7 @@ using VersionBase.Libraries.Hexes;
 
 namespace Controls.Library.Models
 {
-    public class HexMapModel
+    public class HexMapModel : Model<HexMapData>
     {
         private int _columns;
         private int _rows;
@@ -36,14 +36,16 @@ namespace Controls.Library.Models
             RegisterMessages();
         }
 
-        public void ImportData(HexMapData hexMapData)
+        public override void ImportData(HexMapData data)
         {
-            _columns = hexMapData.Columns;
-            _rows = hexMapData.Rows;
+            _columns = data.Columns;
+            _rows = data.Rows;
             _listHexModel.Clear();
-            foreach (var hexData in hexMapData.ListHexData)
+            foreach (var hexData in data.ListHexData)
             {
-                _listHexModel.Add(new HexModel(hexData));
+                HexModel hexModelTmp = new HexModel();
+                hexModelTmp.ImportData(hexData);
+                _listHexModel.Add(hexModelTmp);
             }
         }
 

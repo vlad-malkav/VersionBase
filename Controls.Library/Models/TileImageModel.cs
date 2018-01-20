@@ -4,7 +4,7 @@ using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
-    public class TileImageModel
+    public class TileImageModel : Model<TileImage>
     {
         private string _id;
         private string _name;
@@ -39,13 +39,13 @@ namespace Controls.Library.Models
 
         public TileImageModel() { }
 
-        public TileImageModel(TileImage tileImage)
+        public override void ImportData(TileImage data)
         {
-            _id = tileImage.Id;
-            _nameLower = tileImage.NameLower;
-            _name = tileImage.Name;
-            _bitmap = tileImage.GetBitmap();
-            _bitmapImage = tileImage.GetBitmapImage();
+            _id = data.Id;
+            _nameLower = data.NameLower;
+            _name = data.Name;
+            _bitmap = data.GetBitmap();
+            _bitmapImage = data.GetBitmapImage();
         }
     }
 }

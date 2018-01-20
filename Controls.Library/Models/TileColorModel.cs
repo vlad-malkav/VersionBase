@@ -3,7 +3,7 @@ using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
-    public class TileColorModel
+    public class TileColorModel : Model<TileColor>
     {
         private string _id { get; set; }
         private string _name;
@@ -44,14 +44,14 @@ namespace Controls.Library.Models
 
         public TileColorModel() { }
 
-        public TileColorModel(TileColor tileColor)
+        public override void ImportData(TileColor data)
         {
-            _id = tileColor.Id;
-            _name = tileColor.Name;
-            _alpha = tileColor.Alpha;
-            _red = tileColor.Red;
-            _green = tileColor.Green;
-            _blue = tileColor.Blue;
+            _id = data.Id;
+            _name = data.Name;
+            _alpha = data.Alpha;
+            _red = data.Red;
+            _green = data.Green;
+            _blue = data.Blue;
             //ColorBrush = new SolidColorBrush(tileColor.GetWindowsMediaColor());
         }
 

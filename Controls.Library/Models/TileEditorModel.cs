@@ -34,7 +34,9 @@ namespace Controls.Library.Models
             _listTileColorModel.Clear();
             foreach (var tileColor in listTileColor)
             {
-                _listTileColorModel.Add(new TileColorModel(tileColor));
+                TileColorModel tileColorModelTmp = new TileColorModel();
+                tileColorModelTmp.ImportData(tileColor);
+                _listTileColorModel.Add(tileColorModelTmp);
             }
         }
 
@@ -43,7 +45,9 @@ namespace Controls.Library.Models
             _listTileImageModel.Clear();
             foreach (var tileImage in listTileImage)
             {
-                _listTileImageModel.Add(new TileImageModel(tileImage));
+                TileImageModel tileImageModelTmp = new TileImageModel();
+                tileImageModelTmp.ImportData(tileImage);
+                _listTileImageModel.Add(tileImageModelTmp);
             }
         }
 

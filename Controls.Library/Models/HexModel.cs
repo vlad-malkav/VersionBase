@@ -4,7 +4,7 @@ using VersionBase.Libraries.Hexes;
 
 namespace Controls.Library.Models
 {
-    public class HexModel
+    public class HexModel : Model<HexData>
     {
         private int _column;
         private int _row;
@@ -51,14 +51,16 @@ namespace Controls.Library.Models
 
         public HexModel() { }
 
-        public HexModel(HexData hexData)
+        public override void ImportData(HexData data)
         {
-            _description = hexData.Description;
-            _degreExploration = hexData.DegreExploration;
-            _column = hexData.Column;
-            _row = hexData.Row;
-            _tileColorModel = new TileColorModel(hexData.TileData.TileColor);
-            _tileImageModel = new TileImageModel(hexData.TileData.TileImage);
+            _description = data.Description;
+            _degreExploration = data.DegreExploration;
+            _column = data.Column;
+            _row = data.Row;
+            _tileColorModel = new TileColorModel();
+            _tileColorModel.ImportData(data.TileData.TileColor);
+            _tileImageModel = new TileImageModel();
+            _tileImageModel.ImportData(data.TileData.TileImage);
         }
 
         public void UpdateColorImageModels(TileColorModel tileColorModel, TileImageModel tileImageModel)
