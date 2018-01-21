@@ -4,15 +4,15 @@ using System.Windows;
 
 namespace VersionBase.Libraries.Drawing
 {
-    public class HexDrawingData
+    public class HexDrawingInformations
     {
         private int _column;
         private int _row;
         //private double _xCenterMod;
         //private double _yCenterMod;
-        private double _cellSize;
-        private double _cellX;
-        private double _cellY;
+        private double _cellRadius;
+        private double _cellCenterX;
+        private double _cellCenterY;
         private double _cellHeight;
         private List<Point> _listOuterSummitPoints;
         private List<Point> _listOuterMiddlePoints;
@@ -38,19 +38,19 @@ namespace VersionBase.Libraries.Drawing
         //    get { return _yCenterMod; }
         //}
 
-        public double CellSize
+        public double CellRadius
         {
-            get { return _cellSize; }
+            get { return _cellRadius; }
         }
 
         public double CellX
         {
-            get { return _cellX; }
+            get { return _cellCenterX; }
         }
 
         public double CellY
         {
-            get { return _cellY; }
+            get { return _cellCenterY; }
         }
 
         public double CellHeight
@@ -74,7 +74,7 @@ namespace VersionBase.Libraries.Drawing
         }
 
 
-        public HexDrawingData()
+        public HexDrawingInformations()
         {
             _listInnerSummitPoints = new List<Point>();
             _listOuterMiddlePoints = new List<Point>();
@@ -87,32 +87,32 @@ namespace VersionBase.Libraries.Drawing
             _row = row;
         }
 
-        public void UpdateDrawing(double cellSize)
+        public void UpdateDrawing(double cellRadius)
         {
-            _cellSize = cellSize;
-            _cellHeight = GetCellHeight(CellSize);
-            _cellX = GetCellX(CellSize, Column);
-            _cellY = GetCellY(CellSize, Column, Row);
+            _cellRadius = cellRadius;
+            _cellHeight = GetCellHeight(CellRadius);
+            _cellCenterX = GetCellX(CellRadius, Column);
+            _cellCenterY = GetCellY(CellRadius, Column, Row);
             RegeneratePoints();
         }
 
         private void RegeneratePoints()
         {
             _listOuterSummitPoints.Clear();
-            _listOuterSummitPoints.Add(new Point(CellX - CellSize, CellY));
-            _listOuterSummitPoints.Add(new Point(CellX - CellSize / 2, CellY + CellHeight / 2));
-            _listOuterSummitPoints.Add(new Point(CellX + CellSize / 2, CellY + CellHeight / 2));
-            _listOuterSummitPoints.Add(new Point(CellX + CellSize, CellY));
-            _listOuterSummitPoints.Add(new Point(CellX + CellSize / 2, CellY - CellHeight / 2));
-            _listOuterSummitPoints.Add(new Point(CellX - CellSize / 2, CellY - CellHeight / 2));
+            _listOuterSummitPoints.Add(new Point(CellX - CellRadius, CellY));
+            _listOuterSummitPoints.Add(new Point(CellX - CellRadius / 2, CellY + CellHeight / 2));
+            _listOuterSummitPoints.Add(new Point(CellX + CellRadius / 2, CellY + CellHeight / 2));
+            _listOuterSummitPoints.Add(new Point(CellX + CellRadius, CellY));
+            _listOuterSummitPoints.Add(new Point(CellX + CellRadius / 2, CellY - CellHeight / 2));
+            _listOuterSummitPoints.Add(new Point(CellX - CellRadius / 2, CellY - CellHeight / 2));
 
             _listInnerSummitPoints.Clear();
-            _listInnerSummitPoints.Add(new Point(CellX - CellSize / 2, CellY));
-            _listInnerSummitPoints.Add(new Point(CellX - CellSize / 4, CellY + CellHeight / 4));
-            _listInnerSummitPoints.Add(new Point(CellX + CellSize / 4, CellY + CellHeight / 4));
-            _listInnerSummitPoints.Add(new Point(CellX + CellSize / 2, CellY));
-            _listInnerSummitPoints.Add(new Point(CellX + CellSize / 4, CellY - CellHeight / 4));
-            _listInnerSummitPoints.Add(new Point(CellX - CellSize / 4, CellY - CellHeight / 4));
+            _listInnerSummitPoints.Add(new Point(CellX - CellRadius / 2, CellY));
+            _listInnerSummitPoints.Add(new Point(CellX - CellRadius / 4, CellY + CellHeight / 4));
+            _listInnerSummitPoints.Add(new Point(CellX + CellRadius / 4, CellY + CellHeight / 4));
+            _listInnerSummitPoints.Add(new Point(CellX + CellRadius / 2, CellY));
+            _listInnerSummitPoints.Add(new Point(CellX + CellRadius / 4, CellY - CellHeight / 4));
+            _listInnerSummitPoints.Add(new Point(CellX - CellRadius / 4, CellY - CellHeight / 4));
 
             _listOuterMiddlePoints.Clear();
             _listOuterMiddlePoints.Add(DrawingFunctions.Midpoint(_listOuterSummitPoints[0], _listOuterSummitPoints[1]));
@@ -125,24 +125,24 @@ namespace VersionBase.Libraries.Drawing
 
         #region Static functions
 
-        public static double GetCellWidth(double cellSize)
+        public static double GetCellWidth(double cellRadius)
         {
-            return cellSize * 2;
+            return cellRadius * 2;
         }
 
-        public static double GetCellHeight(double cellSize)
+        public static double GetCellHeight(double cellRadius)
         {
-            return cellSize * Math.Sqrt(3);
+            return cellRadius * Math.Sqrt(3);
         }
 
-        public static double GetCellX(double cellSize, int column)
+        public static double GetCellX(double cellRadius, int column)
         {
-            return GetCellWidth(cellSize) * (0.5 + 0.75 * column);
+            return GetCellWidth(cellRadius) * (0.5 + 0.75 * column);
         }
 
-        public static double GetCellY(double cellSize, int column, int row)
+        public static double GetCellY(double cellRadius, int column, int row)
         {
-            return GetCellHeight(cellSize) * (
+            return GetCellHeight(cellRadius) * (
                 ((column & 1) == 1 ? 1 : 0.5)
                 + row);
         }

@@ -1,6 +1,6 @@
 ﻿namespace VersionBase.Libraries.Tiles
 {
-    public class TileColor
+    public class TileColorData
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -10,9 +10,9 @@
         public byte Blue { get; set; }
         public bool FromMedia { get; set; }
 
-        public TileColor(){}
+        public TileColorData(){}
 
-        public TileColor(System.Windows.Media.Color windowsMediaColor)
+        public TileColorData(System.Windows.Media.Color windowsMediaColor)
         {
             Name = windowsMediaColor.ToString();
             Alpha = windowsMediaColor.A;
@@ -22,7 +22,7 @@
             Id = "Color-" + Alpha + "." + Red + "." + Green + "." + Blue;
         }
 
-        public TileColor(System.Drawing.Color drawingColor)
+        public TileColorData(System.Drawing.Color drawingColor)
         {
             Id = drawingColor.ToString();
             Name = drawingColor.ToString();
@@ -31,16 +31,6 @@
             Green = drawingColor.G;
             Blue = drawingColor.B;
             Id = "Color-" + Alpha + "." + Red + "." + Green + "." + Blue;
-        }
-
-        public System.Windows.Media.Color GetWindowsMediaColor()
-        {
-            return System.Windows.Media.Color.FromArgb(Alpha, Red, Green, Blue);
-        }
-
-        public System.Drawing.Color GetDrawingColor()
-        {
-            return System.Drawing.Color.FromArgb(Alpha, Red, Green, Blue);
         }
     }
 }

@@ -1,14 +1,15 @@
 ﻿using System.Drawing;
 using System.Windows.Media.Imaging;
+using VersionBase.Libraries.Drawing;
 using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
-    public class TileImageModel : Model<TileImage>
+    public class TileImageModel : Model<TileImageData>
     {
         private string _id;
         private string _name;
-        private string _nameLower;
+        private string _imageName;
         private Bitmap _bitmap;
         private BitmapImage _bitmapImage;
 
@@ -22,9 +23,9 @@ namespace Controls.Library.Models
             get { return _name; }
         }
 
-        public string NameLower
+        public string ImageName
         {
-            get { return _nameLower; }
+            get { return _imageName; }
         }
 
         public Bitmap Bitmap
@@ -39,13 +40,13 @@ namespace Controls.Library.Models
 
         public TileImageModel() { }
 
-        public override void ImportData(TileImage data)
+        public override void ImportData(TileImageData data)
         {
             _id = data.Id;
-            _nameLower = data.NameLower;
+            _imageName = data.ImageName;
             _name = data.Name;
-            _bitmap = data.GetBitmap();
-            _bitmapImage = data.GetBitmapImage();
+            _bitmap = HexMapDrawingHelper.GetBitmapFromTileImageData(data);
+            _bitmapImage = HexMapDrawingHelper.GetBitmapImageFromTileImageData(data);
         }
     }
 }

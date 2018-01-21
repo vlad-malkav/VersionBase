@@ -16,16 +16,16 @@ using FontFamily = System.Windows.Media.FontFamily;
 
 namespace VersionBase.Libraries.Drawing
 {
-    public static class HexMapDrawing
+    public static class HexMapDrawingHelper
     {
-        public static void InsidePolygon_Draw(HexDrawingData hexDrawingData, Polygon insidePolygon/*, Color color, Bitmap bitmap*/)
+        public static void InsidePolygon_Draw(HexDrawingInformations hexDrawingData, Polygon insidePolygon/*, Color color, Bitmap bitmap*/)
         {
             insidePolygon.Tag = "InsidePolygon";
             InsidePolygon_Update(hexDrawingData, insidePolygon);
             //InsidePolygon_UpdateFill(insidePolygon, color, bitmap);
         }
 
-        public static void InsidePolygon_Update(HexDrawingData hexDrawingData, Polygon insidePolygon)
+        public static void InsidePolygon_Update(HexDrawingInformations hexDrawingData, Polygon insidePolygon)
         {
             insidePolygon.Points.Clear();
             foreach (var outerSummitPoint in hexDrawingData.ListOuterSummitPoints)
@@ -40,7 +40,7 @@ namespace VersionBase.Libraries.Drawing
             insidePolygon.Fill = new ImageBrush(GenerateTileImageSource(color, bitmap));
         }
 
-        public static void BorderPolygon_Draw(HexDrawingData hexDrawingData, Polygon borderPolygon)
+        public static void BorderPolygon_Draw(HexDrawingInformations hexDrawingData, Polygon borderPolygon)
         {
             borderPolygon.Tag = "BorderPolygon";
             borderPolygon.Points.Clear();
@@ -52,36 +52,36 @@ namespace VersionBase.Libraries.Drawing
             BorderPolygon_UpdateSelected(hexDrawingData, borderPolygon, false);
         }
 
-        public static void BorderPolygon_UpdateSelected(HexDrawingData hexDrawingData, Polygon borderPolygon, bool selected)
+        public static void BorderPolygon_UpdateSelected(HexDrawingInformations hexDrawingData, Polygon borderPolygon, bool selected)
         {
             borderPolygon.Stroke = new SolidColorBrush(selected ? Colors.DarkOrange : Colors.Black);
-            borderPolygon.StrokeThickness = hexDrawingData.CellSize / (selected ? 5 : 10);
+            borderPolygon.StrokeThickness = hexDrawingData.CellRadius / (selected ? 5 : 10);
             Canvas.SetZIndex(borderPolygon, selected ? ZIndexes.BorderPlygonSelected : ZIndexes.BorderPlygonUnelected);
         }
 
-        public static void HexLabel_Draw(HexDrawingData hexDrawingData, Grid gridLabel, string label)
+        public static void HexLabel_Draw(HexDrawingInformations hexDrawingData, Grid gridLabel, string label)
         {
             gridLabel.Tag = "Label";
             HexLabel_Update(hexDrawingData,gridLabel);
             HexLabel_UpdateLabel(hexDrawingData, gridLabel, label);
         }
 
-        public static void HexLabel_Update(HexDrawingData hexDrawingData, Grid gridLabel)
+        public static void HexLabel_Update(HexDrawingInformations hexDrawingData, Grid gridLabel)
         {
-            gridLabel.Width = gridLabel.Height = (2 * hexDrawingData.CellSize) * 0.8;
-            gridLabel.SetValue(Canvas.LeftProperty, hexDrawingData.CellX - hexDrawingData.CellSize * 0.8);
-            gridLabel.SetValue(Canvas.TopProperty, hexDrawingData.CellY - hexDrawingData.CellSize * 0.8);
+            gridLabel.Width = gridLabel.Height = (2 * hexDrawingData.CellRadius) * 0.8;
+            gridLabel.SetValue(Canvas.LeftProperty, hexDrawingData.CellX - hexDrawingData.CellRadius * 0.8);
+            gridLabel.SetValue(Canvas.TopProperty, hexDrawingData.CellY - hexDrawingData.CellRadius * 0.8);
             gridLabel.IsHitTestVisible = false;
         }
 
-        public static void HexLabel_UpdateLabel(HexDrawingData hexDrawingData, Grid gridLabel, string label)
+        public static void HexLabel_UpdateLabel(HexDrawingInformations hexDrawingData, Grid gridLabel, string label)
         {
             gridLabel.Children.Clear();
             var labelTextBlock = new TextBlock
             {
                 Text = label,
                 FontFamily = new FontFamily("Segoe"),
-                FontSize = hexDrawingData.CellSize / 3.5,
+                FontSize = hexDrawingData.CellRadius / 3.5,
                 Background = new SolidColorBrush(Colors.Azure),
             };
             labelTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
@@ -92,7 +92,7 @@ namespace VersionBase.Libraries.Drawing
             gridLabel.Children.Add(labelTextBlock);
         }
 
-        public static void HexLineExploration_Draw(HexDrawingData hexDrawingData, List<Line> listLineExploration, int degreExploration)
+        public static void HexLineExploration_Draw(HexDrawingInformations hexDrawingData, List<Line> listLineExploration, int degreExploration)
         {
             listLineExploration.Clear();
 
@@ -105,14 +105,14 @@ namespace VersionBase.Libraries.Drawing
                 lineExploration.Y2 = hexDrawingData.ListInnerSummitPoints[i].Y;
                 lineExploration.Tag = "Line";
                 lineExploration.Stroke = new SolidColorBrush(Colors.Gold);
-                lineExploration.StrokeThickness = hexDrawingData.CellSize / 8;
+                lineExploration.StrokeThickness = hexDrawingData.CellRadius / 8;
                 Canvas.SetZIndex(lineExploration, ZIndexes.LineExploration);
                 LineExploration_UpdateVisibility(lineExploration, i, degreExploration);
                 listLineExploration.Add(lineExploration);
             }
         }
 
-        public static void HexLineExploration_Update(HexDrawingData hexDrawingData, List<Line> listLineExploration)
+        public static void HexLineExploration_Update(HexDrawingInformations hexDrawingData, List<Line> listLineExploration)
         {
             for (int i = 0; i < 6; i++)
             {
@@ -122,7 +122,7 @@ namespace VersionBase.Libraries.Drawing
                 listLineExploration[i].Y2 = hexDrawingData.ListInnerSummitPoints[i].Y;
                 listLineExploration[i].Tag = "Line";
                 listLineExploration[i].Stroke = new SolidColorBrush(Colors.Gold);
-                listLineExploration[i].StrokeThickness = hexDrawingData.CellSize / 8;
+                listLineExploration[i].StrokeThickness = hexDrawingData.CellRadius / 8;
             }
         }
 
@@ -133,50 +133,78 @@ namespace VersionBase.Libraries.Drawing
 
         #region Map Dimension Functions
 
-        public static double GetTrueWidth(double cellSize, int columns)
+        public static double GetTrueWidth(double cellRadius, int columns)
         {
-            double cellWidth = HexDrawingData.GetCellWidth(cellSize);
-            double maxCellX = HexDrawingData.GetCellX(cellSize, columns - 1);
+            double cellWidth = HexDrawingInformations.GetCellWidth(cellRadius);
+            double maxCellX = HexDrawingInformations.GetCellX(cellRadius, columns - 1);
             return maxCellX + (cellWidth / 2);
         }
 
-        public static double GetTrueHeight(double cellSize, int columns, int rows)
+        public static double GetTrueHeight(double cellRadius, int columns, int rows)
         {
-            double cellHeight = HexDrawingData.GetCellHeight(cellSize);
+            double cellHeight = HexDrawingInformations.GetCellHeight(cellRadius);
             return rows * cellHeight
                 + (columns > 1 ? cellHeight / 2 : 0);
         }
 
-        public static double GetRedrawnHexMapXCenter(double cellSize, int columns)
+        public static double GetRedrawnHexMapXCenter(double cellRadius, int columns)
         {
-            return GetTrueWidth(cellSize, columns) / 2;
+            return GetTrueWidth(cellRadius, columns) / 2;
         }
 
-        public static double GetRedrawnHexMapYCenter(double cellSize, int columns, int rows)
+        public static double GetRedrawnHexMapYCenter(double cellRadius, int columns, int rows)
         {
-            return GetTrueHeight(cellSize, columns, rows) / 2;
+            return GetTrueHeight(cellRadius, columns, rows) / 2;
         }
 
-        public static double GetCellSize(double actualHeight, double actualWidth, int columns, int rows)
+        public static double GetCellRadius(double actualHeight, double actualWidth, int columns, int rows)
         {
             double nbHexWidths = 1 + 0.75 * (columns - 1);
             double nbHexHeights = rows + (columns > 1 ? 0.5 : 0);
-            double nbCellSizePerHexWidth = 2;
-            double nbCellSizePerHexHeight = Math.Sqrt(3);
-            double cellSizeFromWidth = actualWidth / (nbHexWidths * nbCellSizePerHexWidth);
-            double cellSizeFromHeight = actualHeight / (nbHexHeights * nbCellSizePerHexHeight);
-            return Math.Min(cellSizeFromWidth, cellSizeFromHeight);
+            double nbCellRadiusPerHexWidth = 2;
+            double nbCellRadiusPerHexHeight = Math.Sqrt(3);
+            double cellRadiusFromWidth = actualWidth / (nbHexWidths * nbCellRadiusPerHexWidth);
+            double cellRadiusFromHeight = actualHeight / (nbHexHeights * nbCellRadiusPerHexHeight);
+            return Math.Min(cellRadiusFromWidth, cellRadiusFromHeight);
         }
 
         #endregion Map Dimension Functions
 
         #region Bitmap Functions
 
+        public static System.Windows.Media.Color GetWindowsMediaColorFromTileColorData(TileColorData tileColorData)
+        {
+            return System.Windows.Media.Color.FromArgb(
+                tileColorData.Alpha,
+                tileColorData.Red,
+                tileColorData.Green,
+                tileColorData.Blue);
+        }
+
+        public static System.Drawing.Color GetDrawingColorFromTileColorData(TileColorData tileColorData)
+        {
+            return System.Drawing.Color.FromArgb(
+                tileColorData.Alpha,
+                tileColorData.Red,
+                tileColorData.Green,
+                tileColorData.Blue);
+        }
+
+        public static Bitmap GetBitmapFromTileImageData(TileImageData tileImageData)
+        {
+            return TileImageHelper.GetBitmapTile(tileImageData.ImageName);
+        }
+
+        public static BitmapImage GetBitmapImageFromTileImageData(TileImageData tileImageData)
+        {
+            return HexMapDrawingHelper.Convert(TileImageHelper.GetBitmapTile(tileImageData.ImageName));
+        }
+
         public static BitmapImage GenerateTileBitmapImage(TileData tileData)
         {
             return GenerateTileBitmapImage(
-                tileData.TileColor.GetDrawingColor(),
-                tileData.TileImage.GetBitmap());
+                GetDrawingColorFromTileColorData(tileData.TileColorData),
+                GetBitmapFromTileImageData(tileData.TileImageData));
         }
 
         public static BitmapImage GenerateTileBitmapImage(Color color, Bitmap bitmapTile)

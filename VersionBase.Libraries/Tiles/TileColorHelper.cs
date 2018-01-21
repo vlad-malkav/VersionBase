@@ -4,16 +4,16 @@ using System.Drawing;
 
 namespace VersionBase.Libraries.Tiles
 {
-    public static class TileColors
+    public static class TileColorHelper
     {
-        public static List<TileColor> GetAllTileColors()
+        public static List<TileColorData> GetAllTileColors()
         {
-            List<TileColor> listTileColor = new List<TileColor>();
+            List<TileColorData> listTileColor = new List<TileColorData>();
             
 
             foreach (object color in Enum.GetValues(typeof(KnownColor)))
             {
-                listTileColor.Add(new TileColor(Color.FromKnownColor((KnownColor) color)));
+                listTileColor.Add(new TileColorData(Color.FromKnownColor((KnownColor) color)));
             }
 
             return listTileColor;

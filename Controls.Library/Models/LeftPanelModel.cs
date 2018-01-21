@@ -26,7 +26,7 @@ namespace Controls.Library.Models
             _listGameModeModel = new List<GameModeModel>();
         }
 
-        public void ImportTileEditorData(List<TileColor> listTileColor, List<TileImage> listTileImage)
+        public void ImportTileEditorData(List<TileColorData> listTileColor, List<TileImageData> listTileImage)
         {
             _tileEditorModel.ImportListTileColor(listTileColor);
             _tileEditorModel.ImportListTileImage(listTileImage);

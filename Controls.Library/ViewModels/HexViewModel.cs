@@ -21,14 +21,14 @@ namespace Controls.Library.ViewModels
         public int Column { get; set; }
         public int Row { get; set; }
         public bool Selected { get; set; }
-        private double CellSize { get; set; }
+        private double CellRadius { get; set; }
         /*public Color Color { get; set; }
         public Bitmap Bitmap { get; set; }*/
         public Polygon InsidePolygon { get; private set; }
         public Polygon BorderPolygon { get; private set; }
         public Grid GridLabel { get; set; }
         public List<Line> ListLineExploration { get; set; }
-        public HexDrawingData HexDrawingData { get; set; }
+        public HexDrawingInformations HexDrawingData { get; set; }
 
         public HexViewModel()
         {
@@ -43,7 +43,7 @@ namespace Controls.Library.ViewModels
             }
             InsidePolygon.MouseLeftButtonDown += MouseLeftButtonDown;
             InsidePolygon.MouseRightButtonDown += MouseRightButtonDown;
-            HexDrawingData = new HexDrawingData();
+            HexDrawingData = new HexDrawingInformations();
         }
 
         public List<UIElement> GetAllUIElements()
@@ -77,10 +77,10 @@ namespace Controls.Library.ViewModels
             UpdateTileData(model.TileColorModel.GetDrawingColor(), model.TileImageModel.Bitmap);
         }
 
-        public void InitializeCellSize(double cellSize)
+        public void InitializeCellRadius(double cellRadius)
         {
-            CellSize = cellSize;
-            HexDrawingData.UpdateDrawing(CellSize);
+            CellRadius = cellRadius;
+            HexDrawingData.UpdateDrawing(CellRadius);
             GenerateShapes();
         }
 
@@ -89,7 +89,7 @@ namespace Controls.Library.ViewModels
             if (!Selected)
             {
                 Selected = true;
-                HexMapDrawing.BorderPolygon_UpdateSelected(HexDrawingData, BorderPolygon, Selected);
+                HexMapDrawingHelper.BorderPolygon_UpdateSelected(HexDrawingData, BorderPolygon, Selected);
 
                 Messenger.Default.Send(
                     new HexViewModelSelectedMessage
@@ -104,7 +104,7 @@ namespace Controls.Library.ViewModels
             if (Selected)
             {
                 Selected = false;
-                HexMapDrawing.BorderPolygon_UpdateSelected(HexDrawingData, BorderPolygon, Selected);
+                HexMapDrawingHelper.BorderPolygon_UpdateSelected(HexDrawingData, BorderPolygon, Selected);
 
                 Messenger.Default.Send(
                     new HexViewModelUnselectedMessage
@@ -114,11 +114,11 @@ namespace Controls.Library.ViewModels
             }
         }
 
-        public void UpdateCellSize(double cellSize)
+        public void UpdateCellRadius(double cellRadius)
         {
-            CellSize = cellSize;
+            CellRadius = cellRadius;
 
-            HexDrawingData.UpdateDrawing(CellSize);
+            HexDrawingData.UpdateDrawing(CellRadius);
 
             UpdateShapes();
         }
@@ -136,7 +136,7 @@ namespace Controls.Library.ViewModels
 
         public void UpdateTileData(Color color, Bitmap bitmap)
         {
-            HexMapDrawing.InsidePolygon_UpdateFill(InsidePolygon, color, bitmap);
+            HexMapDrawingHelper.InsidePolygon_UpdateFill(InsidePolygon, color, bitmap);
         }
 
         public void UpdateDegreExploration(int degreExploration)
@@ -144,24 +144,24 @@ namespace Controls.Library.ViewModels
             DegreExploration = degreExploration;
             for (int i = 0; i < ListLineExploration.Count; i++)
             {
-                HexMapDrawing.LineExploration_UpdateVisibility(ListLineExploration[i], i, DegreExploration);
+                HexMapDrawingHelper.LineExploration_UpdateVisibility(ListLineExploration[i], i, DegreExploration);
             }
         }
 
         public void GenerateShapes()
         {
-            HexMapDrawing.InsidePolygon_Draw(HexDrawingData, InsidePolygon/*, Color, Bitmap*/);
-            HexMapDrawing.BorderPolygon_Draw(HexDrawingData, BorderPolygon);
-            HexMapDrawing.HexLabel_Draw(HexDrawingData, GridLabel, Label);
-            HexMapDrawing.HexLineExploration_Draw(HexDrawingData, ListLineExploration, DegreExploration);
+            HexMapDrawingHelper.InsidePolygon_Draw(HexDrawingData, InsidePolygon/*, Color, Bitmap*/);
+            HexMapDrawingHelper.BorderPolygon_Draw(HexDrawingData, BorderPolygon);
+            HexMapDrawingHelper.HexLabel_Draw(HexDrawingData, GridLabel, Label);
+            HexMapDrawingHelper.HexLineExploration_Draw(HexDrawingData, ListLineExploration, DegreExploration);
         }
 
         public void UpdateShapes()
         {
-            HexMapDrawing.InsidePolygon_Update(HexDrawingData, InsidePolygon);
-            HexMapDrawing.BorderPolygon_Draw(HexDrawingData, BorderPolygon);
-            HexMapDrawing.HexLabel_Draw(HexDrawingData, GridLabel, Label);
-            HexMapDrawing.HexLineExploration_Update(HexDrawingData, ListLineExploration);
+            HexMapDrawingHelper.InsidePolygon_Update(HexDrawingData, InsidePolygon);
+            HexMapDrawingHelper.BorderPolygon_Draw(HexDrawingData, BorderPolygon);
+            HexMapDrawingHelper.HexLabel_Draw(HexDrawingData, GridLabel, Label);
+            HexMapDrawingHelper.HexLineExploration_Update(HexDrawingData, ListLineExploration);
         }
 
         private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

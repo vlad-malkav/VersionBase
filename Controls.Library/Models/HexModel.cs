@@ -58,9 +58,9 @@ namespace Controls.Library.Models
             _column = data.Column;
             _row = data.Row;
             _tileColorModel = new TileColorModel();
-            _tileColorModel.ImportData(data.TileData.TileColor);
+            _tileColorModel.ImportData(data.TileData.TileColorData);
             _tileImageModel = new TileImageModel();
-            _tileImageModel.ImportData(data.TileData.TileImage);
+            _tileImageModel.ImportData(data.TileData.TileImageData);
         }
 
         public void UpdateColorImageModels(TileColorModel tileColorModel, TileImageModel tileImageModel)

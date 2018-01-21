@@ -29,7 +29,7 @@ namespace Controls.Library.Models
             Messenger.Default.Register<GetTileColorTileImageModelsFromIdRequestMessage>(this, RequestSelectedColorImageIdsFunction);
         }
 
-        public void ImportListTileColor(List<TileColor> listTileColor)
+        public void ImportListTileColor(List<TileColorData> listTileColor)
         {
             _listTileColorModel.Clear();
             foreach (var tileColor in listTileColor)
@@ -40,7 +40,7 @@ namespace Controls.Library.Models
             }
         }
 
-        public void ImportListTileImage(List<TileImage> listTileImage)
+        public void ImportListTileImage(List<TileImageData> listTileImage)
         {
             _listTileImageModel.Clear();
             foreach (var tileImage in listTileImage)

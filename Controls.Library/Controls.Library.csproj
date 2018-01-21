@@ -163,6 +163,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{DBF84FE5-22C5-412C-BE74-B3E18034DEE3}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VersionBase.Libraries\VersionBase.Libraries.csproj">
       <Project>{B212820E-5ABB-4C2C-929B-C16D2D61E89F}</Project>
       <Name>VersionBase.Libraries</Name>

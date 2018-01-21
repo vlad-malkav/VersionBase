@@ -17,7 +17,7 @@ namespace Controls.Library.ViewModels
         public int Rows { get; set; }
         public double HexMapCenterX { get; set; }
         public double HexMapCenterY { get; set; }
-        public double CellSize { get; set; }
+        public double CellRadius { get; set; }
         public List<HexViewModel> ListHexViewModel { get; set; }
         public ObservableCollection<UIElement> ListUIElement { get; set; }
 
@@ -38,8 +38,8 @@ namespace Controls.Library.ViewModels
             double hexMapCanvasWidth = result.Result.Item1;
             double hexMapCanvasHeight = result.Result.Item2;
 
-            double cellSize = HexMapDrawing.GetCellSize(hexMapCanvasHeight, hexMapCanvasWidth, hexMapModel.Columns, hexMapModel.Rows);
-            CellSize = cellSize;
+            double cellRadius = HexMapDrawingHelper.GetCellRadius(hexMapCanvasHeight, hexMapCanvasWidth, hexMapModel.Columns, hexMapModel.Rows);
+            CellRadius = cellRadius;
             Columns = hexMapModel.Columns;
             Rows = hexMapModel.Rows;
             foreach (var hexViewModel in ListHexViewModel)
@@ -52,7 +52,7 @@ namespace Controls.Library.ViewModels
             {
                 var hexViewModel = new HexViewModel();
                 hexViewModel.ApplyModel(hexModel);
-                hexViewModel.InitializeCellSize(CellSize);
+                hexViewModel.InitializeCellRadius(CellRadius);
                 ListHexViewModel.Add(hexViewModel);
                 foreach (UIElement uiElement in hexViewModel.GetAllUIElements())
                 {
@@ -60,8 +60,8 @@ namespace Controls.Library.ViewModels
                 }
             }
 
-            HexMapCenterX = HexMapDrawing.GetRedrawnHexMapXCenter(CellSize, Columns);
-            HexMapCenterY = HexMapDrawing.GetRedrawnHexMapYCenter(CellSize, Columns, Rows);
+            HexMapCenterX = HexMapDrawingHelper.GetRedrawnHexMapXCenter(CellRadius, Columns);
+            HexMapCenterY = HexMapDrawingHelper.GetRedrawnHexMapYCenter(CellRadius, Columns, Rows);
 
             CenterHexMap();
         }
@@ -139,15 +139,15 @@ namespace Controls.Library.ViewModels
             double xMove = oldCenterX - oldHexMapCanvasX;
             double yMove = oldCenterY - oldHexMapCanvasY;
 
-            CellSize = CellSize * zoomMultiplicator;
+            CellRadius = CellRadius * zoomMultiplicator;
 
             foreach (var hexViewModel in ListHexViewModel)
             {
-                hexViewModel.UpdateCellSize(CellSize);
+                hexViewModel.UpdateCellRadius(CellRadius);
             }
 
-            HexMapCenterX = HexMapDrawing.GetRedrawnHexMapXCenter(CellSize, Columns);
-            HexMapCenterY = HexMapDrawing.GetRedrawnHexMapYCenter(CellSize, Columns, Rows);
+            HexMapCenterX = HexMapDrawingHelper.GetRedrawnHexMapXCenter(CellRadius, Columns);
+            HexMapCenterY = HexMapDrawingHelper.GetRedrawnHexMapYCenter(CellRadius, Columns, Rows);
 
             CenterHexMap();
 

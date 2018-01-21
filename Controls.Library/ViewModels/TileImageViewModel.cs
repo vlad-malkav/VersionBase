@@ -23,7 +23,7 @@ namespace Controls.Library.ViewModels
         {
             _id = model.Id;
             Name = model.Name;
-            NameLower = model.NameLower;
+            NameLower = model.ImageName;
             Bitmap = model.BitmapImage;
         }
     }

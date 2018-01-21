@@ -3,7 +3,7 @@ using VersionBase.Libraries.Tiles;
 
 namespace Controls.Library.Models
 {
-    public class TileColorModel : Model<TileColor>
+    public class TileColorModel : Model<TileColorData>
     {
         private string _id { get; set; }
         private string _name;
@@ -44,7 +44,7 @@ namespace Controls.Library.Models
 
         public TileColorModel() { }
 
-        public override void ImportData(TileColor data)
+        public override void ImportData(TileColorData data)
         {
             _id = data.Id;
             _name = data.Name;

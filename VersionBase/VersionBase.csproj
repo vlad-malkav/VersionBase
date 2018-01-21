@@ -132,6 +132,10 @@
       <Project>{18b49489-a417-4904-a06e-449bce6bc841}</Project>
       <Name>Controls.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{DBF84FE5-22C5-412C-BE74-B3E18034DEE3}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VersionBase.Libraries\VersionBase.Libraries.csproj">
       <Project>{b212820e-5abb-4c2c-929b-c16d2d61e89f}</Project>
       <Name>VersionBase.Libraries</Name>
