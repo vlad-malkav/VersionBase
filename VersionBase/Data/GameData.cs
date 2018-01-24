@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Controls.Library.Forms;
-using Controls.Library.Models;
+using VersionBase.Forms;
+using VersionBase.Models;
 using VersionBase.Libraries;
 using VersionBase.Libraries.Enums;
 using VersionBase.Libraries.Hexes;

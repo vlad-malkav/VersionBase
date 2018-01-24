@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Controls.Library.Annotations;
-using Controls.Library.Events;
-using Controls.Library.Models;
-using Controls.Library.ViewModels;
+using VersionBase.Events;
+using VersionBase.Models;
+using VersionBase.ViewModels;
 using MyToolkit.Messaging;
 using VersionBase.Data;
 using VersionBase.Libraries.Enums;
