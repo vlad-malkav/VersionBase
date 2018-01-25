@@ -1,11 +1,10 @@
-﻿using VersionBase.Commands;
+﻿using DataLibrary.Menu;
+using VersionBase.Commands;
 using VersionBase.Events;
 using VersionBase.Models;
 using VersionBase.ViewModels;
 using MyToolkit.Messaging;
 using VersionBase.Libraries.Enums;
-using VersionBase.Libraries.Menu;
-using VersionBase.Model;
 
 namespace VersionBase.ViewModels
 {

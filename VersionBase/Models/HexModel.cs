@@ -1,6 +1,6 @@
-﻿using VersionBase.Events;
+﻿using DataLibrary.Hexes;
+using VersionBase.Events;
 using MyToolkit.Messaging;
-using VersionBase.Libraries.Hexes;
 
 namespace VersionBase.Models
 {

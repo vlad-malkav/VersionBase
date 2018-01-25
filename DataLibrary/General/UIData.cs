@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VersionBase.Libraries.Tiles;
+﻿using System.Collections.Generic;
+using DataLibrary.Tiles;
 
-namespace VersionBase.Data
+namespace DataLibrary.General
 {
     public class UIData
     {

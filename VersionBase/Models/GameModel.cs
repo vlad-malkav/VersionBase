@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using VersionBase.Models;
 using VersionBase.Data;
 using VersionBase.Libraries.Enums;
 
-namespace VersionBase.Model
+namespace VersionBase.Models
 {
     public class GameModel : Model<GameData>
     {

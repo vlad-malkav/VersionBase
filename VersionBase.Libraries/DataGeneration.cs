@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VersionBase.Data;
-using VersionBase.Libraries.Hexes;
+using DataLibrary.General;
+using DataLibrary.Hexes;
+using DataLibrary.Tiles;
 using VersionBase.Libraries.Tiles;
 
 namespace VersionBase.Libraries

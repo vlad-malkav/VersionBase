@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Media.Imaging;
+using DataLibrary.Tiles;
 using VersionBase.Libraries.Drawing;
-using VersionBase.Libraries.Tiles;
 
 namespace VersionBase.Models
 {

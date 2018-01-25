@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using VersionBase.Forms;
+﻿using DataLibrary.General;
+using DataLibrary.Hexes;
+using DataLibrary.Tiles;
 using VersionBase.Models;
 using VersionBase.Libraries;
-using VersionBase.Libraries.Enums;
-using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
-using VersionBase.Model;
 
 namespace VersionBase.Data
 {

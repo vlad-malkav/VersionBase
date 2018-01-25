@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using VersionBase.Libraries.Tiles;
+using DataLibrary.Hexes;
+using DataLibrary.Tiles;
 
-namespace VersionBase.Libraries.Hexes
+namespace DataLibrary.General
 {
     public class HexMapData
     {

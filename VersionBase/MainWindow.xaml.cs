@@ -9,7 +9,7 @@ using Microsoft.Win32;
 using MyToolkit.Messaging;
 using VersionBase.Data;
 using VersionBase.Logic;
-using VersionBase.Model;
+using VersionBase.Models;
 using VersionBase.ViewModels;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
