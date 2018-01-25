@@ -64,15 +64,76 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\InverseBoolConverter.cs" />
+    <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Data\GameData.cs" />
+    <Compile Include="Events\Events.Messages.cs" />
+    <Compile Include="Forms\HexMapCreationInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HexMapCreationInputDialog.Designer.cs">
+      <DependentUpon>HexMapCreationInputDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic\EventLogic.cs" />
     <Compile Include="Logic\GameLogic.cs" />
+    <Compile Include="Models\BottomPanelModel.cs" />
+    <Compile Include="Models\GameModeModel.cs" />
+    <Compile Include="Models\HexMapModel.cs" />
+    <Compile Include="Models\HexModel.cs" />
+    <Compile Include="Models\LeftPanelModel.cs" />
+    <Compile Include="Models\MenuItemModel.cs" />
+    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\RightPanelModel.cs" />
+    <Compile Include="Models\TileColorModel.cs" />
+    <Compile Include="Models\TileEditorModel.cs" />
+    <Compile Include="Models\TileImageModel.cs" />
+    <Compile Include="Models\TopPanelModel.cs" />
+    <Compile Include="ViewModels\BottomPanelViewModel.cs" />
+    <Compile Include="ViewModels\GameModeViewModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
-    <Compile Include="Views\Dialogs\NewHexMapDialog.xaml.cs">
+    <Compile Include="ViewModels\HexMapViewModel.cs" />
+    <Compile Include="ViewModels\HexViewModel.cs" />
+    <Compile Include="ViewModels\LeftPanelViewModel.cs" />
+    <Compile Include="ViewModels\MenuItemViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\RightPanelViewModel.cs" />
+    <Compile Include="ViewModels\TileColorViewModel.cs" />
+    <Compile Include="ViewModels\TileEditorViewModel.cs" />
+    <Compile Include="ViewModels\TileImageViewModel.cs" />
+    <Compile Include="ViewModels\TopMenuViewModel.cs" />
+    <Compile Include="ViewModels\TopPanelViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="Views\BottomPanelView.xaml.cs">
+      <DependentUpon>BottomPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\NewHexMapDialog.xaml.cs">
       <DependentUpon>NewHexMapDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GameView.xaml.cs">
       <DependentUpon>GameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HexMapView.xaml.cs">
+      <DependentUpon>HexMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IViewWithModel.cs" />
+    <Compile Include="Views\LeftPanelView.xaml.cs">
+      <DependentUpon>LeftPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RightPanelView.xaml.cs">
+      <DependentUpon>RightPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestControl.xaml.cs">
+      <DependentUpon>TestControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TileEditorView.xaml.cs">
+      <DependentUpon>TileEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopMenuView.xaml.cs">
+      <DependentUpon>TopMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopPanelView.xaml.cs">
+      <DependentUpon>TopPanelView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -90,7 +151,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Dialogs\NewHexMapDialog.xaml">
+    <Page Include="Views\BottomPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\NewHexMapDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,9 +163,37 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\HexMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LeftPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RightPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TestControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TileEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TopMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TopPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\GameModel.cs" />
+    <Compile Include="Models\GameModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -114,6 +207,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Forms\HexMapCreationInputDialog.resx">
+      <DependentUpon>HexMapCreationInputDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -128,10 +224,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controls.Library\Controls.Library.csproj">
-      <Project>{18b49489-a417-4904-a06e-449bce6bc841}</Project>
-      <Name>Controls.Library</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
       <Project>{DBF84FE5-22C5-412C-BE74-B3E18034DEE3}</Project>
       <Name>DataLibrary</Name>
@@ -141,8 +233,6 @@
       <Name>VersionBase.Libraries</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Dialogs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

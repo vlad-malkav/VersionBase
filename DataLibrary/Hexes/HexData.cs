@@ -1,6 +1,6 @@
-﻿using VersionBase.Libraries.Tiles;
+﻿using DataLibrary.Tiles;
 
-namespace VersionBase.Libraries.Hexes
+namespace DataLibrary.Hexes
 {
     public class HexData
     {

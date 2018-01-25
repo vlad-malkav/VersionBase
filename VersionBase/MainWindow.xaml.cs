@@ -3,13 +3,13 @@ using System.IO;
 using System.Windows;
 using System.Windows.Threading;
 using System.Xml.Serialization;
-using Controls.Library.Events;
-using Controls.Library.Forms;
+using VersionBase.Events;
+using VersionBase.Forms;
 using Microsoft.Win32;
 using MyToolkit.Messaging;
 using VersionBase.Data;
 using VersionBase.Logic;
-using VersionBase.Model;
+using VersionBase.Models;
 using VersionBase.ViewModels;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

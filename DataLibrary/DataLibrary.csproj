@@ -45,8 +45,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="General\UIData.cs" />
     <Compile Include="Hexes\HexData.cs" />
-    <Compile Include="Hexes\HexMapData.cs" />
+    <Compile Include="General\HexMapData.cs" />
     <Compile Include="Menu\MenuData.cs" />
     <Compile Include="Menu\MenuItemData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

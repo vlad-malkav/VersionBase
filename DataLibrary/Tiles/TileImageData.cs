@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace VersionBase.Libraries.Tiles
+﻿namespace DataLibrary.Tiles
 {
     public class TileImageData
     {

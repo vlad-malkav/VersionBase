@@ -1,4 +1,4 @@
-﻿namespace VersionBase.Libraries.Tiles
+﻿namespace DataLibrary.Tiles
 {
     public class TileData
     {
