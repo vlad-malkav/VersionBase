@@ -51,7 +51,7 @@ namespace VersionBase.Model
         public override void ImportData(GameData gameData)
         {
             _hexMapModel.ImportData(gameData.HexMapData);
-            _leftPanelModel.ImportTileEditorData(gameData.ListTileColor, gameData.ListTileImage);
+            _leftPanelModel.ImportTileEditorData(gameData.UIData.ListTileColor, gameData.UIData.ListTileImage);
 
             List<GameMode> listGameMode = new List<GameMode>();
             foreach (GameMode gameMode in Enum.GetValues(typeof(GameMode)))

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VersionBase.Data;
 using VersionBase.Libraries.Hexes;
 using VersionBase.Libraries.Tiles;
 
@@ -11,7 +12,7 @@ namespace VersionBase.Libraries
 {
     public static class DataGeneration
     {
-        public static HexMapData GeneratHexMapData(int columns, int rows)
+        public static HexMapData GenerateHexMapData(int columns, int rows)
         {
             List<HexData> listHexData = new List<HexData>();
 
@@ -30,6 +31,15 @@ namespace VersionBase.Libraries
                 }
             }
             return new HexMapData(columns, rows, listHexData);
+        }
+
+        public static UIData GenerateUIData()
+        {
+            UIData uiData = new UIData();
+            uiData.ListTileColor = TileColorHelper.GetAllTileColors();
+            uiData.ListTileImage = TileImageHelper.GetAllTileImages();
+
+            return uiData;
         }
     }
 }

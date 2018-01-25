@@ -107,7 +107,7 @@
     <Compile Include="Views\BottomPanelView.xaml.cs">
       <DependentUpon>BottomPanelView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Dialogs\NewHexMapDialog.xaml.cs">
+    <Compile Include="Dialogs\NewHexMapDialog.xaml.cs">
       <DependentUpon>NewHexMapDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GameView.xaml.cs">
@@ -155,7 +155,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Dialogs\NewHexMapDialog.xaml">
+    <Page Include="Dialogs\NewHexMapDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,7 +193,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\GameModel.cs" />
+    <Compile Include="Models\GameModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -233,8 +233,6 @@
       <Name>VersionBase.Libraries</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Dialogs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

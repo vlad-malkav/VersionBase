@@ -13,21 +13,15 @@ namespace VersionBase.Data
 {
     public class GameData
     {
-        private int RowCount { get; set; }
-        private int ColCount { get; set; }
-        public List<TileColorData> ListTileColor;
-        public List<TileImageData> ListTileImage;
+        public UIData UIData;
         public HexMapData HexMapData;
 
         public GameData() { }
 
         public GameData(int colCount, int rowCount)
         {
-            ColCount = colCount;
-            RowCount = rowCount;
-            ListTileColor = TileColorHelper.GetAllTileColors();
-            ListTileImage = TileImageHelper.GetAllTileImages();
-            HexMapData = DataGeneration.GeneratHexMapData(ColCount, RowCount);
+            UIData = DataGeneration.GenerateUIData();
+            HexMapData = DataGeneration.GenerateHexMapData(colCount, rowCount);
         }
 
         public void SaveGameModel(GameModel gameModel, GameData gameData)

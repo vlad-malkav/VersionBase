@@ -36,10 +36,11 @@ namespace VersionBase.Forms
 
         private void txtInput_TextChanged(object sender, EventArgs e)
         {
+            int colums, rows;
             if (txtInputColumns.Text.Trim().Length > 0
-                && int.TryParse(txtInputColumns.Text.Trim(), out int colums)
+                && int.TryParse(txtInputColumns.Text.Trim(), out colums)
                 && txtInputRows.Text.Trim().Length > 0
-                && int.TryParse(txtInputRows.Text.Trim(), out int rows))
+                && int.TryParse(txtInputRows.Text.Trim(), out rows))
             {
                 btnOk.Enabled = true;
             }

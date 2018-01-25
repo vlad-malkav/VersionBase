@@ -14,7 +14,6 @@ namespace VersionBase.Libraries.Hexes
         public HexMapData()
             : this(10,10)
         {
-            ListHexData = new List<HexData>();
         }
 
         public HexMapData(int columns, int rows)
