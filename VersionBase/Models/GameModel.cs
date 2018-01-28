@@ -16,9 +16,13 @@ namespace VersionBase.Models
             get { return _hexMapModel; }
         }
 
-        public override void ImportData(GameData data)
+        public GameModel()
         {
             _hexMapModel = new HexMapModel();
+        }
+
+        public override void ImportData(GameData data)
+        {
             _hexMapModel.ImportData(data.HexMapData);
         }
     }

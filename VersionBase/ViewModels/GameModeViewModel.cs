@@ -11,7 +11,7 @@ namespace VersionBase.ViewModels
 
         public GameModeViewModel()
         {
-
+            GameMode = GameMode.Visualization;
         }
 
         public override void ApplyModel(GameModeModel gameModeModel)

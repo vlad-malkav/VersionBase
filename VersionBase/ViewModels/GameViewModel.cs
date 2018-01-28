@@ -11,9 +11,13 @@ namespace VersionBase.ViewModels
     {
         public HexMapViewModel HexMapViewModel { get; set; }
 
-        public override void ApplyModel(GameModel model)
+        public GameViewModel()
         {
             HexMapViewModel = new HexMapViewModel();
+        }
+
+        public override void ApplyModel(GameModel model)
+        {
             HexMapViewModel.ApplyModel(model.HexMapModel);
         }
     }
