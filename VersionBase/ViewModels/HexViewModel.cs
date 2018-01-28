@@ -13,7 +13,7 @@ using Color = System.Drawing.Color;
 
 namespace VersionBase.ViewModels
 {
-    public class HexViewModel : ViewModel<HexModel>
+    public class HexViewModel : AbstractViewModel<HexModel>
     {
         public string Label { get; set; }
         public string Description { get; set; }

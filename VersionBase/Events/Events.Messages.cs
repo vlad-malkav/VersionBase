@@ -55,7 +55,7 @@ namespace VersionBase.Events
         public string TileImageModelId { get; set; }
     }
 
-    public class GetTileColorTileImageModelsFromIdRequestMessage : CallbackMessage<Tuple<TileColorModel, TileImageModel>>
+    public class GetTileColorTileImageModelsFromIdRequestMessage : CallbackMessage<Tuple<UITileColorModel, UITileImageModel>>
     {
         public string TileColorModelId { get; set; }
         public string TileImageModelId { get; set; }
@@ -69,8 +69,8 @@ namespace VersionBase.Events
 
     public class UpdateHexColorImageModelsMessage : HexCoordinatesMessage
     {
-        public TileColorModel TileColorModel { get; set; }
-        public TileImageModel TileImageModel { get; set; }
+        public UITileColorModel TileColorModel { get; set; }
+        public UITileImageModel TileImageModel { get; set; }
     }
 
     public class UpdateHexDescriptionDegreExplorationMessage : HexCoordinatesMessage

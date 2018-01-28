@@ -11,7 +11,7 @@ using VersionBase.Libraries.Drawing;
 
 namespace VersionBase.ViewModels
 {
-    public class HexMapViewModel : ViewModel<HexMapModel>
+    public class HexMapViewModel : AbstractViewModel<HexMapModel>
     {
         public int Columns { get; set; }
         public int Rows { get; set; }

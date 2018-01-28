@@ -3,11 +3,13 @@ using System.IO;
 using System.Windows;
 using System.Windows.Threading;
 using System.Xml.Serialization;
+using DataLibrary.General;
 using VersionBase.Events;
 using VersionBase.Forms;
 using Microsoft.Win32;
 using MyToolkit.Messaging;
 using VersionBase.Data;
+using VersionBase.Libraries;
 using VersionBase.Logic;
 using VersionBase.Models;
 using VersionBase.ViewModels;
@@ -25,11 +27,11 @@ namespace VersionBase
         //Game Logic
         public GameLogic BaseLogic { get; set; }
         //Data
-        public GameData GameData { get; set; }
+        public ApplicationData ApplicationData { get; set; }
         //Models
-        public GameModel GameModel { get; set; }
+        public ApplicationModel ApplicationModel { get; set; }
         //ViewModels
-        public GameViewModel GameViewModel { get; set; }
+        public ApplicationViewModel ApplicationViewModel { get; set; }
 
         public MainWindow()
         {
@@ -39,9 +41,15 @@ namespace VersionBase
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GameModel = new GameModel();
-            GameViewModel = new GameViewModel();
-            GameViewControl.DataContext = GameViewModel;
+            ApplicationData = new ApplicationData();
+            ApplicationData.UIData = DataGeneration.GenerateUIData();
+
+            ApplicationModel = new ApplicationModel();
+            ApplicationModel.ImportData(ApplicationData);
+
+            ApplicationViewModel = new ApplicationViewModel();
+            ApplicationViewModel.ApplyModel(ApplicationModel);
+            ApplicationViewControl.DataContext = ApplicationViewModel;
 
             BaseLogic = new GameLogic();
             Messenger.Default.Register<NewMessage>(this, New);
@@ -63,9 +71,9 @@ namespace VersionBase
                 "Title", "Label", 10, 5);
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                GameData = new GameData(dialog.Result.Item1, dialog.Result.Item2);
-                GameModel.ImportData(GameData);
-                GameViewModel.ApplyModel(GameModel);
+                ApplicationData.GameData = DataGeneration.GenerateGameData(dialog.Result.Item1, dialog.Result.Item2);
+                ApplicationModel.ImportData(ApplicationData);
+                ApplicationViewModel.ApplyModel(ApplicationModel);
             }
         }
 
@@ -91,12 +99,12 @@ namespace VersionBase
                 // Open the selected file to read.
                 System.IO.Stream fileStream = openFileDialog1.OpenFile();
 
-                XmlSerializer xs = new XmlSerializer(typeof(GameData));
+                XmlSerializer xs = new XmlSerializer(typeof(ApplicationData));
                 using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
                 {
-                    GameData = (GameData) xs.Deserialize(reader);
-                    GameModel.ImportData(GameData);
-                    GameViewModel.ApplyModel(GameModel);
+                    ApplicationData = (ApplicationData) xs.Deserialize(reader);
+                    ApplicationModel.ImportData(ApplicationData);
+                    ApplicationViewModel.ApplyModel(ApplicationModel);
                 }
                 fileStream.Close();
             }
@@ -121,10 +129,10 @@ namespace VersionBase
             {
                 if ((myStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    GameData.SaveGameModel(GameModel, GameData);
-                    XmlSerializer xs = new XmlSerializer(typeof(GameData));
+                    ApplicationData.SaveApplicationModel(ApplicationModel, ApplicationData);
+                    XmlSerializer xs = new XmlSerializer(typeof(ApplicationData));
                     TextWriter tw = new StreamWriter(myStream);
-                    xs.Serialize(tw, GameData);
+                    xs.Serialize(tw, ApplicationData);
                     myStream.Close();
                 }
             }

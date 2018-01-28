@@ -3,7 +3,7 @@ using VersionBase.Libraries.Enums;
 
 namespace VersionBase.ViewModels
 {
-    public class GameModeViewModel : ViewModel<GameModeModel>
+    public class GameModeViewModel : AbstractViewModel<GameModeModel>
     {
         public int Id { get; set; }
         public string Name { get; set; }

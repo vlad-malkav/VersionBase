@@ -1,63 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using VersionBase.Data;
-using VersionBase.Libraries.Enums;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DataLibrary.General;
 
 namespace VersionBase.Models
 {
-    public class GameModel : Model<GameData>
+    public class GameModel : AbstractModel<GameData>
     {
         private HexMapModel _hexMapModel;
-        private LeftPanelModel _leftPanelModel;
-        private RightPanelModel _rightPanelModel;
-        private TopPanelModel _topPanelModel;
-        private BottomPanelModel _bottomPanelModel;
 
         public HexMapModel HexMapModel
         {
             get { return _hexMapModel; }
         }
 
-        public LeftPanelModel LeftPanelModel
-        {
-            get { return _leftPanelModel; }
-        }
-
-        public RightPanelModel RightPanelModel
-        {
-            get { return _rightPanelModel; }
-        }
-
-        public TopPanelModel TopPanelModel
-        {
-            get { return _topPanelModel; }
-        }
-
-        public BottomPanelModel BottomPanelModel
-        {
-            get { return _bottomPanelModel; }
-        }
-
-        public GameModel()
+        public override void ImportData(GameData data)
         {
             _hexMapModel = new HexMapModel();
-            _leftPanelModel = new LeftPanelModel();
-            _rightPanelModel = new RightPanelModel();
-            _topPanelModel = new TopPanelModel();
-            _bottomPanelModel = new BottomPanelModel();
-        }
-
-        public override void ImportData(GameData gameData)
-        {
-            _hexMapModel.ImportData(gameData.HexMapData);
-            _leftPanelModel.ImportTileEditorData(gameData.UIData.ListTileColor, gameData.UIData.ListTileImage);
-
-            List<GameMode> listGameMode = new List<GameMode>();
-            foreach (GameMode gameMode in Enum.GetValues(typeof(GameMode)))
-            {
-                listGameMode.Add(gameMode);
-            }
-            _leftPanelModel.ImportGameModeData(listGameMode);
+            _hexMapModel.ImportData(data.HexMapData);
         }
     }
 }

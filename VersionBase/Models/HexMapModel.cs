@@ -6,7 +6,7 @@ using MyToolkit.Messaging;
 
 namespace VersionBase.Models
 {
-    public class HexMapModel : Model<HexMapData>
+    public class HexMapModel : AbstractModel<HexMapData>
     {
         private int _columns;
         private int _rows;
@@ -78,7 +78,7 @@ namespace VersionBase.Models
             return ListHexModel.FirstOrDefault(x => x.Column == column && x.Row == row);
         }
 
-        public void UpdateHexModel(int column, int row, TileColorModel tileColorModel, TileImageModel tileImageModel)
+        public void UpdateHexModel(int column, int row, UITileColorModel tileColorModel, UITileImageModel tileImageModel)
         {
             HexModel hexModel = GetHexModel(column, row);
             hexModel.UpdateColorImageModels(tileColorModel, tileImageModel);
@@ -114,7 +114,7 @@ namespace VersionBase.Models
                 msg.TileImageModel);
         }
 
-        public void UpdateColorImageModelsFromIds(int column, int row, TileColorModel tileColorModel, TileImageModel tileImageModel)
+        public void UpdateColorImageModelsFromIds(int column, int row, UITileColorModel tileColorModel, UITileImageModel tileImageModel)
         {
             GetHexModel(column, row).UpdateColorImageModels(
                 tileColorModel,

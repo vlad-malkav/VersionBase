@@ -9,6 +9,13 @@ namespace VersionBase.Libraries
 {
     public static class DataGeneration
     {
+        public static GameData GenerateGameData(int columns, int rows)
+        {
+            GameData gameData = new GameData();
+            gameData.HexMapData = DataGeneration.GenerateHexMapData(columns, rows);
+            return gameData;
+        }
+
         public static HexMapData GenerateHexMapData(int columns, int rows)
         {
             List<HexData> listHexData = new List<HexData>();

@@ -5,5 +5,5 @@
         SizeChanged="Window_SizeChanged"
         Title="Honeycomb" Height="600" Width="800" Loaded="Window_Loaded" ResizeMode="CanResize" x:Name="Main">
 
-    <views:GameView x:Name="GameViewControl"/>
+    <views:ApplicationView x:Name="ApplicationViewControl"/>
 </Window>

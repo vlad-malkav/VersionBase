@@ -94,7 +94,7 @@ namespace VersionBase.Logic
                 resultGetSelectedColorImageNamesRequestMessage.Result.Item2);
         }
 
-        public async Task<Tuple<TileColorModel, TileImageModel>> GetSelectedTileColorTileImageModels()
+        public async Task<Tuple<UITileColorModel, UITileImageModel>> GetSelectedTileColorTileImageModels()
         {
             Tuple<string, string> tupleSelectedTileColorTileImageIds = GetSelectedTileColorTileImageIds().Result;
             string tileColorModelId = tupleSelectedTileColorTileImageIds.Item1;
@@ -108,7 +108,7 @@ namespace VersionBase.Logic
                 };
             var resultGetTileColorTileImageModelsFromIdRequestMessage = await Messenger.Default.SendAsync(msg);
 
-            return new Tuple<TileColorModel, TileImageModel>(
+            return new Tuple<UITileColorModel, UITileImageModel>(
                 resultGetTileColorTileImageModelsFromIdRequestMessage.Result.Item1,
                 resultGetTileColorTileImageModelsFromIdRequestMessage.Result.Item2);
         }
@@ -130,7 +130,7 @@ namespace VersionBase.Logic
 
         public async void UpdateHexModelWithSelectedColorImage(int column, int row)
         {
-            Tuple<TileColorModel, TileImageModel> tupleColorImageIds = await GetSelectedTileColorTileImageModels();
+            Tuple<UITileColorModel, UITileImageModel> tupleColorImageIds = await GetSelectedTileColorTileImageModels();
             Messenger.Default.Send(new UpdateHexColorImageModelsMessage
             {
                 Column = column,
