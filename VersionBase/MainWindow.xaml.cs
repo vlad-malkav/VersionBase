@@ -72,8 +72,8 @@ namespace VersionBase
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 ApplicationData.GameData = DataGeneration.GenerateGameData(dialog.Result.Item1, dialog.Result.Item2);
-                ApplicationModel.ImportData(ApplicationData);
-                ApplicationViewModel.ApplyModel(ApplicationModel);
+                ApplicationModel.GameModel.ImportData(ApplicationData.GameData);
+                ApplicationViewModel.GameViewModel.ApplyModel(ApplicationModel.GameModel);
             }
         }
 
@@ -95,19 +95,19 @@ namespace VersionBase
             {
                 // Process input if the user clicked OK.
                 if (userClickedOK == true)
-            {
-                // Open the selected file to read.
-                System.IO.Stream fileStream = openFileDialog1.OpenFile();
-
-                XmlSerializer xs = new XmlSerializer(typeof(ApplicationData));
-                using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
                 {
-                    ApplicationData = (ApplicationData) xs.Deserialize(reader);
-                    ApplicationModel.ImportData(ApplicationData);
-                    ApplicationViewModel.ApplyModel(ApplicationModel);
+                    // Open the selected file to read.
+                    System.IO.Stream fileStream = openFileDialog1.OpenFile();
+
+                    XmlSerializer xs = new XmlSerializer(typeof(GameData));
+                    using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
+                    {
+                        ApplicationData.GameData = (GameData)xs.Deserialize(reader);
+                        ApplicationModel.GameModel.ImportData(ApplicationData.GameData);
+                        ApplicationViewModel.GameViewModel.ApplyModel(ApplicationModel.GameModel);
+                    }
+                    fileStream.Close();
                 }
-                fileStream.Close();
-            }
             }
             catch (Exception e)
             {
@@ -129,10 +129,10 @@ namespace VersionBase
             {
                 if ((myStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    ApplicationData.SaveApplicationModel(ApplicationModel, ApplicationData);
-                    XmlSerializer xs = new XmlSerializer(typeof(ApplicationData));
+                    ApplicationData.SaveGameModel(ApplicationModel.GameModel, ApplicationData.GameData);
+                    XmlSerializer xs = new XmlSerializer(typeof(GameData));
                     TextWriter tw = new StreamWriter(myStream);
-                    xs.Serialize(tw, ApplicationData);
+                    xs.Serialize(tw, ApplicationData.GameData);
                     myStream.Close();
                 }
             }

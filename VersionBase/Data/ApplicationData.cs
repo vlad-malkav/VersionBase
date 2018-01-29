@@ -13,7 +13,7 @@ namespace VersionBase.Data
         public GameData GameData;
 
         public ApplicationData()
-            :this(10,10)
+            :this(0,0)
         {
         }
 

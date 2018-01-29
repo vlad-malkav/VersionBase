@@ -13,7 +13,7 @@ namespace DataLibrary.General
         public List<HexData> ListHexData { get; set; }
 
         public HexMapData()
-            : this(10,10)
+            : this(0,0)
         {
         }
 
