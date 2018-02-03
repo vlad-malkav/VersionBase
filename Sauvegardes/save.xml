@@ -15,7 +15,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>whaling</Id>
@@ -37,7 +36,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>pyramid</Id>
@@ -59,7 +57,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>cultivatedfarmland2___Copie</Id>
@@ -81,7 +78,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>moderncapital</Id>
@@ -97,18 +93,17 @@
         <DegreExploration>2</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Id>Color-255.180.180.180</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
             <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>heavyevergreen</Id>
-            <Name>HEAVYEVERGREEN</Name>
-            <ImageName>heavyevergreen</ImageName>
+            <Id>whaling</Id>
+            <Name>WHALING</Name>
+            <ImageName>whaling</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -125,7 +120,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>monolith</Id>
@@ -147,7 +141,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>lighthouse</Id>
@@ -169,7 +162,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>mountain</Id>
@@ -191,7 +183,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>deadforestmountains</Id>
@@ -213,7 +204,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>lightforest</Id>
@@ -235,7 +225,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>forestedhills</Id>
@@ -251,18 +240,17 @@
         <DegreExploration>2</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Id>Color-255.180.180.180</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
             <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>dunes</Id>
-            <Name>DUNES</Name>
-            <ImageName>dunes</ImageName>
+            <Id>volcanodormant</Id>
+            <Name>VOLCANODORMANT</Name>
+            <ImageName>volcanodormant</ImageName>
           </TileImageData>
         </TileData>
         <Column>1</Column>
@@ -279,7 +267,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>mines</Id>
@@ -301,7 +288,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>hills</Id>
@@ -317,18 +303,17 @@
         <DegreExploration>1</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Id>Color-255.180.180.180</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
             <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>tower</Id>
-            <Name>TOWER</Name>
-            <ImageName>tower</ImageName>
+            <Id>whaling</Id>
+            <Name>WHALING</Name>
+            <ImageName>whaling</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -345,7 +330,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>sun</Id>
@@ -367,7 +351,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>reefs</Id>
@@ -383,18 +366,17 @@
         <DegreExploration>0</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Id>Color-255.180.180.180</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
             <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>rockydesert</Id>
-            <Name>ROCKYDESERT</Name>
-            <ImageName>rockydesert</ImageName>
+            <Id>volcanodormant</Id>
+            <Name>VOLCANODORMANT</Name>
+            <ImageName>volcanodormant</ImageName>
           </TileImageData>
         </TileData>
         <Column>7</Column>
@@ -411,7 +393,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>steppedpyramid</Id>
@@ -433,7 +414,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>heavyforest</Id>
@@ -455,7 +435,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>evergreen</Id>
@@ -477,7 +456,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>moderncity</Id>
@@ -499,7 +477,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>spaceship</Id>
@@ -515,18 +492,17 @@
         <DegreExploration>5</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Id>Color-255.180.180.180</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
             <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>grassland</Id>
-            <Name>GRASSLAND</Name>
-            <ImageName>grassland</ImageName>
+            <Id>volcanodormant</Id>
+            <Name>VOLCANODORMANT</Name>
+            <ImageName>volcanodormant</ImageName>
           </TileImageData>
         </TileData>
         <Column>3</Column>
@@ -537,18 +513,17 @@
         <DegreExploration>0</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Id>Color-255.180.180.180</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
             <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>anchor</Id>
-            <Name>ANCHOR</Name>
-            <ImageName>anchor</ImageName>
+            <Id>whaling</Id>
+            <Name>WHALING</Name>
+            <ImageName>whaling</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -559,18 +534,17 @@
         <DegreExploration>2</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Id>Color-255.180.180.180</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
             <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>grapes</Id>
-            <Name>GRAPES</Name>
-            <ImageName>grapes</ImageName>
+            <Id>volcanodormant</Id>
+            <Name>VOLCANODORMANT</Name>
+            <ImageName>volcanodormant</ImageName>
           </TileImageData>
         </TileData>
         <Column>5</Column>
@@ -587,7 +561,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>cultivatedfarmland_2</Id>
@@ -609,7 +582,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>radiation</Id>
@@ -631,7 +603,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>castle</Id>
@@ -653,7 +624,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>crater</Id>
@@ -675,7 +645,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>cathedral</Id>
@@ -697,7 +666,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>evergreenhills</Id>
@@ -719,7 +687,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>deadforest</Id>
@@ -741,7 +708,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>fort</Id>
@@ -757,18 +723,17 @@
         <DegreExploration>6</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Id>Color-255.180.180.180</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
             <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>camp</Id>
-            <Name>CAMP</Name>
-            <ImageName>camp</ImageName>
+            <Id>whaling</Id>
+            <Name>WHALING</Name>
+            <ImageName>whaling</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -785,7 +750,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>city</Id>
@@ -807,7 +771,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>town</Id>
@@ -829,7 +792,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>evergreenmountains</Id>
@@ -851,7 +813,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>whaling</Id>
@@ -873,7 +834,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>pyramid</Id>
@@ -895,7 +855,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>cultivatedfarmland2___Copie</Id>
@@ -917,7 +876,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>moderncapital</Id>
@@ -939,7 +897,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>heavyevergreen</Id>
@@ -961,7 +918,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>monolith</Id>
@@ -977,18 +933,17 @@
         <DegreExploration>5</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
+            <Id>Color-255.180.180.180</Id>
+            <Name>Color [A=255, R=180, G=180, B=180]</Name>
             <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
+            <Red>180</Red>
+            <Green>180</Green>
+            <Blue>180</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>lighthouse</Id>
-            <Name>LIGHTHOUSE</Name>
-            <ImageName>lighthouse</ImageName>
+            <Id>whaling</Id>
+            <Name>WHALING</Name>
+            <ImageName>whaling</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -1005,7 +960,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>mountain</Id>
@@ -1027,7 +981,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>deadforestmountains</Id>
@@ -1049,7 +1002,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>lightforest</Id>
@@ -1071,7 +1023,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>forestedhills</Id>
@@ -1093,7 +1044,6 @@
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
           </TileColorData>
           <TileImageData>
             <Id>dunes</Id>

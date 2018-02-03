@@ -4,7 +4,7 @@ using VersionBase.Libraries.Tiles;
 
 namespace VersionBase.Models
 {
-    public class UITileColorModel : AbstractModel<TileColorData>
+    public class TileColorModel : IModel<TileColorData>
     {
         private string _id { get; set; }
         private string _name;
@@ -43,9 +43,9 @@ namespace VersionBase.Models
             get { return _blue; }
         }
 
-        public UITileColorModel() { }
+        public TileColorModel() { }
 
-        public override void ImportData(TileColorData data)
+        public void ImportData(TileColorData data)
         {
             _id = data.Id;
             _name = data.Name;

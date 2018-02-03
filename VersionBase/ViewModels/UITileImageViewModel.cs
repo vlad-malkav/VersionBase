@@ -4,7 +4,7 @@ using MyToolkit.Mvvm;
 
 namespace VersionBase.ViewModels
 {
-    public class UITileImageViewModel : AbstractViewModel<UITileImageModel>
+    public class UITileImageViewModel : AbstractViewModel<TileImageModel>
     {
         private string _id;
 
@@ -19,7 +19,7 @@ namespace VersionBase.ViewModels
 
         public UITileImageViewModel() { }
 
-        public override void ApplyModel(UITileImageModel model)
+        public  override void ApplyModel(TileImageModel model)
         {
             _id = model.Id;
             Name = model.Name;

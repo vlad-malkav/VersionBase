@@ -233,7 +233,7 @@ namespace VersionBase.ViewModels
             return HexEditionAvailable && IsHexSelected && DegreExploration > 0;
         }
 
-        public override void ApplyModel(UITileEditorModel model)
+        public  override void ApplyModel(UITileEditorModel model)
         {
             UnselectHex();
             ListTileColorViewModel.Clear();

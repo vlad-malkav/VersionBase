@@ -8,7 +8,7 @@ using VersionBase.Libraries.Enums;
 
 namespace VersionBase.Models
 {
-    public class UIModel : AbstractModel<UIData>
+    public class UIModel : IModel<UIData>
     {
         private UILeftPanelModel _uiLeftPanelModel;
         private UIRightPanelModel _uiRightPanelModel;
@@ -43,7 +43,7 @@ namespace VersionBase.Models
             _uiBottomPanelModel = new UIBottomPanelModel();
         }
 
-        public override void ImportData(UIData data)
+        public void ImportData(UIData data)
         {
             _uiLeftPanelModel.ImportUITileEditorData(data.ListTileColor, data.ListTileImage);
 

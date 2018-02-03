@@ -8,7 +8,7 @@ namespace VersionBase.ViewModels
         {
         }
 
-        public override void ApplyModel(UIRightPanelModel UIRightPanelModel)
+        public  override void ApplyModel(UIRightPanelModel UIRightPanelModel)
         {
         }
     }

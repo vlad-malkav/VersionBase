@@ -8,11 +8,12 @@ using VersionBase.Events;
 using VersionBase.Forms;
 using Microsoft.Win32;
 using MyToolkit.Messaging;
-using VersionBase.Data;
 using VersionBase.Libraries;
 using VersionBase.Logic;
 using VersionBase.Models;
 using VersionBase.ViewModels;
+using VersionBase.Data;
+using VersionBase.Helpers;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // namespace: Honeycombs
@@ -26,8 +27,6 @@ namespace VersionBase
     {
         //Game Logic
         public GameLogic BaseLogic { get; set; }
-        //Data
-        public ApplicationData ApplicationData { get; set; }
         //Models
         public ApplicationModel ApplicationModel { get; set; }
         //ViewModels
@@ -41,11 +40,11 @@ namespace VersionBase
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ApplicationData = new ApplicationData();
-            ApplicationData.UIData = DataGeneration.GenerateUIData();
+            ApplicationData applicationData = new ApplicationData();
+            applicationData.UIData = DataGeneration.GenerateUIData();
 
             ApplicationModel = new ApplicationModel();
-            ApplicationModel.ImportData(ApplicationData);
+            ApplicationModel.ImportData(applicationData);
 
             ApplicationViewModel = new ApplicationViewModel();
             ApplicationViewModel.ApplyModel(ApplicationModel);
@@ -71,8 +70,7 @@ namespace VersionBase
                 "Title", "Label", 10, 5);
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                ApplicationData.GameData = DataGeneration.GenerateGameData(dialog.Result.Item1, dialog.Result.Item2);
-                ApplicationModel.GameModel.ImportData(ApplicationData.GameData);
+                ApplicationModel.GameModel.ImportData(DataGeneration.GenerateGameData(dialog.Result.Item1, dialog.Result.Item2));
                 ApplicationViewModel.GameViewModel.ApplyModel(ApplicationModel.GameModel);
             }
         }
@@ -102,8 +100,7 @@ namespace VersionBase
                     XmlSerializer xs = new XmlSerializer(typeof(GameData));
                     using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
                     {
-                        ApplicationData.GameData = (GameData)xs.Deserialize(reader);
-                        ApplicationModel.GameModel.ImportData(ApplicationData.GameData);
+                        ApplicationModel.GameModel.ImportData((GameData)xs.Deserialize(reader));
                         ApplicationViewModel.GameViewModel.ApplyModel(ApplicationModel.GameModel);
                     }
                     fileStream.Close();
@@ -129,10 +126,9 @@ namespace VersionBase
             {
                 if ((myStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    ApplicationData.SaveGameModel(ApplicationModel.GameModel, ApplicationData.GameData);
                     XmlSerializer xs = new XmlSerializer(typeof(GameData));
                     TextWriter tw = new StreamWriter(myStream);
-                    xs.Serialize(tw, ApplicationData.GameData);
+                    xs.Serialize(tw, SaveHelper.SaveGameModel(ApplicationModel.GameModel));
                     myStream.Close();
                 }
             }

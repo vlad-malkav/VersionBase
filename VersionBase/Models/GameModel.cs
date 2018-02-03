@@ -7,7 +7,7 @@ using DataLibrary.General;
 
 namespace VersionBase.Models
 {
-    public class GameModel : AbstractModel<GameData>
+    public class GameModel : IModel<GameData>
     {
         private HexMapModel _hexMapModel;
 
@@ -21,7 +21,7 @@ namespace VersionBase.Models
             _hexMapModel = new HexMapModel();
         }
 
-        public override void ImportData(GameData data)
+        public void ImportData(GameData data)
         {
             _hexMapModel.ImportData(data.HexMapData);
         }

@@ -19,7 +19,7 @@ namespace VersionBase.ViewModels
             UIViewModel = new UIViewModel();
         }
 
-        public override void ApplyModel(ApplicationModel applicationModel)
+        public  override void ApplyModel(ApplicationModel applicationModel)
         {
             UIViewModel.ApplyModel(applicationModel.UIModel);
             GameViewModel.ApplyModel(applicationModel.GameModel);

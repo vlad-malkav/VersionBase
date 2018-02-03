@@ -8,7 +8,7 @@ namespace VersionBase.ViewModels
         {
         }
 
-        public override void ApplyModel(UIBottomPanelModel UIBottomPanelModel)
+        public  override void ApplyModel(UIBottomPanelModel UIBottomPanelModel)
         {
         }
     }

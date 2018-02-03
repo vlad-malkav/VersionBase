@@ -19,7 +19,7 @@ namespace VersionBase.ViewModels
             ListMenuItemViewModel = new List<UIMenuItemViewModel>();
         }
 
-        public override void ApplyModel(UIMenuItemModel model)
+        public  override void ApplyModel(UIMenuItemModel model)
         {
             Header = model.Header;
             Command = model.Command;

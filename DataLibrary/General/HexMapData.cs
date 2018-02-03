@@ -13,11 +13,12 @@ namespace DataLibrary.General
         public List<HexData> ListHexData { get; set; }
 
         public HexMapData()
-            : this(0,0)
         {
+            ListHexData = new List<HexData>();
         }
 
         public HexMapData(int columns, int rows)
+            :this()
         {
             Columns = columns;
             Rows = rows;

@@ -7,7 +7,7 @@ using DataLibrary.Menu;
 
 namespace VersionBase.Models
 {
-    public class UIMenuModel : AbstractModel<MenuData>
+    public class UIMenuModel : IModel<UIMenuData>
     {
         public List<UIMenuItemModel> ListMenuItemModel { get; set; }
 
@@ -16,9 +16,9 @@ namespace VersionBase.Models
             ListMenuItemModel=new List<UIMenuItemModel>();
         }
 
-        public override void ImportData(MenuData data)
+        public void ImportData(UIMenuData data)
         {
-            foreach (MenuItemData menuItemData in data.ListMenuItemData)
+            foreach (UIMenuItemData menuItemData in data.ListMenuItemData)
             {
                 UIMenuItemModel menuItemModel = new UIMenuItemModel();
                 menuItemModel.ImportData(menuItemData);
