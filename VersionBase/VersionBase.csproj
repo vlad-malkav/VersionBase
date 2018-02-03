@@ -74,9 +74,13 @@
     <Compile Include="Forms\HexMapCreationInputDialog.Designer.cs">
       <DependentUpon>HexMapCreationInputDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\SaveHelper.cs" />
     <Compile Include="Logic\EventLogic.cs" />
     <Compile Include="Logic\GameLogic.cs" />
     <Compile Include="Models\GameModel.cs" />
+    <Compile Include="Models\IModel.cs" />
+    <Compile Include="Models\TileColorModel.cs" />
+    <Compile Include="Models\TileImageModel.cs" />
     <Compile Include="Models\UIBottomPanelModel.cs" />
     <Compile Include="Models\GameModeModel.cs" />
     <Compile Include="Models\HexMapModel.cs" />
@@ -84,14 +88,12 @@
     <Compile Include="Models\UILeftPanelModel.cs" />
     <Compile Include="Models\UIMenuItemModel.cs" />
     <Compile Include="Models\UIMenuModel.cs" />
-    <Compile Include="Models\AbstractModel.cs" />
     <Compile Include="Models\UIModel.cs" />
-    <Compile Include="Models\UITileColorModel.cs" />
     <Compile Include="Models\UITileEditorModel.cs" />
-    <Compile Include="Models\UITileImageModel.cs" />
     <Compile Include="Models\UIRightPanelModel.cs" />
     <Compile Include="Models\UITopPanelModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
+    <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ViewModels\UIViewModel.cs" />
     <Compile Include="ViewModels\GameModeViewModel.cs" />
     <Compile Include="ViewModels\UIBottomPanelViewModel.cs" />
@@ -107,7 +109,6 @@
     <Compile Include="ViewModels\UIRightPanelViewModel.cs" />
     <Compile Include="ViewModels\UITopMenuViewModel.cs" />
     <Compile Include="ViewModels\UITopPanelViewModel.cs" />
-    <Compile Include="ViewModels\AbstractViewModel.cs" />
     <Compile Include="Views\UIBottomPanelView.xaml.cs">
       <DependentUpon>UIBottomPanelView.xaml</DependentUpon>
     </Compile>

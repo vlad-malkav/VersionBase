@@ -5,7 +5,7 @@ using VersionBase.Libraries.Enums;
 
 namespace VersionBase.Models
 {
-    public class ApplicationModel : AbstractModel<ApplicationData>
+    public class ApplicationModel : IModel<ApplicationData>
     {
         private GameModel _gameModel;
         private UIModel _uiModel;
@@ -26,7 +26,7 @@ namespace VersionBase.Models
             _uiModel = new UIModel();
         }
 
-        public override void ImportData(ApplicationData data)
+        public void ImportData(ApplicationData data)
         {
             _gameModel.ImportData(data.GameData);
             _uiModel.ImportData(data.UIData);

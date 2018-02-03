@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace VersionBase.Models
 {
-    public abstract class AbstractModel<TData>
+    public interface IModel<TData>
     {
-        public abstract void ImportData(TData data);
+        void ImportData(TData data);
     }
 }

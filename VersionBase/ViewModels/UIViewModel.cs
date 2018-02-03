@@ -29,80 +29,45 @@ namespace VersionBase.ViewModels
             UITopMenuViewModel.ApplyModel(menuModel);
         }
 
-        private MenuData InitializeMenuData()
+        private UIMenuData InitializeMenuData()
         {
-            MenuData menuData = new MenuData();
+            UIMenuData menuData = new UIMenuData();
 
-            MenuItemData menuFichier = new MenuItemData("Fichier");
+            UIMenuItemData menuFichier = new UIMenuItemData("Fichier");
 
-            menuFichier.ListMenuItemData.Add(new MenuItemData("New")
-            {
-                Command = new MyICommand(() => Messenger.Default.Send(new NewMessage()))
-            });
+            menuFichier.ListMenuItemData.Add(new UIMenuItemData("New", "New"));
 
-            menuFichier.ListMenuItemData.Add(new MenuItemData("Load")
-            {
-                Command = new MyICommand(() => Messenger.Default.Send(new LoadMessage()))
-            });
+            menuFichier.ListMenuItemData.Add(new UIMenuItemData("Load", "Load"));
 
-            menuFichier.ListMenuItemData.Add(new MenuItemData("Save")
-            {
-                Command = new MyICommand(() => Messenger.Default.Send(new SaveMessage()))
-            });
+            menuFichier.ListMenuItemData.Add(new UIMenuItemData("Save", "Save"));
 
-            menuFichier.ListMenuItemData.Add(new MenuItemData("Quit")
-            {
-                Command = new MyICommand(() => Messenger.Default.Send(new QuitMessage()))
-            });
+            menuFichier.ListMenuItemData.Add(new UIMenuItemData("Quit", "Quit"));
 
             menuData.ListMenuItemData.Add(menuFichier);
 
-            MenuItemData menuMove = new MenuItemData("Move");
+            UIMenuItemData menuMove = new UIMenuItemData("Move");
 
-            menuMove.ListMenuItemData.Add(new MenuItemData("MoveLeft")
-            {
-                Command = new MyICommand(() =>
-                    Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.MoveLeft)))
-            });
+            menuMove.ListMenuItemData.Add(new UIMenuItemData("MoveLeft", "MoveLeft"));
 
-            menuMove.ListMenuItemData.Add(new MenuItemData("MoveRight")
-            {
-                Command = new MyICommand(() =>
-                    Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.MoveRight)))
-            });
+            menuMove.ListMenuItemData.Add(new UIMenuItemData("MoveRight", "MoveRight"));
 
-            menuMove.ListMenuItemData.Add(new MenuItemData("MoveUp")
-            {
-                Command = new MyICommand(() =>
-                    Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.MoveUp)))
-            });
+            menuMove.ListMenuItemData.Add(new UIMenuItemData("MoveUp", "MoveUp"));
 
-            menuMove.ListMenuItemData.Add(new MenuItemData("MoveDown")
-            {
-                Command = new MyICommand(() =>
-                    Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.MoveDown)))
-            });
+            menuMove.ListMenuItemData.Add(new UIMenuItemData("MoveDown", "MoveDown"));
+
             menuData.ListMenuItemData.Add(menuMove);
 
-            MenuItemData menuZoom = new MenuItemData("Zoom");
+            UIMenuItemData menuZoom = new UIMenuItemData("Zoom");
 
-            menuZoom.ListMenuItemData.Add(new MenuItemData("ZoomIn")
-            {
-                Command = new MyICommand(() =>
-                    Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.ZoomIn)))
-            });
+            menuZoom.ListMenuItemData.Add(new UIMenuItemData("ZoomIn", "ZoomIn"));
 
-            menuZoom.ListMenuItemData.Add(new MenuItemData("ZoomOut")
-            {
-                Command = new MyICommand(() =>
-                    Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.ZoomOut)))
-            });
+            menuZoom.ListMenuItemData.Add(new UIMenuItemData("ZoomOut", "ZoomOut"));
 
             menuData.ListMenuItemData.Add(menuZoom);
 
-            MenuItemData menuOptions = new MenuItemData("Options");
+            UIMenuItemData menuOptions = new UIMenuItemData("Options");
 
-            menuOptions.ListMenuItemData.Add(new MenuItemData("Option1"));
+            menuOptions.ListMenuItemData.Add(new UIMenuItemData("Option1"));
 
             menuData.ListMenuItemData.Add(menuOptions);
 

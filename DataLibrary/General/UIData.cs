@@ -7,5 +7,13 @@ namespace DataLibrary.General
     {
         public List<TileColorData> ListTileColor;
         public List<TileImageData> ListTileImage;
+
+        public UIData() { }
+
+        public UIData(List<TileColorData> listTileColor, List<TileImageData> listTileImage)
+        {
+            ListTileColor = listTileColor;
+            ListTileImage = listTileImage;
+        }
     }
 }

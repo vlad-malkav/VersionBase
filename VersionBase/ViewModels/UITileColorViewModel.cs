@@ -4,7 +4,7 @@ using MyToolkit.Mvvm;
 
 namespace VersionBase.ViewModels
 {
-    public class UITileColorViewModel : AbstractViewModel<UITileColorModel>
+    public class UITileColorViewModel : AbstractViewModel<TileColorModel>
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -12,7 +12,7 @@ namespace VersionBase.ViewModels
 
         public UITileColorViewModel() { }
 
-        public override void ApplyModel(UITileColorModel model)
+        public  override void ApplyModel(TileColorModel model)
         {
             Id = model.Id;
             Name = model.Name;

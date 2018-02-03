@@ -16,7 +16,7 @@ namespace VersionBase.ViewModels
             ListMenuItemViewModel=new List<UIMenuItemViewModel>();
         }
 
-        public override void ApplyModel(UIMenuModel model)
+        public  override void ApplyModel(UIMenuModel model)
         {
             foreach (UIMenuItemModel menuItemModel in model.ListMenuItemModel)
             {

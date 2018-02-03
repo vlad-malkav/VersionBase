@@ -5,7 +5,7 @@ using VersionBase.Libraries.Drawing;
 
 namespace VersionBase.Models
 {
-    public class UITileImageModel : AbstractModel<TileImageData>
+    public class TileImageModel : IModel<TileImageData>
     {
         private string _id;
         private string _name;
@@ -38,9 +38,9 @@ namespace VersionBase.Models
             get { return _bitmapImage; }
         }
 
-        public UITileImageModel() { }
+        public TileImageModel() { }
 
-        public override void ImportData(TileImageData data)
+        public void ImportData(TileImageData data)
         {
             _id = data.Id;
             _imageName = data.ImageName;

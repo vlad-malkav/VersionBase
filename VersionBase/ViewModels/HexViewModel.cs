@@ -22,8 +22,6 @@ namespace VersionBase.ViewModels
         public int Row { get; set; }
         public bool Selected { get; set; }
         private double CellRadius { get; set; }
-        /*public Color Color { get; set; }
-        public Bitmap Bitmap { get; set; }*/
         public Polygon InsidePolygon { get; private set; }
         public Polygon BorderPolygon { get; private set; }
         public Grid GridLabel { get; set; }
@@ -70,8 +68,6 @@ namespace VersionBase.ViewModels
             DegreExploration = model.DegreExploration;
             Column = model.Column;
             Row = model.Row;
-            /*Color = hexModel.TileColorModel.GetDrawingColor();
-            Bitmap = hexModel.TileImageModel.Bitmap;*/
 
             HexDrawingData.SetHexCoordinates(Column, Row);
             UpdateTileData(model.TileColorModel.GetDrawingColor(), model.TileImageModel.Bitmap);

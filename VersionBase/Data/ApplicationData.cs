@@ -22,32 +22,5 @@ namespace VersionBase.Data
             UIData = DataGeneration.GenerateUIData();
             GameData = DataGeneration.GenerateGameData(colCount, rowCount);
         }
-
-        public void SaveApplicationModel(ApplicationModel aplicationModel, ApplicationData applicationData)
-        {
-            SaveGameModel(aplicationModel.GameModel, applicationData.GameData);
-        }
-
-        public void SaveGameModel(GameModel gameModel, GameData gameData)
-        {
-            SaveHexMapModel(gameModel.HexMapModel, gameData.HexMapData);
-        }
-
-        public void SaveHexMapModel(HexMapModel hexMapModel, HexMapData hexMapData)
-        {
-            foreach (var hexModel in hexMapModel.ListHexModel)
-            {
-                HexData hexData = hexMapData.GetHexData(hexModel.Column, hexModel.Row);
-                SaveHexModel(hexModel, hexData);
-            }
-        }
-
-        public void SaveHexModel(HexModel hexModel, HexData hexData)
-        {
-            hexData.TileData.TileColorData = new TileColorData(hexModel.TileColorModel.GetDrawingColor());
-            hexData.TileData.TileImageData = new TileImageData(hexModel.TileImageModel.Id);
-            hexData.DegreExploration = hexModel.DegreExploration;
-            hexData.Description = hexModel.Description;
-        }
     }
 }

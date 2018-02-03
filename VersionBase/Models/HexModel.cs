@@ -4,13 +4,13 @@ using MyToolkit.Messaging;
 
 namespace VersionBase.Models
 {
-    public class HexModel : AbstractModel<HexData>
+    public class HexModel : IModel<HexData>
     {
         private int _column;
         private int _row;
         private bool _selected;
-        private UITileColorModel _tileColorModel;
-        private UITileImageModel _tileImageModel;
+        private TileColorModel _tileColorModel;
+        private TileImageModel _tileImageModel;
         private string _description;
         private int _degreExploration;
         
@@ -29,12 +29,12 @@ namespace VersionBase.Models
             get { return _selected; }
         }
 
-        public UITileColorModel TileColorModel
+        public TileColorModel TileColorModel
         {
             get { return _tileColorModel; }
         }
 
-        public UITileImageModel TileImageModel
+        public TileImageModel TileImageModel
         {
             get { return _tileImageModel; }
         }
@@ -51,19 +51,19 @@ namespace VersionBase.Models
 
         public HexModel() { }
 
-        public override void ImportData(HexData data)
+        public void ImportData(HexData data)
         {
             _description = data.Description;
             _degreExploration = data.DegreExploration;
             _column = data.Column;
             _row = data.Row;
-            _tileColorModel = new UITileColorModel();
+            _tileColorModel = new TileColorModel();
             _tileColorModel.ImportData(data.TileData.TileColorData);
-            _tileImageModel = new UITileImageModel();
+            _tileImageModel = new TileImageModel();
             _tileImageModel.ImportData(data.TileData.TileImageData);
         }
 
-        public void UpdateColorImageModels(UITileColorModel tileColorModel, UITileImageModel tileImageModel)
+        public void UpdateColorImageModels(TileColorModel tileColorModel, TileImageModel tileImageModel)
         {
             _tileColorModel = tileColorModel;
             _tileImageModel = tileImageModel;

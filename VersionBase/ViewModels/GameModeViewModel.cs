@@ -14,7 +14,7 @@ namespace VersionBase.ViewModels
             GameMode = GameMode.Visualization;
         }
 
-        public override void ApplyModel(GameModeModel gameModeModel)
+        public  override void ApplyModel(GameModeModel gameModeModel)
         {
             Id = gameModeModel.Id;
             Name = gameModeModel.Name;

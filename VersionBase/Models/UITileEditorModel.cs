@@ -10,23 +10,23 @@ namespace VersionBase.Models
 {
     public class UITileEditorModel
     {
-        private List<UITileColorModel> _listTileColorModel;
-        private List<UITileImageModel> _listTileImageModel;
+        private List<TileColorModel> _listTileColorModel;
+        private List<TileImageModel> _listTileImageModel;
 
-        public List<UITileColorModel> ListTileColorModel
+        public List<TileColorModel> ListTileColorModel
         {
             get { return _listTileColorModel; }
         }
 
-        public List<UITileImageModel> ListTileImageModel
+        public List<TileImageModel> ListTileImageModel
         {
             get { return _listTileImageModel; }
         }
 
         public UITileEditorModel()
         {
-            _listTileColorModel = new List<UITileColorModel>();
-            _listTileImageModel = new List<UITileImageModel>();
+            _listTileColorModel = new List<TileColorModel>();
+            _listTileImageModel = new List<TileImageModel>();
             Messenger.Default.Register<GetTileColorTileImageModelsFromIdRequestMessage>(this, RequestSelectedColorImageIdsFunction);
         }
 
@@ -35,7 +35,7 @@ namespace VersionBase.Models
             _listTileColorModel.Clear();
             foreach (var tileColor in listTileColor)
             {
-                UITileColorModel tileColorModelTmp = new UITileColorModel();
+                TileColorModel tileColorModelTmp = new TileColorModel();
                 tileColorModelTmp.ImportData(tileColor);
                 _listTileColorModel.Add(tileColorModelTmp);
             }
@@ -46,25 +46,25 @@ namespace VersionBase.Models
             _listTileImageModel.Clear();
             foreach (var tileImage in listTileImage)
             {
-                UITileImageModel tileImageModelTmp = new UITileImageModel();
+                TileImageModel tileImageModelTmp = new TileImageModel();
                 tileImageModelTmp.ImportData(tileImage);
                 _listTileImageModel.Add(tileImageModelTmp);
             }
         }
 
-        public UITileColorModel GetTileColorModelFromId(string id)
+        public TileColorModel GetTileColorModelFromId(string id)
         {
             return ListTileColorModel.FirstOrDefault(x => x.Id == id);
         }
 
-        public UITileImageModel GetTileImageModelFromId(string id)
+        public TileImageModel GetTileImageModelFromId(string id)
         {
             return ListTileImageModel.FirstOrDefault(x => x.Id == id);
         }
 
         private void RequestSelectedColorImageIdsFunction(GetTileColorTileImageModelsFromIdRequestMessage msg)
         {
-            msg.CallSuccessCallback(new Tuple<UITileColorModel, UITileImageModel>(
+            msg.CallSuccessCallback(new Tuple<TileColorModel, TileImageModel>(
                 GetTileColorModelFromId(msg.TileColorModelId),
                 GetTileImageModelFromId(msg.TileImageModelId)));
         }

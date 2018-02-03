@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
 using DataLibrary.Menu;
+using VersionBase.Commands;
+using MyToolkit.Messaging;
+using VersionBase.Events;
 
 namespace VersionBase.Models
 {
-    public class UIMenuItemModel : AbstractModel<MenuItemData>
+    public class UIMenuItemModel : IModel<UIMenuItemData>
     {
         public string Header { get; set; }
         public List<UIMenuItemModel> ListMenuItemModel { get; set; }
@@ -15,11 +18,13 @@ namespace VersionBase.Models
             ListMenuItemModel = new List<UIMenuItemModel>();
         }
 
-        public override void ImportData(MenuItemData data)
+        public void ImportData(UIMenuItemData data)
         {
             Header = data.Header;
-            Command = data.Command;
-            foreach (MenuItemData menuItemData in data.ListMenuItemData)
+
+            Command = new MyICommand(() => Messenger.Default.Send(new MenuItemClickedMessage(data.AssociatedActionName)));
+
+            foreach (UIMenuItemData menuItemData in data.ListMenuItemData)
             {
                 UIMenuItemModel menuItemModel = new UIMenuItemModel();
                 menuItemModel.ImportData(menuItemData);

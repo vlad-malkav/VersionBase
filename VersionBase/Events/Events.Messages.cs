@@ -55,7 +55,7 @@ namespace VersionBase.Events
         public string TileImageModelId { get; set; }
     }
 
-    public class GetTileColorTileImageModelsFromIdRequestMessage : CallbackMessage<Tuple<UITileColorModel, UITileImageModel>>
+    public class GetTileColorTileImageModelsFromIdRequestMessage : CallbackMessage<Tuple<TileColorModel, TileImageModel>>
     {
         public string TileColorModelId { get; set; }
         public string TileImageModelId { get; set; }
@@ -69,8 +69,8 @@ namespace VersionBase.Events
 
     public class UpdateHexColorImageModelsMessage : HexCoordinatesMessage
     {
-        public UITileColorModel TileColorModel { get; set; }
-        public UITileImageModel TileImageModel { get; set; }
+        public TileColorModel TileColorModel { get; set; }
+        public TileImageModel TileImageModel { get; set; }
     }
 
     public class UpdateHexDescriptionDegreExplorationMessage : HexCoordinatesMessage
@@ -85,7 +85,12 @@ namespace VersionBase.Events
 
     public class MenuItemClickedMessage : BaseMessage
     {
-        public string Name { get; set; }
+        public string AssociatedActionName { get; set; }
+
+        public MenuItemClickedMessage(string associatedActionName)
+        {
+            AssociatedActionName = associatedActionName;
+        }
     }
 
     public class NewMessage : BaseMessage

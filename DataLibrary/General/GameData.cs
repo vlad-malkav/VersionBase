@@ -10,5 +10,11 @@ namespace DataLibrary.General
     {
         public HexMapData HexMapData { get; set; }
 
+        public GameData() { }
+
+        public GameData(HexMapData hexMapData)
+        {
+            HexMapData = hexMapData;
+        }
     }
 }
