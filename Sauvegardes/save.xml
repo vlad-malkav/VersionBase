@@ -17,9 +17,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>whaling</Id>
-            <Name>WHALING</Name>
-            <ImageName>whaling</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>0</Column>
@@ -38,9 +38,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>pyramid</Id>
-            <Name>PYRAMID</Name>
-            <ImageName>pyramid</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>1</Column>
@@ -59,9 +59,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>cultivatedfarmland2___Copie</Id>
-            <Name>CULTIVATEDFARMLAND2___COPIE</Name>
-            <ImageName>cultivatedfarmland2___Copie</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>2</Column>
@@ -80,9 +80,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>moderncapital</Id>
-            <Name>MODERNCAPITAL</Name>
-            <ImageName>moderncapital</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>3</Column>
@@ -93,17 +93,17 @@
         <DegreExploration>2</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.180.180.180</Id>
-            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>180</Red>
-            <Green>180</Green>
-            <Blue>180</Blue>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>whaling</Id>
-            <Name>WHALING</Name>
-            <ImageName>whaling</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -122,9 +122,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>monolith</Id>
-            <Name>MONOLITH</Name>
-            <ImageName>monolith</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>5</Column>
@@ -143,9 +143,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>lighthouse</Id>
-            <Name>LIGHTHOUSE</Name>
-            <ImageName>lighthouse</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>6</Column>
@@ -164,9 +164,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>mountain</Id>
-            <Name>MOUNTAIN</Name>
-            <ImageName>mountain</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>7</Column>
@@ -185,9 +185,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>deadforestmountains</Id>
-            <Name>DEADFORESTMOUNTAINS</Name>
-            <ImageName>deadforestmountains</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>8</Column>
@@ -206,9 +206,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>lightforest</Id>
-            <Name>LIGHTFOREST</Name>
-            <ImageName>lightforest</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>9</Column>
@@ -227,9 +227,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>forestedhills</Id>
-            <Name>FORESTEDHILLS</Name>
-            <ImageName>forestedhills</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>0</Column>
@@ -240,17 +240,17 @@
         <DegreExploration>2</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.180.180.180</Id>
-            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>180</Red>
-            <Green>180</Green>
-            <Blue>180</Blue>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>volcanodormant</Id>
-            <Name>VOLCANODORMANT</Name>
-            <ImageName>volcanodormant</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>1</Column>
@@ -269,9 +269,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>mines</Id>
-            <Name>MINES</Name>
-            <ImageName>mines</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>2</Column>
@@ -290,9 +290,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>hills</Id>
-            <Name>HILLS</Name>
-            <ImageName>hills</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>3</Column>
@@ -303,17 +303,17 @@
         <DegreExploration>1</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.180.180.180</Id>
-            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>180</Red>
-            <Green>180</Green>
-            <Blue>180</Blue>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>whaling</Id>
-            <Name>WHALING</Name>
-            <ImageName>whaling</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -332,9 +332,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>sun</Id>
-            <Name>SUN</Name>
-            <ImageName>sun</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>5</Column>
@@ -353,9 +353,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>reefs</Id>
-            <Name>REEFS</Name>
-            <ImageName>reefs</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>6</Column>
@@ -366,17 +366,17 @@
         <DegreExploration>0</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.180.180.180</Id>
-            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>180</Red>
-            <Green>180</Green>
-            <Blue>180</Blue>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>volcanodormant</Id>
-            <Name>VOLCANODORMANT</Name>
-            <ImageName>volcanodormant</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>7</Column>
@@ -395,9 +395,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>steppedpyramid</Id>
-            <Name>STEPPEDPYRAMID</Name>
-            <ImageName>steppedpyramid</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>8</Column>
@@ -416,9 +416,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>heavyforest</Id>
-            <Name>HEAVYFOREST</Name>
-            <ImageName>heavyforest</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>9</Column>
@@ -437,9 +437,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>evergreen</Id>
-            <Name>EVERGREEN</Name>
-            <ImageName>evergreen</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>0</Column>
@@ -458,9 +458,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>moderncity</Id>
-            <Name>MODERNCITY</Name>
-            <ImageName>moderncity</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>1</Column>
@@ -479,9 +479,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>spaceship</Id>
-            <Name>SPACESHIP</Name>
-            <ImageName>spaceship</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>2</Column>
@@ -492,17 +492,17 @@
         <DegreExploration>5</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.180.180.180</Id>
-            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>180</Red>
-            <Green>180</Green>
-            <Blue>180</Blue>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>volcanodormant</Id>
-            <Name>VOLCANODORMANT</Name>
-            <ImageName>volcanodormant</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>3</Column>
@@ -513,17 +513,17 @@
         <DegreExploration>0</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.180.180.180</Id>
-            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>180</Red>
-            <Green>180</Green>
-            <Blue>180</Blue>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>whaling</Id>
-            <Name>WHALING</Name>
-            <ImageName>whaling</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -534,17 +534,17 @@
         <DegreExploration>2</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.180.180.180</Id>
-            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>180</Red>
-            <Green>180</Green>
-            <Blue>180</Blue>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>volcanodormant</Id>
-            <Name>VOLCANODORMANT</Name>
-            <ImageName>volcanodormant</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>5</Column>
@@ -563,9 +563,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>cultivatedfarmland_2</Id>
-            <Name>CULTIVATEDFARMLAND_2</Name>
-            <ImageName>cultivatedfarmland_2</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>6</Column>
@@ -584,9 +584,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>radiation</Id>
-            <Name>RADIATION</Name>
-            <ImageName>radiation</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>7</Column>
@@ -605,9 +605,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>castle</Id>
-            <Name>CASTLE</Name>
-            <ImageName>castle</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>8</Column>
@@ -626,9 +626,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>crater</Id>
-            <Name>CRATER</Name>
-            <ImageName>crater</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>9</Column>
@@ -647,9 +647,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>cathedral</Id>
-            <Name>CATHEDRAL</Name>
-            <ImageName>cathedral</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>0</Column>
@@ -668,9 +668,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>evergreenhills</Id>
-            <Name>EVERGREENHILLS</Name>
-            <ImageName>evergreenhills</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>1</Column>
@@ -689,9 +689,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>deadforest</Id>
-            <Name>DEADFOREST</Name>
-            <ImageName>deadforest</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>2</Column>
@@ -710,9 +710,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>fort</Id>
-            <Name>FORT</Name>
-            <ImageName>fort</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>3</Column>
@@ -723,17 +723,17 @@
         <DegreExploration>6</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.180.180.180</Id>
-            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>180</Red>
-            <Green>180</Green>
-            <Blue>180</Blue>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>whaling</Id>
-            <Name>WHALING</Name>
-            <ImageName>whaling</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -752,9 +752,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>city</Id>
-            <Name>CITY</Name>
-            <ImageName>city</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>5</Column>
@@ -773,9 +773,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>town</Id>
-            <Name>TOWN</Name>
-            <ImageName>town</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>6</Column>
@@ -794,9 +794,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>evergreenmountains</Id>
-            <Name>EVERGREENMOUNTAINS</Name>
-            <ImageName>evergreenmountains</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>7</Column>
@@ -815,9 +815,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>whaling</Id>
-            <Name>WHALING</Name>
-            <ImageName>whaling</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>8</Column>
@@ -836,9 +836,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>pyramid</Id>
-            <Name>PYRAMID</Name>
-            <ImageName>pyramid</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>9</Column>
@@ -857,9 +857,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>cultivatedfarmland2___Copie</Id>
-            <Name>CULTIVATEDFARMLAND2___COPIE</Name>
-            <ImageName>cultivatedfarmland2___Copie</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>0</Column>
@@ -878,9 +878,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>moderncapital</Id>
-            <Name>MODERNCAPITAL</Name>
-            <ImageName>moderncapital</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>1</Column>
@@ -899,9 +899,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>heavyevergreen</Id>
-            <Name>HEAVYEVERGREEN</Name>
-            <ImageName>heavyevergreen</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>2</Column>
@@ -920,9 +920,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>monolith</Id>
-            <Name>MONOLITH</Name>
-            <ImageName>monolith</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>3</Column>
@@ -933,17 +933,17 @@
         <DegreExploration>5</DegreExploration>
         <TileData>
           <TileColorData>
-            <Id>Color-255.180.180.180</Id>
-            <Name>Color [A=255, R=180, G=180, B=180]</Name>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>180</Red>
-            <Green>180</Green>
-            <Blue>180</Blue>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>whaling</Id>
-            <Name>WHALING</Name>
-            <ImageName>whaling</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>4</Column>
@@ -962,9 +962,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>mountain</Id>
-            <Name>MOUNTAIN</Name>
-            <ImageName>mountain</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>5</Column>
@@ -983,9 +983,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>deadforestmountains</Id>
-            <Name>DEADFORESTMOUNTAINS</Name>
-            <ImageName>deadforestmountains</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>6</Column>
@@ -1004,9 +1004,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>lightforest</Id>
-            <Name>LIGHTFOREST</Name>
-            <ImageName>lightforest</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>7</Column>
@@ -1025,9 +1025,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>forestedhills</Id>
-            <Name>FORESTEDHILLS</Name>
-            <ImageName>forestedhills</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>8</Column>
@@ -1046,9 +1046,9 @@
             <Blue>144</Blue>
           </TileColorData>
           <TileImageData>
-            <Id>dunes</Id>
-            <Name>DUNES</Name>
-            <ImageName>dunes</ImageName>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
           </TileImageData>
         </TileData>
         <Column>9</Column>
