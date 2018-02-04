@@ -8,6 +8,7 @@ using VersionBase.Events;
 using VersionBase.Forms;
 using Microsoft.Win32;
 using MyToolkit.Messaging;
+using VersionBase.Classes;
 using VersionBase.Libraries;
 using VersionBase.Logic;
 using VersionBase.Models;
@@ -31,10 +32,13 @@ namespace VersionBase
         public ApplicationModel ApplicationModel { get; set; }
         //ViewModels
         public ApplicationViewModel ApplicationViewModel { get; set; }
+        //Holders
+        public ImageManager ImageManager { get; set; }
 
         public MainWindow()
         {
             // VS Generated code not included
+            ImageManager = new ImageManager();
             InitializeComponent();
         }
 

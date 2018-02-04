@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\ImageManager.cs" />
     <Compile Include="Classes\InverseBoolConverter.cs" />
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Data\ApplicationData.cs" />

@@ -50,7 +50,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Name}" Width="Auto" />
-                            <Image Width="Auto" Height="20" Source="{Binding BitmapImage}"/>
+                            <Image Width="Auto" Height="20" Source="{Binding ImageSource}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
