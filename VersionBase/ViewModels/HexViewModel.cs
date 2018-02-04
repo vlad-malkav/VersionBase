@@ -70,7 +70,7 @@ namespace VersionBase.ViewModels
             Row = model.Row;
 
             HexDrawingData.SetHexCoordinates(Column, Row);
-            UpdateTileData(model.TileColorModel.GetDrawingColor(), model.TileImageModel.Bitmap);
+            UpdateTileData(model.TileColorModel.GetDrawingColor(), model.TileImageModel.ImageName);
         }
 
         public void InitializeCellRadius(double cellRadius)
@@ -130,9 +130,11 @@ namespace VersionBase.ViewModels
             }
         }
 
-        public void UpdateTileData(Color color, Bitmap bitmap)
+        public async void UpdateTileData(Color color, string imageName)
         {
-            HexMapDrawingHelper.InsidePolygon_UpdateFill(InsidePolygon, color, bitmap);
+            GetBitmapByNameMessage msg = new GetBitmapByNameMessage(imageName);
+            var result = await Messenger.Default.SendAsync(msg);
+            HexMapDrawingHelper.InsidePolygon_UpdateFill(InsidePolygon, color, result.Result);
         }
 
         public void UpdateDegreExploration(int degreExploration)

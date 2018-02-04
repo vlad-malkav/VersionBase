@@ -83,7 +83,7 @@ namespace VersionBase.ViewModels
             if (hexViewModel != null)
                 hexViewModel.UpdateTileData(
                     hexModel.TileColorModel.GetDrawingColor(),
-                    hexModel.TileImageModel.Bitmap);
+                    hexModel.TileImageModel.ImageName);
         }
 
         public void UpdateHexViewModelFromModel_DegreExploration(HexModel hexModel)

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Windows.Media.Imaging;
 using VersionBase.Models;
 using VersionBase.ViewModels;
 using MyToolkit.Messaging;
@@ -140,5 +142,25 @@ namespace VersionBase.Events
     public class UpdateGameModeMessage : BaseMessage
     {
         public GameMode GameMode { get; set; }
+    }
+
+    public class GetBitmapImageByNameMessage : CallbackMessage<BitmapImage>
+    {
+        public string ImageName { get; set; }
+
+        public GetBitmapImageByNameMessage(string imageName)
+        {
+            ImageName = imageName;
+        }
+    }
+
+    public class GetBitmapByNameMessage : CallbackMessage<Bitmap>
+    {
+        public string ImageName { get; set; }
+
+        public GetBitmapByNameMessage(string imageName)
+        {
+            ImageName = imageName;
+        }
     }
 }

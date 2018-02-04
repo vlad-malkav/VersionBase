@@ -191,21 +191,21 @@ namespace VersionBase.Libraries.Drawing
                 tileColorData.Blue);
         }
 
-        public static Bitmap GetBitmapFromTileImageData(TileImageData tileImageData)
+        public static Bitmap GetBitmapFromName(string name)
         {
-            return TileImageHelper.GetBitmapTile(tileImageData.ImageName);
+            return TileImageHelper.GetBitmapTile(name);
         }
 
-        public static BitmapImage GetBitmapImageFromTileImageData(TileImageData tileImageData)
+        public static BitmapImage GetBitmapImageFromName(string name)
         {
-            return HexMapDrawingHelper.Convert(TileImageHelper.GetBitmapTile(tileImageData.ImageName));
+            return HexMapDrawingHelper.Convert(TileImageHelper.GetBitmapTile(name));
         }
 
         public static BitmapImage GenerateTileBitmapImage(TileData tileData)
         {
             return GenerateTileBitmapImage(
                 GetDrawingColorFromTileColorData(tileData.TileColorData),
-                GetBitmapFromTileImageData(tileData.TileImageData));
+                GetBitmapFromName(tileData.TileImageData.ImageName));
         }
 
         public static BitmapImage GenerateTileBitmapImage(Color color, Bitmap bitmapTile)
