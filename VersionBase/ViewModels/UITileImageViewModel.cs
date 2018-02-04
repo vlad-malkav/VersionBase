@@ -15,7 +15,7 @@ namespace VersionBase.ViewModels
 
         public string Name { get; set; }
         public string NameLower { get; set; }
-        public BitmapImage Bitmap { get; set; }
+        public BitmapImage BitmapImage { get; set; }
 
         public UITileImageViewModel() { }
 
@@ -24,7 +24,7 @@ namespace VersionBase.ViewModels
             _id = model.Id;
             Name = model.Name;
             NameLower = model.ImageName;
-            Bitmap = model.BitmapImage;
+            BitmapImage = model.BitmapImage;
         }
     }
 }
