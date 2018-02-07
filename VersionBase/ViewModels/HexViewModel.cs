@@ -164,22 +164,16 @@ namespace VersionBase.ViewModels
 
         private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var point = e.GetPosition((Polygon)sender);
             // Broadcast Events
-            Messenger.Default.Send(
-                new HexClickedLeftButtonMessage
-                {
-                    HexViewModel = this
-                });
+            Messenger.Default.Send(new HexClickedLeftButtonMessage(this, point));
         }
 
         private void MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var point = e.GetPosition((Polygon)sender);
             // Broadcast Events
-            Messenger.Default.Send(
-                new HexClickedRightButtonMessage
-                {
-                    HexViewModel = this
-                });
+            Messenger.Default.Send(new HexClickedRightButtonMessage(this, point));
         }
     }
 }

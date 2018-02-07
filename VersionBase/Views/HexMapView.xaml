@@ -13,9 +13,13 @@
         <ItemsControl ItemsSource="{Binding ListUIElement}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" Background="Aqua"
+                    <Canvas x:Name="CanvasTest" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Aqua"
                             Width="{Binding ActualWidth, RelativeSource = {RelativeSource AncestorType = {x:Type Grid}}}"
-                            Height="{Binding ActualHeight, RelativeSource = {RelativeSource AncestorType = {x:Type Grid}}}"/>
+                            Height="{Binding ActualHeight, RelativeSource = {RelativeSource AncestorType = {x:Type Grid}}}">
+                        <Canvas.RenderTransform>
+                            <ScaleTransform x:Name="St"/>
+                        </Canvas.RenderTransform>
+                        </Canvas>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>

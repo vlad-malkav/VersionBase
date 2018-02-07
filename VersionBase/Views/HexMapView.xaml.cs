@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
+using System.Windows.Media;
 using VersionBase.Events;
 using VersionBase.ViewModels;
 using MyToolkit.Messaging;
@@ -13,6 +14,7 @@ namespace VersionBase.Views
     {
         public HexMapView()
         {
+            _scaleTransform = new ScaleTransform();
             UnregisterMessages();
             InitializeComponent();
             RegisterMessages();
@@ -24,12 +26,22 @@ namespace VersionBase.Views
         {
             Messenger.Default.Deregister<GetHexMapCanvasDimensionsRequestMessage>(this,
                 GetHexMapCanvasDimensionsRequestMessageFunction);
+            Messenger.Default.Deregister<AddPointMessage>(this, AddPointMessageFunction);
         }
 
         private void RegisterMessages()
         {
             Messenger.Default.Register<GetHexMapCanvasDimensionsRequestMessage>(this,
                 GetHexMapCanvasDimensionsRequestMessageFunction);
+            Messenger.Default.Register<AddPointMessage>(this, AddPointMessageFunction);
+        }
+
+        //TODO DESBONAL
+        private ScaleTransform _scaleTransform;
+        private void AddPointMessageFunction(AddPointMessage msg)
+        {
+            CanvasTest.Sc.ScaleX *= 1.5;
+            St.ScaleY *= 1.5;
         }
 
         private void GetHexMapCanvasDimensionsRequestMessageFunction(GetHexMapCanvasDimensionsRequestMessage msg)

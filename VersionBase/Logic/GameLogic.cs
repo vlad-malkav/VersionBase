@@ -12,10 +12,12 @@ namespace VersionBase.Logic
     public partial class GameLogic
     {
         public GameMode GameMode { get; set; }
+        public ClickAction ClickAction { get; set; }
 
         public GameLogic()
         {
             GameMode = GameMode.MapCreation;
+            ClickAction = ClickAction.AddCommunity;
             SubscribeToEvents();
         }
 
@@ -50,23 +52,32 @@ namespace VersionBase.Logic
 
         #region Clic functions
 
-        public void LeftClicFunction(HexViewModel hexViewModel)
+        public void LeftClicFunction(HexViewModel hexViewModel, System.Windows.Point point)
         {
+            switch (ClickAction)
+            {
+                case ClickAction.AddCommunity:
+                    Messenger.Default.Send(new AddPointMessage(hexViewModel, point));
+                    return;
+                default:
+                    break;
+            }
+
             switch (GameMode)
             {
                 case GameMode.MapCreation:
                     UpdateHexModelWithSelectedColorImage(hexViewModel.Column, hexViewModel.Row);
-                    break;
+                    return;
                 case GameMode.HexEdition:
                     SelectHex(hexViewModel.Column, hexViewModel.Row);
-                    break;
+                    return;
                 case GameMode.Visualization:
                     SelectHex(hexViewModel.Column, hexViewModel.Row);
-                    break;
+                    return;
             }
         }
 
-        public void RightClicFunction(HexViewModel hexViewModel)
+        public void RightClicFunction(HexViewModel hexViewModel, System.Windows.Point point)
         {
             switch (GameMode)
             {

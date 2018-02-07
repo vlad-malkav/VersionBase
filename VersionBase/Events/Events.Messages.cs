@@ -31,11 +31,44 @@ namespace VersionBase.Events
         public int Row { get; set; }
     }
 
+    public class PointMessage : BaseMessage
+    {
+        public System.Windows.Point Point { get; set; }
+    }
+
+    public class HexPointMessage : PointMessage
+    {
+        public HexViewModel HexViewModel { get; set; }
+    }
+
     #endregion
 
-    public class HexClickedRightButtonMessage : HexViewModelMessage { }
+    public class HexClickedRightButtonMessage : HexPointMessage
+    {
+        public HexClickedRightButtonMessage(HexViewModel hexViewModel, System.Windows.Point point)
+        {
+            HexViewModel = hexViewModel;
+            Point = point;
+        }
+    }
 
-    public class HexClickedLeftButtonMessage : HexViewModelMessage { }
+    public class HexClickedLeftButtonMessage : HexPointMessage
+    {
+        public HexClickedLeftButtonMessage(HexViewModel hexViewModel, System.Windows.Point point)
+        {
+            HexViewModel = hexViewModel;
+            Point = point;
+        }
+    }
+
+    public class AddPointMessage : HexPointMessage
+    {
+        public AddPointMessage(HexViewModel hexViewModel, System.Windows.Point point)
+        {
+            HexViewModel = hexViewModel;
+            Point = point;
+        }
+    }
 
     public class GetSelectedColorImageIdsRequestMessage : CallbackMessage<Tuple<string, string>>
     {

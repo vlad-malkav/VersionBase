@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
 using VersionBase.Events;
 using VersionBase.Models;
 using MyToolkit.Messaging;
@@ -173,6 +176,7 @@ namespace VersionBase.ViewModels
             Messenger.Default.Deregister<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Deregister<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
             Messenger.Default.Deregister<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
+            Messenger.Default.Deregister<AddPointMessage>(this, AddPointMessageFunction);
         }
 
         private void RegisterMessages()
@@ -183,6 +187,7 @@ namespace VersionBase.ViewModels
             Messenger.Default.Register<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
             Messenger.Default.Register<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
             Messenger.Default.Register<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
+            Messenger.Default.Register<AddPointMessage>(this, AddPointMessageFunction);
         }
 
         private void HexTileUpdatedMessageFunction(HexTileUpdatedMessage msg)
@@ -219,6 +224,39 @@ namespace VersionBase.ViewModels
             {
                 CenterHexMap();
             }
+        }
+
+        public void AddPointMessageFunction(AddPointMessage msg)
+        {
+            /*Ellipse childCtrl = new Ellipse();
+
+            childCtrl.Name = "Ellipse1";
+            childCtrl.StrokeThickness = 5;
+            childCtrl.Stroke = Brushes.Blue;
+            childCtrl.Fill = Brushes.DarkBlue;
+            childCtrl.Width = 20;
+            childCtrl.Height = 20;
+
+            Point closerPoint = msg.HexViewModel.HexDrawingData.GetCloserPointToPoint(msg.Point);
+
+            Canvas.SetTop(childCtrl, closerPoint.Y);
+            Canvas.SetLeft(childCtrl, closerPoint.X);
+
+            ListUIElement.Add(childCtrl);
+
+            Ellipse childCtrl1 = new Ellipse();
+
+            childCtrl1.Name = "Ellipse1";
+            childCtrl1.StrokeThickness = 5;
+            childCtrl1.Stroke = Brushes.Red;
+            childCtrl1.Fill = Brushes.DarkRed;
+            childCtrl1.Width = 20;
+            childCtrl1.Height = 20;
+
+            Canvas.SetTop(childCtrl1, msg.Point.Y - (childCtrl1.Height / 2));
+            Canvas.SetLeft(childCtrl1, msg.Point.X - (childCtrl1.Width / 2));
+
+            ListUIElement.Add(childCtrl1);*/
         }
 
         #endregion Event Functions

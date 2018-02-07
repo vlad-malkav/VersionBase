@@ -7,13 +7,17 @@ namespace VersionBase.Libraries.Drawing
     public class HexDrawingInformations
     {
         private int _column;
+
         private int _row;
+
         //private double _xCenterMod;
         //private double _yCenterMod;
         private double _cellRadius;
+
         private double _cellCenterX;
         private double _cellCenterY;
         private double _cellHeight;
+        private Point _centerPoint;
         private List<Point> _listOuterSummitPoints;
         private List<Point> _listOuterMiddlePoints;
         private List<Point> _listInnerSummitPoints;
@@ -58,6 +62,11 @@ namespace VersionBase.Libraries.Drawing
             get { return _cellHeight; }
         }
 
+        public Point CenterPoint
+        {
+            get { return _centerPoint; }
+        }
+
         public List<Point> ListOuterSummitPoints
         {
             get { return _listOuterSummitPoints; }
@@ -93,6 +102,7 @@ namespace VersionBase.Libraries.Drawing
             _cellHeight = GetCellHeight(CellRadius);
             _cellCenterX = GetCellX(CellRadius, Column);
             _cellCenterY = GetCellY(CellRadius, Column, Row);
+            _centerPoint = new Point(_cellCenterX, _cellCenterY);
             RegeneratePoints();
         }
 
@@ -123,6 +133,44 @@ namespace VersionBase.Libraries.Drawing
             _listOuterMiddlePoints.Add(DrawingFunctions.Midpoint(_listOuterSummitPoints[5], _listOuterSummitPoints[0]));
         }
 
+        public Point GetCloserPointToPoint(Point point)
+        {
+            Point closerPoint = _centerPoint;
+            double closerDistance = PointToPointDistance(point, closerPoint);
+
+            foreach (Point pointTmp in _listOuterSummitPoints)
+            {
+                double distanceTmp = PointToPointDistance(point, pointTmp);
+                if (distanceTmp < closerDistance)
+                {
+                    closerPoint = pointTmp;
+                    closerDistance = distanceTmp;
+                }
+            }
+
+            foreach (Point pointTmp in _listInnerSummitPoints)
+            {
+                double distanceTmp = PointToPointDistance(point, pointTmp);
+                if (distanceTmp < closerDistance)
+                {
+                    closerPoint = pointTmp;
+                    closerDistance = distanceTmp;
+                }
+            }
+
+            foreach (Point pointTmp in _listOuterMiddlePoints)
+            {
+                double distanceTmp = PointToPointDistance(point, pointTmp);
+                if (distanceTmp < closerDistance)
+                {
+                    closerPoint = pointTmp;
+                    closerDistance = distanceTmp;
+                }
+            }
+
+            return closerPoint;
+        }
+
         #region Static functions
 
         public static double GetCellWidth(double cellRadius)
@@ -143,8 +191,13 @@ namespace VersionBase.Libraries.Drawing
         public static double GetCellY(double cellRadius, int column, int row)
         {
             return GetCellHeight(cellRadius) * (
-                ((column & 1) == 1 ? 1 : 0.5)
-                + row);
+                       ((column & 1) == 1 ? 1 : 0.5)
+                       + row);
+        }
+
+        public static double PointToPointDistance(Point p1, Point p2)
+        {
+            return (Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
         }
 
         #endregion Static functions

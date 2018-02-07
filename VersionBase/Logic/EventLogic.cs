@@ -27,12 +27,12 @@ namespace VersionBase.Logic
 
         public void HexClickedRightButtonMessageFunction(HexClickedRightButtonMessage msg)
         {
-            RightClicFunction(msg.HexViewModel);
+            RightClicFunction(msg.HexViewModel, msg.Point);
         }
 
         public void HexClickedLeftButtonMessageFunction(HexClickedLeftButtonMessage msg)
         {
-            LeftClicFunction(msg.HexViewModel);
+            LeftClicFunction(msg.HexViewModel, msg.Point);
         }
 
         public void MapTransformationTypeBroadcastMessageFunction(MapTransformationTypeBroadcastMessage msg)
