@@ -228,19 +228,19 @@ namespace VersionBase.ViewModels
 
         public void AddPointMessageFunction(AddPointMessage msg)
         {
-            /*Ellipse childCtrl = new Ellipse();
+            Ellipse childCtrl = new Ellipse();
 
             childCtrl.Name = "Ellipse1";
             childCtrl.StrokeThickness = 5;
             childCtrl.Stroke = Brushes.Blue;
             childCtrl.Fill = Brushes.DarkBlue;
-            childCtrl.Width = 20;
-            childCtrl.Height = 20;
+            childCtrl.Width = 10;
+            childCtrl.Height = 10;
 
             Point closerPoint = msg.HexViewModel.HexDrawingData.GetCloserPointToPoint(msg.Point);
 
-            Canvas.SetTop(childCtrl, closerPoint.Y);
-            Canvas.SetLeft(childCtrl, closerPoint.X);
+            Canvas.SetTop(childCtrl, closerPoint.Y - (childCtrl.Height / 2));
+            Canvas.SetLeft(childCtrl, closerPoint.X - (childCtrl.Width / 2));
 
             ListUIElement.Add(childCtrl);
 
@@ -250,13 +250,13 @@ namespace VersionBase.ViewModels
             childCtrl1.StrokeThickness = 5;
             childCtrl1.Stroke = Brushes.Red;
             childCtrl1.Fill = Brushes.DarkRed;
-            childCtrl1.Width = 20;
-            childCtrl1.Height = 20;
+            childCtrl1.Width = 10;
+            childCtrl1.Height = 10;
 
             Canvas.SetTop(childCtrl1, msg.Point.Y - (childCtrl1.Height / 2));
             Canvas.SetLeft(childCtrl1, msg.Point.X - (childCtrl1.Width / 2));
 
-            ListUIElement.Add(childCtrl1);*/
+            ListUIElement.Add(childCtrl1);
         }
 
         #endregion Event Functions

@@ -121,6 +121,7 @@ namespace VersionBase.ViewModels
 
         public void Move(double moveX, double moveY)
         {
+            HexDrawingData.Move(moveX, moveY);
             DrawingFunctions.MovePolygon(InsidePolygon, moveX, moveY);
             DrawingFunctions.MovePolygon(BorderPolygon, moveX, moveY);
             DrawingFunctions.MoveGrid(GridLabel, moveX, moveY);

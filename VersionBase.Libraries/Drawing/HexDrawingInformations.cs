@@ -17,7 +17,6 @@ namespace VersionBase.Libraries.Drawing
         private double _cellCenterX;
         private double _cellCenterY;
         private double _cellHeight;
-        private Point _centerPoint;
         private List<Point> _listOuterSummitPoints;
         private List<Point> _listOuterMiddlePoints;
         private List<Point> _listInnerSummitPoints;
@@ -47,12 +46,12 @@ namespace VersionBase.Libraries.Drawing
             get { return _cellRadius; }
         }
 
-        public double CellX
+        public double CellCenterX
         {
             get { return _cellCenterX; }
         }
 
-        public double CellY
+        public double CellCenterY
         {
             get { return _cellCenterY; }
         }
@@ -64,7 +63,7 @@ namespace VersionBase.Libraries.Drawing
 
         public Point CenterPoint
         {
-            get { return _centerPoint; }
+            get { return new Point(_cellCenterX, _cellCenterY); }
         }
 
         public List<Point> ListOuterSummitPoints
@@ -102,27 +101,26 @@ namespace VersionBase.Libraries.Drawing
             _cellHeight = GetCellHeight(CellRadius);
             _cellCenterX = GetCellX(CellRadius, Column);
             _cellCenterY = GetCellY(CellRadius, Column, Row);
-            _centerPoint = new Point(_cellCenterX, _cellCenterY);
             RegeneratePoints();
         }
 
         private void RegeneratePoints()
         {
             _listOuterSummitPoints.Clear();
-            _listOuterSummitPoints.Add(new Point(CellX - CellRadius, CellY));
-            _listOuterSummitPoints.Add(new Point(CellX - CellRadius / 2, CellY + CellHeight / 2));
-            _listOuterSummitPoints.Add(new Point(CellX + CellRadius / 2, CellY + CellHeight / 2));
-            _listOuterSummitPoints.Add(new Point(CellX + CellRadius, CellY));
-            _listOuterSummitPoints.Add(new Point(CellX + CellRadius / 2, CellY - CellHeight / 2));
-            _listOuterSummitPoints.Add(new Point(CellX - CellRadius / 2, CellY - CellHeight / 2));
+            _listOuterSummitPoints.Add(new Point(CellCenterX - CellRadius, CellCenterY));
+            _listOuterSummitPoints.Add(new Point(CellCenterX - CellRadius / 2, CellCenterY + CellHeight / 2));
+            _listOuterSummitPoints.Add(new Point(CellCenterX + CellRadius / 2, CellCenterY + CellHeight / 2));
+            _listOuterSummitPoints.Add(new Point(CellCenterX + CellRadius, CellCenterY));
+            _listOuterSummitPoints.Add(new Point(CellCenterX + CellRadius / 2, CellCenterY - CellHeight / 2));
+            _listOuterSummitPoints.Add(new Point(CellCenterX - CellRadius / 2, CellCenterY - CellHeight / 2));
 
             _listInnerSummitPoints.Clear();
-            _listInnerSummitPoints.Add(new Point(CellX - CellRadius / 2, CellY));
-            _listInnerSummitPoints.Add(new Point(CellX - CellRadius / 4, CellY + CellHeight / 4));
-            _listInnerSummitPoints.Add(new Point(CellX + CellRadius / 4, CellY + CellHeight / 4));
-            _listInnerSummitPoints.Add(new Point(CellX + CellRadius / 2, CellY));
-            _listInnerSummitPoints.Add(new Point(CellX + CellRadius / 4, CellY - CellHeight / 4));
-            _listInnerSummitPoints.Add(new Point(CellX - CellRadius / 4, CellY - CellHeight / 4));
+            _listInnerSummitPoints.Add(new Point(CellCenterX - CellRadius / 2, CellCenterY));
+            _listInnerSummitPoints.Add(new Point(CellCenterX - CellRadius / 4, CellCenterY + CellHeight / 4));
+            _listInnerSummitPoints.Add(new Point(CellCenterX + CellRadius / 4, CellCenterY + CellHeight / 4));
+            _listInnerSummitPoints.Add(new Point(CellCenterX + CellRadius / 2, CellCenterY));
+            _listInnerSummitPoints.Add(new Point(CellCenterX + CellRadius / 4, CellCenterY - CellHeight / 4));
+            _listInnerSummitPoints.Add(new Point(CellCenterX - CellRadius / 4, CellCenterY - CellHeight / 4));
 
             _listOuterMiddlePoints.Clear();
             _listOuterMiddlePoints.Add(DrawingFunctions.Midpoint(_listOuterSummitPoints[0], _listOuterSummitPoints[1]));
@@ -133,9 +131,16 @@ namespace VersionBase.Libraries.Drawing
             _listOuterMiddlePoints.Add(DrawingFunctions.Midpoint(_listOuterSummitPoints[5], _listOuterSummitPoints[0]));
         }
 
+        public void Move(double moveX, double moveY)
+        {
+            _cellCenterX += moveX;
+            _cellCenterY += moveY;
+            RegeneratePoints();
+        }
+
         public Point GetCloserPointToPoint(Point point)
         {
-            Point closerPoint = _centerPoint;
+            Point closerPoint = CenterPoint;
             double closerDistance = PointToPointDistance(point, closerPoint);
 
             foreach (Point pointTmp in _listOuterSummitPoints)

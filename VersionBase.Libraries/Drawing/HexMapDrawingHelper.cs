@@ -70,8 +70,8 @@ namespace VersionBase.Libraries.Drawing
         public static void HexLabel_Update(HexDrawingInformations hexDrawingData, Grid gridLabel)
         {
             gridLabel.Width = gridLabel.Height = (2 * hexDrawingData.CellRadius) * 0.8;
-            gridLabel.SetValue(Canvas.LeftProperty, hexDrawingData.CellX - hexDrawingData.CellRadius * 0.8);
-            gridLabel.SetValue(Canvas.TopProperty, hexDrawingData.CellY - hexDrawingData.CellRadius * 0.8);
+            gridLabel.SetValue(Canvas.LeftProperty, hexDrawingData.CellCenterX - hexDrawingData.CellRadius * 0.8);
+            gridLabel.SetValue(Canvas.TopProperty, hexDrawingData.CellCenterY - hexDrawingData.CellRadius * 0.8);
             gridLabel.IsHitTestVisible = false;
         }
 
