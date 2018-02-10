@@ -17,7 +17,7 @@ namespace VersionBase.Logic
         public GameLogic()
         {
             GameMode = GameMode.MapCreation;
-            ClickAction = ClickAction.AddCommunity;
+            ClickAction = ClickAction.None;
             SubscribeToEvents();
         }
 
@@ -58,6 +58,7 @@ namespace VersionBase.Logic
             {
                 case ClickAction.AddCommunity:
                     Messenger.Default.Send(new AddPointMessage(hexViewModel, point));
+                    ClickAction = ClickAction.None;
                     return;
                 default:
                     break;

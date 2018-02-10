@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -10,6 +11,7 @@ using VersionBase.Events;
 using VersionBase.Models;
 using MyToolkit.Messaging;
 using MyToolkit.Mvvm;
+using VersionBase.Forms;
 using VersionBase.Libraries.Drawing;
 
 namespace VersionBase.ViewModels
@@ -22,6 +24,7 @@ namespace VersionBase.ViewModels
         public double HexMapCenterY { get; set; }
         public double CellRadius { get; set; }
         public List<HexViewModel> ListHexViewModel { get; set; }
+        public List<CommunityViewModel> ListCommunityViewModel { get; set; }
         public ObservableCollection<UIElement> ListUIElement { get; set; }
 
         #region base functions
@@ -110,21 +113,29 @@ namespace VersionBase.ViewModels
                 hexViewModel.UnselectHex();
         }
 
-        public async void CenterHexMap()
+        public void CenterHexMap()
+        {
+            Task<Point> newCenterHexMapPoint = GetNewCenterHexMapPoint();
+            
+            double xCenterMod = newCenterHexMapPoint.Result.X - HexMapCenterX;
+            double yCenterMod = newCenterHexMapPoint.Result.Y - HexMapCenterY;
+
+            MoveCanvas(xCenterMod, yCenterMod);
+            HexMapCenterX = newCenterHexMapPoint.Result.X;
+            HexMapCenterY = newCenterHexMapPoint.Result.Y;
+        }
+
+        public async Task<Point> GetNewCenterHexMapPoint()
         {
             GetHexMapCanvasDimensionsRequestMessage msg = new GetHexMapCanvasDimensionsRequestMessage();
             var result = await Messenger.Default.SendAsync(msg);
             double hexMapCanvasWidth = result.Result.Item1;
             double hexMapCanvasHeight = result.Result.Item2;
-            
+
             double xCenterNew = (hexMapCanvasWidth / 2);
             double yCenterNew = (hexMapCanvasHeight / 2);
-            double xCenterMod = xCenterNew - HexMapCenterX;
-            double yCenterMod = yCenterNew - HexMapCenterY;
 
-            MoveCanvas(xCenterMod, yCenterMod);
-            HexMapCenterX = xCenterNew;
-            HexMapCenterY = yCenterNew;
+            return new Point(xCenterNew, yCenterNew);
         }
 
         public async void ZoomCanvas(double zoomMultiplicator)
@@ -139,8 +150,8 @@ namespace VersionBase.ViewModels
             double oldHexMapCanvasX = oldHexMapCanvasWidth / 2;
             double oldHexMapCanvasY = oldHexMapCanvasHeight / 2;
 
-            double xMove = oldCenterX - oldHexMapCanvasX;
-            double yMove = oldCenterY - oldHexMapCanvasY;
+            double oldCenterXMove = oldCenterX - oldHexMapCanvasX;
+            double oldCenterYMove = oldCenterY - oldHexMapCanvasY;
 
             CellRadius = CellRadius * zoomMultiplicator;
 
@@ -152,9 +163,12 @@ namespace VersionBase.ViewModels
             HexMapCenterX = HexMapDrawingHelper.GetRedrawnHexMapXCenter(CellRadius, Columns);
             HexMapCenterY = HexMapDrawingHelper.GetRedrawnHexMapYCenter(CellRadius, Columns, Rows);
 
-            CenterHexMap();
+            Task<Point> newCenterHexMapPoint = GetNewCenterHexMapPoint();
 
-            MoveCanvas(xMove * zoomMultiplicator, yMove * zoomMultiplicator);
+            MoveCanvas(
+                newCenterHexMapPoint.Result.X - HexMapCenterX + oldCenterXMove * zoomMultiplicator,
+                newCenterHexMapPoint.Result.Y - HexMapCenterY + oldCenterYMove * zoomMultiplicator
+                );
         }
 
         public void MoveCanvas(double xMovement, double yMovement)
@@ -228,35 +242,52 @@ namespace VersionBase.ViewModels
 
         public void AddPointMessageFunction(AddPointMessage msg)
         {
+            CommunityCreationInputDialog dialog = new CommunityCreationInputDialog();
             Ellipse childCtrl = new Ellipse();
 
-            childCtrl.Name = "Ellipse1";
-            childCtrl.StrokeThickness = 5;
-            childCtrl.Stroke = Brushes.Blue;
-            childCtrl.Fill = Brushes.DarkBlue;
-            childCtrl.Width = 10;
-            childCtrl.Height = 10;
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                childCtrl.Name = "Ellipse1";
+                childCtrl.StrokeThickness = 5;
+                childCtrl.Stroke = Brushes.Blue;
+                childCtrl.Fill = Brushes.DarkBlue;
+                childCtrl.Width = 10;
+                childCtrl.Height = 10;
 
-            Point closerPoint = msg.HexViewModel.HexDrawingData.GetCloserPointToPoint(msg.Point);
+                Point closerPoint = msg.HexViewModel.HexDrawingData.GetCloserPointToPoint(msg.Point);
 
-            Canvas.SetTop(childCtrl, closerPoint.Y - (childCtrl.Height / 2));
-            Canvas.SetLeft(childCtrl, closerPoint.X - (childCtrl.Width / 2));
+                Canvas.SetTop(childCtrl, closerPoint.Y - (childCtrl.Height / 2));
+                Canvas.SetLeft(childCtrl, closerPoint.X - (childCtrl.Width / 2));
 
-            ListUIElement.Add(childCtrl);
+                ListUIElement.Add(childCtrl);
 
-            Ellipse childCtrl1 = new Ellipse();
+                var labelTextBlock = new TextBlock
+                {
+                    Text = dialog.Result,
+                    FontFamily = new FontFamily("Segoe"),
+                    FontSize = 10,
+                    Background = new SolidColorBrush(Colors.Azure),
+                };
 
-            childCtrl1.Name = "Ellipse1";
-            childCtrl1.StrokeThickness = 5;
-            childCtrl1.Stroke = Brushes.Red;
-            childCtrl1.Fill = Brushes.DarkRed;
-            childCtrl1.Width = 10;
-            childCtrl1.Height = 10;
+                Canvas.SetTop(labelTextBlock, closerPoint.Y - (childCtrl.Height / 2));
+                Canvas.SetLeft(labelTextBlock, closerPoint.X + (childCtrl.Width / 2));
 
-            Canvas.SetTop(childCtrl1, msg.Point.Y - (childCtrl1.Height / 2));
-            Canvas.SetLeft(childCtrl1, msg.Point.X - (childCtrl1.Width / 2));
+                ListUIElement.Add(labelTextBlock);
 
-            ListUIElement.Add(childCtrl1);
+                /*Ellipse childCtrl1 = new Ellipse();
+
+                childCtrl1.Name = "Ellipse1";
+                childCtrl1.StrokeThickness = 5;
+                childCtrl1.Stroke = Brushes.Red;
+                childCtrl1.Fill = Brushes.DarkRed;
+                childCtrl1.Width = 10;
+                childCtrl1.Height = 10;
+
+                Canvas.SetTop(childCtrl1, msg.Point.Y - (childCtrl1.Height / 2));
+                Canvas.SetLeft(childCtrl1, msg.Point.X - (childCtrl1.Width / 2));
+
+                ListUIElement.Add(childCtrl1);*/
+            }
         }
 
         #endregion Event Functions

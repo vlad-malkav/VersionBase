@@ -16,6 +16,7 @@ namespace VersionBase.Logic
             Messenger.Default.Register<UpdateGameModeMessage>(this, UpdateGameModeMessageFunction);
             Messenger.Default.Register<MapTransformationTypeBroadcastMessage>(this, MapTransformationTypeBroadcastMessageFunction);
             Messenger.Default.Register<MenuItemClickedMessage>(this, MenuItemClickedMessageFunction);
+            Messenger.Default.Register<SetClickActionMessage>(this, SetClickActionMessageFunction);
         }
 
         #region Message functions
@@ -75,6 +76,11 @@ namespace VersionBase.Logic
                     Messenger.Default.Send(new MapTransformationTypeBroadcastMessage(MapTransformationType.ZoomOut));
                     break;
             }
+        }
+
+        public void SetClickActionMessageFunction(SetClickActionMessage msg)
+        {
+            ClickAction = msg.NewClickAction;
         }
 
         #endregion

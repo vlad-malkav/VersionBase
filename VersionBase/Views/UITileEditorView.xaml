@@ -17,6 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <StackPanel Margin="10" Grid.Row="0">
@@ -88,5 +89,18 @@
                      Text="{Binding Description, Mode=TwoWay}" Height="50"/>
             <Button Grid.Row="5" Command="{Binding SaveButtonCommand}">Save</Button>
         </Grid>
+
+        <Button Grid.Row="3"
+                x:Name = "AddCommunityButton"  
+                Content = "Add Community" 
+                Click = "OnAddCommunityButtonClicked" 
+                ClickMode = "Press"
+                Margin = "10"  
+                Width = "150" 
+                HorizontalAlignment = "Center" 
+                Foreground = "Black"
+                IsEnabled="{Binding TileEditionAvailable}"
+                IsHitTestVisible="{Binding TileEditionAvailable}"
+                Focusable="{Binding TileEditionAvailable}"/>
     </Grid>
 </UserControl>

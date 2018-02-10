@@ -60,7 +60,8 @@
   <ItemGroup>
     <Compile Include="DataGeneration.cs" />
     <Compile Include="Drawing\DrawingFunctions.cs" />
-    <Compile Include="Enums\ClicAction.cs" />
+    <Compile Include="Drawing\DrawingMinorClasses.cs" />
+    <Compile Include="Enums\ClickAction.cs" />
     <Compile Include="Enums\GameMode.cs" />
     <Compile Include="Enums\MapTransformationType.cs" />
     <Compile Include="Enums\ZIndexes.cs" />

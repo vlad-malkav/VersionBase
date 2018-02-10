@@ -122,13 +122,14 @@ namespace VersionBase.ViewModels
         public void Move(double moveX, double moveY)
         {
             HexDrawingData.Move(moveX, moveY);
-            DrawingFunctions.MovePolygon(InsidePolygon, moveX, moveY);
+            UpdateShapes();
+            /*DrawingFunctions.MovePolygon(InsidePolygon, moveX, moveY);
             DrawingFunctions.MovePolygon(BorderPolygon, moveX, moveY);
             DrawingFunctions.MoveGrid(GridLabel, moveX, moveY);
             foreach (var line in ListLineExploration)
             {
                 DrawingFunctions.MoveLine(line, moveX, moveY);
-            }
+            }*/
         }
 
         public async void UpdateTileData(Color color, string imageName)

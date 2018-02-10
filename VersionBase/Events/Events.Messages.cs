@@ -196,4 +196,14 @@ namespace VersionBase.Events
             ImageName = imageName;
         }
     }
+
+    public class SetClickActionMessage : BaseMessage
+    {
+        public ClickAction NewClickAction { get; set; }
+
+        public SetClickActionMessage(ClickAction newClickAction)
+        {
+            NewClickAction = newClickAction;
+        }
+    }
 }

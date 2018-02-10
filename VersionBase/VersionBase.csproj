@@ -69,6 +69,12 @@
     <Compile Include="Commands\MyICommand.cs" />
     <Compile Include="Data\ApplicationData.cs" />
     <Compile Include="Events\Events.Messages.cs" />
+    <Compile Include="Forms\CommunityCreationInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CommunityCreationInputDialog.Designer.cs">
+      <DependentUpon>CommunityCreationInputDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HexMapCreationInputDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,7 @@
     <Compile Include="Models\UITileEditorModel.cs" />
     <Compile Include="Models\UIRightPanelModel.cs" />
     <Compile Include="Models\UITopPanelModel.cs" />
+    <Compile Include="ViewModels\CommunityViewModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ViewModels\UIViewModel.cs" />
@@ -112,9 +119,6 @@
     <Compile Include="ViewModels\UITopPanelViewModel.cs" />
     <Compile Include="Views\UIBottomPanelView.xaml.cs">
       <DependentUpon>UIBottomPanelView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\NewHexMapDialog.xaml.cs">
-      <DependentUpon>NewHexMapDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ApplicationView.xaml.cs">
       <DependentUpon>ApplicationView.xaml</DependentUpon>
@@ -160,10 +164,6 @@
     <Page Include="Views\UIBottomPanelView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dialogs\NewHexMapDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ApplicationView.xaml">
       <SubType>Designer</SubType>
@@ -213,6 +213,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Forms\CommunityCreationInputDialog.resx">
+      <DependentUpon>CommunityCreationInputDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HexMapCreationInputDialog.resx">
       <DependentUpon>HexMapCreationInputDialog.cs</DependentUpon>
     </EmbeddedResource>

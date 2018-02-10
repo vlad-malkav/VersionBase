@@ -56,22 +56,22 @@
             this.tblLayout.Size = new System.Drawing.Size(222, 27);
             this.tblLayout.TabIndex = 0;
             // 
-            // lblInputColums
+            // lblInputColumns
             // 
             this.lblInputColumns.AutoSize = true;
             this.lblInputColumns.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblInputColumns.Location = new System.Drawing.Point(3, 0);
-            this.lblInputColumns.Name = "lblInputColums";
-            this.lblInputColumns.Size = new System.Drawing.Size(50, 27);
-            //this.lblInputColumns.TabIndex = 1;
+            this.lblInputColumns.Name = "lblInputColumns";
+            this.lblInputColumns.Size = new System.Drawing.Size(62, 27);
+            this.lblInputColumns.TabIndex = 0;
             this.lblInputColumns.Text = "Colums :";
             this.lblInputColumns.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtInputColums
+            // txtInputColumns
             // 
             this.txtInputColumns.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInputColumns.Location = new System.Drawing.Point(51, 3);
-            this.txtInputColumns.Name = "txtInputColums";
+            this.txtInputColumns.Location = new System.Drawing.Point(71, 3);
+            this.txtInputColumns.Name = "txtInputColumns";
             this.txtInputColumns.Size = new System.Drawing.Size(50, 24);
             this.txtInputColumns.TabIndex = 0;
             this.txtInputColumns.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -81,17 +81,17 @@
             // 
             this.lblInputRows.AutoSize = true;
             this.lblInputRows.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblInputRows.Location = new System.Drawing.Point(102, 0);
+            this.lblInputRows.Location = new System.Drawing.Point(127, 0);
             this.lblInputRows.Name = "lblInputRows";
             this.lblInputRows.Size = new System.Drawing.Size(50, 27);
-            //this.lblInputRows.TabIndex = 1;
+            this.lblInputRows.TabIndex = 1;
             this.lblInputRows.Text = "Rows :";
             this.lblInputRows.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtInputRows
             // 
             this.txtInputRows.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInputRows.Location = new System.Drawing.Point(153, 3);
+            this.txtInputRows.Location = new System.Drawing.Point(183, 3);
             this.txtInputRows.Name = "txtInputRows";
             this.txtInputRows.Size = new System.Drawing.Size(50, 24);
             this.txtInputRows.TabIndex = 1;
