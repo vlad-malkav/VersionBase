@@ -89,37 +89,38 @@
             // 
             // TextBoxName
             // 
-            this.TextBoxName.Location = new System.Drawing.Point(258, 6);
+            this.TextBoxName.Location = new System.Drawing.Point(101, 6);
             this.TextBoxName.Name = "TextBoxName";
-            this.TextBoxName.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxName.Size = new System.Drawing.Size(257, 22);
             this.TextBoxName.TabIndex = 5;
+            this.TextBoxName.TextChanged += new System.EventHandler(this.TextBoxName_TextChanged);
             // 
             // TextBoxType
             // 
-            this.TextBoxType.Location = new System.Drawing.Point(258, 34);
+            this.TextBoxType.Location = new System.Drawing.Point(101, 34);
             this.TextBoxType.Name = "TextBoxType";
-            this.TextBoxType.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxType.Size = new System.Drawing.Size(257, 22);
             this.TextBoxType.TabIndex = 5;
             // 
             // TextBoxSize
             // 
-            this.TextBoxSize.Location = new System.Drawing.Point(258, 62);
+            this.TextBoxSize.Location = new System.Drawing.Point(101, 62);
             this.TextBoxSize.Name = "TextBoxSize";
-            this.TextBoxSize.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxSize.Size = new System.Drawing.Size(257, 22);
             this.TextBoxSize.TabIndex = 5;
             // 
             // TextBoxInhabitants
             // 
-            this.TextBoxInhabitants.Location = new System.Drawing.Point(258, 90);
+            this.TextBoxInhabitants.Location = new System.Drawing.Point(101, 90);
             this.TextBoxInhabitants.Name = "TextBoxInhabitants";
-            this.TextBoxInhabitants.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxInhabitants.Size = new System.Drawing.Size(257, 22);
             this.TextBoxInhabitants.TabIndex = 5;
             // 
             // TextBoxDescription
             // 
-            this.TextBoxDescription.Location = new System.Drawing.Point(258, 118);
+            this.TextBoxDescription.Location = new System.Drawing.Point(101, 118);
             this.TextBoxDescription.Name = "TextBoxDescription";
-            this.TextBoxDescription.Size = new System.Drawing.Size(100, 22);
+            this.TextBoxDescription.Size = new System.Drawing.Size(257, 22);
             this.TextBoxDescription.TabIndex = 5;
             // 
             // AddButton

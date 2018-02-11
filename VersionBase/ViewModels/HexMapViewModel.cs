@@ -34,6 +34,7 @@ namespace VersionBase.ViewModels
             UnregisterMessages();
             ListHexViewModel = new List<HexViewModel>();
             ListUIElement = new ObservableCollection<UIElement>();
+            ListCommunityViewModel = new List<CommunityViewModel>();
             RegisterMessages();
         }
 
@@ -242,37 +243,18 @@ namespace VersionBase.ViewModels
 
         public void AddPointMessageFunction(AddPointMessage msg)
         {
-            CommunityCreationInputDialog dialog = new CommunityCreationInputDialog();
-            Ellipse childCtrl = new Ellipse();
+            Point closerPoint = msg.HexViewModel.HexDrawingData.GetCloserPointToPoint(msg.Point);
+
+            Coordinates coordinates = new Coordinates(closerPoint.X, closerPoint.Y);
+
+            CommunityCreationInputDialog dialog = new CommunityCreationInputDialog(coordinates);
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                childCtrl.Name = "Ellipse1";
-                childCtrl.StrokeThickness = 5;
-                childCtrl.Stroke = Brushes.Blue;
-                childCtrl.Fill = Brushes.DarkBlue;
-                childCtrl.Width = 10;
-                childCtrl.Height = 10;
-
-                Point closerPoint = msg.HexViewModel.HexDrawingData.GetCloserPointToPoint(msg.Point);
-
-                Canvas.SetTop(childCtrl, closerPoint.Y - (childCtrl.Height / 2));
-                Canvas.SetLeft(childCtrl, closerPoint.X - (childCtrl.Width / 2));
-
-                ListUIElement.Add(childCtrl);
-
-                var labelTextBlock = new TextBlock
-                {
-                    Text = dialog.Result,
-                    FontFamily = new FontFamily("Segoe"),
-                    FontSize = 10,
-                    Background = new SolidColorBrush(Colors.Azure),
-                };
-
-                Canvas.SetTop(labelTextBlock, closerPoint.Y - (childCtrl.Height / 2));
-                Canvas.SetLeft(labelTextBlock, closerPoint.X + (childCtrl.Width / 2));
-
-                ListUIElement.Add(labelTextBlock);
+                dialog.Result.DrawCommunity();
+                ListUIElement.Add(dialog.Result.CommunityDot);
+                ListUIElement.Add(dialog.Result.CommunityLabel);
+                ListCommunityViewModel.Add(dialog.Result);
 
                 /*Ellipse childCtrl1 = new Ellipse();
 
