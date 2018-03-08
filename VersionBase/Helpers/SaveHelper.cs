@@ -25,7 +25,8 @@ namespace VersionBase.Helpers
             {
                 Columns = hexMapModel.Columns,
                 Rows = hexMapModel.Rows,
-                ListHexData = hexMapModel.ListHexModel.Select(hexModel => SaveHexModel(hexModel)).ToList()
+                ListHexData = hexMapModel.ListHexModel.Select(hexModel => SaveHexModel(hexModel)).ToList(),
+                ListCommunityData = hexMapModel.ListCommunityModel.Select( communityM)
             };
             return hexMapData;
         }
@@ -44,5 +45,6 @@ namespace VersionBase.Helpers
             };
             return hexData;
         }
+
     }
 }

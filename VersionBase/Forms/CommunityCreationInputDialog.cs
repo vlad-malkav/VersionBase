@@ -15,13 +15,15 @@ namespace VersionBase.Forms
     public partial class CommunityCreationInputDialog: Form
     {
         private Coordinates Coordinates { get; set; }
+        private Coordinates CoordinatesFromCenter { get; set; }
         public CommunityViewModel Result { get; set; }
         public bool CanValidate { get; set; }
 
-        public CommunityCreationInputDialog(Coordinates coordinates)
+        public CommunityCreationInputDialog(Coordinates coordinates, Coordinates coordinatesFromCenter)
         {
             InitializeComponent();
             Coordinates = coordinates;
+            CoordinatesFromCenter = coordinatesFromCenter;
             AddButton.Enabled = false;
             this.ActiveControl = TextBoxName;
             TextBoxName.KeyUp += TextBoxKeyUp;
@@ -31,6 +33,7 @@ namespace VersionBase.Forms
         {
             Result = new CommunityViewModel(
                 Coordinates,
+                this.CoordinatesFromCenter,
                 this.TextBoxName.Text,
                 this.TextBoxType.Text,
                 this.TextBoxSize.Text,

@@ -11,6 +11,7 @@ namespace VersionBase.Models
         private int _columns;
         private int _rows;
         private List<HexModel> _listHexModel;
+        private List<CommunityModel> _listCommunityModel;
 
         public int Columns
         {
@@ -27,12 +28,18 @@ namespace VersionBase.Models
             get { return _listHexModel; }
         }
 
+        public List<CommunityModel> ListCommunityModel
+        {
+            get { return _listCommunityModel; }
+        }
+
         private bool MessageRegistered { get; set; }
 
         public HexMapModel()
         {
             UnregisterMessages();
             _listHexModel = new List<HexModel>();
+            _listCommunityModel = new List<CommunityModel>();
             RegisterMessages();
         }
 
@@ -46,6 +53,12 @@ namespace VersionBase.Models
                 HexModel hexModelTmp = new HexModel();
                 hexModelTmp.ImportData(hexData);
                 _listHexModel.Add(hexModelTmp);
+            }
+            foreach (var communityData in data.ListCommunityData)
+            {
+                CommunityModel communityModel = new CommunityModel();
+                communityModel.ImportData(communityData);
+                _listCommunityModel.Add(communityModel);
             }
         }
 

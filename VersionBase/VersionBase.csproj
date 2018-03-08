@@ -84,6 +84,7 @@
     <Compile Include="Helpers\SaveHelper.cs" />
     <Compile Include="Logic\EventLogic.cs" />
     <Compile Include="Logic\GameLogic.cs" />
+    <Compile Include="Models\CommunityModel.cs" />
     <Compile Include="Models\GameModel.cs" />
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\TileColorModel.cs" />

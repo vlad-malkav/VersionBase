@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using DataLibrary.Hexes;
+using DataLibrary.PointsAndLines;
 using DataLibrary.Tiles;
 
 namespace DataLibrary.General
@@ -11,10 +12,12 @@ namespace DataLibrary.General
         public int Columns { get; set; }
         public int Rows { get; set; }
         public List<HexData> ListHexData { get; set; }
+        public List<CommunityData> ListCommunityData { get; set; }
 
         public HexMapData()
         {
             ListHexData = new List<HexData>();
+            ListCommunityData = new List<CommunityData>();
         }
 
         public HexMapData(int columns, int rows)
@@ -22,7 +25,6 @@ namespace DataLibrary.General
         {
             Columns = columns;
             Rows = rows;
-            ListHexData = new List<HexData>();
             TileData emptyTileData = new TileData(new TileColorData(Color.Transparent), new TileImageData("empty"));
             for (int col = 0; col < Columns; col++)
             {
@@ -33,11 +35,12 @@ namespace DataLibrary.General
             }
         }
 
-        public HexMapData(int columns, int rows, List<HexData> listHexData)
+        public HexMapData(int columns, int rows, List<HexData> listHexData, List<CommunityData> listCommunityData = null)
         {
             Columns = columns;
             Rows = rows;
             ListHexData = listHexData ?? new List<HexData>();
+            ListCommunityData = listCommunityData ?? new List<CommunityData>();
         }
 
         public HexData GetHexData(int column, int row)

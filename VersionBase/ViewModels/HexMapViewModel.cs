@@ -55,6 +55,7 @@ namespace VersionBase.ViewModels
             }
             ListHexViewModel.Clear();
             ListUIElement.Clear();
+            ListCommunityViewModel.Clear();
             foreach (var hexModel in hexMapModel.ListHexModel)
             {
                 var hexViewModel = new HexViewModel();
@@ -121,7 +122,7 @@ namespace VersionBase.ViewModels
             double xCenterMod = newCenterHexMapPoint.Result.X - HexMapCenterX;
             double yCenterMod = newCenterHexMapPoint.Result.Y - HexMapCenterY;
 
-            MoveCanvas(xCenterMod, yCenterMod);
+            MoveCanvas(xCenterMod, yCenterMod, true);
             HexMapCenterX = newCenterHexMapPoint.Result.X;
             HexMapCenterY = newCenterHexMapPoint.Result.Y;
         }
@@ -168,17 +169,30 @@ namespace VersionBase.ViewModels
 
             MoveCanvas(
                 newCenterHexMapPoint.Result.X - HexMapCenterX + oldCenterXMove * zoomMultiplicator,
-                newCenterHexMapPoint.Result.Y - HexMapCenterY + oldCenterYMove * zoomMultiplicator
+                newCenterHexMapPoint.Result.Y - HexMapCenterY + oldCenterYMove * zoomMultiplicator,
+                false
                 );
+
+            foreach (var communityViewModel in ListCommunityViewModel)
+            {
+                communityViewModel.Zoom(zoomMultiplicator);
+            }
         }
 
-        public void MoveCanvas(double xMovement, double yMovement)
+        public void MoveCanvas(double xMovement, double yMovement, bool moveCommunities)
         {
             HexMapCenterX += xMovement;
             HexMapCenterY += yMovement;
             foreach (var hexViewModel in ListHexViewModel)
             {
                 hexViewModel.Move(xMovement, yMovement);
+            }
+            if (moveCommunities)
+            {
+                foreach (var communityViewModel in ListCommunityViewModel)
+                {
+                    communityViewModel.Move(xMovement, yMovement);
+                }
             }
         }
 
@@ -200,7 +214,6 @@ namespace VersionBase.ViewModels
             Messenger.Default.Register<HexDegreExplorationUpdatedMessage>(this, HexDegreExplorationUpdatedMessageFunction);
             Messenger.Default.Register<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Register<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
-            Messenger.Default.Register<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
             Messenger.Default.Register<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
             Messenger.Default.Register<AddPointMessage>(this, AddPointMessageFunction);
         }
@@ -229,7 +242,7 @@ namespace VersionBase.ViewModels
         {
             if (Math.Abs(msg.XMovement) > 0 || Math.Abs(msg.YMovement) > 0)
             {
-                MoveCanvas(msg.XMovement, msg.YMovement);
+                MoveCanvas(msg.XMovement, msg.YMovement,true);
             }
             if (Math.Abs(msg.ZoomMultiplicator) > 0)
             {
@@ -246,12 +259,13 @@ namespace VersionBase.ViewModels
             Point closerPoint = msg.HexViewModel.HexDrawingData.GetCloserPointToPoint(msg.Point);
 
             Coordinates coordinates = new Coordinates(closerPoint.X, closerPoint.Y);
+            Coordinates coordinatesFromCenter = new Coordinates(closerPoint.X - HexMapCenterX, closerPoint.Y - HexMapCenterY);
 
-            CommunityCreationInputDialog dialog = new CommunityCreationInputDialog(coordinates);
+            CommunityCreationInputDialog dialog = new CommunityCreationInputDialog(coordinates, coordinatesFromCenter);
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                dialog.Result.DrawCommunity();
+                dialog.Result.GenerateShapes();
                 ListUIElement.Add(dialog.Result.CommunityDot);
                 ListUIElement.Add(dialog.Result.CommunityLabel);
                 ListCommunityViewModel.Add(dialog.Result);

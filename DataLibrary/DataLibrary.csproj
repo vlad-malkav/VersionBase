@@ -51,6 +51,7 @@
     <Compile Include="General\HexMapData.cs" />
     <Compile Include="Menu\UIMenuData.cs" />
     <Compile Include="Menu\UIMenuItemData.cs" />
+    <Compile Include="PointsAndLines\CommunityData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tiles\TileColorData.cs" />
     <Compile Include="Tiles\TileData.cs" />
