@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -60,8 +61,8 @@ namespace VersionBase.ViewModels
             CellRadius = cellRadius;
             CoordinatesFromCenter.X = CoordinatesCellRadiusFromCenter.X * CellRadius;
             CoordinatesFromCenter.Y = CoordinatesCellRadiusFromCenter.Y * CellRadius;
-            Coordinates.X = centerCoordinates.X - CoordinatesFromCenter.X;
-            Coordinates.Y = centerCoordinates.Y - CoordinatesFromCenter.Y;
+            Coordinates.X = centerCoordinates.X + CoordinatesFromCenter.X;
+            Coordinates.Y = centerCoordinates.Y + CoordinatesFromCenter.Y;
 
             GenerateShapes();
         }
@@ -118,6 +119,15 @@ namespace VersionBase.ViewModels
             CoordinatesFromCenter.X = CoordinatesFromCenter.X * multiplicator;
             CoordinatesFromCenter.Y = CoordinatesFromCenter.Y * multiplicator;
             UpdateDrawing();
+        }
+
+        public List<UIElement> GetAllUIElements()
+        {
+            List<UIElement> listUiElement = new List<UIElement>();
+            listUiElement.Add(this.CommunityDot);
+            listUiElement.Add(this.CommunityLabel);
+
+            return listUiElement;
         }
     }
 }

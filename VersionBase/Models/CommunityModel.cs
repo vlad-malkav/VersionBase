@@ -47,16 +47,29 @@ namespace VersionBase.Models
             get { return _coordinatesCellRadiusFromCenter; }
         }
 
+        public CommunityModel() { }
+
+        public CommunityModel(Coordinates coordinatesCellRadiusFromCenter, string name, string type = "", string size = "", string inhabitants = "", string description = "")
+            : this()
+        {
+            _coordinatesCellRadiusFromCenter = coordinatesCellRadiusFromCenter;
+            _name = name;
+            _type = type;
+            _size = size;
+            _inhabitants = inhabitants;
+            _description = description;
+        }
+
         public void ImportData(CommunityData data)
         {
-           _name = data.Name;
-           _type = data.Type;
-           _size = data.Size;
-           _inhabitants = data.Inhabitants;
-           _description = data.Description;
-           _coordinatesCellRadiusFromCenter = new Coordinates(
-               data.CoordinatesCellRadiusFromCenterX,
-               data.CoordinatesCellRadiusFromCenterY);
+            _name = data.Name;
+            _type = data.Type;
+            _size = data.Size;
+            _inhabitants = data.Inhabitants;
+            _description = data.Description;
+            _coordinatesCellRadiusFromCenter = new Coordinates(
+                data.CoordinatesCellRadiusFromCenterX,
+                data.CoordinatesCellRadiusFromCenterY);
         }
     }
 }

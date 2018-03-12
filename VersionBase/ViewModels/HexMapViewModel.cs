@@ -72,6 +72,18 @@ namespace VersionBase.ViewModels
             HexMapCenterY = HexMapDrawingHelper.GetRedrawnHexMapYCenter(CellRadius, Columns, Rows);
 
             CenterHexMap();
+
+            foreach (CommunityModel communityModel in hexMapModel.ListCommunityModel)
+            {
+                var communityViewModel = new CommunityViewModel();
+                communityViewModel.ApplyModel(communityModel);
+                communityViewModel.InitializeRadiusAndCoordinates(CellRadius, new Coordinates(HexMapCenterX, HexMapCenterY));
+                foreach (UIElement uiElement in communityViewModel.GetAllUIElements())
+                {
+                    ListUIElement.Add(uiElement);
+                }
+                ListCommunityViewModel.Add(communityViewModel);
+            }
         }
 
         #endregion base functions
@@ -205,7 +217,8 @@ namespace VersionBase.ViewModels
             Messenger.Default.Deregister<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Deregister<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
             Messenger.Default.Deregister<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
-            Messenger.Default.Deregister<AddPointMessage>(this, AddPointMessageFunction);
+            Messenger.Default.Deregister<CommunityCreatedMessage>(this, CommunityCreatedMessageFunction);
+            Messenger.Default.Deregister<GetHexMapCenterPointMessage>(this, GetHexMapCenterPointMessageFunction);
         }
 
         private void RegisterMessages()
@@ -215,7 +228,8 @@ namespace VersionBase.ViewModels
             Messenger.Default.Register<HexModelSelectedMessage>(this, HexSelectedMessageFunction);
             Messenger.Default.Register<HexModelUnselectedMessage>(this, HexUnselectedMessageFunction);
             Messenger.Default.Register<MapTransformationRequestMessage>(this, MapTransformationRequestMessageFunction);
-            Messenger.Default.Register<AddPointMessage>(this, AddPointMessageFunction);
+            Messenger.Default.Register<CommunityCreatedMessage>(this, CommunityCreatedMessageFunction);
+            Messenger.Default.Register<GetHexMapCenterPointMessage>(this, GetHexMapCenterPointMessageFunction);
         }
 
         private void HexTileUpdatedMessageFunction(HexTileUpdatedMessage msg)
@@ -254,7 +268,7 @@ namespace VersionBase.ViewModels
             }
         }
 
-        public void AddPointMessageFunction(AddPointMessage msg)
+        /*public void AddPointMessageFunction(AddPointMessage msg)
         {
             Point closerPoint = msg.HexViewModel.HexDrawingData.GetCloserPointToPoint(msg.Point);
 
@@ -269,7 +283,7 @@ namespace VersionBase.ViewModels
                 ListUIElement.Add(dialog.Result.CommunityDot);
                 ListUIElement.Add(dialog.Result.CommunityLabel);
                 ListCommunityViewModel.Add(dialog.Result);
-
+                */
                 /*Ellipse childCtrl1 = new Ellipse();
 
                 childCtrl1.Name = "Ellipse1";
@@ -283,7 +297,24 @@ namespace VersionBase.ViewModels
                 Canvas.SetLeft(childCtrl1, msg.Point.X - (childCtrl1.Width / 2));
 
                 ListUIElement.Add(childCtrl1);*/
+            /*}
+        }*/
+
+        public void GetHexMapCenterPointMessageFunction(GetHexMapCenterPointMessage msg)
+        {
+            msg.CallSuccessCallback(new Point(HexMapCenterX,HexMapCenterY));
+        }
+
+        public void CommunityCreatedMessageFunction(CommunityCreatedMessage msg)
+        {
+            CommunityViewModel communityViewModel = new CommunityViewModel();
+            communityViewModel.ApplyModel(msg.CommunityModel);
+            communityViewModel.InitializeRadiusAndCoordinates(CellRadius,new Coordinates(HexMapCenterX,HexMapCenterY));
+            foreach (UIElement uiElement in communityViewModel.GetAllUIElements())
+            {
+                ListUIElement.Add(uiElement);
             }
+            ListCommunityViewModel.Add(communityViewModel);
         }
 
         #endregion Event Functions

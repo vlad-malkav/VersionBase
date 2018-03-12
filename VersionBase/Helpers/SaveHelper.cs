@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLibrary.PointsAndLines;
 using VersionBase.Models;
 
 namespace VersionBase.Helpers
@@ -26,7 +27,14 @@ namespace VersionBase.Helpers
                 Columns = hexMapModel.Columns,
                 Rows = hexMapModel.Rows,
                 ListHexData = hexMapModel.ListHexModel.Select(hexModel => SaveHexModel(hexModel)).ToList(),
-                ListCommunityData = hexMapModel.ListCommunityModel.Select( communityM)
+                ListCommunityData = hexMapModel.ListCommunityModel.Select(model => new CommunityData(
+                    model.Name,
+                    model.Type,
+                    model.Size,
+                    model.Inhabitants,
+                    model.Description,
+                    model.CoordinatesCellRadiusFromCenter.X,
+                    model.CoordinatesCellRadiusFromCenter.Y)).ToList()
             };
             return hexMapData;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows;
 using System.Windows.Media.Imaging;
 using VersionBase.Models;
 using VersionBase.ViewModels;
@@ -36,6 +37,11 @@ namespace VersionBase.Events
         public System.Windows.Point Point { get; set; }
     }
 
+    public class CommunityModelMessage : BaseMessage
+    {
+        public CommunityModel CommunityModel { get; set; }
+    }
+
     public class HexPointMessage : PointMessage
     {
         public HexViewModel HexViewModel { get; set; }
@@ -68,6 +74,10 @@ namespace VersionBase.Events
             HexViewModel = hexViewModel;
             Point = point;
         }
+    }
+
+    public class GetHexMapCenterPointMessage : CallbackMessage<System.Windows.Point>
+    {
     }
 
     public class GetSelectedColorImageIdsRequestMessage : CallbackMessage<Tuple<string, string>>
@@ -204,6 +214,14 @@ namespace VersionBase.Events
         public SetClickActionMessage(ClickAction newClickAction)
         {
             NewClickAction = newClickAction;
+        }
+    }
+
+    public class CommunityCreatedMessage : CommunityModelMessage
+    {
+        public CommunityCreatedMessage(CommunityModel model)
+        {
+            CommunityModel = model;
         }
     }
 }

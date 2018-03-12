@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VersionBase.Libraries.Drawing;
+using VersionBase.Models;
 using VersionBase.ViewModels;
 
 namespace VersionBase.Forms
@@ -16,14 +17,18 @@ namespace VersionBase.Forms
     {
         private Coordinates Coordinates { get; set; }
         private Coordinates CoordinatesFromCenter { get; set; }
-        public CommunityViewModel Result { get; set; }
+        private Coordinates CoordinatesCellRadiusFromCenter { get; set; }
+        public Tuple<CommunityModel, CommunityViewModel> Result { get; set; }
         public bool CanValidate { get; set; }
 
-        public CommunityCreationInputDialog(Coordinates coordinates, Coordinates coordinatesFromCenter)
+        public CommunityCreationInputDialog(Coordinates coordinates, Coordinates coordinatesFromCenter, double cellRadius)
         {
             InitializeComponent();
             Coordinates = coordinates;
             CoordinatesFromCenter = coordinatesFromCenter;
+            CoordinatesCellRadiusFromCenter = new Coordinates(
+                CoordinatesFromCenter.X / cellRadius,
+                CoordinatesFromCenter.Y / cellRadius);
             AddButton.Enabled = false;
             this.ActiveControl = TextBoxName;
             TextBoxName.KeyUp += TextBoxKeyUp;
@@ -31,14 +36,22 @@ namespace VersionBase.Forms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            Result = new CommunityViewModel(
+            Result = new Tuple<CommunityModel, CommunityViewModel>(
+                new CommunityModel(
+                    this.CoordinatesCellRadiusFromCenter,
+                    this.TextBoxName.Text,
+                    this.TextBoxType.Text,
+                    this.TextBoxSize.Text,
+                    this.TextBoxInhabitants.Text,
+                    this.TextBoxDescription.Text),
+                new CommunityViewModel(
                 Coordinates,
                 this.CoordinatesFromCenter,
                 this.TextBoxName.Text,
                 this.TextBoxType.Text,
                 this.TextBoxSize.Text,
                 this.TextBoxInhabitants.Text,
-                this.TextBoxDescription.Text);
+                this.TextBoxDescription.Text));
             DialogResult = DialogResult.OK;
         }
 

@@ -1,1627 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ListTileColor>
-    <TileColor>
-      <Id>Color-255.180.180.180</Id>
-      <Name>Color [ActiveBorder]</Name>
-      <Alpha>255</Alpha>
-      <Red>180</Red>
-      <Green>180</Green>
-      <Blue>180</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.153.180.209</Id>
-      <Name>Color [ActiveCaption]</Name>
-      <Alpha>255</Alpha>
-      <Red>153</Red>
-      <Green>180</Green>
-      <Blue>209</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.0</Id>
-      <Name>Color [ActiveCaptionText]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.171.171.171</Id>
-      <Name>Color [AppWorkspace]</Name>
-      <Alpha>255</Alpha>
-      <Red>171</Red>
-      <Green>171</Green>
-      <Blue>171</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.240.240.240</Id>
-      <Name>Color [Control]</Name>
-      <Alpha>255</Alpha>
-      <Red>240</Red>
-      <Green>240</Green>
-      <Blue>240</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.160.160.160</Id>
-      <Name>Color [ControlDark]</Name>
-      <Alpha>255</Alpha>
-      <Red>160</Red>
-      <Green>160</Green>
-      <Blue>160</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.105.105.105</Id>
-      <Name>Color [ControlDarkDark]</Name>
-      <Alpha>255</Alpha>
-      <Red>105</Red>
-      <Green>105</Green>
-      <Blue>105</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.227.227.227</Id>
-      <Name>Color [ControlLight]</Name>
-      <Alpha>255</Alpha>
-      <Red>227</Red>
-      <Green>227</Green>
-      <Blue>227</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.255.255</Id>
-      <Name>Color [ControlLightLight]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.0</Id>
-      <Name>Color [ControlText]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.0</Id>
-      <Name>Color [Desktop]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.109.109.109</Id>
-      <Name>Color [GrayText]</Name>
-      <Alpha>255</Alpha>
-      <Red>109</Red>
-      <Green>109</Green>
-      <Blue>109</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.120.215</Id>
-      <Name>Color [Highlight]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>120</Green>
-      <Blue>215</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.255.255</Id>
-      <Name>Color [HighlightText]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.102.204</Id>
-      <Name>Color [HotTrack]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>102</Green>
-      <Blue>204</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.244.247.252</Id>
-      <Name>Color [InactiveBorder]</Name>
-      <Alpha>255</Alpha>
-      <Red>244</Red>
-      <Green>247</Green>
-      <Blue>252</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.191.205.219</Id>
-      <Name>Color [InactiveCaption]</Name>
-      <Alpha>255</Alpha>
-      <Red>191</Red>
-      <Green>205</Green>
-      <Blue>219</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.0</Id>
-      <Name>Color [InactiveCaptionText]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.255.225</Id>
-      <Name>Color [Info]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>225</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.0</Id>
-      <Name>Color [InfoText]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.240.240.240</Id>
-      <Name>Color [Menu]</Name>
-      <Alpha>255</Alpha>
-      <Red>240</Red>
-      <Green>240</Green>
-      <Blue>240</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.0</Id>
-      <Name>Color [MenuText]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.200.200.200</Id>
-      <Name>Color [ScrollBar]</Name>
-      <Alpha>255</Alpha>
-      <Red>200</Red>
-      <Green>200</Green>
-      <Blue>200</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.255.255</Id>
-      <Name>Color [Window]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.100.100.100</Id>
-      <Name>Color [WindowFrame]</Name>
-      <Alpha>255</Alpha>
-      <Red>100</Red>
-      <Green>100</Green>
-      <Blue>100</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.0</Id>
-      <Name>Color [WindowText]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-0.255.255.255</Id>
-      <Name>Color [Transparent]</Name>
-      <Alpha>0</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.240.248.255</Id>
-      <Name>Color [AliceBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>240</Red>
-      <Green>248</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.250.235.215</Id>
-      <Name>Color [AntiqueWhite]</Name>
-      <Alpha>255</Alpha>
-      <Red>250</Red>
-      <Green>235</Green>
-      <Blue>215</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.255.255</Id>
-      <Name>Color [Aqua]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.127.255.212</Id>
-      <Name>Color [Aquamarine]</Name>
-      <Alpha>255</Alpha>
-      <Red>127</Red>
-      <Green>255</Green>
-      <Blue>212</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.240.255.255</Id>
-      <Name>Color [Azure]</Name>
-      <Alpha>255</Alpha>
-      <Red>240</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.245.245.220</Id>
-      <Name>Color [Beige]</Name>
-      <Alpha>255</Alpha>
-      <Red>245</Red>
-      <Green>245</Green>
-      <Blue>220</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.228.196</Id>
-      <Name>Color [Bisque]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>228</Green>
-      <Blue>196</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.0</Id>
-      <Name>Color [Black]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.235.205</Id>
-      <Name>Color [BlanchedAlmond]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>235</Green>
-      <Blue>205</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.255</Id>
-      <Name>Color [Blue]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.138.43.226</Id>
-      <Name>Color [BlueViolet]</Name>
-      <Alpha>255</Alpha>
-      <Red>138</Red>
-      <Green>43</Green>
-      <Blue>226</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.165.42.42</Id>
-      <Name>Color [Brown]</Name>
-      <Alpha>255</Alpha>
-      <Red>165</Red>
-      <Green>42</Green>
-      <Blue>42</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.222.184.135</Id>
-      <Name>Color [BurlyWood]</Name>
-      <Alpha>255</Alpha>
-      <Red>222</Red>
-      <Green>184</Green>
-      <Blue>135</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.95.158.160</Id>
-      <Name>Color [CadetBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>95</Red>
-      <Green>158</Green>
-      <Blue>160</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.127.255.0</Id>
-      <Name>Color [Chartreuse]</Name>
-      <Alpha>255</Alpha>
-      <Red>127</Red>
-      <Green>255</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.210.105.30</Id>
-      <Name>Color [Chocolate]</Name>
-      <Alpha>255</Alpha>
-      <Red>210</Red>
-      <Green>105</Green>
-      <Blue>30</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.127.80</Id>
-      <Name>Color [Coral]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>127</Green>
-      <Blue>80</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.100.149.237</Id>
-      <Name>Color [CornflowerBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>100</Red>
-      <Green>149</Green>
-      <Blue>237</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.248.220</Id>
-      <Name>Color [Cornsilk]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>248</Green>
-      <Blue>220</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.220.20.60</Id>
-      <Name>Color [Crimson]</Name>
-      <Alpha>255</Alpha>
-      <Red>220</Red>
-      <Green>20</Green>
-      <Blue>60</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.255.255</Id>
-      <Name>Color [Cyan]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.139</Id>
-      <Name>Color [DarkBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>139</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.139.139</Id>
-      <Name>Color [DarkCyan]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>139</Green>
-      <Blue>139</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.184.134.11</Id>
-      <Name>Color [DarkGoldenrod]</Name>
-      <Alpha>255</Alpha>
-      <Red>184</Red>
-      <Green>134</Green>
-      <Blue>11</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.169.169.169</Id>
-      <Name>Color [DarkGray]</Name>
-      <Alpha>255</Alpha>
-      <Red>169</Red>
-      <Green>169</Green>
-      <Blue>169</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.100.0</Id>
-      <Name>Color [DarkGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>100</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.189.183.107</Id>
-      <Name>Color [DarkKhaki]</Name>
-      <Alpha>255</Alpha>
-      <Red>189</Red>
-      <Green>183</Green>
-      <Blue>107</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.139.0.139</Id>
-      <Name>Color [DarkMagenta]</Name>
-      <Alpha>255</Alpha>
-      <Red>139</Red>
-      <Green>0</Green>
-      <Blue>139</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.85.107.47</Id>
-      <Name>Color [DarkOliveGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>85</Red>
-      <Green>107</Green>
-      <Blue>47</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.140.0</Id>
-      <Name>Color [DarkOrange]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>140</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.153.50.204</Id>
-      <Name>Color [DarkOrchid]</Name>
-      <Alpha>255</Alpha>
-      <Red>153</Red>
-      <Green>50</Green>
-      <Blue>204</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.139.0.0</Id>
-      <Name>Color [DarkRed]</Name>
-      <Alpha>255</Alpha>
-      <Red>139</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.233.150.122</Id>
-      <Name>Color [DarkSalmon]</Name>
-      <Alpha>255</Alpha>
-      <Red>233</Red>
-      <Green>150</Green>
-      <Blue>122</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.143.188.139</Id>
-      <Name>Color [DarkSeaGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>143</Red>
-      <Green>188</Green>
-      <Blue>139</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.72.61.139</Id>
-      <Name>Color [DarkSlateBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>72</Red>
-      <Green>61</Green>
-      <Blue>139</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.47.79.79</Id>
-      <Name>Color [DarkSlateGray]</Name>
-      <Alpha>255</Alpha>
-      <Red>47</Red>
-      <Green>79</Green>
-      <Blue>79</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.206.209</Id>
-      <Name>Color [DarkTurquoise]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>206</Green>
-      <Blue>209</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.148.0.211</Id>
-      <Name>Color [DarkViolet]</Name>
-      <Alpha>255</Alpha>
-      <Red>148</Red>
-      <Green>0</Green>
-      <Blue>211</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.20.147</Id>
-      <Name>Color [DeepPink]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>20</Green>
-      <Blue>147</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.191.255</Id>
-      <Name>Color [DeepSkyBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>191</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.105.105.105</Id>
-      <Name>Color [DimGray]</Name>
-      <Alpha>255</Alpha>
-      <Red>105</Red>
-      <Green>105</Green>
-      <Blue>105</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.30.144.255</Id>
-      <Name>Color [DodgerBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>30</Red>
-      <Green>144</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.178.34.34</Id>
-      <Name>Color [Firebrick]</Name>
-      <Alpha>255</Alpha>
-      <Red>178</Red>
-      <Green>34</Green>
-      <Blue>34</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.250.240</Id>
-      <Name>Color [FloralWhite]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>250</Green>
-      <Blue>240</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.34.139.34</Id>
-      <Name>Color [ForestGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>34</Red>
-      <Green>139</Green>
-      <Blue>34</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.0.255</Id>
-      <Name>Color [Fuchsia]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>0</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.220.220.220</Id>
-      <Name>Color [Gainsboro]</Name>
-      <Alpha>255</Alpha>
-      <Red>220</Red>
-      <Green>220</Green>
-      <Blue>220</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.248.248.255</Id>
-      <Name>Color [GhostWhite]</Name>
-      <Alpha>255</Alpha>
-      <Red>248</Red>
-      <Green>248</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.215.0</Id>
-      <Name>Color [Gold]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>215</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.218.165.32</Id>
-      <Name>Color [Goldenrod]</Name>
-      <Alpha>255</Alpha>
-      <Red>218</Red>
-      <Green>165</Green>
-      <Blue>32</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.128.128.128</Id>
-      <Name>Color [Gray]</Name>
-      <Alpha>255</Alpha>
-      <Red>128</Red>
-      <Green>128</Green>
-      <Blue>128</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.128.0</Id>
-      <Name>Color [Green]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>128</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.173.255.47</Id>
-      <Name>Color [GreenYellow]</Name>
-      <Alpha>255</Alpha>
-      <Red>173</Red>
-      <Green>255</Green>
-      <Blue>47</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.240.255.240</Id>
-      <Name>Color [Honeydew]</Name>
-      <Alpha>255</Alpha>
-      <Red>240</Red>
-      <Green>255</Green>
-      <Blue>240</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.105.180</Id>
-      <Name>Color [HotPink]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>105</Green>
-      <Blue>180</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.205.92.92</Id>
-      <Name>Color [IndianRed]</Name>
-      <Alpha>255</Alpha>
-      <Red>205</Red>
-      <Green>92</Green>
-      <Blue>92</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.75.0.130</Id>
-      <Name>Color [Indigo]</Name>
-      <Alpha>255</Alpha>
-      <Red>75</Red>
-      <Green>0</Green>
-      <Blue>130</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.255.240</Id>
-      <Name>Color [Ivory]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>240</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.240.230.140</Id>
-      <Name>Color [Khaki]</Name>
-      <Alpha>255</Alpha>
-      <Red>240</Red>
-      <Green>230</Green>
-      <Blue>140</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.230.230.250</Id>
-      <Name>Color [Lavender]</Name>
-      <Alpha>255</Alpha>
-      <Red>230</Red>
-      <Green>230</Green>
-      <Blue>250</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.240.245</Id>
-      <Name>Color [LavenderBlush]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>240</Green>
-      <Blue>245</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.124.252.0</Id>
-      <Name>Color [LawnGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>124</Red>
-      <Green>252</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.250.205</Id>
-      <Name>Color [LemonChiffon]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>250</Green>
-      <Blue>205</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.173.216.230</Id>
-      <Name>Color [LightBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>173</Red>
-      <Green>216</Green>
-      <Blue>230</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.240.128.128</Id>
-      <Name>Color [LightCoral]</Name>
-      <Alpha>255</Alpha>
-      <Red>240</Red>
-      <Green>128</Green>
-      <Blue>128</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.224.255.255</Id>
-      <Name>Color [LightCyan]</Name>
-      <Alpha>255</Alpha>
-      <Red>224</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.250.250.210</Id>
-      <Name>Color [LightGoldenrodYellow]</Name>
-      <Alpha>255</Alpha>
-      <Red>250</Red>
-      <Green>250</Green>
-      <Blue>210</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.211.211.211</Id>
-      <Name>Color [LightGray]</Name>
-      <Alpha>255</Alpha>
-      <Red>211</Red>
-      <Green>211</Green>
-      <Blue>211</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.144.238.144</Id>
-      <Name>Color [LightGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>144</Red>
-      <Green>238</Green>
-      <Blue>144</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.182.193</Id>
-      <Name>Color [LightPink]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>182</Green>
-      <Blue>193</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.160.122</Id>
-      <Name>Color [LightSalmon]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>160</Green>
-      <Blue>122</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.32.178.170</Id>
-      <Name>Color [LightSeaGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>32</Red>
-      <Green>178</Green>
-      <Blue>170</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.135.206.250</Id>
-      <Name>Color [LightSkyBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>135</Red>
-      <Green>206</Green>
-      <Blue>250</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.119.136.153</Id>
-      <Name>Color [LightSlateGray]</Name>
-      <Alpha>255</Alpha>
-      <Red>119</Red>
-      <Green>136</Green>
-      <Blue>153</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.176.196.222</Id>
-      <Name>Color [LightSteelBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>176</Red>
-      <Green>196</Green>
-      <Blue>222</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.255.224</Id>
-      <Name>Color [LightYellow]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>224</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.255.0</Id>
-      <Name>Color [Lime]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>255</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.50.205.50</Id>
-      <Name>Color [LimeGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>50</Red>
-      <Green>205</Green>
-      <Blue>50</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.250.240.230</Id>
-      <Name>Color [Linen]</Name>
-      <Alpha>255</Alpha>
-      <Red>250</Red>
-      <Green>240</Green>
-      <Blue>230</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.0.255</Id>
-      <Name>Color [Magenta]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>0</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.128.0.0</Id>
-      <Name>Color [Maroon]</Name>
-      <Alpha>255</Alpha>
-      <Red>128</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.102.205.170</Id>
-      <Name>Color [MediumAquamarine]</Name>
-      <Alpha>255</Alpha>
-      <Red>102</Red>
-      <Green>205</Green>
-      <Blue>170</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.205</Id>
-      <Name>Color [MediumBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>205</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.186.85.211</Id>
-      <Name>Color [MediumOrchid]</Name>
-      <Alpha>255</Alpha>
-      <Red>186</Red>
-      <Green>85</Green>
-      <Blue>211</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.147.112.219</Id>
-      <Name>Color [MediumPurple]</Name>
-      <Alpha>255</Alpha>
-      <Red>147</Red>
-      <Green>112</Green>
-      <Blue>219</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.60.179.113</Id>
-      <Name>Color [MediumSeaGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>60</Red>
-      <Green>179</Green>
-      <Blue>113</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.123.104.238</Id>
-      <Name>Color [MediumSlateBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>123</Red>
-      <Green>104</Green>
-      <Blue>238</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.250.154</Id>
-      <Name>Color [MediumSpringGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>250</Green>
-      <Blue>154</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.72.209.204</Id>
-      <Name>Color [MediumTurquoise]</Name>
-      <Alpha>255</Alpha>
-      <Red>72</Red>
-      <Green>209</Green>
-      <Blue>204</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.199.21.133</Id>
-      <Name>Color [MediumVioletRed]</Name>
-      <Alpha>255</Alpha>
-      <Red>199</Red>
-      <Green>21</Green>
-      <Blue>133</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.25.25.112</Id>
-      <Name>Color [MidnightBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>25</Red>
-      <Green>25</Green>
-      <Blue>112</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.245.255.250</Id>
-      <Name>Color [MintCream]</Name>
-      <Alpha>255</Alpha>
-      <Red>245</Red>
-      <Green>255</Green>
-      <Blue>250</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.228.225</Id>
-      <Name>Color [MistyRose]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>228</Green>
-      <Blue>225</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.228.181</Id>
-      <Name>Color [Moccasin]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>228</Green>
-      <Blue>181</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.222.173</Id>
-      <Name>Color [NavajoWhite]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>222</Green>
-      <Blue>173</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.0.128</Id>
-      <Name>Color [Navy]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>0</Green>
-      <Blue>128</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.253.245.230</Id>
-      <Name>Color [OldLace]</Name>
-      <Alpha>255</Alpha>
-      <Red>253</Red>
-      <Green>245</Green>
-      <Blue>230</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.128.128.0</Id>
-      <Name>Color [Olive]</Name>
-      <Alpha>255</Alpha>
-      <Red>128</Red>
-      <Green>128</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.107.142.35</Id>
-      <Name>Color [OliveDrab]</Name>
-      <Alpha>255</Alpha>
-      <Red>107</Red>
-      <Green>142</Green>
-      <Blue>35</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.165.0</Id>
-      <Name>Color [Orange]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>165</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.69.0</Id>
-      <Name>Color [OrangeRed]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>69</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.218.112.214</Id>
-      <Name>Color [Orchid]</Name>
-      <Alpha>255</Alpha>
-      <Red>218</Red>
-      <Green>112</Green>
-      <Blue>214</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.238.232.170</Id>
-      <Name>Color [PaleGoldenrod]</Name>
-      <Alpha>255</Alpha>
-      <Red>238</Red>
-      <Green>232</Green>
-      <Blue>170</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.152.251.152</Id>
-      <Name>Color [PaleGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>152</Red>
-      <Green>251</Green>
-      <Blue>152</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.175.238.238</Id>
-      <Name>Color [PaleTurquoise]</Name>
-      <Alpha>255</Alpha>
-      <Red>175</Red>
-      <Green>238</Green>
-      <Blue>238</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.219.112.147</Id>
-      <Name>Color [PaleVioletRed]</Name>
-      <Alpha>255</Alpha>
-      <Red>219</Red>
-      <Green>112</Green>
-      <Blue>147</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.239.213</Id>
-      <Name>Color [PapayaWhip]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>239</Green>
-      <Blue>213</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.218.185</Id>
-      <Name>Color [PeachPuff]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>218</Green>
-      <Blue>185</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.205.133.63</Id>
-      <Name>Color [Peru]</Name>
-      <Alpha>255</Alpha>
-      <Red>205</Red>
-      <Green>133</Green>
-      <Blue>63</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.192.203</Id>
-      <Name>Color [Pink]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>192</Green>
-      <Blue>203</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.221.160.221</Id>
-      <Name>Color [Plum]</Name>
-      <Alpha>255</Alpha>
-      <Red>221</Red>
-      <Green>160</Green>
-      <Blue>221</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.176.224.230</Id>
-      <Name>Color [PowderBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>176</Red>
-      <Green>224</Green>
-      <Blue>230</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.128.0.128</Id>
-      <Name>Color [Purple]</Name>
-      <Alpha>255</Alpha>
-      <Red>128</Red>
-      <Green>0</Green>
-      <Blue>128</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.0.0</Id>
-      <Name>Color [Red]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>0</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.188.143.143</Id>
-      <Name>Color [RosyBrown]</Name>
-      <Alpha>255</Alpha>
-      <Red>188</Red>
-      <Green>143</Green>
-      <Blue>143</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.65.105.225</Id>
-      <Name>Color [RoyalBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>65</Red>
-      <Green>105</Green>
-      <Blue>225</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.139.69.19</Id>
-      <Name>Color [SaddleBrown]</Name>
-      <Alpha>255</Alpha>
-      <Red>139</Red>
-      <Green>69</Green>
-      <Blue>19</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.250.128.114</Id>
-      <Name>Color [Salmon]</Name>
-      <Alpha>255</Alpha>
-      <Red>250</Red>
-      <Green>128</Green>
-      <Blue>114</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.244.164.96</Id>
-      <Name>Color [SandyBrown]</Name>
-      <Alpha>255</Alpha>
-      <Red>244</Red>
-      <Green>164</Green>
-      <Blue>96</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.46.139.87</Id>
-      <Name>Color [SeaGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>46</Red>
-      <Green>139</Green>
-      <Blue>87</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.245.238</Id>
-      <Name>Color [SeaShell]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>245</Green>
-      <Blue>238</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.160.82.45</Id>
-      <Name>Color [Sienna]</Name>
-      <Alpha>255</Alpha>
-      <Red>160</Red>
-      <Green>82</Green>
-      <Blue>45</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.192.192.192</Id>
-      <Name>Color [Silver]</Name>
-      <Alpha>255</Alpha>
-      <Red>192</Red>
-      <Green>192</Green>
-      <Blue>192</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.135.206.235</Id>
-      <Name>Color [SkyBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>135</Red>
-      <Green>206</Green>
-      <Blue>235</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.106.90.205</Id>
-      <Name>Color [SlateBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>106</Red>
-      <Green>90</Green>
-      <Blue>205</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.112.128.144</Id>
-      <Name>Color [SlateGray]</Name>
-      <Alpha>255</Alpha>
-      <Red>112</Red>
-      <Green>128</Green>
-      <Blue>144</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.250.250</Id>
-      <Name>Color [Snow]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>250</Green>
-      <Blue>250</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.255.127</Id>
-      <Name>Color [SpringGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>255</Green>
-      <Blue>127</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.70.130.180</Id>
-      <Name>Color [SteelBlue]</Name>
-      <Alpha>255</Alpha>
-      <Red>70</Red>
-      <Green>130</Green>
-      <Blue>180</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.210.180.140</Id>
-      <Name>Color [Tan]</Name>
-      <Alpha>255</Alpha>
-      <Red>210</Red>
-      <Green>180</Green>
-      <Blue>140</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.0.128.128</Id>
-      <Name>Color [Teal]</Name>
-      <Alpha>255</Alpha>
-      <Red>0</Red>
-      <Green>128</Green>
-      <Blue>128</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.216.191.216</Id>
-      <Name>Color [Thistle]</Name>
-      <Alpha>255</Alpha>
-      <Red>216</Red>
-      <Green>191</Green>
-      <Blue>216</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.99.71</Id>
-      <Name>Color [Tomato]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>99</Green>
-      <Blue>71</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.64.224.208</Id>
-      <Name>Color [Turquoise]</Name>
-      <Alpha>255</Alpha>
-      <Red>64</Red>
-      <Green>224</Green>
-      <Blue>208</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.238.130.238</Id>
-      <Name>Color [Violet]</Name>
-      <Alpha>255</Alpha>
-      <Red>238</Red>
-      <Green>130</Green>
-      <Blue>238</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.245.222.179</Id>
-      <Name>Color [Wheat]</Name>
-      <Alpha>255</Alpha>
-      <Red>245</Red>
-      <Green>222</Green>
-      <Blue>179</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.255.255</Id>
-      <Name>Color [White]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.245.245.245</Id>
-      <Name>Color [WhiteSmoke]</Name>
-      <Alpha>255</Alpha>
-      <Red>245</Red>
-      <Green>245</Green>
-      <Blue>245</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.255.0</Id>
-      <Name>Color [Yellow]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>0</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.154.205.50</Id>
-      <Name>Color [YellowGreen]</Name>
-      <Alpha>255</Alpha>
-      <Red>154</Red>
-      <Green>205</Green>
-      <Blue>50</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.240.240.240</Id>
-      <Name>Color [ButtonFace]</Name>
-      <Alpha>255</Alpha>
-      <Red>240</Red>
-      <Green>240</Green>
-      <Blue>240</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.255.255.255</Id>
-      <Name>Color [ButtonHighlight]</Name>
-      <Alpha>255</Alpha>
-      <Red>255</Red>
-      <Green>255</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.160.160.160</Id>
-      <Name>Color [ButtonShadow]</Name>
-      <Alpha>255</Alpha>
-      <Red>160</Red>
-      <Green>160</Green>
-      <Blue>160</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.185.209.234</Id>
-      <Name>Color [GradientActiveCaption]</Name>
-      <Alpha>255</Alpha>
-      <Red>185</Red>
-      <Green>209</Green>
-      <Blue>234</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.215.228.242</Id>
-      <Name>Color [GradientInactiveCaption]</Name>
-      <Alpha>255</Alpha>
-      <Red>215</Red>
-      <Green>228</Green>
-      <Blue>242</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.240.240.240</Id>
-      <Name>Color [MenuBar]</Name>
-      <Alpha>255</Alpha>
-      <Red>240</Red>
-      <Green>240</Green>
-      <Blue>240</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-    <TileColor>
-      <Id>Color-255.51.153.255</Id>
-      <Name>Color [MenuHighlight]</Name>
-      <Alpha>255</Alpha>
-      <Red>51</Red>
-      <Green>153</Green>
-      <Blue>255</Blue>
-      <FromMedia>false</FromMedia>
-    </TileColor>
-  </ListTileColor>
-  <ListTileImageType>
-    <TileImageType>empty</TileImageType>
-    <TileImageType>badlands</TileImageType>
-    <TileImageType>cactus</TileImageType>
-    <TileImageType>cultivatedfarmland</TileImageType>
-    <TileImageType>deadforest</TileImageType>
-    <TileImageType>deadforesthills</TileImageType>
-    <TileImageType>deadforestmountain</TileImageType>
-    <TileImageType>deadforestmountains</TileImageType>
-    <TileImageType>dunes</TileImageType>
-    <TileImageType>evergreen</TileImageType>
-    <TileImageType>evergreenhills</TileImageType>
-    <TileImageType>evergreenmountain</TileImageType>
-    <TileImageType>evergreenmountains</TileImageType>
-    <TileImageType>forestedhills</TileImageType>
-    <TileImageType>forestedmountain</TileImageType>
-    <TileImageType>forestedmountains</TileImageType>
-    <TileImageType>grassland</TileImageType>
-    <TileImageType>grassyhills</TileImageType>
-    <TileImageType>heavycactus</TileImageType>
-    <TileImageType>heavyevergreen</TileImageType>
-    <TileImageType>heavyforest</TileImageType>
-    <TileImageType>hills</TileImageType>
-    <TileImageType>jungle</TileImageType>
-    <TileImageType>junglehills</TileImageType>
-    <TileImageType>lightforest</TileImageType>
-    <TileImageType>marsh</TileImageType>
-    <TileImageType>mountain</TileImageType>
-    <TileImageType>mountains</TileImageType>
-    <TileImageType>reefs</TileImageType>
-    <TileImageType>rockydesert</TileImageType>
-    <TileImageType>sandydesert</TileImageType>
-    <TileImageType>swamp</TileImageType>
-    <TileImageType>volcano</TileImageType>
-    <TileImageType>volcanodormant</TileImageType>
-  </ListTileImageType>
   <HexMapData>
     <Columns>10</Columns>
-    <Rows>10</Rows>
+    <Rows>5</Rows>
     <ListHexData>
       <HexData>
         <Description>Description de l'hex 0-0</Description>
         <DegreExploration>1</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>empty</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>whaling</Id>
+            <Name>WHALING</Name>
+            <ImageName>whaling</ImageName>
+          </TileImageData>
         </TileData>
         <Column>0</Column>
         <Row>0</Row>
@@ -1630,16 +29,19 @@
         <Description>Description de l'hex 1-0</Description>
         <DegreExploration>3</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>cactus</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>pyramid</Id>
+            <Name>PYRAMID</Name>
+            <ImageName>pyramid</ImageName>
+          </TileImageData>
         </TileData>
         <Column>1</Column>
         <Row>0</Row>
@@ -1648,16 +50,19 @@
         <Description>Description de l'hex 2-0</Description>
         <DegreExploration>5</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforest</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>cultivatedfarmland2___Copie</Id>
+            <Name>CULTIVATEDFARMLAND2___COPIE</Name>
+            <ImageName>cultivatedfarmland2___Copie</ImageName>
+          </TileImageData>
         </TileData>
         <Column>2</Column>
         <Row>0</Row>
@@ -1666,16 +71,19 @@
         <Description>Description de l'hex 3-0</Description>
         <DegreExploration>0</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforestmountain</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>moderncapital</Id>
+            <Name>MODERNCAPITAL</Name>
+            <ImageName>moderncapital</ImageName>
+          </TileImageData>
         </TileData>
         <Column>3</Column>
         <Row>0</Row>
@@ -1684,16 +92,19 @@
         <Description>Description de l'hex 4-0</Description>
         <DegreExploration>2</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>dunes</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>heavyevergreen</Id>
+            <Name>HEAVYEVERGREEN</Name>
+            <ImageName>heavyevergreen</ImageName>
+          </TileImageData>
         </TileData>
         <Column>4</Column>
         <Row>0</Row>
@@ -1702,16 +113,19 @@
         <Description>Description de l'hex 5-0</Description>
         <DegreExploration>4</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>monolith</Id>
+            <Name>MONOLITH</Name>
+            <ImageName>monolith</ImageName>
+          </TileImageData>
         </TileData>
         <Column>5</Column>
         <Row>0</Row>
@@ -1720,16 +134,19 @@
         <Description>Description de l'hex 6-0</Description>
         <DegreExploration>6</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenmountains</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>lighthouse</Id>
+            <Name>LIGHTHOUSE</Name>
+            <ImageName>lighthouse</ImageName>
+          </TileImageData>
         </TileData>
         <Column>6</Column>
         <Row>0</Row>
@@ -1738,16 +155,19 @@
         <Description>Description de l'hex 7-0</Description>
         <DegreExploration>1</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>forestedmountain</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>mountain</Id>
+            <Name>MOUNTAIN</Name>
+            <ImageName>mountain</ImageName>
+          </TileImageData>
         </TileData>
         <Column>7</Column>
         <Row>0</Row>
@@ -1756,16 +176,19 @@
         <Description>Description de l'hex 8-0</Description>
         <DegreExploration>3</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>grassland</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>deadforestmountains</Id>
+            <Name>DEADFORESTMOUNTAINS</Name>
+            <ImageName>deadforestmountains</ImageName>
+          </TileImageData>
         </TileData>
         <Column>8</Column>
         <Row>0</Row>
@@ -1774,16 +197,19 @@
         <Description>Description de l'hex 9-0</Description>
         <DegreExploration>5</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavycactus</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>lightforest</Id>
+            <Name>LIGHTFOREST</Name>
+            <ImageName>lightforest</ImageName>
+          </TileImageData>
         </TileData>
         <Column>9</Column>
         <Row>0</Row>
@@ -1792,16 +218,19 @@
         <Description>Description de l'hex 0-1</Description>
         <DegreExploration>0</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavyforest</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>forestedhills</Id>
+            <Name>FORESTEDHILLS</Name>
+            <ImageName>forestedhills</ImageName>
+          </TileImageData>
         </TileData>
         <Column>0</Column>
         <Row>1</Row>
@@ -1810,16 +239,19 @@
         <Description>Description de l'hex 1-1</Description>
         <DegreExploration>2</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>jungle</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>dunes</Id>
+            <Name>DUNES</Name>
+            <ImageName>dunes</ImageName>
+          </TileImageData>
         </TileData>
         <Column>1</Column>
         <Row>1</Row>
@@ -1828,16 +260,19 @@
         <Description>Description de l'hex 2-1</Description>
         <DegreExploration>4</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>lightforest</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>mines</Id>
+            <Name>MINES</Name>
+            <ImageName>mines</ImageName>
+          </TileImageData>
         </TileData>
         <Column>2</Column>
         <Row>1</Row>
@@ -1846,16 +281,19 @@
         <Description>Description de l'hex 3-1</Description>
         <DegreExploration>6</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>mountain</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>hills</Id>
+            <Name>HILLS</Name>
+            <ImageName>hills</ImageName>
+          </TileImageData>
         </TileData>
         <Column>3</Column>
         <Row>1</Row>
@@ -1864,16 +302,19 @@
         <Description>Description de l'hex 4-1</Description>
         <DegreExploration>1</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>reefs</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>tower</Id>
+            <Name>TOWER</Name>
+            <ImageName>tower</ImageName>
+          </TileImageData>
         </TileData>
         <Column>4</Column>
         <Row>1</Row>
@@ -1882,16 +323,19 @@
         <Description>Description de l'hex 5-1</Description>
         <DegreExploration>3</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>sandydesert</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>sun</Id>
+            <Name>SUN</Name>
+            <ImageName>sun</ImageName>
+          </TileImageData>
         </TileData>
         <Column>5</Column>
         <Row>1</Row>
@@ -1900,16 +344,19 @@
         <Description>Description de l'hex 6-1</Description>
         <DegreExploration>5</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>volcano</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>reefs</Id>
+            <Name>REEFS</Name>
+            <ImageName>reefs</ImageName>
+          </TileImageData>
         </TileData>
         <Column>6</Column>
         <Row>1</Row>
@@ -1918,16 +365,19 @@
         <Description>Description de l'hex 7-1</Description>
         <DegreExploration>0</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>empty</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>rockydesert</Id>
+            <Name>ROCKYDESERT</Name>
+            <ImageName>rockydesert</ImageName>
+          </TileImageData>
         </TileData>
         <Column>7</Column>
         <Row>1</Row>
@@ -1936,16 +386,19 @@
         <Description>Description de l'hex 8-1</Description>
         <DegreExploration>2</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>cactus</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>steppedpyramid</Id>
+            <Name>STEPPEDPYRAMID</Name>
+            <ImageName>steppedpyramid</ImageName>
+          </TileImageData>
         </TileData>
         <Column>8</Column>
         <Row>1</Row>
@@ -1954,16 +407,19 @@
         <Description>Description de l'hex 9-1</Description>
         <DegreExploration>4</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforest</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>heavyforest</Id>
+            <Name>HEAVYFOREST</Name>
+            <ImageName>heavyforest</ImageName>
+          </TileImageData>
         </TileData>
         <Column>9</Column>
         <Row>1</Row>
@@ -1972,16 +428,19 @@
         <Description>Description de l'hex 0-2</Description>
         <DegreExploration>6</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforestmountain</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>evergreen</Id>
+            <Name>EVERGREEN</Name>
+            <ImageName>evergreen</ImageName>
+          </TileImageData>
         </TileData>
         <Column>0</Column>
         <Row>2</Row>
@@ -1990,16 +449,19 @@
         <Description>Description de l'hex 1-2</Description>
         <DegreExploration>1</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>dunes</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>moderncity</Id>
+            <Name>MODERNCITY</Name>
+            <ImageName>moderncity</ImageName>
+          </TileImageData>
         </TileData>
         <Column>1</Column>
         <Row>2</Row>
@@ -2008,16 +470,19 @@
         <Description>Description de l'hex 2-2</Description>
         <DegreExploration>3</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>spaceship</Id>
+            <Name>SPACESHIP</Name>
+            <ImageName>spaceship</ImageName>
+          </TileImageData>
         </TileData>
         <Column>2</Column>
         <Row>2</Row>
@@ -2026,16 +491,19 @@
         <Description>Description de l'hex 3-2</Description>
         <DegreExploration>5</DegreExploration>
         <TileData>
-          <TileColor>
-            <Id>Color-255.135.206.250</Id>
-            <Name>Color [A=255, R=135, G=206, B=250]</Name>
+          <TileColorData>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>135</Red>
-            <Green>206</Green>
-            <Blue>250</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColorData>
+          <TileImageData>
+            <Id>grassland</Id>
+            <Name>GRASSLAND</Name>
+            <ImageName>grassland</ImageName>
+          </TileImageData>
         </TileData>
         <Column>3</Column>
         <Row>2</Row>
@@ -2044,16 +512,19 @@
         <Description>Description de l'hex 4-2</Description>
         <DegreExploration>0</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>forestedmountain</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>anchor</Id>
+            <Name>ANCHOR</Name>
+            <ImageName>anchor</ImageName>
+          </TileImageData>
         </TileData>
         <Column>4</Column>
         <Row>2</Row>
@@ -2062,16 +533,19 @@
         <Description>Description de l'hex 5-2</Description>
         <DegreExploration>2</DegreExploration>
         <TileData>
-          <TileColor>
-            <Id>Color-255.135.206.250</Id>
-            <Name>Color [A=255, R=135, G=206, B=250]</Name>
+          <TileColorData>
+            <Id>Color-255.144.238.144</Id>
+            <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
-            <Red>135</Red>
-            <Green>206</Green>
-            <Blue>250</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
+            <Red>144</Red>
+            <Green>238</Green>
+            <Blue>144</Blue>
+          </TileColorData>
+          <TileImageData>
+            <Id>grapes</Id>
+            <Name>GRAPES</Name>
+            <ImageName>grapes</ImageName>
+          </TileImageData>
         </TileData>
         <Column>5</Column>
         <Row>2</Row>
@@ -2080,16 +554,19 @@
         <Description>Description de l'hex 6-2</Description>
         <DegreExploration>4</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavycactus</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>cultivatedfarmland_2</Id>
+            <Name>CULTIVATEDFARMLAND_2</Name>
+            <ImageName>cultivatedfarmland_2</ImageName>
+          </TileImageData>
         </TileData>
         <Column>6</Column>
         <Row>2</Row>
@@ -2098,16 +575,19 @@
         <Description>Description de l'hex 7-2</Description>
         <DegreExploration>6</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavyforest</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>radiation</Id>
+            <Name>RADIATION</Name>
+            <ImageName>radiation</ImageName>
+          </TileImageData>
         </TileData>
         <Column>7</Column>
         <Row>2</Row>
@@ -2116,16 +596,19 @@
         <Description>Description de l'hex 8-2</Description>
         <DegreExploration>1</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>jungle</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>castle</Id>
+            <Name>CASTLE</Name>
+            <ImageName>castle</ImageName>
+          </TileImageData>
         </TileData>
         <Column>8</Column>
         <Row>2</Row>
@@ -2134,16 +617,19 @@
         <Description>Description de l'hex 9-2</Description>
         <DegreExploration>3</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>lightforest</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>crater</Id>
+            <Name>CRATER</Name>
+            <ImageName>crater</ImageName>
+          </TileImageData>
         </TileData>
         <Column>9</Column>
         <Row>2</Row>
@@ -2152,16 +638,19 @@
         <Description>Description de l'hex 0-3</Description>
         <DegreExploration>5</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>mountain</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>cathedral</Id>
+            <Name>CATHEDRAL</Name>
+            <ImageName>cathedral</ImageName>
+          </TileImageData>
         </TileData>
         <Column>0</Column>
         <Row>3</Row>
@@ -2170,16 +659,19 @@
         <Description>Description de l'hex 1-3</Description>
         <DegreExploration>0</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>reefs</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>evergreenhills</Id>
+            <Name>EVERGREENHILLS</Name>
+            <ImageName>evergreenhills</ImageName>
+          </TileImageData>
         </TileData>
         <Column>1</Column>
         <Row>3</Row>
@@ -2188,16 +680,19 @@
         <Description>Description de l'hex 2-3</Description>
         <DegreExploration>2</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>sandydesert</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>deadforest</Id>
+            <Name>DEADFOREST</Name>
+            <ImageName>deadforest</ImageName>
+          </TileImageData>
         </TileData>
         <Column>2</Column>
         <Row>3</Row>
@@ -2206,16 +701,19 @@
         <Description>Description de l'hex 3-3</Description>
         <DegreExploration>4</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>volcano</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>fort</Id>
+            <Name>FORT</Name>
+            <ImageName>fort</ImageName>
+          </TileImageData>
         </TileData>
         <Column>3</Column>
         <Row>3</Row>
@@ -2224,16 +722,19 @@
         <Description>Description de l'hex 4-3</Description>
         <DegreExploration>6</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>empty</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>camp</Id>
+            <Name>CAMP</Name>
+            <ImageName>camp</ImageName>
+          </TileImageData>
         </TileData>
         <Column>4</Column>
         <Row>3</Row>
@@ -2242,16 +743,19 @@
         <Description>Description de l'hex 5-3</Description>
         <DegreExploration>1</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>cactus</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>city</Id>
+            <Name>CITY</Name>
+            <ImageName>city</ImageName>
+          </TileImageData>
         </TileData>
         <Column>5</Column>
         <Row>3</Row>
@@ -2260,16 +764,19 @@
         <Description>Description de l'hex 6-3</Description>
         <DegreExploration>3</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforest</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>town</Id>
+            <Name>TOWN</Name>
+            <ImageName>town</ImageName>
+          </TileImageData>
         </TileData>
         <Column>6</Column>
         <Row>3</Row>
@@ -2278,16 +785,19 @@
         <Description>Description de l'hex 7-3</Description>
         <DegreExploration>5</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforestmountain</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>evergreenmountains</Id>
+            <Name>EVERGREENMOUNTAINS</Name>
+            <ImageName>evergreenmountains</ImageName>
+          </TileImageData>
         </TileData>
         <Column>7</Column>
         <Row>3</Row>
@@ -2296,16 +806,19 @@
         <Description>Description de l'hex 8-3</Description>
         <DegreExploration>0</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>dunes</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>whaling</Id>
+            <Name>WHALING</Name>
+            <ImageName>whaling</ImageName>
+          </TileImageData>
         </TileData>
         <Column>8</Column>
         <Row>3</Row>
@@ -2314,16 +827,19 @@
         <Description>Description de l'hex 9-3</Description>
         <DegreExploration>2</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>pyramid</Id>
+            <Name>PYRAMID</Name>
+            <ImageName>pyramid</ImageName>
+          </TileImageData>
         </TileData>
         <Column>9</Column>
         <Row>3</Row>
@@ -2332,16 +848,19 @@
         <Description>Description de l'hex 0-4</Description>
         <DegreExploration>4</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenmountains</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>cultivatedfarmland2___Copie</Id>
+            <Name>CULTIVATEDFARMLAND2___COPIE</Name>
+            <ImageName>cultivatedfarmland2___Copie</ImageName>
+          </TileImageData>
         </TileData>
         <Column>0</Column>
         <Row>4</Row>
@@ -2350,16 +869,19 @@
         <Description>Description de l'hex 1-4</Description>
         <DegreExploration>6</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>forestedmountain</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>moderncapital</Id>
+            <Name>MODERNCAPITAL</Name>
+            <ImageName>moderncapital</ImageName>
+          </TileImageData>
         </TileData>
         <Column>1</Column>
         <Row>4</Row>
@@ -2368,16 +890,19 @@
         <Description>Description de l'hex 2-4</Description>
         <DegreExploration>1</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>grassland</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>heavyevergreen</Id>
+            <Name>HEAVYEVERGREEN</Name>
+            <ImageName>heavyevergreen</ImageName>
+          </TileImageData>
         </TileData>
         <Column>2</Column>
         <Row>4</Row>
@@ -2386,16 +911,19 @@
         <Description>Description de l'hex 3-4</Description>
         <DegreExploration>3</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavycactus</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>monolith</Id>
+            <Name>MONOLITH</Name>
+            <ImageName>monolith</ImageName>
+          </TileImageData>
         </TileData>
         <Column>3</Column>
         <Row>4</Row>
@@ -2404,16 +932,19 @@
         <Description>Description de l'hex 4-4</Description>
         <DegreExploration>5</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavyforest</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>lighthouse</Id>
+            <Name>LIGHTHOUSE</Name>
+            <ImageName>lighthouse</ImageName>
+          </TileImageData>
         </TileData>
         <Column>4</Column>
         <Row>4</Row>
@@ -2422,16 +953,19 @@
         <Description>Description de l'hex 5-4</Description>
         <DegreExploration>0</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>jungle</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>mountain</Id>
+            <Name>MOUNTAIN</Name>
+            <ImageName>mountain</ImageName>
+          </TileImageData>
         </TileData>
         <Column>5</Column>
         <Row>4</Row>
@@ -2440,16 +974,19 @@
         <Description>Description de l'hex 6-4</Description>
         <DegreExploration>2</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>lightforest</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>deadforestmountains</Id>
+            <Name>DEADFORESTMOUNTAINS</Name>
+            <ImageName>deadforestmountains</ImageName>
+          </TileImageData>
         </TileData>
         <Column>6</Column>
         <Row>4</Row>
@@ -2458,16 +995,19 @@
         <Description>Description de l'hex 7-4</Description>
         <DegreExploration>4</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>mountain</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>lightforest</Id>
+            <Name>LIGHTFOREST</Name>
+            <ImageName>lightforest</ImageName>
+          </TileImageData>
         </TileData>
         <Column>7</Column>
         <Row>4</Row>
@@ -2476,16 +1016,19 @@
         <Description>Description de l'hex 8-4</Description>
         <DegreExploration>6</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>reefs</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>forestedhills</Id>
+            <Name>FORESTEDHILLS</Name>
+            <ImageName>forestedhills</ImageName>
+          </TileImageData>
         </TileData>
         <Column>8</Column>
         <Row>4</Row>
@@ -2494,920 +1037,52 @@
         <Description>Description de l'hex 9-4</Description>
         <DegreExploration>1</DegreExploration>
         <TileData>
-          <TileColor>
+          <TileColorData>
             <Id>Color-255.144.238.144</Id>
             <Name>Color [A=255, R=144, G=238, B=144]</Name>
             <Alpha>255</Alpha>
             <Red>144</Red>
             <Green>238</Green>
             <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>sandydesert</TileImageType>
+          </TileColorData>
+          <TileImageData>
+            <Id>dunes</Id>
+            <Name>DUNES</Name>
+            <ImageName>dunes</ImageName>
+          </TileImageData>
         </TileData>
         <Column>9</Column>
         <Row>4</Row>
       </HexData>
-      <HexData>
-        <Description>Description de l'hex 0-5</Description>
-        <DegreExploration>3</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>volcano</TileImageType>
-        </TileData>
-        <Column>0</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 1-5</Description>
-        <DegreExploration>5</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>empty</TileImageType>
-        </TileData>
-        <Column>1</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 2-5</Description>
-        <DegreExploration>0</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>cactus</TileImageType>
-        </TileData>
-        <Column>2</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 3-5</Description>
-        <DegreExploration>2</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforest</TileImageType>
-        </TileData>
-        <Column>3</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 4-5</Description>
-        <DegreExploration>4</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforestmountain</TileImageType>
-        </TileData>
-        <Column>4</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 5-5</Description>
-        <DegreExploration>6</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.135.206.250</Id>
-            <Name>Color [A=255, R=135, G=206, B=250]</Name>
-            <Alpha>255</Alpha>
-            <Red>135</Red>
-            <Green>206</Green>
-            <Blue>250</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
-        </TileData>
-        <Column>5</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 6-5</Description>
-        <DegreExploration>1</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
-        </TileData>
-        <Column>6</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 7-5</Description>
-        <DegreExploration>3</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenmountains</TileImageType>
-        </TileData>
-        <Column>7</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 8-5</Description>
-        <DegreExploration>5</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.135.206.250</Id>
-            <Name>Color [A=255, R=135, G=206, B=250]</Name>
-            <Alpha>255</Alpha>
-            <Red>135</Red>
-            <Green>206</Green>
-            <Blue>250</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
-        </TileData>
-        <Column>8</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 9-5</Description>
-        <DegreExploration>0</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>grassland</TileImageType>
-        </TileData>
-        <Column>9</Column>
-        <Row>5</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 0-6</Description>
-        <DegreExploration>2</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavycactus</TileImageType>
-        </TileData>
-        <Column>0</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 1-6</Description>
-        <DegreExploration>4</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavyforest</TileImageType>
-        </TileData>
-        <Column>1</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 2-6</Description>
-        <DegreExploration>6</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>jungle</TileImageType>
-        </TileData>
-        <Column>2</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 3-6</Description>
-        <DegreExploration>1</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>lightforest</TileImageType>
-        </TileData>
-        <Column>3</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 4-6</Description>
-        <DegreExploration>3</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>mountain</TileImageType>
-        </TileData>
-        <Column>4</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 5-6</Description>
-        <DegreExploration>5</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>reefs</TileImageType>
-        </TileData>
-        <Column>5</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 6-6</Description>
-        <DegreExploration>0</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>sandydesert</TileImageType>
-        </TileData>
-        <Column>6</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 7-6</Description>
-        <DegreExploration>2</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>volcano</TileImageType>
-        </TileData>
-        <Column>7</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 8-6</Description>
-        <DegreExploration>4</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>empty</TileImageType>
-        </TileData>
-        <Column>8</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 9-6</Description>
-        <DegreExploration>6</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>cactus</TileImageType>
-        </TileData>
-        <Column>9</Column>
-        <Row>6</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 0-7</Description>
-        <DegreExploration>1</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforest</TileImageType>
-        </TileData>
-        <Column>0</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 1-7</Description>
-        <DegreExploration>3</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforestmountain</TileImageType>
-        </TileData>
-        <Column>1</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 2-7</Description>
-        <DegreExploration>5</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>dunes</TileImageType>
-        </TileData>
-        <Column>2</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 3-7</Description>
-        <DegreExploration>0</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
-        </TileData>
-        <Column>3</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 4-7</Description>
-        <DegreExploration>2</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenmountains</TileImageType>
-        </TileData>
-        <Column>4</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 5-7</Description>
-        <DegreExploration>4</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>forestedmountain</TileImageType>
-        </TileData>
-        <Column>5</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 6-7</Description>
-        <DegreExploration>6</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.135.206.250</Id>
-            <Name>Color [A=255, R=135, G=206, B=250]</Name>
-            <Alpha>255</Alpha>
-            <Red>135</Red>
-            <Green>206</Green>
-            <Blue>250</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
-        </TileData>
-        <Column>6</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 7-7</Description>
-        <DegreExploration>1</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavycactus</TileImageType>
-        </TileData>
-        <Column>7</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 8-7</Description>
-        <DegreExploration>3</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavyforest</TileImageType>
-        </TileData>
-        <Column>8</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 9-7</Description>
-        <DegreExploration>5</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>jungle</TileImageType>
-        </TileData>
-        <Column>9</Column>
-        <Row>7</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 0-8</Description>
-        <DegreExploration>0</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>lightforest</TileImageType>
-        </TileData>
-        <Column>0</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 1-8</Description>
-        <DegreExploration>2</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>mountain</TileImageType>
-        </TileData>
-        <Column>1</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 2-8</Description>
-        <DegreExploration>4</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.135.206.250</Id>
-            <Name>Color [A=255, R=135, G=206, B=250]</Name>
-            <Alpha>255</Alpha>
-            <Red>135</Red>
-            <Green>206</Green>
-            <Blue>250</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
-        </TileData>
-        <Column>2</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 3-8</Description>
-        <DegreExploration>6</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>sandydesert</TileImageType>
-        </TileData>
-        <Column>3</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 4-8</Description>
-        <DegreExploration>1</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>volcano</TileImageType>
-        </TileData>
-        <Column>4</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 5-8</Description>
-        <DegreExploration>3</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>empty</TileImageType>
-        </TileData>
-        <Column>5</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 6-8</Description>
-        <DegreExploration>5</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>cactus</TileImageType>
-        </TileData>
-        <Column>6</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 7-8</Description>
-        <DegreExploration>0</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforest</TileImageType>
-        </TileData>
-        <Column>7</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 8-8</Description>
-        <DegreExploration>2</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>deadforestmountain</TileImageType>
-        </TileData>
-        <Column>8</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 9-8</Description>
-        <DegreExploration>4</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>dunes</TileImageType>
-        </TileData>
-        <Column>9</Column>
-        <Row>8</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 0-9</Description>
-        <DegreExploration>6</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenhills</TileImageType>
-        </TileData>
-        <Column>0</Column>
-        <Row>9</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 1-9</Description>
-        <DegreExploration>1</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>evergreenmountains</TileImageType>
-        </TileData>
-        <Column>1</Column>
-        <Row>9</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 2-9</Description>
-        <DegreExploration>3</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>forestedmountain</TileImageType>
-        </TileData>
-        <Column>2</Column>
-        <Row>9</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 3-9</Description>
-        <DegreExploration>5</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>grassland</TileImageType>
-        </TileData>
-        <Column>3</Column>
-        <Row>9</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 4-9</Description>
-        <DegreExploration>0</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavycactus</TileImageType>
-        </TileData>
-        <Column>4</Column>
-        <Row>9</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 5-9</Description>
-        <DegreExploration>2</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>heavyforest</TileImageType>
-        </TileData>
-        <Column>5</Column>
-        <Row>9</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 6-9</Description>
-        <DegreExploration>4</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>jungle</TileImageType>
-        </TileData>
-        <Column>6</Column>
-        <Row>9</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 7-9</Description>
-        <DegreExploration>6</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>lightforest</TileImageType>
-        </TileData>
-        <Column>7</Column>
-        <Row>9</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 8-9</Description>
-        <DegreExploration>1</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>mountain</TileImageType>
-        </TileData>
-        <Column>8</Column>
-        <Row>9</Row>
-      </HexData>
-      <HexData>
-        <Description>Description de l'hex 9-9</Description>
-        <DegreExploration>3</DegreExploration>
-        <TileData>
-          <TileColor>
-            <Id>Color-255.144.238.144</Id>
-            <Name>Color [A=255, R=144, G=238, B=144]</Name>
-            <Alpha>255</Alpha>
-            <Red>144</Red>
-            <Green>238</Green>
-            <Blue>144</Blue>
-            <FromMedia>false</FromMedia>
-          </TileColor>
-          <TileImageType>reefs</TileImageType>
-        </TileData>
-        <Column>9</Column>
-        <Row>9</Row>
-      </HexData>
     </ListHexData>
+    <ListCommunityData>
+      <CommunityData>
+        <Name>3-1</Name>
+        <Type />
+        <Size />
+        <Inhabitants />
+        <Description />
+        <CoordinatesCellRadiusFromCenterX>-2.25</CoordinatesCellRadiusFromCenterX>
+        <CoordinatesCellRadiusFromCenterY>-1.2990381056766582</CoordinatesCellRadiusFromCenterY>
+      </CommunityData>
+      <CommunityData>
+        <Name>5-2</Name>
+        <Type />
+        <Size />
+        <Inhabitants />
+        <Description />
+        <CoordinatesCellRadiusFromCenterX>0.74999999999999944</CoordinatesCellRadiusFromCenterX>
+        <CoordinatesCellRadiusFromCenterY>0.43301270189221941</CoordinatesCellRadiusFromCenterY>
+      </CommunityData>
+      <CommunityData>
+        <Name>4-4 bas</Name>
+        <Type />
+        <Size />
+        <Inhabitants />
+        <Description />
+        <CoordinatesCellRadiusFromCenterX>-0.99999999999999922</CoordinatesCellRadiusFromCenterX>
+        <CoordinatesCellRadiusFromCenterY>3.4641016151377553</CoordinatesCellRadiusFromCenterY>
+      </CommunityData>
+    </ListCommunityData>
   </HexMapData>
 </GameData>

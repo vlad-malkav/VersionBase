@@ -3,6 +3,8 @@ using System.Linq;
 using DataLibrary.General;
 using VersionBase.Events;
 using MyToolkit.Messaging;
+using VersionBase.Forms;
+using VersionBase.Libraries.Drawing;
 
 namespace VersionBase.Models
 {
@@ -54,6 +56,7 @@ namespace VersionBase.Models
                 hexModelTmp.ImportData(hexData);
                 _listHexModel.Add(hexModelTmp);
             }
+            _listCommunityModel.Clear();
             foreach (var communityData in data.ListCommunityData)
             {
                 CommunityModel communityModel = new CommunityModel();
@@ -70,6 +73,7 @@ namespace VersionBase.Models
                 Messenger.Default.Deregister<GetHexModelFromPositionRequestMessage>(this, GetHexModelFromPositionRequestMessageFunction);
                 Messenger.Default.Deregister<UpdateHexColorImageModelsMessage>(this, UpdateHexColorImageModelsFunction);
                 Messenger.Default.Deregister<UpdateHexDescriptionDegreExplorationMessage>(this, UpdateHexDescriptionDegreExplorationMessageFunction);
+                Messenger.Default.Deregister<AddPointMessage>(this, AddPointMessageFunction);
                 MessageRegistered = false;
             }
         }
@@ -82,6 +86,7 @@ namespace VersionBase.Models
                 Messenger.Default.Register<UpdateHexColorImageModelsMessage>(this, UpdateHexColorImageModelsFunction);
                 Messenger.Default.Register<SelectHexMessage>(this, SelectHexMessageFunction);
                 Messenger.Default.Register<UpdateHexDescriptionDegreExplorationMessage>(this, UpdateHexDescriptionDegreExplorationMessageFunction);
+                Messenger.Default.Register<AddPointMessage>(this, AddPointMessageFunction);
                 MessageRegistered = true;
             }
         }
@@ -149,6 +154,47 @@ namespace VersionBase.Models
             GetHexModel(column, row).UpdateDescriptionDegreExploration(
                 description,
                 degreExploration);
+        }
+
+        public async void AddPointMessageFunction(AddPointMessage msg)
+        {
+            System.Windows.Point closerPoint = msg.HexViewModel.HexDrawingData.GetCloserPointToPoint(msg.Point);
+            //
+            GetHexMapCenterPointMessage msgGetHexMapCenterPointMessage = new GetHexMapCenterPointMessage();
+            var resultGetHexMapCenterPointMessage = await Messenger.Default.SendAsync(msgGetHexMapCenterPointMessage);
+
+            Coordinates coordinates = new Coordinates(closerPoint.X, closerPoint.Y);
+            Coordinates coordinatesFromCenter = new Coordinates(
+                closerPoint.X - resultGetHexMapCenterPointMessage.Result.X,
+                closerPoint.Y - resultGetHexMapCenterPointMessage.Result.Y);
+
+            CommunityCreationInputDialog dialog = new CommunityCreationInputDialog(coordinates, coordinatesFromCenter, msg.HexViewModel.HexDrawingData.CellRadius);
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                CommunityModel communityModel = dialog.Result.Item1;
+                ListCommunityModel.Add(communityModel);
+                CommunityCreatedMessage communityCreatedMessage = new CommunityCreatedMessage(communityModel);
+                Messenger.Default.Send(communityCreatedMessage);
+                /*dialog.Result.GenerateShapes();
+                ListUIElement.Add(dialog.Result.CommunityDot);
+                ListUIElement.Add(dialog.Result.CommunityLabel);
+                ListCommunityViewModel.Add(dialog.Result);*/
+
+                /*Ellipse childCtrl1 = new Ellipse();
+
+                childCtrl1.Name = "Ellipse1";
+                childCtrl1.StrokeThickness = 5;
+                childCtrl1.Stroke = Brushes.Red;
+                childCtrl1.Fill = Brushes.DarkRed;
+                childCtrl1.Width = 10;
+                childCtrl1.Height = 10;
+
+                Canvas.SetTop(childCtrl1, msg.Point.Y - (childCtrl1.Height / 2));
+                Canvas.SetLeft(childCtrl1, msg.Point.X - (childCtrl1.Width / 2));
+
+                ListUIElement.Add(childCtrl1);*/
+            }
         }
     }
 }
