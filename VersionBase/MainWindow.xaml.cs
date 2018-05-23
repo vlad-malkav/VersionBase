@@ -7,6 +7,7 @@ using DataLibrary.General;
 using VersionBase.Events;
 using VersionBase.Forms;
 using Microsoft.Win32;
+using MySql.Data.MySqlClient;
 using MyToolkit.Messaging;
 using VersionBase.Classes;
 using VersionBase.Libraries;
@@ -28,10 +29,13 @@ namespace VersionBase
     {
         //Game Logic
         public GameLogic BaseLogic { get; set; }
+
         //Models
         public ApplicationModel ApplicationModel { get; set; }
+
         //ViewModels
         public ApplicationViewModel ApplicationViewModel { get; set; }
+
         //Holders
         public ImageManager ImageManager { get; set; }
 
@@ -39,7 +43,73 @@ namespace VersionBase
         {
             // VS Generated code not included
             ImageManager = new ImageManager();
+            Test(1);
             InitializeComponent();
+        }
+
+        public int SQLAvecRetourInt(string commande)
+        {
+            string connectionString =
+                @"Server=mysql-allanlerouge.alwaysdata.net;Port=3306;Database=allanlerouge_test;Uid=154607_test;Password=commelesang;CHARSET=utf8;";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = connection.CreateCommand();
+            MySqlDataReader reader;
+
+            string StringID = "";
+            int IntegerID;
+            try
+            {
+                connection.Open();
+                command.CommandText = commande;
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    StringID = reader[0].ToString();
+                }
+
+                Int32.TryParse(StringID, out IntegerID);
+                if (IntegerID != -1)
+                {
+                    connection.Close();
+                    return IntegerID;
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return -1;
+        }
+
+        private void SQLSansRetour(string commande)
+        {
+            string connectionString =
+                @"Server=mysql-allanlerouge.alwaysdata.net;Port=3306;Database=allanlerouge_test;Uid=154607_test;Password=commelesang;CHARSET=utf8;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = connection.CreateCommand();
+            try
+            {
+                connection.Open();
+                command.CommandText = commande;
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            connection.Close();
+        }
+
+        private void Test(int id)
+
+        {
+            SQLSansRetour("INSERT INTO table_test (id,data1,data2,data3) VALUES ("+id+ ",'data1_" + id + "','data2_" + id + "','data3_" + id + "')");
+            int ID = SQLAvecRetourInt("SELECT id FROM table_test WHERE data1='data1_"+id+"'");
+
+            MessageBox.Show(ID.ToString());
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
