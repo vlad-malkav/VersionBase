@@ -44,6 +44,8 @@ namespace VersionBase
             // VS Generated code not included
             ImageManager = new ImageManager();
             Test(1);
+            WebServiceTest.WebServiceTest nn  = new WebServiceTest.WebServiceTest();
+            var tt = nn.Add(1, 2);
             InitializeComponent();
         }
 
